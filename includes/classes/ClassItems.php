@@ -1,7 +1,7 @@
 <?php
 	class Items {
 		public function loadXML(){
-			return simplexml_load_file("../arquivos/itens/items.xml");
+			return simplexml_load_file("arquivos/itens/items.xml");
 		}
 		public function formatItemName($name){
 			$name = ucwords($name);
@@ -117,8 +117,8 @@
 			return $resultado_itens;
 		}
 		public function comparar(){
-			$xml1 = simplexml_load_file("itens/items1.xml");
-			$xml2 = simplexml_load_file("itens/items2.xml");
+			$xml1 = simplexml_load_file("items1.xml");
+			$xml2 = simplexml_load_file("items2.xml");
 			$itens1 = array();
 			$itens2 = array();
 			foreach($xml1->children() as $item){
