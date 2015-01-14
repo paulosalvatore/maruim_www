@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	header("Content-Type: text/html; charset=ISO-8859-1", true);
-	require_once("conexao.php");
+	require_once("conexao/conexao.php");
 	include("includes/variaveis.php");
 	include("includes/data.php");
 	include("includes/funcoes.php");
@@ -32,6 +32,8 @@
 				<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
 				<script type="text/javascript" src="js/lib/jquery-ui.datepicker-pt-BR.js"></script>
 				<script type="text/javascript" src="js/lib/jquery.maskInput.js"></script>
+				<script type="text/javascript" src="js/lib/jquery.tinysort.js"></script>
+				<script type="text/javascript" src="js/lib/jquery.donetyping.js"></script>
 				<script type="text/javascript" src="js/funcoes.js"></script>
 				<script type="text/javascript" src="js/carregar_box.js"></script>
 				';

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once("../../conexao.php");
+	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
 	include("../../includes/config.php");
 	include("../../includes/config_criar_conta.php");

@@ -492,10 +492,86 @@ a:hover {
 	font-size: 13px;
 	border-spacing: 1px;
 	border-collapse: separate;
+	display: table;
 }
-.tabela td {
+div.tabela {
+	table-layout: fixed;
+	width: 100%;
+}
+#refinar_busca .lista {
+	padding-right: 0;
+}
+#refinar_busca .galeria {
+	padding-left: 2px;
+	padding-right: 5px;
+}
+#refinar_busca .exibicao {
+	width: 16px;
+	height: 16px;
+	background-color: #999999;
+	cursor: pointer;
+}
+#refinar_busca .exibicao:hover {
+	background-color: #555555;
+}
+#refinar_busca .exibicao.ativo, #refinar_busca .exibicao.ativo:hover {
+	background-color: #AC8852;
+}
+img.ordenar {
+	cursor: pointer;
+}
+.tabela.lista .item {
+	display: table-row;
+}
+.tabela td,
+.tabela.lista .coluna {
+	display: table-cell;
 	padding: 4px;
+	vertical-align: middle;
 }
+.tabela .item.ocultar {
+	display: none;
+}
+.tabela.lista .nome {
+	width: 29%;
+}
+.tabela.lista .sumonar,
+.tabela.lista .convencer {
+	width: 17%;
+}
+.tabela.lista .vida,
+.tabela.lista .experiencia {
+	width: 12%;
+}
+.tabela.galeria .item {
+	float: left;
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+}
+.tabela.galeria .item .imagem {
+	height: 65px;
+	position: relative;
+}
+.tabela.galeria .item .nome {
+	height: 35px;
+}
+.tabela a {
+	font-size: 13px;
+}
+.tabela.lista .cabecalho {
+	display: table-row;
+}
+.tabela.galeria .cabecalho {
+	display: none;
+}
+#vazio {
+	display: none;
+	width: 100%;
+	text-align: center;
+	background: #F1E0C6;
+}
+.tabela .cabecalho .coluna,
 .tabela .cabecalho td {
 	background: #505050;
 	color: #EFEFEF;
@@ -511,14 +587,14 @@ a:hover {
 }
 .tabela .item td {
 	background: #F1E0C6;
-}
-.tabela .item td img {
-	max-width: 32px;
-	max-height: 32px;
+	color: #5A2800;
 }
 .tabela.dark .item td,
 .tabela.odd .item:nth-child(odd) td {
 	background: #D4C0A1;
+}
+.tabela.odd .item:nth-child(even) td {
+	background: #F1E0C6;
 }
 .tabela.center {
 	text-align: center;
@@ -755,9 +831,26 @@ a:hover {
 	font-size: 11px;
 	color: red;
 }
-/*#formulario_criacao_conta tr.erro .exibicao_bloco {
-	color: red;
-}*/
+.setas {
+	position: relative;
+	height: 15px;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.seta.anterior {
+	position: absolute;
+}
+.seta.voltar {
+	position: absolute;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: center;
+}
+.seta.proxima {
+	float: right;
+}
 #rodape a {
 	font-weight: bold;
 	color: #FFFFFF;

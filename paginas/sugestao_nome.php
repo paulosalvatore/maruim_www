@@ -1,6 +1,5 @@
 <?php
-	// set_time_limit(60*60);
-	require_once("../conexao.php");
+	require_once("../conexao/conexao.php");
 	$vogais = array("a", "e", "i", "o", "u");
 	$consoantes = array("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "y", "z");
 	$iniciais = array("lh", "ch", "th", "kr", "vr", "tr", "st", "yn");

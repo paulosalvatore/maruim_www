@@ -3,7 +3,6 @@
 	$exibicao_formulario_criacao_conta = "";
 	foreach($formulario_criacao_conta as $bloco){
 		$exibicao_formulario_criacao_conta .= '
-			<script type="text/javascript" src="js/criar_conta.js"></script>
 			<div class="box_frame_conteudo" carregar_box="1">
 				<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
 					<tr class="conteudo dark">
