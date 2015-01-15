@@ -1,3 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monsters>
+	<monster name="Island Tortoise" file="island tortoise.xml"/>
+	<monster name="Farm Black Sheep" file="farm black sheep.xml"/>
+	<monster name="Farm Sheep" file="farm sheep.xml"/>
+	<monster name="Farm Deer" file="farm deer.xml"/>
+	<monster name="Farm Horse" file="farm horse.xml"/>
+	<monster name="Farm Horse (Brown)" file="farm horse (brown).xml"/>
+	<monster name="Farm Horse (Grey)" file="farm horse (grey).xml"/>
+	<monster name="Farm Pig" file="farm pig.xml"/>
+	<monster name="Shadow Pupil" file="shadow pupil.xml"/>
+	<monster name="Vampire" file="vampire.xml"/>
+	<monster name="Necromancer" file="necromancer.xml"/>
+	<monster name="Enraged Soul" file="enraged soul.xml"/>
+	<monster name="Blood Hand" file="blood hand.xml"/>
+	<monster name="Blood Priest" file="blood priest.xml"/>
+	<monster name="Banshee" file="banshee.xml"/>
+	<monster name="Tarnished Spirit" file="tarnished spirit.xml"/>
+	<monster name="Vampire Bride" file="vampire bride.xml"/>
+	<monster name="Vampire Viscount" file="vampire viscount.xml"/>
+	<monster name="Blood Beast" file="blood beast.xml"/><!-- Fazer - Saiu no 10.5 -->
+	<monster name="Vampire Lord" file="vampire lord.xml"/><!-- Fazer -->
+	<monster name="Grim Reaper" file="grim reaper.xml"/>
+	<monster name="Lich" file="lich.xml"/>
+	<monster name="Undead Gladiator" file="undead gladiator.xml"/>
+	<monster name="Spectre" file="spectre.xml"/>
+	<monster name="Vicious Manbat" file="vicious manbat.xml"/>
+	<monster name="Nightfiend" file="nightfiend.xml"/>
+	<monster name="Phantasm" file="phantasm.xml"/>
+	<monster name="Gravedigger" file="gravedigger.xml"/>
+	<monster name="Frazzlemaw" file="frazzlemaw.xml"/>
+	<monster name="Retching Horror" file="retching horror.xml"/>
+	<monster name="Silencer" file="silencer.xml"/>
+	<monster name="Choking Fear" file="choking fear.xml"/>
+	<monster name="Shock Head" file="shock head.xml"/>
+	<monster name="Guzzlemaw" file="guzzlemaw.xml"/>
+	<monster name="Demon Outcast" file="demon outcast.xml"/>
+	<monster name="Sight of Surrender" file="sight of surrender.xml"/>
+	<monster name="Skeleton" file="skeleton.xml"/>
+	<monster name="Skeleton Warrior" file="skeleton warrior.xml"/>
+	<monster name="Ghoul" file="ghoul.xml"/>
+	<monster name="Demon Skeleton" file="demon skeleton.xml"/>
+	<monster name="Gozzler" file="gozzler.xml"/>
+	<monster name="Crypt Shambler" file="crypt shambler.xml"/>
+	<monster name="Zombie" file="zombie.xml"/>
+	<monster name="Bonebeast" file="bonebeast.xml"/>
+	<monster name="Brain Death" file="brain death.xml"/>
+	<monster name="Diabolic Imp" file="diabolic imp.xml"/>
+	<monster name="Hellspawn" file="hellspawn.xml"/>
+	<monster name="Hellfire Fighter" file="hellfire fighter.xml"/>
+	<monster name="Hellhound" file="hellhound.xml"/>
+	<monster name="Demon" file="demon.xml"/>
+	<monster name="Dark Torturer" file="dark torturer.xml"/>
+	<monster name="Lost Soul" file="lost soul.xml"/>
+	<monster name="Hand of Cursed Fate" file="hand of cursed fate.xml"/>
+	<monster name="Juggernaut" file="juggernaut.xml"/>
+	<monster name="Destroyer" file="destroyer.xml"/>
+	<monster name="Betrayed Wraith" file="betrayed wraith.xml"/>
+	<monster name="Plaguesmith" file="plaguesmith.xml"/>
+	<monster name="Son of Verminor" file="son of verminor.xml"/>
+	<monster name="Blightwalker" file="blightwalker.xml"/>
+	<monster name="Slime" file="slime.xml"/>
+	<monster name="Mercury Blob" file="mercury blob.xml"/>
+	<monster name="Mutated Human" file="mutated human.xml"/>
+	<monster name="Mutated Rat" file="mutated rat.xml"/>
+	<monster name="Mutated Bat" file="mutated bat.xml"/>
+	<monster name="Mutated Tiger" file="mutated tiger.xml"/>
+	<monster name="Rot Elemental" file="rot elemental.xml"/><!-- Fazer -->
+	<monster name="Acid Blob" file="acid blob.xml"/>
+	<monster name="Death Blob" file="death blob.xml"/>
+	<monster name="Bog Raider" file="bog raider.xml"/>
+	<monster name="Defiler" file="Defiler.xml"/>
 </monsters>

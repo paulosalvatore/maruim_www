@@ -51,8 +51,10 @@ function exibirCriaturas(){
 					ordenarPor = "asc";
 				else if(novoTipoOrdenar == 3)
 					ordenarPor = "desc";
+				$("#criaturas .criatura").tsort({order: "asc", attr: "id"});
 				$("#criaturas .criatura").tsort({order: ordenarPor, attr: ordenar});
 				gerarCookie("ultimaOrdem", ordenar+"-"+ordenarPor, 700);
+				aplicarBackgroundTabelaCriaturas();
 			});
 			$("#criaturas").attr("ordenar_ativo", 1);
 		}
@@ -78,6 +80,8 @@ function exibirCriaturas(){
 				</div>\
 			';
 			$(this).html(exibicao);
+		}).promise().done(function(){
+			aplicarBackgroundTabelaCriaturas();
 		});
 	}
 	else if(tipoExibicao == "galeria"){
@@ -99,10 +103,20 @@ $(function(){
 		$(".exibicao.ativo").removeClass("ativo");
 		$(this).addClass("ativo");
 		var tipoTabela = $(this).attr("id");
-		if((tipoTabela == "lista") && (!$("#criaturas").hasClass(tipoTabela)))
-			$("#criaturas").removeClass("galeria").addClass("lista");
-		else if((tipoTabela == "galeria") && (!$("#criaturas").hasClass(tipoTabela)))
-			$("#criaturas").removeClass("lista").addClass("galeria");
+		if((tipoTabela == "lista") && (!$("#criaturas").hasClass(tipoTabela))){
+			$("#criaturas")
+			.removeClass("galeria")
+			.addClass("lista");
+			$("#vazio")
+			.css("background", "#F1E0C6");
+		}
+		else if((tipoTabela == "galeria") && (!$("#criaturas").hasClass(tipoTabela))){
+			$("#criaturas")
+			.removeClass("lista")
+			.addClass("galeria");
+			$("#vazio")
+			.css("background", "none");
+		}
 		exibirCriaturas();
 		gerarCookie("exibicao", tipoTabela, 700);
 	});
@@ -116,16 +130,17 @@ $(function(){
 	aplicarBackgroundTabelaCriaturas();
 	var criaturas = []
 	$("#criaturas .criatura").each(function(){
-		var nome = $(this).attr("nome").toLowerCase();
+		var nome = $(this).attr("nome");
 		criaturas.push(nome);
 	});
 	if($("#criaturas .criatura").length == 0)
 		$("#vazio").show();
 	$("#buscar_criaturas").donetyping(function(){
-		var valor = $(this).val().toLowerCase(), elemento, encontrado = 0;
+		var valor = $(this).val().toLowerCase(), elemento, procurarValor, encontrado = 0;
 		$.each(criaturas, function(c, v){
-			elemento = $("#criaturas .criatura").eq(c);
-			if(v.indexOf(valor) !== -1){
+			elemento = $("#criaturas .criatura[nome='"+v+"']");
+			procurarValor = v.toLowerCase();
+			if(procurarValor.indexOf(valor) !== -1){
 				encontrado = 1;
 				if(elemento.hasClass("ocultar"))
 					elemento.removeClass("ocultar").addClass("exibir");

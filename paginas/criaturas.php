@@ -3,8 +3,7 @@
 	include("includes/classes/ClassItens.php");
 	$ClassCriaturas = new Criaturas();
 	$ClassItens = new Itens();
-	$nomeCriatura = $_REQUEST["criatura"];
-	if(empty($nomeCriatura)){
+	if(empty($id)){
 		$listaCriaturas = $ClassCriaturas->getListaCriaturas();
 		$conteudo_pagina .= '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
@@ -17,7 +16,7 @@
 						</tr>
 						<tr class="item">
 							<td>
-								Criatura: <input type="text" id="buscar_criaturas"> <input type="button" value="Procurar">
+								Criatura: <input type="text" id="buscar_criaturas"> <input type="button" class="botao" value="Procurar">
 							</td>
 						</tr>
 					</table>
@@ -63,7 +62,7 @@
 							}
 							array_multisort($nome, SORT_ASC, $listaCriaturas);
 							foreach($listaCriaturas as $criatura){
-								$atributos = array("nome", "imagem", "link", "experiencia", "vida", "sumonar", "convencer");
+								$atributos = array("id", "nome", "imagem", "link", "experiencia", "vida", "sumonar", "convencer");
 								$exibirAtributos = "";
 								foreach($atributos as $atributo)
 									$exibirAtributos .= ' '.$atributo.'="'.$criatura[$atributo].'"';
@@ -87,7 +86,7 @@
 		';
 	}
 	else{
-		$criatura = $ClassCriaturas->getInfoCriatura($nomeCriatura);
+		$criatura = $ClassCriaturas->getInfoCriatura($id);
 		$danoMaximoCriatura = $ClassCriaturas->calcularDanoMaximoCriatura($criatura["ataques"]);
 		$navegacaoCriatura = $ClassCriaturas->getNavegacaoCriatura($criatura["id"]);
 		$conteudo_pagina .= '
@@ -98,16 +97,16 @@
 							<a href="?p=criaturas"><img src="imagens/corpo/arrow_up.gif" /> voltar</a>
 						</div>
 						';
-						if($criatura["id"] > $navegacaoCriatura[0])
+						if(isset($navegacaoCriatura[0]))
 							$conteudo_pagina .= '
 								<div class="seta anterior">
-									<a href="?p=criaturas&criatura='.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
+									<a href="?p=criaturas&id='.$navegacaoCriatura[0].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
 								</div>
 							';
-						if($criatura["id"] < $navegacaoCriatura[2])
+						if(isset($navegacaoCriatura[1]))
 							$conteudo_pagina .= '
 								<div class="seta proxima">
-									<a href="?p=criaturas&criatura='.$navegacaoCriatura[3].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
+									<a href="?p=criaturas&id='.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
 								</div>
 							';
 						$conteudo_pagina .= '
@@ -270,11 +269,11 @@
 												<td colspan="2">
 													<table>
 														<tr>
-															<td width="100">
+															<td width="64" align="center">
 																<img src="'.$summon["imagem"].'" title="'.$summon["nome"].'"/>
 															</td>
 															<td>
-																<a href="?p=criaturas&criatura='.urlencode($summon["nome"]).'">'.$summon["nome"].'</a>
+																<a href="?p=criaturas&id='.urlencode($summon["nome"]).'">'.$summon["nome"].'</a>
 															</td>
 														</tr>
 													</table>

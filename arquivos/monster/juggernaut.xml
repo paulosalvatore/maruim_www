@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Juggernaut" nameDescription="a juggernaut" race="blood" experience="14000" speed="290" manacost="0">
+	<health now="20000" max="20000"/>
+	<look type="244" corpse="6336"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="60"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="200" attack="140"/>
+		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-780">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+		<defense name="speed" interval="2000" chance="15" speedchange="520" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="400" max="900">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="40"/>
+		<element firePercent="30"/>
+		<element icePercent="10"/>
+		<element earthPercent="20"/>
+		<element energyPercent="-10"/>
+		<element holyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="RAAARRR!"/>
+		<voice sentence="GRRRRRR!"/>
+		<voice sentence="WAHHHH!"/>
+	</voices>
+	<loot>
+	</loot>
+</monster>

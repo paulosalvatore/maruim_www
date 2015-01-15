@@ -142,21 +142,31 @@
 			$listaCriaturas = array();
 			$criaturaAnteriorNome = "";
 			$proximaCriaturaNome = "";
-			$queryCriaturas = mysql_query("SELECT * FROM z_monstros");
+			$colunas = array(
+				"nome" => "name",
+				"experiencia" => "experience",
+				"vida" => "health"
+			);
+			$chaves = array("asc", "desc");
+			$ultimaOrdem = (isset($_COOKIE["ultimaOrdem"]) ? $_COOKIE["ultimaOrdem"] : "nome-asc");
+			$ultimaOrdem = explode("-", $ultimaOrdem);
+			$ordenar = (isset($colunas[$ultimaOrdem[0]]) ? $colunas[$ultimaOrdem[0]] : "name");
+			$ordenarPor = (in_array($ultimaOrdem[1], $chaves) ? $ultimaOrdem[1] : "asc");
+			$queryCriaturas = mysql_query("SELECT * FROM z_monstros ORDER BY $ordenar $ordenarPor");
 			while($resultadoCriaturas = mysql_fetch_assoc($queryCriaturas)){
-				$listaCriaturas[] = $resultadoCriaturas["id"];
-				if($resultadoCriaturas["id"]-1 == $criaturaId)
-					$criaturaAnteriorNome = urlencode($resultadoCriaturas["fileName"]);
-				elseif($resultadoCriaturas["id"]+1 == $criaturaId)
-					$proximaCriaturaNome = urlencode($resultadoCriaturas["fileName"]);
+				if($resultadoCriaturas["id"] == $criaturaId)
+					$chaveCriatura = count($listaCriaturas);
+				$listaCriaturas[] = urlencode($resultadoCriaturas["fileName"]);
 			}
-			$primeiraId = reset($listaCriaturas);
-			$ultimaId = end($listaCriaturas);
-			return array($primeiraId, $criaturaAnteriorNome, $ultimaId, $proximaCriaturaNome);
+			if(isset($listaCriaturas[$chaveCriatura-1]))
+				$criaturaAnterior = $listaCriaturas[$chaveCriatura-1];
+			if(isset($listaCriaturas[$chaveCriatura+1]))
+				$proximaCriatura = $listaCriaturas[$chaveCriatura+1];
+			return array($criaturaAnterior, $proximaCriatura);
 		}
 		public function atualizarListaCriaturas(){
 			require("conexao/conexao.php");
-			$resultado = array();
+			$resultado = "";
 			$tabelas = array(
 				"z_monstros" => array(
 					"id" => array("tipo" => "bigint", "tamanho" => 20, "primary" => 1, "auto_increment" => 1),
@@ -233,8 +243,7 @@
 			foreach($tabelas as $nomeTabela => $coluna){
 				$primaryKey = "";
 				if((mysql_num_rows(mysql_query("SHOW TABLES LIKE '$nomeTabela'")) == 1)  AND (mysql_query("DROP TABLE IF EXISTS `$nomeTabela`")))
-					echo'Tabela antiga "<i>'.$nomeTabela.'</i>" removida.<br>';
-					// $resultado[] = 'Tabela antiga "<i>'.$nomeTabela.'</i>" removida.<br>';
+					$resultado .= 'Tabela antiga "<i>'.$nomeTabela.'</i>" removida.<br>';
 				$sql = "CREATE TABLE IF NOT EXISTS `$nomeTabela` (";
 				foreach($coluna as $colunaNome => $colunaInfo){
 					$tipo = $colunaInfo["tipo"];
@@ -252,11 +261,9 @@
 				$sql .= $primaryKey;
 				$sql .= ") ENGINE=MyISAM DEFAULT CHARSET=utf8";
 				if(mysql_query($sql))
-					echo'Tabela "<i>'.$nomeTabela.'</i>" criada com sucesso.<br>';
-				else{
-					echo'Erro ao criar a tabela "<i>'.$nomeTabela.'</i>". - '.mysql_error().'<br>';
-					return false;
-				}
+					$resultado .= 'Tabela "<i>'.$nomeTabela.'</i>" criada com sucesso.<br>';
+				else
+					return 'Erro ao criar a tabela "<i>'.$nomeTabela.'</i>". - '.mysql_error().'<br>';
 			}
 			$listaCriaturas = $this->carregarListaCriaturas();
 			if(count($listaCriaturas) > 0){
@@ -272,13 +279,11 @@
 					}
 					$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 					if(mysql_query($sql))
-						echo'Monstro "<b>'.$criatura["name"].'</b>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>".<br>';
-					else{
-						echo'Ocorreu um erro ao adicionar o monstro "<b>'.$criatura["name"].'</b>" na tabela "<i>'.$tabela.'</i>" - '.mysql_error().'.<br>';
-						return false;
-					}
+						$resultado .= 'Monstro "<b>'.$criatura["name"].'</b>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>".<br>';
+					else
+						return 'Ocorreu um erro ao adicionar o monstro "<b>'.$criatura["name"].'</b>" na tabela "<i>'.$tabela.'</i>" - '.mysql_error().'.<br>';
 					$monstro_id = mysql_insert_id();
-					echo'Monstro ID: '.$monstro_id.'<br>';
+					$resultado .= 'Monstro ID: '.$monstro_id.'<br>';
 					$flags = $criatura["flags"];
 					$tabela = "z_monstros_flags";
 					if(is_array($flags)){
@@ -287,11 +292,9 @@
 							$valores = array($monstro_id, $a, $b);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Flag "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar a flag "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Flag "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar a flag "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$ataques = $criatura["ataques"];
@@ -307,24 +310,20 @@
 									continue;
 								elseif(!empty($ataques["name"]))
 									$b = $ataques;
-								echo'Ataque "<i>'.$b["name"].'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+								$resultado .= 'Ataque "<i>'.$b["name"].'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 								$ataque_id = mysql_insert_id();
 								foreach($b as $c => $d){
 									$colunas = array("ataque_id", "atributo", "valor");
 									$valores = array($ataque_id, $c, $d);
 									$sql = $this->loadSQLQuery($tabela_atributos, $colunas, $valores);
 									if(mysql_query($sql))
-										echo'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para o ataque "<i>'.$b["name"].'</i>".<br>';
-									else{
-										echo'Ocorreu um erro ao adicionar o atributo "<i>'.$c.'</i>" na tabela "<i>'.$tabela_atributos.'</i>" para o ataque '.$b["name"].' - '.mysql_error().'.<br>';
-										return false;
-									}
+										$resultado .= 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para o ataque "<i>'.$b["name"].'</i>".<br>';
+									else
+										return 'Ocorreu um erro ao adicionar o atributo "<i>'.$c.'</i>" na tabela "<i>'.$tabela_atributos.'</i>" para o ataque '.$b["name"].' - '.mysql_error().'.<br>';
 								}
 							}
-							else{
-								echo'Ocorreu um erro ao adicionar o ataque "<i>'.$b["name"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+							else
+								return 'Ocorreu um erro ao adicionar o ataque "<i>'.$b["name"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$defesas = $criatura["defesas"];
@@ -340,25 +339,21 @@
 									continue;
 								elseif(!empty($defesas["name"]))
 									$b = $defesas;
-								echo'Defesa "<i>'.$b["name"].'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+								$resultado .= 'Defesa "<i>'.$b["name"].'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 								$defesa_id = mysql_insert_id();
 								foreach($b as $c => $d){
 									$colunas = array("defesa_id", "atributo", "valor");
 									$valores = array($defesa_id, $c, $d);
 									$sql = $this->loadSQLQuery($tabela_atributos, $colunas, $valores);
 									if(mysql_query($sql))
-										echo'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para a defesa "<i>'.$b["name"].'</i>".<br>';
+										$resultado .= 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para a defesa "<i>'.$b["name"].'</i>".<br>';
 										// $resultado["defesas"][count($resultado["defesas"])-1]["atributos"][] = 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para a defesa "<i>'.$b["name"].'</i>".<br>';
-									else{
-										echo'Ocorreu um erro ao adicionar o atributo "<i>'.$c.'</i>" na tabela "<i>'.$tabela_atributos.'</i>" para a defesa '.$b["name"].' - '.mysql_error().'.<br>';
-										return false;
-									}
+									else
+										return 'Ocorreu um erro ao adicionar o atributo "<i>'.$c.'</i>" na tabela "<i>'.$tabela_atributos.'</i>" para a defesa '.$b["name"].' - '.mysql_error().'.<br>';
 								}
 							}
-							else{
-								echo'Ocorreu um erro ao adicionar a defesa "<i>'.$b["name"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+							else
+								return 'Ocorreu um erro ao adicionar a defesa "<i>'.$b["name"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$elementos = $criatura["elementos"];
@@ -369,11 +364,9 @@
 							$valores = array($monstro_id, $a, $b);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Elemento "<i>'.$a.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar o elemento "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Elemento "<i>'.$a.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar o elemento "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$imunidades = $criatura["imunidades"];
@@ -384,11 +377,9 @@
 							$valores = array($monstro_id, $a);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Imunidade "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar a imunidade "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Imunidade "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar a imunidade "<i>'.$a.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$summons = $criatura["summons"];
@@ -407,11 +398,9 @@
 							$valores = array($monstro_id, $summonName, $summonMax);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Summon "<i>'.$summonName.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar o summon "<i>'.$summonName.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Summon "<i>'.$summonName.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar o summon "<i>'.$summonName.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$vozes = $criatura["vozes"];
@@ -422,17 +411,14 @@
 								continue;
 							elseif(!empty($vozes["sentence"]))
 								$b = $vozes;
-							$voz = (string)$b["sentence"];
-							// $voz = htmlentities($voz);
+							$voz = htmlentities((string)$b["sentence"]);
 							$colunas = array("monstro_id", "valor");
 							$valores = array($monstro_id, $voz);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Voz "<i>'.$voz.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar a voz "<i>'.$voz.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Voz "<i>'.$voz.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar a voz "<i>'.$voz.'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 					$loot = $criatura["loot"];
@@ -446,31 +432,31 @@
 							$valores = array($monstro_id, $item_id, $quantidade, $chance);
 							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
-								echo'Loot "<i>'.$b["id"].'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
-							else{
-								echo'Ocorreu um erro ao adicionar o loot "<i>'.$b["id"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
-								return false;
-							}
+								$resultado .= 'Loot "<i>'.$b["id"].'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
+							else
+								return 'Ocorreu um erro ao adicionar o loot "<i>'.$b["id"].'</i>" na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.' - '.mysql_error().'.<br>';
 						}
 					}
 				}
 			}
+			return $resultado;
 		}
 		public function carregarListaCriaturas(){
+			$resultado = "";
 			$xml = $this->loadXML();
 			$listaCriaturas = array();
 			foreach($xml->children() as $criatura){
 				$criaturaAtributos = json_decode(json_encode($criatura->attributes()), true)["@attributes"];
 				foreach($criaturaAtributos as $c => $v)
 					$$c = $v;
-				echo'Carregando monstro "<b>'.$name.'</b>". Arquivo: "<i>'.$file.'</i>"... ';
+				// $resultado .= 'Carregando monstro "<b>'.$name.'</b>". Arquivo: "<i>'.$file.'</i>"... ';
 				$carregarCriatura = $this->carregarCriatura($file, $name);
 				if($carregarCriatura){
-					echo'<b style="color: green;">Arquivo carregado com sucesso.</b><br>';
+					// $resultado .= '<b style="color: green;">Arquivo carregado com sucesso.</b><br>';
 					$listaCriaturas[] = $carregarCriatura;
 				}
-				else
-					echo'<b style="color: red;">Arquivo não foi carregado.</b><br>';
+				// else
+					// $resultado .= '<b style="color: red;">Arquivo não foi carregado.</b><br>';
 			}
 			return $listaCriaturas;
 		}
@@ -540,7 +526,7 @@
 				foreach($ataques as $a => $b){
 					if(is_array($b)){
 						foreach($b as $key => $value)
-							$criaturaInformacoes["ataques"][$a][] = $value;
+							$criaturaInformacoes["ataques"][$a][$key] = $value;
 					}
 					else
 						$criaturaInformacoes["ataques"][0][$a] = $b;
@@ -551,7 +537,7 @@
 				foreach($defesas as $a => $b){
 					if(is_array($b)){
 						foreach($b as $key => $value)
-							$criaturaInformacoes["defesas"][$a][] = $value;
+							$criaturaInformacoes["defesas"][$a][$key] = $value;
 					}
 					else
 						$criaturaInformacoes["defesas"][0][$a] = $b;
@@ -624,7 +610,7 @@
 				$listaCriaturas[] = array(
 					"imagem" => $this->getImagemCriatura($resultadoListaCriaturas),
 					"nome" => $resultadoListaCriaturas["fileName"],
-					"link" => "?p=criaturas&criatura=".urlencode($resultadoListaCriaturas["fileName"]),
+					"link" => "?p=criaturas&id=".urlencode($resultadoListaCriaturas["fileName"]),
 					"experiencia" => $resultadoListaCriaturas["experience"],
 					"vida" => $resultadoListaCriaturas["health"],
 					"custoMana" => $resultadoListaCriaturas["manaCost"],
