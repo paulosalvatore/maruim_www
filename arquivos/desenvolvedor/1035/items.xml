@@ -15606,7 +15606,7 @@
 		<attribute key="absorbPercentHoly" value="-2" />
 		<attribute key="slotType" value="body" />
 	</item>
-	<item fromid="8822" toid="8823" article="a" name="toolbox" />
+	<item fromid="8822" toid="8823" article="a" name="emergency kit" />
 	<item fromid="8824" toid="8833" name="sparkling gems" />
 	<item fromid="8834" toid="8835" article="a" name="sorcerer statue" />
 	<item fromid="8836" toid="8837" article="a" name="guardian statue" />
@@ -21511,7 +21511,7 @@
 	<item id="13110" article="a" name="ghost duster">
 		<attribute key="weight" value="1100" />
 	</item>
-	<item id="13115" article="a" name="emergency kit">
+	<item id="13115" article="a" name="toolbox">
 		<attribute key="weight" value="1000" />
 	</item>
 	<item id="13122" article="a" name="whirl pool" />
@@ -22295,8 +22295,7 @@
 		<attribute key="weight" value="5000" />
 	</item>
 	<item fromid="13636" toid="13643" name="rocky floor" />
-	<item fromid="13644" toid="13654" name="rocky wall" />
-	<item fromid="13658" toid="13659" name="rocky wall" />
+	<item fromid="13644" toid="13660" name="rocky wall" />
 	<item fromid="13663" toid="13668" article="a" name="rocky wall" />
 	<item id="13670" name="belongings of a deceased">
 		<attribute key="weight" value="3000" />
@@ -22305,6 +22304,7 @@
 	<item id="13678" name="greasy stone" />
 	<item id="13681" article="a" name="strange bonepile" />
 	<item id="13682" article="a" name="floating stone" />
+	<item fromid="13683" toid="13684" article="a" name="rocky wall" />
 	<item fromid="13686" toid="13687" article="a" name="rocky wall" />
 	<item fromid="13688" toid="13691" article="a" name="lamp" />
 	<item fromid="13692" toid="13693" article="a" name="hieroglyph banner" />
@@ -26545,9 +26545,8 @@
 		<attribute key="armor" value="12" />
 		<attribute key="slotType" value="body" />
 	</item>
-	<item id="20110" article="a" name="bonecarving knife" plural="bonecarving knives">
+	<item id="20110" article="a" name="carving knife" plural="carving knives">
 		<attribute key="weight" value="120" />
-		<attribute key="description" value="The blade of this knife already assumes the colour of the carved bones." />
 	</item>
 	<item id="20111" article="a" name="bone fetish" plural="bone fetishes">
 		<attribute key="weight" value="160" />
@@ -29947,6 +29946,10 @@
 	<item id="22473" name="essence of wishful thinking">
 		<attribute key="description" value="Just looking at it makes you feel better. What could possibly go wrong." />
 		<attribute key="weight" value="30" />
+	</item>
+	<item id="22474" name="forbidden enchanting book">
+		<attribute key="description" value="This book has been banned by containing dangerous rituals. Be carefull when using it." />
+		<attribute key="weight" value="1300" />
 	</item>
 	<item id="22475" article="a" name="pendulum">
 		<attribute key="description" value="Sometimes it swings out of its own accord." />

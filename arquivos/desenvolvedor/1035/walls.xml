@@ -1410,5 +1410,77 @@
 			<item id="3425" chance="1"/>
 		</wall>
 	</brush>
+	
+	<brush name="grass wall" type="wall" server_lookid="3497">
+		<wall type="horizontal">
+			<item id="3497" chance="1"/>
+			<item id="3498" chance="1"/>
+			<door id="3499" type="window"/>
+			<door id="3505" type="normal" open="true"/>
+		</wall>
+		<wall type="vertical">
+			<item id="3500" chance="1"/>
+			<item id="3501" chance="1"/>
+			<door id="3502" type="window"/>
+			<door id="3504" type="normal" open="true"/>
+		</wall>
+		<wall type="corner">
+			<item id="3503" chance="1"/>
+		</wall>
+		<wall type="pole">
+			<item id="3496" chance="1"/>
+		</wall>
+	</brush>
+	
+	<brush name="lizard stone wall" type="wall" server_lookid="3454">
+		<wall type="horizontal">
+			<item id="3454" chance="1"/>
+			<door id="3471" type="window"/>
+		</wall>
+		<wall type="vertical">
+			<item id="3463" chance="1"/>
+			<door id="3467" type="window"/>
+		</wall>
+		<wall type="corner">
+			<item id="3473" chance="1"/>
+		</wall>
+		<wall type="pole">
+			<item id="3464" chance="1"/>
+		</wall>
+	</brush>
+	
+	<brush name="rocky wall" type="wall" server_lookid="13645">
+		<wall type="horizontal">
+			<item id="13645" chance="1"/>
+			<door id="13664" type="window"/>
+			<door id="13474" type="normal" open="true"/>
+		</wall>
+		<wall type="vertical">
+			<item id="13644" chance="1"/>
+			<door id="13663" type="window"/>
+			<door id="13475" type="normal" open="true"/>
+		</wall>
+		<wall type="corner">
+			<item id="13648" chance="1"/>
+		</wall>
+		<wall type="pole">
+			<item id="13646" chance="1"/>
+		</wall>
+	</brush>
+	
+	<brush name="rocky railing" type="wall" server_lookid="13660">
+		<wall type="horizontal">
+			<item id="13660" chance="1"/>
+		</wall>
+		<wall type="vertical">
+			<item id="13657" chance="1"/>
+		</wall>
+		<wall type="corner">
+			<item id="13655" chance="1"/>
+		</wall>
+		<wall type="pole">
+			<item id="13656" chance="1"/>
+		</wall>
+	</brush>
 
 </materials>

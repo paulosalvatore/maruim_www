@@ -4506,4 +4506,20 @@
 		<item id="4183" chance="1"/>
 	</brush>
 	
+	<brush name="thorn bush" type="wall" server_lookid="4001">
+		<wall type="pole">               <item id="4001" chance="1"/> </wall>
+		<wall type="horizontal">         <item id="4001" chance="1"/> </wall>
+		<wall type="vertical">           <item id="4000" chance="1"/> </wall>
+		<wall type="south end">          <item id="4004" chance="1"/> </wall>
+		<wall type="east end">           <item id="4005" chance="1"/> </wall>
+		<wall type="north end">          <item id="3994" chance="1"/> </wall>
+		<wall type="west end">           <item id="3995" chance="1"/> </wall>
+		<wall type="northeast diagonal"> <item id="3998" chance="1"/> </wall>
+		<wall type="northwest diagonal"> <item id="3999" chance="1"/> </wall>
+		<wall type="southeast diagonal"> <item id="3996" chance="1"/> </wall>
+		<wall type="southwest diagonal"> <item id="3997" chance="1"/> </wall>
+		<wall type="south T">            <item id="4003" chance="1"/> </wall>
+		<wall type="east T">             <item id="4002" chance="1"/> </wall>
+	</brush>
+	
 </materials>

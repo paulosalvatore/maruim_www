@@ -2389,7 +2389,7 @@
 		<item id="7348" chance="10"/>
 	</brush>
 
-	<brush name="mossy floor" type="ground" server_lookid="17665" z-order="17000">
+	<brush name="mossy floor" type="ground" server_lookid="17665" z-order="17000" solo_optional="true">
 		<item id="17665" chance="25"/>
 		<item id="17666" chance="25"/>
 		<item id="17667" chance="25"/>
@@ -2399,7 +2399,8 @@
 		<item id="17671" chance="25"/>
 		<item id="17672" chance="25"/>
 		
-		<border align="outer" id="134"/>
+		<border align="outer" id="187"/>
+		<optional id="134"/>
 	</brush>
 	
 	<brush name="swamp 2" type="ground" server_lookid="18581" z-order="3500">
@@ -2897,5 +2898,19 @@
 		
 		<border align="outer" id="184"/>
 		<border align="outer" to="none" id="184"/>
+	</brush>
+	
+	<brush name="rocky floor" type="ground" server_lookid="13636" z-order="16500">
+		<item id="13636" chance="1"/>
+		<item id="13637" chance="1"/>
+		<item id="13638" chance="1"/>
+		<item id="13639" chance="1"/>
+		<item id="13640" chance="1"/>
+		<item id="13641" chance="1"/>
+		<item id="13642" chance="1"/>
+		<item id="13643" chance="1"/>
+		
+		<border align="outer" id="186"/>
+		<border align="outer" to="none" id="186"/>
 	</brush>
 </materials>

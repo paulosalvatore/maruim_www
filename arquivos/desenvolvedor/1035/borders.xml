@@ -902,7 +902,7 @@
 		<borderitem edge="dse" item="6881"/>
 	</border>
 	
-	<border id="134"> -- mossy grass border --
+	<border id="134"> -- mossy grass border -- optional --
 		<borderitem edge="s"   item="17673"/>
 		<borderitem edge="n"   item="17674"/>
 		<borderitem edge="e"   item="17675"/>
@@ -1652,6 +1652,36 @@
 		<borderitem edge="csw" item="15508"/>
 		<borderitem edge="cnw" item="15509"/>
 		<borderitem edge="cne" item="15510"/>
+	</border>
+	
+	<border id="186"> -- rocky floor --
+		<borderitem edge="s"   item="13620"/>
+		<borderitem edge="n"   item="13621"/>
+		<borderitem edge="e"   item="13622"/>
+		<borderitem edge="w"   item="13623"/>
+		<borderitem edge="dse" item="13624"/>
+		<borderitem edge="dsw" item="13625"/>
+		<borderitem edge="dnw" item="13626"/>
+		<borderitem edge="dne" item="13627"/>
+		<borderitem edge="cse" item="13628"/>
+		<borderitem edge="csw" item="13629"/>
+		<borderitem edge="cnw" item="13630"/>
+		<borderitem edge="cne" item="13631"/>
+	</border>
+	
+	<border id="187"> -- mossy grass border --
+		<borderitem edge="s"   item="18141"/>
+		<borderitem edge="n"   item="18142"/>
+		<borderitem edge="e"   item="18143"/>
+		<borderitem edge="w"   item="18144"/>
+		<borderitem edge="dse" item="18145"/>
+		<borderitem edge="dsw" item="18146"/>
+		<borderitem edge="dnw" item="18147"/>
+		<borderitem edge="dne" item="18148"/>
+		<borderitem edge="cse" item="18149"/>
+		<borderitem edge="csw" item="18150"/>
+		<borderitem edge="cnw" item="18151"/>
+		<borderitem edge="cne" item="18152"/>
 	</border>
 	
 </materials>

@@ -512,6 +512,7 @@
 			<brush name="stony floor"/>
 			<brush name="dark stone floor"/>
 			<brush name="serpent ground"/>
+			<brush name="rocky floor"/>
 			<brush name="green corrupted wall"/>
 			<brush name="green corrupted railing"/>
 			<brush name="red corrupted wall"/>
@@ -563,6 +564,10 @@
 			<brush name="draconian wall 2"/>
 			<brush name="draconian wall 3"/>
 			<brush name="bamboo wall"/>
+			<brush name="grass wall"/>
+			<brush name="lizard stone wall"/>
+			<brush name="rocky wall"/>
+			<brush name="rocky railing"/>
 		</terrain>
 	</tileset>
 	<tileset name="Crystal">
@@ -942,6 +947,7 @@
 			<brush name="decorative altar"/>
 			<brush name="railways"/>
 			<brush name="small stream"/>
+			<brush name="thorn bush"/>
 			<brush name="railway cart"/>
 			<brush name="dwarven machine"/>
 			<item id="7919"/>
