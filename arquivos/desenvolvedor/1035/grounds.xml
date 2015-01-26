@@ -2004,7 +2004,7 @@
 		<item id="405" chance="1"/>
 	</brush>
 	
-	<brush name="wooden floor (with border)" type="ground" server_lookid="405" z-order="110">
+	<brush name="wooden floor (with border)" type="ground" server_lookid="405" z-order="20001">
 		<item id="9067" chance="1"/>
 		
 		<border id="41" align="outer"/>
