@@ -39,12 +39,12 @@
 								"descricao" => "Instalação do Tibia Client 10.35, necessário para o Map Editor.",
 							),
 							"1037" => array(
-								"nome" => "Tibia Client 10.37",
+								"nome" => "Tibia Client 10.41",
 								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1037.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1037",
+								"arquivo" => "tibia1041.exe",
+								"link_externo" => "http://clients.tibiaking.com/client/windows/1041",
 								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.37, versão utilizada para jogar.",
+								"descricao" => "Instalação do Tibia Client 10.41, versão utilizada para jogar.",
 							),
 							"ipchanger" => array(
 								"nome" => "IP Changer",
