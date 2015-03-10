@@ -115,7 +115,14 @@
 				<form id="formulario_criacao_personagem" align="center">
 					'.$exibicao_formulario_criacao_personagem.'
 					<br>
-					<input type="submit" class="botao" value="Criar Personagem">
+					<div align="center">
+						<div class="botao_azul1">
+							<input type="submit" class="botao_azul" value="criar_personagem" />
+						</div>
+						<div class="botao_azul2">
+							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\'" />
+						</div>
+					</div>
 				</form>
 				<br>
 			';

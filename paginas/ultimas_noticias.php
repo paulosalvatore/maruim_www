@@ -1,14 +1,13 @@
 <?php
 	$exibicao_noticias_rapidas = array();
 	$exibicao_noticias = array();
-	$sql = "SELECT * FROM z_noticias_rapidas ORDER BY data DESC";
-	$query = mysql_query($sql);
-	while ($resultado = mysql_fetch_assoc($query)) {
-		$noticia_rapida_id = $resultado["id"];
-		$noticia_rapida_imagem = $resultado["imagem"];
-		$noticia_rapida_conteudo = $resultado["conteudo"];
-		$noticia_rapida_data = formatarData($resultado["data"]);
-		$noticia_rapida_deletado = $resultado["deletado"];
+	$queryNoticiasRapidas = mysql_query("SELECT * FROM z_noticias_rapidas ORDER BY data DESC");
+	while ($resultadoNoticiasRapidas = mysql_fetch_assoc($queryNoticiasRapidas)){
+		$noticia_rapida_id = $resultadoNoticiasRapidas["id"];
+		$noticia_rapida_imagem = $resultadoNoticiasRapidas["imagem"];
+		$noticia_rapida_conteudo = $resultadoNoticiasRapidas["conteudo"];
+		$noticia_rapida_data = formatarData($resultadoNoticiasRapidas["data"], 1);
+		$noticia_rapida_deletado = $resultadoNoticiasRapidas["deletado"];
 		if(($noticia_rapida_deletado == 0) AND (count($exibicao_noticias_rapidas) < $limite_noticias_rapidas))
 			$exibicao_noticias_rapidas[] = '
 				<div class="item">
@@ -35,18 +34,17 @@
 				</div>
 			';
 	}
-	$sql = "SELECT * FROM z_noticias ORDER BY data DESC";
-	$query = mysql_query($sql);
-	while ($resultado = mysql_fetch_assoc($query)) {
-		$noticia_id = $resultado["id"];
-		$noticia_imagem = $resultado["imagem"];
-		$noticia_titulo = $resultado["titulo"];
-		$noticia_conteudo = $resultado["conteudo"];
+	$queryNoticias = mysql_query("SELECT * FROM z_noticias ORDER BY data DESC");
+	while ($resultadoNoticias = mysql_fetch_assoc($queryNoticias)){
+		$noticia_id = $resultadoNoticias["id"];
+		$noticia_imagem = $resultadoNoticias["imagem"];
+		$noticia_titulo = $resultadoNoticias["titulo"];
+		$noticia_conteudo = $resultadoNoticias["conteudo"];
 		$letra_inicial = limpaString($noticia_conteudo[0]);
 		$noticia_conteudo[0] = "";
 		$noticia_conteudo = '<img src="imagens/letras/letter_martel_'.$letra_inicial.'.gif">'.$noticia_conteudo;
-		$noticia_data = formatarData($resultado["data"]);
-		$noticia_deletado = $resultado["deletado"];
+		$noticia_data = formatarData($resultadoNoticias["data"]);
+		$noticia_deletado = $resultadoNoticias["deletado"];
 		if(($noticia_deletado == 0) AND (count($exibicao_noticias) < $limite_noticias))
 			$exibicao_noticias[] = '
 				<div class="item">

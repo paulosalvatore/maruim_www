@@ -532,6 +532,9 @@ img.ordenar {
 	padding: 4px;
 	vertical-align: middle;
 }
+.tabela td.top {
+	vertical-align: top;
+}
 .tabela .item.ocultar {
 	display: none;
 }
@@ -636,6 +639,17 @@ img.ordenar {
 	height: 25px;
 	border: 0;
 	cursor: pointer;
+}
+.botao_azul1 {
+	position: relative;
+	margin-left: -145px;
+	width: 145px;
+}
+.botao_azul2 {
+	position: relative;
+	margin-top: -25px;
+	margin-left: 145px;
+	width: 145px;
 }
 .fundo_botao_azul {
 	background: url(../imagens/corpo/fundo_botao_azul.png);
