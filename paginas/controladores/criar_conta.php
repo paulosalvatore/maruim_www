@@ -2,6 +2,8 @@
 	session_start();
 	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
+	check_is_ajax(__FILE__);
+	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/config_criar_conta.php");
 	include("../../includes/protocolo.php");

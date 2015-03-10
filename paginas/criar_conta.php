@@ -27,7 +27,7 @@
 										if($size > 0)
 											$variaveis[] = 'size="'.$size.'"';
 										else
-											$variaveis[] = 'size="30"';
+											$variaveis[] = 'size="25"';
 										if($maxlength > 0)
 											$variaveis[] = 'maxlength="'.$maxlength.'"';
 										if(!empty($igual))
@@ -114,6 +114,7 @@
 				<div class="box_frame_conteudo_principal" carregar_box="1">
 					<form id="formulario_criacao_conta" align="center">
 						'.$exibicao_formulario_criacao_conta.'
+						<br>
 						<input type="submit" class="botao" value="Criar Conta">
 					</form>
 					<br>
