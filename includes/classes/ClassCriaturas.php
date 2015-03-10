@@ -610,7 +610,7 @@
 				$listaCriaturas[] = array(
 					"imagem" => $this->getImagemCriatura($resultadoListaCriaturas),
 					"nome" => $resultadoListaCriaturas["fileName"],
-					"link" => "?p=criaturas&id=".urlencode($resultadoListaCriaturas["fileName"]),
+					"link" => "?p=criaturas-".urlencode($resultadoListaCriaturas["fileName"]),
 					"experiencia" => $resultadoListaCriaturas["experience"],
 					"vida" => $resultadoListaCriaturas["health"],
 					"custoMana" => $resultadoListaCriaturas["manaCost"],
