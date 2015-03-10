@@ -304,6 +304,9 @@ a:hover {
 	padding: 5px;
 	font-size: 13px;
 }
+#corpo .conteudo_box.padding {
+	padding: 10px;
+}
 #corpo .conteudo_box.noticias {
 	padding: 10px;
 }
@@ -589,6 +592,13 @@ img.ordenar {
 	background: #F1E0C6;
 	color: #5A2800;
 }
+.tabela .conteudo {
+	background: #D4C0A1;
+}
+.tabela .conteudo td {
+	padding: 2px;
+	line-height: 18px;
+}
 .tabela.dark .item td,
 .tabela.odd .item:nth-child(odd) td {
 	background: #D4C0A1;
@@ -620,6 +630,24 @@ img.ordenar {
 }
 .botao:hover {
 	background-position: -120px;
+}
+.botao_azul {
+	width: 135px;
+	height: 25px;
+	border: 0;
+	cursor: pointer;
+}
+.fundo_botao_azul {
+	background: url(../imagens/corpo/fundo_botao_azul.png);
+	background-repeat: no-repeat;
+	width: 135px;
+	height: 25px;
+	padding: 0px;
+	border: 0px;
+	cursor: pointer;
+}
+.fundo_botao_azul:hover {
+	background-position: -135px;
 }
 #rodape {
 	font-size: 9px;
@@ -727,6 +755,9 @@ img.ordenar {
 	width: 100%;
 	margin-top: -1px;
 }
+.box_frame_conteudo_principal.padding .box_frame_conteudo_borda3 {
+	padding: 7px;
+}
 .box_frame_conteudo_borda1 {
 	border: 1px solid black;
 }
@@ -734,7 +765,7 @@ img.ordenar {
 	border-left: 2px solid #55636C;
 	border-right: 2px solid #55636C;
 	border-bottom: 2px solid #55636C;
-	background: #F1E0C5;
+	background: #FFF2db;
 	padding: 3px;
 }
 .box_frame_conteudo_borda3 {
@@ -743,8 +774,8 @@ img.ordenar {
 .box_frame_conteudo_borda4 {
 	border: 1px solid #FAF0D7;
 }
-.box_frame_conteudo {
-	//padding: 7px;
+.box_frame_conteudo.padding {
+	padding: 7px;
 }
 .box_frame_conteudo .conteudo {
 	font-size: 13px;
@@ -827,9 +858,38 @@ img.ordenar {
 .certo_errado.certo {
 	background-position: -12px;
 }
+.ocultar_exibir_caracteres {
+	background: url(../imagens/corpo/exibir_ocultar_caracteres.png);
+	width: 44px;
+	height: 12px;
+	position: absolute;
+	margin-top: -13px;
+	right: 26px;
+	cursor: pointer;
+}
+.ocultar_exibir_caracteres.ocultar {
+	background-position: 0px;
+}
+.ocultar_exibir_caracteres.exibir {
+	background-position: -44px;
+}
 .mensagem_erro {
 	font-size: 11px;
 	color: red;
+}
+.grande {
+	font-size: 17px;
+}
+.pequeno {
+	font-size: 11px;
+}
+.vermelho {
+	font-weight: bold;
+	color: red;
+}
+.verde {
+	font-weight: bold;
+	color: green;
 }
 .setas {
 	position: relative;
@@ -867,6 +927,12 @@ ul li {
 	padding: 3px 0px 3px 20px;
 	list-style: none;
 	text-align: justify;
+}
+textarea {
+	resize: vertical;
+	width: 98%;
+	height: 100px;
+	max-height: 150px;
 }
 .tarefas .sucesso {
 	color: green;
