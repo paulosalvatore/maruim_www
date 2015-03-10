@@ -66,10 +66,7 @@
 								$exibirAtributos = "";
 								foreach($atributos as $atributo)
 									$exibirAtributos .= ' '.$atributo.'="'.$criatura[$atributo].'"';
-								$conteudo_pagina .= '
-									<div class="item criatura exibir"'.$exibirAtributos.'>
-									</div>
-								';
+								$conteudo_pagina .= '<div class="item criatura exibir"'.$exibirAtributos.'></div>';
 							}
 						}
 						$conteudo_pagina .= '
@@ -100,13 +97,13 @@
 						if(isset($navegacaoCriatura[0]))
 							$conteudo_pagina .= '
 								<div class="seta anterior">
-									<a href="?p=criaturas&id='.$navegacaoCriatura[0].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
+									<a href="?p=criaturas-'.$navegacaoCriatura[0].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
 								</div>
 							';
 						if(isset($navegacaoCriatura[1]))
 							$conteudo_pagina .= '
 								<div class="seta proxima">
-									<a href="?p=criaturas&id='.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
+									<a href="?p=criaturas-'.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
 								</div>
 							';
 						$conteudo_pagina .= '
@@ -273,7 +270,7 @@
 																<img src="'.$summon["imagem"].'" title="'.$summon["nome"].'"/>
 															</td>
 															<td>
-																<a href="?p=criaturas&id='.urlencode($summon["nome"]).'">'.$summon["nome"].'</a>
+																<a href="?p=criaturas-'.urlencode($summon["nome"]).'">'.$summon["nome"].'</a>
 															</td>
 														</tr>
 													</table>
