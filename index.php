@@ -6,17 +6,21 @@
 	include("includes/data.php");
 	include("includes/funcoes.php");
 	include("includes/config.php");
+	include("includes/conteudo_nao_encontrado.php");
 	$login = $_SESSION["login"];
-	$usuario_encontrado = false;
-	$sql = "SELECT * FROM accounts WHERE (name LIKE '$login')";
-	$query = mysql_query($sql);
-	while ($resultado = mysql_fetch_assoc($query)){
-		// $id_usuario = $resultado['id'];
-		$usuario_encontrado = true;
+	$usuarioEncontrado = false;
+	include("includes/classes/ClassConta.php");
+	$ClassConta = new Conta();
+	$informacoesConta = $ClassConta->getInformacoesConta($login);
+	if(count($informacoesConta) > 0){
+		$usuarioEncontrado = true;
+		$accountId = $informacoesConta["id"];
+		if($informacoesConta["ultimo_acesso"] > 0)
+			$ClassConta->registrarUltimoAcesso($accountId);
 	}
-	if((!isset($login)) OR (!$usuario_encontrado))
+	if((!isset($login)) OR (!$usuarioEncontrado))
 		session_unset();
-	if((in_array($pagina, $config["login_obrigatorio"])) AND (!$usuario_encontrado)){
+	if((in_array($pagina, $config["login_obrigatorio"])) AND (!$usuarioEncontrado)){
 		$incluir_arquivo = "login_necessario";
 		session_unset();
 	}
