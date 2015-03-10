@@ -21,7 +21,7 @@ function gravarCookies(tipo){
 			else
 				o += "0";
 		});
-		gerarCookie("o", o, 700);
+		gerarCookie("opcoes", o, 700);
 	}
 };
 $(function(){
@@ -35,7 +35,7 @@ $(function(){
 			categoria.addClass("ativo");
 		gravarCookies("barra_lateral_esquerda");
 	});
-	opcoes = getCookie("o");
+	opcoes = getCookie("opcoes");
 	if(isNaN(opcoes[0]))
 		opcoes = "1";
 	for(i=0;i<opcoes.length;i++){
@@ -97,5 +97,20 @@ $(function(){
 			if((selectedDate) && (selectedDate != "__/__/____"))
 				$(".data.de").datepicker("option", "maxDate", selectedDate);
 		}
+	});
+	$(".botao_azul").each(function(){
+		var valor = $(this).val();
+		var imagem = "imagens/botoes/"+valor+".png";
+		$(this)
+		.css("background", "url("+imagem+")")
+		.val("");
+		var botao = $(this).clone();
+		var id_botao = $("div.fundo_botao_azul").length+1;
+		var fundo_botao = '\
+			<div class="fundo_botao_azul" id="'+id_botao+'"></div>\
+		';
+		$(this).before(fundo_botao);
+		$("#"+id_botao).html(botao);
+		$(this).remove();
 	});
 });
