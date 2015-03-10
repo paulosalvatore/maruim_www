@@ -1,4 +1,21 @@
 <?php
+	function check_is_ajax($script){
+		$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND
+		strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+		if(!$isAjax)
+			trigger_error('Acesso negado. ('.$script.')', E_USER_ERROR);
+	}
+	function check_if_logged($script){
+		session_start();
+		$usuarioEncontrado = false;
+		include("classes/ClassConta.php");
+		$ClassConta = new Conta();
+		$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
+		if(count($informacoesConta) > 0)
+			$usuarioEncontrado = true;
+		if((!$_SESSION["login"]) OR (!$usuarioEncontrado))
+			trigger_error('Acesso negado. ('.$script.')', E_USER_ERROR);
+	}
 	function limpaString($string){
 		$a = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ‗אבגדהוזחטיךכלםמןנסעףפץצרשתû‎‎‏ÿRr';
 		$b = 'AAAAAAACEEEEIIIIDNOOOOOOUUUUYBSaaaaaaaceeeeiiiidnoooooouuuyybyRr';
