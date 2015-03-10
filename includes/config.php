@@ -26,6 +26,33 @@
 		"posx" => 1000,
 		"posy" => 1000,
 		"posz" => 7,
-		"cap" => 420
+		"cap" => 420,
+		"maxPersonagens" => 5
+	);
+	$config["minha_conta"] = array(
+		"conta" => array(
+			"nome" => "Conta",
+			"coluna" => "name",
+			"ocultar_caracteres" => true
+		),
+		"email" => array(
+			"nome" => "E-mail",
+			"coluna" => "email",
+			"ocultar_caracteres" => true
+		),
+		"data_criacao" => array(
+			"nome" => "Data de Criação",
+			"coluna" => "exibirDataCriacao"
+		),
+		"ultimo_login" => array(
+			"nome" => "Último Login",
+			"coluna" => "ultimo_acesso",
+			"formatar" => "data",
+			"mensagem_valor_vazio" => "Nunca efetuou login."
+		),
+		"status_conta" => array(
+			"nome" => "Status da Conta",
+			"coluna" => "premdays"
+		)
 	);
 ?>

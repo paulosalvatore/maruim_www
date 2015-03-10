@@ -4,7 +4,7 @@
 			"conta" => array(
 				"exibicao" => "Conta",
 				"tipo" => "texto",
-				"size" => 30,
+				"size" => 25,
 				"minlength" => 6,
 				"maxlength" => 30,
 				"tipo_dados" => array(
@@ -28,7 +28,7 @@
 			"email" => array(
 				"exibicao" => "E-mail",
 				"tipo" => "texto",
-				"size" => 30,
+				"size" => 25,
 				"minlength" => 6,
 				"maxlength" => 50,
 				"tipo_dados" => array(
@@ -52,7 +52,7 @@
 			"senha" => array(
 				"exibicao" => "Senha",
 				"tipo" => "texto",
-				"size" => 30,
+				"size" => 25,
 				"minlength" => 8,
 				"maxlength" => 30,
 				"tipo_dados" => array(
@@ -74,7 +74,7 @@
 			"repetir_senha" => array(
 				"exibicao" => "Repita a Senha",
 				"tipo" => "texto",
-				"size" => 30,
+				"size" => 25,
 				"minlength" => 8,
 				"maxlength" => 30,
 				"tipo_dados" => array(
@@ -99,7 +99,7 @@
 			"nome_personagem" => array(
 				"exibicao" => "Nome do Personagem",
 				"tipo" => "texto",
-				"size" => 30,
+				"size" => 25,
 				"minlength" => 3,
 				"maxlength" => 30,
 				"tipo_dados" => array(
@@ -122,7 +122,7 @@
 				"msg_igual" => ""
 			),
 			"sexo_personagem" => array(
-				"exibicao" => "Sexo",
+				"exibicao" => "Gênero",
 				"tipo" => "opcao_radio",
 				"opcoes" => array(
 					array(
