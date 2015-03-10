@@ -129,7 +129,7 @@
 			<div class="borda_inferior"></div>
 		</div>
 	';
-	if($usuario_encontrado)
+	if($usuarioEncontrado)
 		$botao_criar_conta_sair = '<div class="botao_sair" onClick="document.location = \'includes/logout.php\';"></div>';
 	else
 		$botao_criar_conta_sair = '<div class="botao_criar_conta" onClick="document.location = \'?p=criar_conta\';"></div>';
