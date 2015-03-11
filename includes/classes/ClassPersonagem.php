@@ -1,5 +1,6 @@
 <?php
 	class Personagem {
+		private $limiteRank = 100;
 		private $cidades = array(
 			1 => "Cidade"
 		);
@@ -85,22 +86,60 @@
 				);
 			return $informacoesPersonagem;
 		}
-		public function getListaPersonagens($contaId){
+		public function getListaPersonagens($contaId, $tabelaRank = ""){
 			$listaPersonagens = array();
-			$queryListaPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId')");
+			$rank = 1;
+			if(!empty($tabelaRank))
+				$queryListaPersonagem = mysql_query("SELECT * FROM players ORDER BY $tabelaRank DESC LIMIT 0,".$this->limiteRank);
+			elseif(!empty($contaId))
+				$queryListaPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId')");
 			while($resultadoListaPersonagem = mysql_fetch_assoc($queryListaPersonagem))
-				$listaPersonagens[] = array(
-					"id" => $resultadoListaPersonagem["id"],
-					"nome" => $resultadoListaPersonagem["name"],
-					"link" => '?p=personagens-'.urlencode($resultadoListaPersonagem["name"]),
-					"nivel" => $resultadoListaPersonagem["level"],
-					"vocacao" => $this->getNomeVocacao($resultadoListaPersonagem["vocation"]),
-					"vocacao_campo" => $this->getCampoVocacao($resultadoListaPersonagem["vocation"]),
-					"status" => $this->getStatusPersonagem($resultadoListaPersonagem["id"]),
-					"statusCompleto" => $this->getStatusPersonagem($resultadoListaPersonagem["id"], 1),
-					"ocultar_conta" => $resultadoListaPersonagem["ocultar_conta"]
-				);
+				if((empty($tabelaRank)) OR ((!empty($tabelaRank)) AND ($resultadoListaPersonagem["group_id"] == 1)))
+					$listaPersonagens[] = array(
+						"id" => $resultadoListaPersonagem["id"],
+						"nome" => $resultadoListaPersonagem["name"],
+						"link" => '?p=personagens-'.urlencode($resultadoListaPersonagem["name"]),
+						"nivel" => $resultadoListaPersonagem["level"],
+						"level" => $resultadoListaPersonagem["level"],
+						"experience" => number_format($resultadoListaPersonagem["experience"], 0, "", "."),
+						"skill_fist" => $resultadoListaPersonagem["skill_fist"],
+						"skill_club" => $resultadoListaPersonagem["skill_club"],
+						"skill_sword" => $resultadoListaPersonagem["skill_sword"],
+						"skill_axe" => $resultadoListaPersonagem["skill_axe"],
+						"skill_dist" => $resultadoListaPersonagem["skill_dist"],
+						"skill_shielding" => $resultadoListaPersonagem["skill_shielding"],
+						"skill_fishing" => $resultadoListaPersonagem["skill_fishing"],
+						"rank" => $rank++,
+						"vocacao" => $this->getNomeVocacao($resultadoListaPersonagem["vocation"]),
+						"vocacao_campo" => $this->getCampoVocacao($resultadoListaPersonagem["vocation"]),
+						"status" => $this->getStatusPersonagem($resultadoListaPersonagem["id"]),
+						"statusCompleto" => $this->getStatusPersonagem($resultadoListaPersonagem["id"], 1),
+						"ocultar_conta" => $resultadoListaPersonagem["ocultar_conta"]
+					);
 			return $listaPersonagens;
+		}
+		public function getRank($rank){
+			$rank = 1;
+			$listaRank = array();
+			$queryListaPersonagem = mysql_query("SELECT * FROM players ORDER BY $rank ASC");
+			while($resultadoListaPersonagem = mysql_fetch_assoc($queryListaPersonagem))
+				if($resultadoListaPersonagem["group_id"] == 1)
+					$listaRank[] = array(
+						"id" => $resultadoListaPersonagem["id"],
+						"nome" => $resultadoListaPersonagem["name"],
+						"link" => '?p=personagens-'.urlencode($resultadoListaPersonagem["name"]),
+						"nivel" => $resultadoListaPersonagem["level"],
+						"experience" => $resultadoListaPersonagem["experience"],
+						"skill_fist" => $resultadoListaPersonagem["skill_fist"],
+						"skill_club" => $resultadoListaPersonagem["skill_club"],
+						"skill_sword" => $resultadoListaPersonagem["skill_sword"],
+						"skill_axe" => $resultadoListaPersonagem["skill_axe"],
+						"skill_dist" => $resultadoListaPersonagem["skill_dist"],
+						"skill_shielding" => $resultadoListaPersonagem["skill_shielding"],
+						"skill_fishing" => $resultadoListaPersonagem["skill_fishing"],
+						"rank" => $rank++
+					);
+			return $listaRank;
 		}
 		public function exibirListaPersonagens($listaPersonagens, $paginaConta = 0, $personagemAtualId = ""){
 			$exibirListaPersonagens = "";
