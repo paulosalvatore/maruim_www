@@ -43,7 +43,7 @@
 		$letra_inicial = limpaString($noticia_conteudo[0]);
 		$noticia_conteudo[0] = "";
 		$noticia_conteudo = '<img src="imagens/letras/letter_martel_'.$letra_inicial.'.gif">'.$noticia_conteudo;
-		$noticia_data = formatarData($resultadoNoticias["data"]);
+		$noticia_data = formatarData($resultadoNoticias["data"], 1);
 		$noticia_deletado = $resultadoNoticias["deletado"];
 		if(($noticia_deletado == 0) AND (count($exibicao_noticias) < $limite_noticias))
 			$exibicao_noticias[] = '
