@@ -21,7 +21,8 @@
 			"background" => 1,
 			"opcoes" => array(
 				"caracteristicas" => "Características",
-				"screenshots" => "Screenshots"
+				"screenshots" => "Screenshots",
+				"informacoes_servidor" => "Informações do Servidor"
 			)
 		),
 		"guias" => array(
@@ -109,12 +110,15 @@
 						<div class="opcoes">
 							';
 							foreach($categoria_opcoes as $botao_id => $botao_nome){
+								$estilosTexto = '';
+								if(strlen($botao_nome) >= 23)
+									$estilosTexto = ' style="font-size: 12px;"';
 								$botoes_menu .= '
 									<div class="opcao '.$botao_id.'">
 										<a href="?p='.$botao_id.'">
 											<div class="borda_esquerda"></div>
 											<div class="icone"></div>
-											<div class="texto">'.$botao_nome.'</div>
+											<div class="texto"'.$estilosTexto.'>'.$botao_nome.'</div>
 											<div class="borda_direita"></div>
 										</a>
 									</div>
