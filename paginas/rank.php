@@ -49,7 +49,7 @@
 								foreach($rankPersonagens as $c => $v){
 									$conteudo_pagina .= '
 										<tr class="item">
-											<td>
+											<td align="center">
 												'.$v["rank"].'
 											</td>
 											<td>
