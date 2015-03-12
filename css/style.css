@@ -688,6 +688,7 @@ img.ordenar {
 	color: red;
 	font-size: 11px;
 	display: none;
+	margin-bottom: 20px;
 }
 .small_box_frame.erro .texto {
 	text-align: left;
@@ -947,6 +948,43 @@ textarea {
 	width: 98%;
 	height: 100px;
 	max-height: 150px;
+}
+.infoDeletado {
+	background: url(../imagens/corpo/info.gif);
+	width: 18px;
+	height: 18px;
+	float: right;
+	margin-top: -1px;
+	margin-left: 1px;
+	cursor: help;
+}
+.boxInfo {
+	float: right;
+	position: relative;
+	top: 0px;
+	left: 18px;
+	display: none;
+}
+.HelperDivContainer {
+	background: url(../imagens/corpo/conteudo_box.png);
+	position: absolute;
+	width: 340px;
+	z-index: 1000;
+	color: #5A2800;
+	font-family: Verdana,Arial,Times New Roman,sans-serif;
+	font-size: 9pt;
+	text-align: left;
+	padding: 10px;
+	border: 1px double #5A2800;
+	margin-left: 8px;
+}
+.HelperDivArrow {
+	background: url(../imagens/corpo/helper-div-arrow.png);
+	position: absolute;
+	top: -1px;
+	left: -8px;
+	width: 8px;
+	height: 13px;
 }
 .tarefas .sucesso {
 	color: green;

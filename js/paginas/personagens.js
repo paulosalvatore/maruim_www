@@ -15,20 +15,13 @@ $(function(){
 				acao: "buscar",
 				personagem: nomePersonagem
 			}),
-			// dataType: "json",
 			success: function(result){
 				if(result)
 					document.location = "?p=personagens-"+result;
 				else{
 					$("#exibirPersonagem").hide();
-					$("#resultadoBusca").show().find("#exibirNomePersonagem").html(nomePersonagem);
+					$("#resultadoBusca").show().find("#exibirNomePersonagem").text(nomePersonagem);
 				}
-				// $.each(result, function(index, value){
-					// if(value != "")
-						// inserirValidacao("erro", index, value);
-					// else
-						// inserirValidacao("sucesso", index);
-				// });
 			}
 		}).responseText;
 	});

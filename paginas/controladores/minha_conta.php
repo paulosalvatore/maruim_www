@@ -30,10 +30,41 @@
 							$ClassPersonagem->editarPersonagem($personagemId, "comentario", $comentario);
 						echo 1;
 					}
-					else{
+					else
 						echo 0;
-					}
 				}
+				else
+					echo 0;
+			}
+			elseif($acao == "deletar_personagem"){
+				if(!empty($personagemId)){
+					if($ClassPersonagem->validarPersonagemConta($personagemId, $contaId)){
+						parse_str(addslashes($informacoesDeletarPersonagem), $informacoesDeletarPersonagem);
+						if($ClassPersonagem->deletarPersonagem($personagemId, $informacoesConta, $informacoesDeletarPersonagem))
+							echo 1;
+						else
+							echo 0;
+					}
+					else
+						echo 0;
+				}
+				else
+					echo 0;
+			}
+			elseif($acao == "cancelar_deletar_personagem"){
+				if(!empty($personagemId)){
+					if(($ClassPersonagem->validarPersonagemConta($personagemId, $contaId)) AND ($ClassPersonagem->getListaPersonagens($contaId) > 1)){
+						parse_str(addslashes($informacoesDeletarPersonagem), $informacoesDeletarPersonagem);
+						if($ClassPersonagem->cancelarDeletarPersonagem($personagemId, $informacoesConta, $informacoesDeletarPersonagem))
+							echo 1;
+						else
+							echo 0;
+					}
+					else
+						echo 0;
+				}
+				else
+					echo 0;
 			}
 		}
 		elseif(!empty($vocacao)){

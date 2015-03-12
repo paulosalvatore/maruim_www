@@ -139,6 +139,166 @@
 					</div>
 				';
 			}
+			elseif($acao == "deletar"){
+				if($ClassPersonagem->validarPersonagemConta($id, $accountId)){
+					$informacoesPersonagem = $ClassPersonagem->getInformacoesPersonagem($id);
+					$conteudo_minha_conta = '
+						<div class="small_box_frame erro" carregar_box="1">
+							<b>Algum erro ocorreu.</b><br>
+							Verifique as informações e tente novamente.
+						</div>
+						<div class="box_frame" carregar_box="1">
+							Deletar Personagem
+						</div>
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark">
+									<td>
+										<form id="deletar_personagem" personagem="'.$id.'">
+											<table width="100%" cellpadding="0" cellspacing="0">
+												<tr>
+													<td width="230" align="left">
+														<b class="exibicao_bloco">Nome:</b>
+													</td>
+													<td align="left">
+														'.$informacoesPersonagem["nome"].'
+													</td>
+												</tr>
+												<tr>
+													<td align="left">
+														<b class="exibicao_bloco">Confirme a Senha:</b>
+													</td>
+													<td align="left">
+														<input type="password" id="confirmar_senha" name="confirmar_senha">
+													</td>
+												</tr>
+												<tr>
+													<td align="left">
+														<b class="exibicao_bloco">Digite a Chave de Recuperação:</b>
+													</td>
+													<td align="left">
+														<input type="text" id="chave_recuperacao" name="chave_recuperacao" style="width: 290px;">
+													</td>
+												</tr>
+												<tr valign="top">
+													<td colspan="2" align="center">
+														<input type="submit" class="botao" value="Deletar">
+														<input type="button" class="botao" value="Voltar" onClick="document.location = \'?p=minha_conta\'">
+													</td>
+												</tr>
+											</table>
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+					';
+				}
+				else
+					$conteudo_minha_conta = $conteudo_nao_encontrado_full;
+			}
+			elseif($acao == "deletado"){
+				$informacoesPersonagem = $ClassPersonagem->getInformacoesPersonagem($id);
+				if($informacoesPersonagem["deletar"] > 0)
+					$conteudo_minha_conta = '
+						<div class="box_frame" carregar_box="1">
+							Personagem Deletado
+						</div>
+						<div class="box_frame_conteudo_principal" carregar_box="1">
+							<div class="box_frame_conteudo padding dark">
+								A solicitação para deletar seu personagem foi registrada com sucesso.<br>
+								<br>
+								Seu personagem será deletado em '.$ClassPersonagem->diasDeletarPersonagem.' dias.<br>
+								<br>
+								Caso queira, você pode desfazer a solicitação na página da sua conta até o dia <b>'.$ClassPersonagem->formatarData(time()+$ClassPersonagem->transformarDiasTempo($ClassPersonagem->diasDeletarPersonagem)).'</b>.
+							</div>
+						</div>
+						<br>
+						<div align="center">
+							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\'"></a>
+						</div>
+					';
+				else
+					$conteudo_minha_conta = $conteudo_nao_encontrado_full;
+			}
+			elseif($acao == "cancelar"){
+				if($ClassPersonagem->validarPersonagemConta($id, $accountId)){
+					$informacoesPersonagem = $ClassPersonagem->getInformacoesPersonagem($id);
+					$conteudo_minha_conta = '
+						<div class="small_box_frame erro" carregar_box="1">
+							<b>Algum erro ocorreu.</b><br>
+							Verifique as informações e tente novamente.
+						</div>
+						<div class="box_frame" carregar_box="1">
+							Cancelar Deletar Personagem
+						</div>
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark">
+									<td>
+										<form id="cancelar_deletar_personagem" personagem="'.$id.'">
+											<table width="100%" cellpadding="0" cellspacing="0">
+												<tr>
+													<td width="230" align="left">
+														<b class="exibicao_bloco">Nome:</b>
+													</td>
+													<td align="left">
+														'.$informacoesPersonagem["nome"].'
+													</td>
+												</tr>
+												<tr>
+													<td align="left">
+														<b class="exibicao_bloco">Confirme a Senha:</b>
+													</td>
+													<td align="left">
+														<input type="password" id="confirmar_senha" name="confirmar_senha">
+													</td>
+												</tr>
+												<tr>
+													<td align="left">
+														<b class="exibicao_bloco">Digite a Chave de Recuperação:</b>
+													</td>
+													<td align="left">
+														<input type="text" id="chave_recuperacao" name="chave_recuperacao" style="width: 290px;">
+													</td>
+												</tr>
+												<tr valign="top">
+													<td colspan="2" align="center">
+														<input type="submit" class="botao" value="Deletar">
+														<input type="button" class="botao" value="Voltar" onClick="document.location = \'?p=minha_conta\'">
+													</td>
+												</tr>
+											</table>
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+					';
+				}
+				else
+					$conteudo_minha_conta = $conteudo_nao_encontrado_full;
+			}
+			elseif($acao == "cancelado"){
+				$informacoesPersonagem = $ClassPersonagem->getInformacoesPersonagem($id);
+				if($informacoesPersonagem["deletar"] == 0)
+					$conteudo_minha_conta = '
+						<div class="box_frame" carregar_box="1">
+							Deletar Personagem Cancelado
+						</div>
+						<div class="box_frame_conteudo_principal" carregar_box="1">
+							<div class="box_frame_conteudo padding dark">
+								Fique tranquilo! Seu personagem não será mais deletado.
+							</div>
+						</div>
+						<br>
+						<div align="center">
+							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\'"></a>
+						</div>
+					';
+				else
+					$conteudo_minha_conta = $conteudo_nao_encontrado_full;
+			}
 			else
 				$conteudo_minha_conta = $conteudo_nao_encontrado_full;
 		}

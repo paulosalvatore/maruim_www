@@ -1,16 +1,20 @@
 <?php
 	class Personagem {
-		private $limiteRank = 100;
+		public $limiteRank = 100;
+		public $diasDeletarPersonagem = 30;
 		private $cidades = array(
 			1 => "Cidade"
 		);
 		private $vocacoes = array(
 			0 => array("campo" => "nenhuma", "exibicao" => "Nenhuma"),
 			1 => array("campo" => "arqueiro", "exibicao" => "Arqueiro"),
-			2 => array("campo" => "cavaleiro", "exibicao" => "Cavaleiro"),
-			3 => array("campo" => "feiticeiro", "exibicao" => "Feiticeiro"),
-			4 => array("campo" => "clerigo", "exibicao" => "Clérigo")
+			2 => array("campo" => "feiticeiro", "exibicao" => "Feiticeiro"),
+			3 => array("campo" => "clerigo", "exibicao" => "Clérigo"),
+			4 => array("campo" => "cavaleiro", "exibicao" => "Cavaleiro")
 		);
+		public function transformarDiasTempo($dias){
+			return $dias*24*60*60;
+		}
 		public function formatarData($tempo){
 			return date("d/m/Y, H\hi\ms\s", $tempo);
 		}
@@ -22,7 +26,9 @@
 			return $formatarLogin;
 		}
 		public function getNomeCidade($cidadeId){
-			return $this->cidades[$cidadeId];
+			if(in_array($cidadeId, $this->cidades))
+				return $this->cidades[$cidadeId];
+			return "Cidade sem nome";
 		}
 		public function exibirGenero($genero){
 			if($genero == 0)
@@ -31,10 +37,14 @@
 				return "Masculino";
 		}
 		public function getCampoVocacao($vocacaoId){
-			return $this->vocacoes[$vocacaoId]["campo"];
+			if(array_key_exists($vocacaoId, $this->vocacoes))
+				return $this->vocacoes[$vocacaoId]["campo"];
+			return $this->vocacoes[$vocacaoId][0];
 		}
 		public function getNomeVocacao($vocacaoId){
-			return $this->vocacoes[$vocacaoId]["exibicao"];
+			if(array_key_exists($vocacaoId, $this->vocacoes))
+				return $this->vocacoes[$vocacaoId]["exibicao"];
+			return $this->vocacoes[0]["exibicao"];
 		}
 		public function validarPersonagemConta($personagemId, $contaId){
 			$contaPersonagemId = 0;
@@ -68,7 +78,7 @@
 			if(is_numeric($personagemId))
 				$queryPersonagem = mysql_query("SELECT * FROM players WHERE (id LIKE '$personagemId')");
 			else
-				$queryPersonagem = mysql_query("SELECT * FROM players WHERE (name LIKE '$personagemId')");
+				$queryPersonagem = mysql_query("SELECT * FROM players WHERE ((name LIKE '$personagemId') AND (deletion LIKE '0'))");
 			while($resultadoPersonagem = mysql_fetch_assoc($queryPersonagem))
 				$informacoesPersonagem = array(
 					"id" => $resultadoPersonagem["id"],
@@ -81,6 +91,7 @@
 					"vocacao_campo" => $this->getCampoVocacao($resultadoPersonagem["vocation"]),
 					"status" => $this->getStatusPersonagem($resultadoPersonagem["id"]),
 					"comentario" => $resultadoPersonagem["comentario"],
+					"deletar" => $resultadoPersonagem["deletion"],
 					"ocultar_conta" => $resultadoPersonagem["ocultar_conta"],
 					"ultimo_login" => $this->formatarLogin($resultadoPersonagem["lastlogin"])
 				);
@@ -90,11 +101,11 @@
 			$listaPersonagens = array();
 			$rank = 1;
 			if(!empty($tabelaRank))
-				$queryListaPersonagem = mysql_query("SELECT * FROM players ORDER BY $tabelaRank DESC LIMIT 0,".$this->limiteRank);
+				$queryListaPersonagem = mysql_query("SELECT * FROM players WHERE (deletion LIKE '0') ORDER BY $tabelaRank DESC LIMIT 0,".$this->limiteRank);
 			elseif(!empty($contaId))
 				$queryListaPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId')");
 			while($resultadoListaPersonagem = mysql_fetch_assoc($queryListaPersonagem))
-				if((empty($tabelaRank)) OR ((!empty($tabelaRank)) AND ($resultadoListaPersonagem["group_id"] == 1)))
+				if((empty($tabelaRank) AND (($resultadoListaPersonagem["deletion"] == 0) OR ($resultadoListaPersonagem["deletion"] >= time()))) OR ((!empty($tabelaRank)) AND ($resultadoListaPersonagem["group_id"] == 1) AND ($resultadoListaPersonagem["deletion"] == 0)))
 					$listaPersonagens[] = array(
 						"id" => $resultadoListaPersonagem["id"],
 						"nome" => $resultadoListaPersonagem["name"],
@@ -114,47 +125,42 @@
 						"vocacao_campo" => $this->getCampoVocacao($resultadoListaPersonagem["vocation"]),
 						"status" => $this->getStatusPersonagem($resultadoListaPersonagem["id"]),
 						"statusCompleto" => $this->getStatusPersonagem($resultadoListaPersonagem["id"], 1),
+						"deletar" => $resultadoListaPersonagem["deletion"],
 						"ocultar_conta" => $resultadoListaPersonagem["ocultar_conta"]
 					);
 			return $listaPersonagens;
-		}
-		public function getRank($rank){
-			$rank = 1;
-			$listaRank = array();
-			$queryListaPersonagem = mysql_query("SELECT * FROM players ORDER BY $rank ASC");
-			while($resultadoListaPersonagem = mysql_fetch_assoc($queryListaPersonagem))
-				if($resultadoListaPersonagem["group_id"] == 1)
-					$listaRank[] = array(
-						"id" => $resultadoListaPersonagem["id"],
-						"nome" => $resultadoListaPersonagem["name"],
-						"link" => '?p=personagens-'.urlencode($resultadoListaPersonagem["name"]),
-						"nivel" => $resultadoListaPersonagem["level"],
-						"experience" => $resultadoListaPersonagem["experience"],
-						"skill_fist" => $resultadoListaPersonagem["skill_fist"],
-						"skill_club" => $resultadoListaPersonagem["skill_club"],
-						"skill_sword" => $resultadoListaPersonagem["skill_sword"],
-						"skill_axe" => $resultadoListaPersonagem["skill_axe"],
-						"skill_dist" => $resultadoListaPersonagem["skill_dist"],
-						"skill_shielding" => $resultadoListaPersonagem["skill_shielding"],
-						"skill_fishing" => $resultadoListaPersonagem["skill_fishing"],
-						"rank" => $rank++
-					);
-			return $listaRank;
 		}
 		public function exibirListaPersonagens($listaPersonagens, $paginaConta = 0, $personagemAtualId = ""){
 			$exibirListaPersonagens = "";
 			if(count($listaPersonagens) > 0){
 				foreach($listaPersonagens as $c => $v){
 					$status = ($paginaConta == 0 ? $v["status"] : $v["statusCompleto"]);
-					$botoesConta = '
-						<input type="button" class="botao editar_personagem" personagem="'.$v["id"].'" value="Editar" /><br>
-						<input type="button" class="botao" value="Deletar" onClick="alert(\'Opção indisponível no momento.\');" style="margin-top: 2px;" />
+					$exibirTempoDeletado = $this->formatarData(time()+$this->transformarDiasTempo($this->diasDeletarPersonagem));
+					$statusDeletado = '
+						<b>Deletado</b> <div class="infoDeletado" exibirTempo="'.$exibirTempoDeletado.'"></div>
+						<div class="boxInfo">
+							<div class="HelperDivContainer">
+								<center>
+									<div class="HelperDivArrow"></div>
+									Esse personagem será deletado em:<br>
+									<b>'.$exibirTempoDeletado.'</b>.<br>
+									<br>
+									Você pode cancelar essa ação a qualquer momento antes dessa data.<br>
+									<br>
+									<img class="Ornament" src="imagens/corpo/ornamento.gif"><br>
+								</center>
+							</div>
+						</div>
 					';
-					$botoesPersonagem = '
-						<input type="button" class="botao" value="Ver" onClick="document.location = \''.$v["link"].'\';" />
-					';
+					$status = ($v["deletar"] > 0 ? $statusDeletado : $status);
+					$botoesContaPadrao = '<input type="button" class="botao editar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-editar\';" value="Editar" /><br>';
+					if(count($listaPersonagens) > 1)
+						$botoesContaPadrao .= '<input type="button" class="botao deletar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-deletar\';" value="Deletar" style="margin-top: 2px;" />';
+					$botoesContaDeletado = '<input type="button" class="botao cancelar_deletar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-cancelar\';" value="Cancelar Deletar" />';
+					$botoesConta = ($v["deletar"] > 0 ? $botoesContaDeletado : $botoesContaPadrao);
+					$botoesPersonagem = '<input type="button" class="botao" value="Ver" onClick="document.location = \''.$v["link"].'\';" />';
 					$botoes = ($paginaConta == 0 ? $botoesPersonagem : $botoesConta);
-					if(($paginaConta == 1) OR (($paginaConta == 0) AND(($v["ocultar_conta"] == 0)AND((!empty($personagemAtualId)) AND ($v["id"] != $personagemAtualId)))))
+					if(($paginaConta == 1) OR (($paginaConta == 0) AND ($v["deletar"] == 0) AND (($v["ocultar_conta"] == 0) AND ((!empty($personagemAtualId)) AND ($v["id"] != $personagemAtualId)))))
 						$exibirListaPersonagens .= '
 							<tr class="item">
 								<td width="10%">
@@ -198,6 +204,18 @@
 		public function editarPersonagem($personagemId, $campo, $valor){
 			if(mysql_query("UPDATE players SET $campo = '$valor' WHERE id = '$personagemId'"))
 				return true;
+			return false;
+		}
+		public function deletarPersonagem($personagemId, $informacoesConta, $dadosForm){
+			if((sha1($dadosForm["confirmar_senha"]) == $informacoesConta["password"]) AND ($dadosForm["chave_recuperacao"] == $informacoesConta["chave_recuperacao"]))
+				if(mysql_query("UPDATE players SET deletion = '".(time()+($this->transformarDiasTempo($this->diasDeletarPersonagem)))."' WHERE id = '$personagemId'"))
+					return true;
+			return false;
+		}
+		public function cancelarDeletarPersonagem($personagemId, $informacoesConta, $dadosForm){
+			if((sha1($dadosForm["confirmar_senha"]) == $informacoesConta["password"]) AND ($dadosForm["chave_recuperacao"] == $informacoesConta["chave_recuperacao"]))
+				if(mysql_query("UPDATE players SET deletion = '0' WHERE id = '$personagemId'"))
+					return true;
 			return false;
 		}
 	}

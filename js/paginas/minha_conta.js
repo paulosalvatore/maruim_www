@@ -1,6 +1,44 @@
 $(function(){
-	$(".editar_personagem").click(function(){
-		document.location = "?p=minha_conta-"+$(this).attr("personagem")+"-editar";
+	$(".infoDeletado").mouseenter(function(){
+		$(this).next(".boxInfo").show();
+	}).mouseleave(function(){
+		$(this).next(".boxInfo").hide();
+	});
+	$("#cancelar_deletar_personagem").submit(function(){
+		var personagemId = $(this).attr("personagem");
+		$.ajax({
+			url: "paginas/controladores/minha_conta.php",
+			data:({
+				acao: "cancelar_deletar_personagem",
+				personagemId: personagemId,
+				informacoesDeletarPersonagem: $(this).serialize()
+			}),
+			success: function(result){
+				if(result == 0)
+					$(".small_box_frame.erro").show();
+				else if(result == 1)
+					document.location = "?p=minha_conta-"+personagemId+"-cancelado";
+			}
+		}).responseText;
+		return false;
+	});
+	$("#deletar_personagem").submit(function(){
+		var personagemId = $(this).attr("personagem");
+		$.ajax({
+			url: "paginas/controladores/minha_conta.php",
+			data:({
+				acao: "deletar_personagem",
+				personagemId: personagemId,
+				informacoesDeletarPersonagem: $(this).serialize()
+			}),
+			success: function(result){
+				if(result == 0)
+					$(".small_box_frame.erro").show();
+				else if(result == 1)
+					document.location = "?p=minha_conta-"+personagemId+"-deletado";
+			}
+		}).responseText;
+		return false;
 	});
 	$("#informacoes_personagem").submit(function(){
 		var personagemId = $(this).attr("personagem");
