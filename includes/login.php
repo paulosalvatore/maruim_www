@@ -1,6 +1,5 @@
 <?php
 	require("../conexao/conexao.php");
-	// include("data.php");
 	header("Content-Type: text/html; charset=ISO-8859-1",true);
 	$formulario = $_REQUEST["formulario"];
 	parse_str(addslashes($formulario), $formulario);
@@ -13,7 +12,7 @@
 	else{
 		session_start();
 		$_SESSION["login"] = $conta;
-		// mysql_query("UPDATE accounts SET lastday = '$time' WHERE name = '$conta'");
+		$_SESSION["senha"] = $senha;
 		echo 1;
 	}
 ?>

@@ -39,6 +39,9 @@ a:hover {
 	text-decoration: underline;
 	color: #0063DC;
 }
+.padding {
+	padding: 5px;
+}
 #conteudo {
 	background: url(../imagens/fundo/background.jpg);
 	background-repeat: no-repeat;
@@ -640,15 +643,32 @@ img.ordenar {
 	border: 0;
 	cursor: pointer;
 }
-.botao_azul1 {
+.botao_azul2_1 {
 	position: relative;
 	margin-left: -145px;
 	width: 145px;
 }
-.botao_azul2 {
+.botao_azul2_2 {
 	position: relative;
 	margin-top: -25px;
 	margin-left: 145px;
+	width: 145px;
+}
+.botao_azul3_1 {
+	position: relative;
+	margin-left: -290px;
+	width: 145px;
+}
+.botao_azul3_2 {
+	position: relative;
+	margin-top: -25px;
+	margin-left: 0;
+	width: 145px;
+}
+.botao_azul3_3 {
+	position: relative;
+	margin-top: -25px;
+	margin-left: 290px;
 	width: 145px;
 }
 .fundo_botao_azul {
@@ -770,6 +790,27 @@ img.ordenar {
 	width: 100%;
 	margin-top: -1px;
 }
+.box_frame_conteudo_principal.ocultar_borda3 .box_frame_conteudo_borda3 {
+	border: 0;
+}
+.box_frame_conteudo_principal.borda2_padding .box_frame_conteudo_borda2 {
+	padding: 5px;
+}
+.box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_id,
+.box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_sd {
+	right: 21px;
+}
+.box_frame_conteudo_principal.ocultar_borda3 .box_frame_tabela_canto_id,
+.box_frame_conteudo_principal.ocultar_borda3 .box_frame_tabela_canto_sd {
+	right: 19px;
+	margin-top: 0;
+}
+.box_frame_conteudo_principal.borda2_padding .box_frame_conteudo_borda3 {
+	border: 0;
+}
+.box_frame_conteudo_principal.borda2_padding .tabela {
+	border: 1px solid #5F4D41;
+}
 .box_frame_conteudo_principal.padding .box_frame_conteudo_borda3 {
 	padding: 7px;
 }
@@ -818,7 +859,8 @@ img.ordenar {
 .box_frame_tabela_canto_sd {
 	background: url(../imagens/corpo/box_frame_tabela_sombra_canto_sd.png);
 	position: absolute;
-	right: 20.2px;
+	right: 12px;
+	margin-top: 1px;
 	width: 4px;
 	height: 5px;
 	z-index: 3;
@@ -826,7 +868,7 @@ img.ordenar {
 .box_frame_tabela_canto_id {
 	background: url(../imagens/corpo/box_frame_tabela_sombra_canto_id.png);
 	position: absolute;
-	right: 20px;
+	right: 12px;
 	width: 4px;
 	height: 5px;
 	z-index: 3;
@@ -843,7 +885,7 @@ img.ordenar {
 	position: relative;
 	background-repeat: repeat-y;
 	background-position: top right;
-	margin-right: 3px;
+	margin-right: 1px;
 	padding-right: 4px;
 }
 .box_frame_tabela_sombra_horizontal {

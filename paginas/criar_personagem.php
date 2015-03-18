@@ -116,10 +116,10 @@
 					'.$exibicao_formulario_criacao_personagem.'
 					<br>
 					<div align="center">
-						<div class="botao_azul1">
+						<div class="botao_azul2_1">
 							<input type="submit" class="botao_azul" value="criar_personagem" />
 						</div>
-						<div class="botao_azul2">
+						<div class="botao_azul2_2">
 							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\'" />
 						</div>
 					</div>

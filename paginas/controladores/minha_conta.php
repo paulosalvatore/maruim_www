@@ -15,7 +15,18 @@
 	if(count($informacoesConta) > 0){
 		$contaId = $informacoesConta["id"];
 		if(!empty($acao)){
-			if($acao == "editar_personagem"){
+			if($acao == "registrar_conta"){
+				parse_str(addslashes($informacoesRegistrarConta), $informacoesRegistrarConta);
+				if(($informacoesRegistrarConta["novo_email"] == $informacoesConta["email"]) AND (sha1($informacoesRegistrarConta["confirmar_senha"]) == $informacoesConta["password"])){
+					if($ClassConta->enviarEmailRegistro($informacoesConta))
+						echo 1;
+					else
+						echo 0;
+				}
+				else
+					echo 0;
+			}
+			elseif($acao == "editar_personagem"){
 				if(!empty($personagemId)){
 					if($ClassPersonagem->validarPersonagemConta($personagemId, $contaId)){
 						parse_str(addslashes($informacoesEditarPersonagem), $informacoesEditarPersonagem);
@@ -60,6 +71,32 @@
 						else
 							echo 0;
 					}
+					else
+						echo 0;
+				}
+				else
+					echo 0;
+			}
+			elseif($acao == "alterar_senha"){
+				parse_str(addslashes($informacoesAlterarSenha), $informacoesAlterarSenha);
+				if(($informacoesAlterarSenha["senha_atual"] != $informacoesAlterarSenha["nova_senha"]) AND ($informacoesConta["password"] == sha1($informacoesAlterarSenha["senha_atual"])) AND ($informacoesAlterarSenha["nova_senha"] == $informacoesAlterarSenha["confirmar_nova_senha"])){
+					if($ClassConta->editarConta($contaId, "password", sha1($informacoesAlterarSenha["nova_senha"]))){
+						session_unset();
+						echo 1;
+					}
+					else
+						echo 0;
+				}
+				else
+					echo 0;
+			}
+			elseif($acao == "alterar_email"){
+				parse_str(addslashes($informacoesAlterarEmail), $informacoesAlterarEmail);
+				$checarEmail = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM accounts WHERE ((email LIKE '".$informacoesAlterarEmail["novo_email"]."') OR (email_novo LIKE '".$informacoesAlterarEmail["novo_email"]."') OR (proximo_email LIKE '".$informacoesAlterarEmail["novo_email"]."'))"));
+				$checarEmail = $checarEmail["total"];
+				if(($informacoesConta["email"] != $informacoesAlterarEmail["novo_email"]) AND ($informacoesConta["password"] == sha1($informacoesAlterarEmail["confirmar_senha"])) AND (preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/', $informacoesAlterarEmail["novo_email"])) AND ($checarEmail == 0)){
+					if($ClassConta->solicitarAlteracaoEmail($informacoesConta, $informacoesAlterarEmail["novo_email"]))
+						echo 1;
 					else
 						echo 0;
 				}

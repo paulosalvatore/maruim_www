@@ -130,11 +130,11 @@
 					);
 			return $listaPersonagens;
 		}
-		public function exibirListaPersonagens($listaPersonagens, $paginaConta = 0, $personagemAtualId = ""){
+		public function exibirListaPersonagens($listaPersonagens, $contaId = 0, $personagemAtualId = ""){
 			$exibirListaPersonagens = "";
 			if(count($listaPersonagens) > 0){
 				foreach($listaPersonagens as $c => $v){
-					$status = ($paginaConta == 0 ? $v["status"] : $v["statusCompleto"]);
+					$status = ($contaId == 0 ? $v["status"] : $v["statusCompleto"]);
 					$exibirTempoDeletado = $this->formatarData(time()+$this->transformarDiasTempo($this->diasDeletarPersonagem));
 					$statusDeletado = '
 						<b>Deletado</b> <div class="infoDeletado" exibirTempo="'.$exibirTempoDeletado.'"></div>
@@ -154,26 +154,27 @@
 					';
 					$status = ($v["deletar"] > 0 ? $statusDeletado : $status);
 					$botoesContaPadrao = '<input type="button" class="botao editar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-editar\';" value="Editar" /><br>';
-					if(count($listaPersonagens) > 1)
+					$verificarDeletarPersonagem = $this->verificarDeletarPersonagem($listaPersonagens, $contaId);
+					if($verificarDeletarPersonagem)
 						$botoesContaPadrao .= '<input type="button" class="botao deletar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-deletar\';" value="Deletar" style="margin-top: 2px;" />';
 					$botoesContaDeletado = '<input type="button" class="botao cancelar_deletar_personagem" onClick="document.location = \'?p=minha_conta-'.$v["id"].'-cancelar\';" value="Cancelar Deletar" />';
 					$botoesConta = ($v["deletar"] > 0 ? $botoesContaDeletado : $botoesContaPadrao);
 					$botoesPersonagem = '<input type="button" class="botao" value="Ver" onClick="document.location = \''.$v["link"].'\';" />';
-					$botoes = ($paginaConta == 0 ? $botoesPersonagem : $botoesConta);
-					if(($paginaConta == 1) OR (($paginaConta == 0) AND ($v["deletar"] == 0) AND (($v["ocultar_conta"] == 0) AND ((!empty($personagemAtualId)) AND ($v["id"] != $personagemAtualId)))))
+					$botoes = ($contaId == 0 ? $botoesPersonagem : $botoesConta);
+					if(($contaId > 0) OR (($contaId == 0) AND ($v["deletar"] == 0) AND (($v["ocultar_conta"] == 0) AND ((!empty($personagemAtualId)) AND ($v["id"] != $personagemAtualId)))))
 						$exibirListaPersonagens .= '
 							<tr class="item">
 								<td width="10%">
 									<img src="imagens/vocacoes/'.$v["vocacao_campo"].'_miniatura.png">
 								</td>
-								<td width="50%">
+								<td width="40%">
 									<a href="'.$v["link"].'"><span class="grande">'.$v["nome"].'</span></a><br>
 									<b>'.$v["vocacao"].' - Nível '.$v["nivel"].'</b>
 								</td>
 								<td width="20%" align="center">
 									'.$status.'
 								</td>
-								<td width="20%" align="center">
+								<td width="25%" align="center">
 									'.$botoes.'
 								</td>
 							</tr>
@@ -181,6 +182,19 @@
 				}
 			}
 			return $exibirListaPersonagens;
+		}
+		public function verificarDeletarPersonagem($listaPersonagens, $contaId){
+			$deletar = 0;
+			$ClassConta = new Conta();
+			$informacoesConta = $ClassConta->getInformacoesConta($contaId, true);
+			if(empty($informacoesConta["chave_recuperacao"]))
+				return false;
+			foreach($listaPersonagens as $c => $v)
+				if($v["deletar"] > 0)
+					$deletar++;
+			if($deletar == count($listaPersonagens)-1)
+				return false;
+			return true;
 		}
 		public function getUltimoPersonagem($contaId){
 			$personagemId = 0;
@@ -207,7 +221,9 @@
 			return false;
 		}
 		public function deletarPersonagem($personagemId, $informacoesConta, $dadosForm){
-			if((sha1($dadosForm["confirmar_senha"]) == $informacoesConta["password"]) AND ($dadosForm["chave_recuperacao"] == $informacoesConta["chave_recuperacao"]))
+			if	((sha1($dadosForm["confirmar_senha"]) == $informacoesConta["password"]) AND
+				($dadosForm["chave_recuperacao"] == $informacoesConta["chave_recuperacao"]) AND
+				($this->verificarDeletarPersonagem($this->getListaPersonagens($informacoesConta["id"]), $informacoesConta["id"])))
 				if(mysql_query("UPDATE players SET deletion = '".(time()+($this->transformarDiasTempo($this->diasDeletarPersonagem)))."' WHERE id = '$personagemId'"))
 					return true;
 			return false;

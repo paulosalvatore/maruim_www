@@ -8,18 +8,25 @@
 	include("includes/config.php");
 	include("includes/conteudo_nao_encontrado.php");
 	$login = $_SESSION["login"];
+	$senha = $_SESSION["senha"];
 	$usuarioEncontrado = false;
 	include("includes/classes/ClassConta.php");
+	include("includes/classes/ClassFuncao.php");
 	$ClassConta = new Conta();
-	$informacoesConta = $ClassConta->getInformacoesConta($login);
-	if(count($informacoesConta) > 0){
-		$usuarioEncontrado = true;
-		$accountId = $informacoesConta["id"];
-		if($informacoesConta["ultimo_acesso"] > 0)
-			$ClassConta->registrarUltimoAcesso($accountId);
+	$ClassFuncao = new Funcao();
+	if(!empty($login) OR (!empty($senha))){
+		if($ClassConta->validarConta($login, $senha)){
+			$informacoesConta = $ClassConta->getInformacoesConta($login);
+			if(count($informacoesConta) > 0){
+				$usuarioEncontrado = true;
+				$accountId = $informacoesConta["id"];
+				if($informacoesConta["ultimo_acesso"] > 0)
+					$ClassConta->registrarUltimoAcesso($accountId);
+			}
+		}
+		else
+			session_unset();
 	}
-	if((!isset($login)) OR (!$usuarioEncontrado))
-		session_unset();
 	if((in_array($pagina, $config["login_obrigatorio"])) AND (!$usuarioEncontrado)){
 		$incluir_arquivo = "login_necessario";
 		session_unset();

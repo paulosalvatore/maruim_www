@@ -4,6 +4,54 @@ $(function(){
 	}).mouseleave(function(){
 		$(this).next(".boxInfo").hide();
 	});
+	$("#alterar_email").submit(function(){
+		$.ajax({
+			url: "paginas/controladores/minha_conta.php",
+			data:({
+				acao: "alterar_email",
+				informacoesAlterarEmail: $(this).serialize()
+			}),
+			success: function(result){
+				if(result == 0)
+					$(".small_box_frame.erro").show();
+				else if(result == 1)
+					document.location = "?p=minha_conta-alterar_email-email_enviado";
+			}
+		}).responseText;
+		return false;
+	});
+	$("#alterar_senha").submit(function(){
+		$.ajax({
+			url: "paginas/controladores/minha_conta.php",
+			data:({
+				acao: "alterar_senha",
+				informacoesAlterarSenha: $(this).serialize()
+			}),
+			success: function(result){
+				if(result == 0)
+					$(".small_box_frame.erro").show();
+				else if(result == 1)
+					document.location = "?p=minha_conta-alterar_senha-senha_alterada";
+			}
+		}).responseText;
+		return false;
+	});
+	$("#registrar_conta").submit(function(){
+		$.ajax({
+			url: "paginas/controladores/minha_conta.php",
+			data:({
+				acao: "registrar_conta",
+				informacoesRegistrarConta: $(this).serialize()
+			}),
+			success: function(result){
+				if(result == 0)
+					$(".small_box_frame.erro").show();
+				else if(result == 1)
+					document.location = "?p=minha_conta-registrar-email_enviado";
+			}
+		}).responseText;
+		return false;
+	});
 	$("#cancelar_deletar_personagem").submit(function(){
 		var personagemId = $(this).attr("personagem");
 		$.ajax({
