@@ -235,9 +235,12 @@
 			<brush name="mossy stone"/>
 			<brush name="desert palm trees"/>
 			<brush name="cactus"/>
-			<brush name="green trees"/>
 			<brush name="dead trees"/>
+			<brush name="green trees"/>
+			<brush name="color trees"/>
 			<brush name="trees"/>
+			<brush name="trees 2"/>
+			<brush name="trees 3"/>
 			<brush name="palm trees"/>
 			<brush name="broken palm trees"/>
 			<brush name="mangrove tree"/>
@@ -246,8 +249,10 @@
 			<brush name="dead mangrove tree (on water)"/>
 			<brush name="bushes"/>
 			<brush name="blueberry bushes"/>
+			<brush name="bushes 2"/>
 			<brush name="banana tree"/>
 			<brush name="mango tree"/>
+			<brush name="orange tree"/>
 			<item id="6094"/>
 			<brush name="dead bushes"/>
 			<brush name="swamp plants"/>
@@ -304,7 +309,8 @@
 			<brush name="prism cave crystal"/>
 			<brush name="gray rocks"/>
 			<brush name="brown rocks"/>
-			<brush name="small rocks"/>
+			<brush name="small rocks (non walkables)"/>
+			<brush name="small rocks (walkables)"/>
 			<brush name="staglamites"/>
 			<brush name="weird shaped stones"/>
 			<brush name="debris"/>

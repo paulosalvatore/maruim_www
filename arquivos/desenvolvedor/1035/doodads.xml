@@ -182,8 +182,39 @@
 		<item id="2707" chance="10"/>
 		<item id="2708" chance="10"/>
 		<item id="2711" chance="10"/>
+		<item id="2712" chance="10"/>
 		<item id="2702" chance="10"/>
 		<item id="7024" chance="10"/>
+	</brush>
+	
+	<brush name="trees 2" type="doodad" server_lookid="10917" draggable="true" on_blocking="false" thickness="100/100">
+		<item id="10917" chance="1"/>
+		<item id="10729" chance="1"/>
+		<item id="10504" chance="1"/>
+		<item id="10143" chance="1"/>
+		<item id="10912" chance="1"/>
+	</brush>
+	
+	<brush name="trees 3" type="doodad" server_lookid="20759" draggable="true" on_blocking="false" thickness="100/100">
+		<item id="20759" chance="1"/>
+		<item id="20761" chance="1"/>
+		<item id="20762" chance="1"/>
+	</brush>
+	
+	<brush name="green trees" type="doodad" server_lookid="2701" draggable="true" on_blocking="false" thickness="100/100">
+		<item id="2700" chance="1"/>
+		<item id="2701" chance="1"/>
+		<item id="2702" chance="1"/>
+		<item id="2703" chance="1"/>
+		<item id="2705" chance="1"/>
+		<item id="2707" chance="1"/>
+		<item id="2708" chance="1"/>
+		<item id="2712" chance="1"/>
+	</brush>
+	
+	<brush name="color trees" type="doodad" server_lookid="2704" draggable="true" on_blocking="false" thickness="100/100">
+		<item id="2704" chance="1"/>
+		<item id="2706" chance="1"/>
 	</brush>
 	
 	<brush name="tree stubs" type="doodad" server_lookid="5092" draggable="true" on_blocking="false" thickness="12/100">
@@ -259,22 +290,24 @@
 		</composite>
 	</brush>
 	
-	<brush name="small rocks" type="doodad" server_lookid="3610" draggable="true" on_blocking="true" thickness="50/100">
-		<item id="3607" chance="3"/>
-		<item id="3615" chance="3"/>
-		<item id="1285" chance="3"/>
-		<item id="3616" chance="3"/>
-		<item id="3608" chance="3"/>
-		<item id="3609" chance="3"/>
-		<item id="3610" chance="3"/>
-		<item id="3611" chance="10"/>
-		<item id="3612" chance="12"/>
-		<item id="3613" chance="8"/>
-		<item id="3614" chance="8"/>
-		<!-- <item id="3621" chance="20"/>
-		<item id="3622" chance="20"/>
-		<item id="3623" chance="20"/> -->
-		<!-- <item id="3665" chance="10"/> -->
+	<brush name="small rocks (non walkables)" type="doodad" server_lookid="3610" draggable="true" on_blocking="false" thickness="50/100">
+		<item id="1285" chance="1"/>
+		<item id="3607" chance="1"/>
+		<item id="3608" chance="1"/>
+		<item id="3609" chance="1"/>
+		<item id="3610" chance="1"/>
+		<item id="3615" chance="1"/>
+		<item id="3616" chance="1"/>
+	</brush>
+	
+	<brush name="small rocks (walkables)" type="doodad" server_lookid="3611" draggable="true" on_blocking="false" thickness="50/100">
+		<item id="3611" chance="1"/>
+		<item id="3612" chance="1"/>
+		<item id="3613" chance="1"/>
+		<item id="3614" chance="1"/>
+		<item id="3621" chance="1"/>
+		<item id="3622" chance="1"/>
+		<item id="3623" chance="1"/>
 	</brush>
 	
 	<brush name="debris" type="doodad" server_lookid="3648" draggable="true" on_blocking="true" thickness="25/100">
@@ -603,14 +636,26 @@
 		<alternate> <item id="2786" chance="10"/> </alternate>
 	</brush>
 	
+	<brush name="bushes 2" type="doodad" server_lookid="20760" draggable="true" on_blocking="false" thickness="15/100">
+		<item id="20760" chance="1"/>
+		<item id="20763" chance="1"/>
+		<item id="20764" chance="1"/>
+		<item id="20765" chance="1"/>
+	</brush>
+	
 	<brush name="banana tree" type="doodad" server_lookid="5390" draggable="true" on_blocking="false" thickness="13/100">
 		<alternate> <item id="5390" chance="10"/> </alternate>
 		<alternate> <item id="5391" chance="10"/> </alternate>
 	</brush>
 	
 	<brush name="mango tree" type="doodad" server_lookid="5157" draggable="true" on_blocking="false" thickness="13/100">
-		<item id="5157" chance="10"/>
-		<item id="5156" chance="10"/>
+		<item id="5157" chance="1"/>
+		<item id="5156" chance="1"/>
+	</brush>
+	
+	<brush name="orange tree" type="doodad" server_lookid="4006" draggable="true" on_blocking="false" thickness="13/100">
+		<item id="4006" chance="1"/>
+		<item id="4008" chance="1"/>
 	</brush>
 	
 	<brush name="mangrove tree" type="doodad" server_lookid="5393" draggable="true" on_blocking="false" thickness="13/100">
