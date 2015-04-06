@@ -215,15 +215,15 @@
 			<brush name="branches"/>
 			<brush name="small brook"/>
 			<brush name="fallen leaves"/>
-			<brush name="grimmy woodh"/>
-			<brush name="grimmy woodv"/>
-			<brush name="wooden floor 3"/>
 			<brush name="dirt mountain"/>
 			<brush name="muddy floor 2"/>
 			<brush name="dark sand 2"/>
 			<brush name="roshamuul sand"/>
 			<brush name="roshamuul mud"/>
 			<brush name="sandstone mountain"/>
+			<brush name="dried leaves"/>
+			<brush name="dead leaves"/>
+			<brush name="mushrooms"/>
 		</terrain>
 		<doodad>
 			<brush name="mossy wall"/>
@@ -501,6 +501,9 @@
 			<brush name="dark sandstone"/>
 			<brush name="sandstone"/>
 			<brush name="white marble floor"/>
+			<brush name="white marble floor 2"/>
+			<brush name="white marble floor 3"/>
+			<brush name="white marble floor 4"/>
 			<brush name="black marble floor"/>
 			<brush name="gray stone tiles"/>
 			<brush name="gray stone tiles pressed"/>
@@ -519,6 +522,9 @@
 			<brush name="dark stone floor"/>
 			<brush name="serpent ground"/>
 			<brush name="rocky floor"/>
+			<brush name="grimmy woodh"/>
+			<brush name="grimmy woodv"/>
+			<brush name="wooden floor 3"/>
 			<brush name="green corrupted wall"/>
 			<brush name="green corrupted railing"/>
 			<brush name="red corrupted wall"/>
@@ -646,9 +652,9 @@
 			<item fromid="7924" toid="7925"/>
 			<brush name="wooden ladder hole"/>
 			<brush name="wooden trapdoor"/>
+			<brush name="wooden trapdoor ladder down"/>
 			<brush name="stairs down"/>
 			<brush name="trapdoor down"/>
-			<brush name="trapdoor ladder down"/>
 			<brush name="trapdoor ladder down"/>
 			<brush name="stone stairway"/>
 			<brush name="black stone stairs"/>
@@ -828,9 +834,6 @@
 			<brush name="blue carpet"/>
 			<brush name="green carpet"/>
 			<brush name="brown carpet"/>
-			<brush name="dried leaves"/>
-			<brush name="dead leaves"/>
-			<brush name="mushrooms"/>
 		</doodad>
 		<raw>
 			<item fromid="1602" toid="1808"/>

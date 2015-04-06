@@ -2050,6 +2050,10 @@
 		<optional id="41"/>
 	</brush>
 	
+	<brush name="wooden trapdoor ladder down" type="ground" server_lookid="427" z-order="7505">
+		<item id="427" chance="1"/>
+	</brush>
+	
 	<brush name="stairs down" type="ground" server_lookid="411" z-order="8000">
 		<item id="411" chance="1"/>
 		<item id="423" chance="0"/>
@@ -2105,7 +2109,18 @@
 	
 	<brush name="white marble floor" type="ground" server_lookid="406" z-order="1">
 		<item id="406" chance="1"/>
-		
+	</brush>
+	
+	<brush name="white marble floor 2" type="ground" server_lookid="9144" z-order="1">
+		<item id="9144" chance="1"/>
+	</brush>
+	
+	<brush name="white marble floor 3" type="ground" server_lookid="9145" z-order="1">
+		<item id="9145" chance="1"/>
+	</brush>
+	
+	<brush name="white marble floor 4" type="ground" server_lookid="9146" z-order="1">
+		<item id="9146" chance="1"/>
 	</brush>
 	
 	<brush name="dark tiled sandstone" type="ground" server_lookid="412" z-order="7500">
@@ -2625,6 +2640,7 @@
 		<item id="458" chance="1"/>
 		
 		<border align="outer" id="154"/>
+		<border align="outer" to="none" id="154"/>
 	</brush>
 	
 	<brush name="earth tile" type="ground" server_lookid="11490" z-order="11000">

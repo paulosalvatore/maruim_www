@@ -3090,8 +3090,8 @@
 		</composite>
 	</brush>
 	
-	<brush name="bear skin rug" type="doodad" server_lookid="3855" draggable="true" on_blocking="true" thickness="100/100">
-		<item chance="10" id="3860"/>
+	<brush name="bear skin rug" type="doodad" server_lookid="3860" draggable="true" on_blocking="true" thickness="100/100">
+		<item id="3860" chance="10"/>
 	</brush>
 	
 	<brush name="red carpet" type="carpet" server_lookid="4398">
