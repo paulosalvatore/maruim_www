@@ -652,7 +652,7 @@
 			<item fromid="7924" toid="7925"/>
 			<brush name="wooden ladder hole"/>
 			<brush name="wooden trapdoor"/>
-			<brush name="wooden trapdoor ladder down"/>
+			<brush name="wooden ladder trapdoor"/>
 			<brush name="stairs down"/>
 			<brush name="trapdoor down"/>
 			<brush name="trapdoor ladder down"/>
