@@ -1684,4 +1684,19 @@
 		<borderitem edge="cne" item="18152"/>
 	</border>
 	
+	<border id="188"> -- crystal floor optional border --
+		<borderitem edge="s"   item="17456"/>
+		<borderitem edge="n"   item="17457"/>
+		<borderitem edge="e"   item="17458"/>
+		<borderitem edge="w"   item="17459"/>
+		<borderitem edge="dse" item="17460"/>
+		<borderitem edge="dsw" item="17461"/>
+		<borderitem edge="dnw" item="17462"/>
+		<borderitem edge="dne" item="17463"/>
+		<borderitem edge="cse" item="17464"/>
+		<borderitem edge="csw" item="17465"/>
+		<borderitem edge="cnw" item="17466"/>
+		<borderitem edge="cne" item="17467"/>
+	</border>
+	
 </materials>

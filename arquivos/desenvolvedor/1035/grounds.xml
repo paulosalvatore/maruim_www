@@ -211,7 +211,7 @@
 		<friend name="ice closed stone pile"/>
 	</brush>
 	
-	<brush name="snow" type="ground" server_lookid="6838" z-order="5505">
+	<brush name="snow" type="ground" server_lookid="6838" z-order="7970">
 		<item id="6580" chance="10"/>
 		<item id="6581" chance="10"/>
 		<item id="6582" chance="10"/>
@@ -2437,7 +2437,7 @@
 		<item id="18004" chance="25"/>
 	</brush>
 	
-	<brush name="crystal floor" type="ground" server_lookid="17437" z-order="7960">
+	<brush name="crystal floor" type="ground" server_lookid="17437" z-order="7960" solo_optional="true">
 		<item id="17437" chance="20"/>
 		<item id="17438" chance="20"/>
 		<item id="17439" chance="20"/>
@@ -2447,7 +2447,8 @@
 		<item id="17443" chance="20"/>
 		
 		<border align="outer" id="140"/>
-		<border align="inner" to="none" id="1"/>
+		<border align="outer" to="none" id="140"/>
+		<optional id="188"/>
 	</brush>
 	
 	<brush name="basalt floor" type="ground" server_lookid="17625" z-order="8000">
