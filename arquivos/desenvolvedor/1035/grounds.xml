@@ -2841,7 +2841,7 @@
 		<border align="outer" to="none" id="177"/>
 	</brush>
 	
-	<brush name="dirt mountain" type="ground" server_lookid="7975" z-order="12000">
+	<brush name="dirt mountain" type="ground" server_lookid="7975" z-order="22000">
 		<item id="8133" chance="1"/>
 		
 		<border align="outer" id="170"/>
@@ -2925,5 +2925,17 @@
 		
 		<border align="outer" id="186"/>
 		<border align="outer" to="none" id="186"/>
+	</brush>
+	
+	<brush name="stone floor 2" type="ground" server_lookid="3152" z-order="1000">
+		<item id="3152" chance="1"/>
+	</brush>
+	
+	<brush name="stone floor 3" type="ground" server_lookid="3153" z-order="1000">
+		<item id="3153" chance="1"/>
+		<item id="3154" chance="1"/>
+		<item id="3155" chance="1"/>
+		<item id="3156" chance="1"/>
+		<item id="3157" chance="1"/>
 	</brush>
 </materials>
