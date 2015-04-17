@@ -24,6 +24,16 @@ function gravarCookies(tipo){
 		gerarCookie("opcoes", o, 700);
 	}
 };
+function inserirMensagemErro(mensagem, tipo){
+	var elemento_principal = $(".small_box_frame");
+	var elemento = $(".small_box_frame .mensagem");
+	if(tipo == "sucesso" && elemento_principal.hasClass("erro"))
+		elemento_principal.addClass("sucesso").removeClass("erro");
+	else if(tipo == "erro" && elemento_principal.hasClass("sucesso"))
+		elemento_principal.addClass("erro").removeClass("sucesso");
+	elemento.html(mensagem);
+	elemento_principal.show();
+};
 $(function(){
 	var pagina = $("#conteudo").attr("pagina");
 	$("#barra_esquerda .opcoes .opcao."+pagina).addClass("ativo");

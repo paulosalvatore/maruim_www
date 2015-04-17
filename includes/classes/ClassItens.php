@@ -2,7 +2,10 @@
 	set_time_limit(36000);
 	class Itens {
 		public function loadXML(){
-			return simplexml_load_file("arquivos/itens/items.xml");
+			$arquivo = "arquivos/itens/items.xml";
+			if(!is_file($arquivo))
+				$arquivo = "../".$arquivo;
+			return simplexml_load_file($arquivo);
 		}
 		public function exibirItem($loot, $item){
 			// $itemId = $item["item_id"];

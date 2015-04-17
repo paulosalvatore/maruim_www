@@ -704,13 +704,12 @@ img.ordenar {
 .small_box_frame {
 	background: #D4C0A1;
 }
-.small_box_frame.erro {
-	color: red;
+.small_box_frame {
 	font-size: 11px;
 	display: none;
 	margin-bottom: 20px;
 }
-.small_box_frame.erro .texto {
+.small_box_frame .texto {
 	text-align: left;
 	padding-left: 8px;
 	padding-top: 5px;
@@ -718,6 +717,12 @@ img.ordenar {
 }
 .small_box_frame .atencao {
 	background: url(../imagens/corpo/atencao.gif);
+}
+.small_box_frame.erro {
+	color: red;
+}
+.small_box_frame.sucesso {
+	color: green;
 }
 .small_box_frame .borda_horizontal,
 .box_frame .borda_horizontal {
@@ -790,7 +795,17 @@ img.ordenar {
 	width: 100%;
 	margin-top: -1px;
 }
+.box_frame_conteudo_principal.dark .box_frame_conteudo_borda2 {
+	background: #D4C0A1;
+}
+.box_frame_conteudo_principal.ocultar_bordas .box_frame_conteudo_borda2 {
+	padding: 10px;
+}
+.box_frame_conteudo_principal.ocultar_bordas .box_frame_conteudo_borda3,
 .box_frame_conteudo_principal.ocultar_borda3 .box_frame_conteudo_borda3 {
+	border: 0;
+}
+.box_frame_conteudo_principal.ocultar_bordas .box_frame_conteudo_borda4 {
 	border: 0;
 }
 .box_frame_conteudo_principal.borda2_padding .box_frame_conteudo_borda2 {
@@ -987,9 +1002,27 @@ ul li {
 }
 textarea {
 	resize: vertical;
-	width: 98%;
+	width: 99%;
 	height: 100px;
 	max-height: 150px;
+}
+#criar_npc input[type=text] {
+	width: 100px;
+}
+#criar_npc .vazio td {
+	padding: 15px 0 15px 0;
+}
+#criar_npc .small_box_frame {
+	font-weight: bold;
+}
+#criar_npc .remover_item {
+	background: url(../imagens/geral/excluir.png);
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	position: absolute;
+	right: 7px;
+	margin-top: -16px;
 }
 .infoDeletado {
 	background: url(../imagens/corpo/info.gif);

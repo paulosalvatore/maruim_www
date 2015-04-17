@@ -86,7 +86,8 @@
 				"desenvolvedor_downloads" => "Downloads",
 				"desenvolvedor_informacoes_uteis" => "Informações Úteis",
 				"desenvolvedor_ids_utilizadas" => "IDs Utilizadas",
-				"tarefas_jogo" => "Tarefas do Jogo"
+				"tarefas_jogo" => "Tarefas do Jogo",
+				"criar_npc" => "Criar NPC"
 			)
 		)
 	);

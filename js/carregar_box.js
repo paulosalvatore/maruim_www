@@ -34,7 +34,7 @@ $(function(){
 							<td width="40">\
 								<img src="imagens/corpo/atencao.gif">\
 							</td>\
-							<td>\
+							<td class="mensagem">\
 								'+$(this).html()+'\
 							</td>\
 						</tr>\
