@@ -4,6 +4,7 @@
 	$itensValores = $_REQUEST["itensValores"];
 	$tipo = $_REQUEST["tipo"];
 	if($area == "carregar_itens"){
+		header("Content-Type: text/html; charset=ISO-8859-1", true);
 		include("../includes/classes/ClassItens.php");
 		$ClassItens = new Itens();
 		if(count($itens) > 0){

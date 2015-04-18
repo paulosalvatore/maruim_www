@@ -12,7 +12,6 @@ $(function(){
 	$("#incluir").click(function(){
 		var item_id = parseInt($("#item_id").val());
 		var valor = parseInt($("#valor").val());
-		console.log(item_id, valor);
 		if((isNaN(item_id)) || (item_id == 0) || (isNaN(valor)) || (valor == 0)){
 			if((isNaN(item_id)) || (item_id == 0))
 				$("#item_id").focus();
@@ -65,7 +64,6 @@ $(function(){
 				tipo: tipo
 			}),
 			success: function(result){
-				console.log(result);
 				if(parseInt(result) == 0){
 					inserirMensagemErro("Falha ao gerar o XML. Insira pelo menos um item válido.", "erro");
 					$("#resultado").html("");
