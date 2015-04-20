@@ -292,10 +292,10 @@
 			<door id="5118" type="normal" open="true"/>
 			<door id="5119" type="locked" open="false"/>
 			<door id="5120" type="locked" open="true"/>
-			<door id="5121" type="quest" open="false"/>
-			<door id="5122" type="quest" open="true"/>
-			<door id="5123" type="magic" open="false"/>
-			<door id="5124" type="magic" open="true"/>
+			<door id="5121" type="magic" open="false"/>
+			<door id="5122" type="magic" open="true"/>
+			<door id="5123" type="quest" open="false"/>
+			<door id="5124" type="quest" open="true"/>
 			<door id="3393" type="normal" open="false"/>
 			<door id="3394" type="normal" open="true"/>
 			<door id="5478" type="hatch window" open="false"/>
@@ -333,10 +333,10 @@
 			<door id="5127" type="normal" open="true"/>
 			<door id="5128" type="locked" open="false"/>
 			<door id="5129" type="locked" open="true"/>
-			<door id="5130" type="quest" open="false"/>
-			<door id="5131" type="quest" open="true"/>
-			<door id="5132" type="magic" open="false"/>
-			<door id="5133" type="magic" open="true"/>
+			<door id="5130" type="magic" open="false"/>
+			<door id="5131" type="magic" open="true"/>
+			<door id="5132" type="quest" open="false"/>
+			<door id="5133" type="quest" open="true"/>
 			<door id="5134" type="normal" open="false"/>
 			<door id="5135" type="normal" open="true"/>
 			<door id="5479" type="hatch window" open="false"/>
@@ -1093,24 +1093,22 @@
 	
 	<brush name="sample stone wall" type="wall" server_lookid="3458">
 		<wall type="horizontal">
-			<item id="3458" chance="2000"/>
-			<item id="3457" chance="20"/>
-			<item id="3469" chance="20"/>
-			<item id="3470" chance="20"/>
+			<item id="3458" chance="4"/>
+			<item id="3457" chance="1"/>
+			<item id="3455" chance="1"/>
 			<door id="3472" type="normal" open="false"/>
 		</wall>
 		<wall type="vertical">
-			<item id="3460" chance="2000"/>
-			<item id="3459" chance="20"/>
-			<item id="3465" chance="20"/>
-			<item id="3466" chance="20"/>
+			<item id="3460" chance="4"/>
+			<item id="3459" chance="1"/>
+			<item id="3456" chance="1"/>
 			<door id="3468" type="normal" open="false"/>
 		</wall>
 		<wall type="corner">
-			<item id="3461" chance="20"/>
+			<item id="3461" chance="1"/>
 		</wall>
 		<wall type="pole">
-			<item id="3462" chance="20"/>
+			<item id="3462" chance="1"/>
 		</wall>
 	</brush>
 	
@@ -1434,12 +1432,14 @@
 	
 	<brush name="lizard stone wall" type="wall" server_lookid="3454">
 		<wall type="horizontal">
-			<item id="3454" chance="1"/>
-			<door id="3471" type="window"/>
+			<item id="3454" chance="5"/>
+			<item id="3469" chance="1"/>
+			<item id="3470" chance="1"/>
 		</wall>
 		<wall type="vertical">
-			<item id="3463" chance="1"/>
-			<door id="3467" type="window"/>
+			<item id="3463" chance="5"/>
+			<item id="3465" chance="1"/>
+			<item id="3466" chance="1"/>
 		</wall>
 		<wall type="corner">
 			<item id="3473" chance="1"/>
