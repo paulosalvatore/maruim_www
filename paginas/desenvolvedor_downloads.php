@@ -31,12 +31,12 @@
 						"exibicao" => "Tibia Clients e afins",
 						"itens" => array(
 							"1035" => array(
-								"nome" => "Tibia Client 10.76",
+								"nome" => "Tibia Client 10.77",
 								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1076.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1076",
+								"arquivo" => "tibia1077.exe",
+								"link_externo" => "http://clients.tibiaking.com/client/windows/1077",
 								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.76, necessário para o Map Editor e para jogar.",
+								"descricao" => "Instalação do Tibia Client 10.77, necessário para o Map Editor e para jogar.",
 							),
 							"ipchanger" => array(
 								"nome" => "IP Changer",
