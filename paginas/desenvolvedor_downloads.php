@@ -12,16 +12,16 @@
 							"ferramentas" => array(
 								"nome" => "Ferramentas do Mapa",
 								"imagem" => "RME_atualizacao.png",
-								"arquivo" => "1035.rar",
+								"arquivo" => "1076.rar",
 								"link_externo" => "",
 								"exibir_ultima_atualizacao" => true,
-								"descricao" => "Atualização do map editor e de ferramentas de auto border desenvolvidas por mim.",
+								"descricao" => "Atualização do map editor e de ferramentas úteis desenvolvidas por mim e pelo Murilo.",
 							),
 							"map_editor" => array(
 								"nome" => "Remere's Map Editor (RME)",
 								"imagem" => "RME.png",
-								"arquivo" => "Remere's Map Editor rev 131.rar",
-								"link_externo" => "https://mega.co.nz/#!udUGTQwZ!b2nIL-TQ_3vC5JpGzp4AmOTHZep_cYMiLU-9tYdRp9k",
+								"arquivo" => "Remere's Map Editor rev 189.rar",
+								"link_externo" => "https://mega.co.nz/#!PtdlVKQZ!GJsxOza35IbmVrcF9V6XGcihQqxTNdkT2jkDs9Rs2GY",
 								"exibir_ultima_atualizacao" => false,
 								"descricao" => "Programa utilizado para edição do mapa.",
 							)
@@ -31,20 +31,12 @@
 						"exibicao" => "Tibia Clients e afins",
 						"itens" => array(
 							"1035" => array(
-								"nome" => "Tibia Client 10.35",
+								"nome" => "Tibia Client 10.76",
 								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1035.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1035",
+								"arquivo" => "tibia1076.exe",
+								"link_externo" => "http://clients.tibiaking.com/client/windows/1076",
 								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.35, necessário para o Map Editor.",
-							),
-							"1037" => array(
-								"nome" => "Tibia Client 10.41",
-								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1041.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1041",
-								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.41, versão utilizada para jogar.",
+								"descricao" => "Instalação do Tibia Client 10.76, necessário para o Map Editor e para jogar.",
 							),
 							"ipchanger" => array(
 								"nome" => "IP Changer",
