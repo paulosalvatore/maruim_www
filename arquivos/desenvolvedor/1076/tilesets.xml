@@ -224,6 +224,9 @@
 			<brush name="dried leaves"/>
 			<brush name="dead leaves"/>
 			<brush name="mushrooms"/>
+			<brush name="hive structure 1"/>
+			<brush name="hive structure 2"/>
+			<brush name="hive structure 3"/>
 		</terrain>
 		<doodad>
 			<brush name="mossy wall"/>

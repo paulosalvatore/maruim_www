@@ -2938,4 +2938,55 @@
 		<item id="3156" chance="1"/>
 		<item id="3157" chance="1"/>
 	</brush>
+	
+	<brush name="hive structure 1" type="ground" server_lookid="14355" z-order="20000" solo_optional="true">
+		<item id="14355" chance="1"/>
+		<item id="14356" chance="1"/>
+		<item id="14357" chance="1"/>
+		<item id="14358" chance="1"/>
+		<item id="14359" chance="1"/>
+		<item id="14360" chance="1"/>
+		<item id="14361" chance="1"/>
+		<item id="14362" chance="1"/>
+		<item id="14363" chance="1"/>
+		<item id="14364" chance="1"/>
+		
+		<border align="outer" id="189"/>
+		<border align="outer" to="none" id="189"/>
+		<optional id="192"/>
+	</brush>
+	
+	<brush name="hive structure 2" type="ground" server_lookid="14527" z-order="21000" solo_optional="true">
+		<item id="14527" chance="1"/>
+		<item id="14528" chance="1"/>
+		<item id="14529" chance="1"/>
+		<item id="14530" chance="1"/>
+		<item id="14531" chance="1"/>
+		<item id="14532" chance="1"/>
+		<item id="14533" chance="1"/>
+		<item id="14534" chance="1"/>
+		<item id="14535" chance="1"/>
+		<item id="14536" chance="1"/>
+		
+		<border align="outer" id="190"/>
+		<border align="outer" to="none" id="190"/>
+		<optional id="193"/>
+	</brush>
+	
+	<brush name="hive structure 3" type="ground" server_lookid="14706" z-order="22000" solo_optional="true">
+		<item id="14706" chance="1"/>
+		<item id="14707" chance="1"/>
+		<item id="14708" chance="1"/>
+		<item id="14709" chance="1"/>
+		<item id="14710" chance="1"/>
+		<item id="14711" chance="1"/>
+		<item id="14712" chance="1"/>
+		<item id="14713" chance="1"/>
+		<item id="14714" chance="1"/>
+		<item id="14715" chance="1"/>
+		
+		<border align="outer" id="191"/>
+		<border align="outer" to="none" id="191"/>
+		<optional id="194"/>
+	</brush>
 </materials>

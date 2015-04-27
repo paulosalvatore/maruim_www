@@ -1699,4 +1699,94 @@
 		<borderitem edge="cne" item="17467"/>
 	</border>
 	
+	<border id="189"> -- hive structure 1 border --
+		<borderitem edge="s"   item="14539"/>
+		<borderitem edge="n"   item="14537"/>
+		<borderitem edge="e"   item="14540"/>
+		<borderitem edge="w"   item="14538"/>
+		<borderitem edge="dse" item="14547"/>
+		<borderitem edge="dsw" item="14548"/>
+		<borderitem edge="dnw" item="14545"/>
+		<borderitem edge="dne" item="14546"/>
+		<borderitem edge="cse" item="14543"/>
+		<borderitem edge="csw" item="14544"/>
+		<borderitem edge="cnw" item="14541"/>
+		<borderitem edge="cne" item="14542"/>
+	</border>
+	
+	<border id="190"> -- hive structure 2 border --
+		<borderitem edge="s"   item="14557"/>
+		<borderitem edge="n"   item="14553"/>
+		<borderitem edge="e"   item="14558"/>
+		<borderitem edge="w"   item="14554"/>
+		<borderitem edge="dse" item="14565"/>
+		<borderitem edge="dsw" item="14566"/>
+		<borderitem edge="dnw" item="14563"/>
+		<borderitem edge="dne" item="14564"/>
+		<borderitem edge="cse" item="14561"/>
+		<borderitem edge="csw" item="14562"/>
+		<borderitem edge="cnw" item="14559"/>
+		<borderitem edge="cne" item="14560"/>
+	</border>
+	
+	<border id="191"> -- hive structure 3 border --
+		<borderitem edge="s"   item="14718"/>
+		<borderitem edge="n"   item="14716"/>
+		<borderitem edge="e"   item="14719"/>
+		<borderitem edge="w"   item="14717"/>
+		<borderitem edge="dse" item="14726"/>
+		<borderitem edge="dsw" item="14727"/>
+		<borderitem edge="dnw" item="14724"/>
+		<borderitem edge="dne" item="14725"/>
+		<borderitem edge="cse" item="14722"/>
+		<borderitem edge="csw" item="14723"/>
+		<borderitem edge="cnw" item="14720"/>
+		<borderitem edge="cne" item="14721"/>
+	</border>
+	
+	<border id="192"> -- hive structure 1 optional border --
+		<borderitem edge="s"   item="14539"/>
+		<borderitem edge="n"   item="14549"/>
+		<borderitem edge="e"   item="14540"/>
+		<borderitem edge="w"   item="14550"/>
+		<borderitem edge="dse" item="14547"/>
+		<borderitem edge="dsw" item="14548"/>
+		<borderitem edge="dnw" item="14551"/>
+		<borderitem edge="dne" item="14552"/>
+		<borderitem edge="cse" item="14543"/>
+		<borderitem edge="csw" item="14544"/>
+		<borderitem edge="cnw" item="14555"/>
+		<borderitem edge="cne" item="14556"/>
+	</border>
+	
+	<border id="193"> -- hive structure 2 optional border --
+		<borderitem edge="s"   item="14557"/>
+		<borderitem edge="n"   item="14567"/>
+		<borderitem edge="e"   item="14558"/>
+		<borderitem edge="w"   item="14568"/>
+		<borderitem edge="dse" item="14565"/>
+		<borderitem edge="dsw" item="14566"/>
+		<borderitem edge="dnw" item="14569"/>
+		<borderitem edge="dne" item="14570"/>
+		<borderitem edge="cse" item="14561"/>
+		<borderitem edge="csw" item="14562"/>
+		<borderitem edge="cnw" item="14571"/>
+		<borderitem edge="cne" item="14572"/>
+	</border>
+	
+	<border id="194"> -- hive structure 3 optional border --
+		<borderitem edge="s"   item="14718"/>
+		<borderitem edge="n"   item="14728"/>
+		<borderitem edge="e"   item="14719"/>
+		<borderitem edge="w"   item="14729"/>
+		<borderitem edge="dse" item="14726"/>
+		<borderitem edge="dsw" item="14727"/>
+		<borderitem edge="dnw" item="14730"/>
+		<borderitem edge="dne" item="14731"/>
+		<borderitem edge="cse" item="14722"/>
+		<borderitem edge="csw" item="14723"/>
+		<borderitem edge="cnw" item="14732"/>
+		<borderitem edge="cne" item="14733"/>
+	</border>
+	
 </materials>
