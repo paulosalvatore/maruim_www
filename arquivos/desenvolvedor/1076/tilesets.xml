@@ -227,6 +227,7 @@
 			<brush name="hive structure 1"/>
 			<brush name="hive structure 2"/>
 			<brush name="hive structure 3"/>
+			<brush name="sandy tile"/>
 		</terrain>
 		<doodad>
 			<brush name="mossy wall"/>
@@ -527,6 +528,7 @@
 			<brush name="rocky floor"/>
 			<brush name="grimmy woodh"/>
 			<brush name="grimmy woodv"/>
+			<brush name="pirate wooden floor"/>
 			<brush name="wooden floor 3"/>
 			<brush name="stone floor 2"/>
 			<brush name="stone floor 3"/>

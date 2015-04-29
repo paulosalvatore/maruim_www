@@ -1789,4 +1789,9 @@
 		<borderitem edge="cne" item="14733"/>
 	</border>
 	
+	<border id="195"> -- pirate wooden floor border --
+		<borderitem edge="s"   item="9233"/>
+		<borderitem edge="n"   item="9234"/>
+	</border>
+	
 </materials>

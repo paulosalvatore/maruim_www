@@ -31,7 +31,7 @@
 		<border align="outer" to="none" id="2"/>
 	</brush>
 	
-	<brush name="grass (alternate border)" type="ground" server_lookid="9044" z-order="4000">
+	<brush name="grass (alternate border)" type="ground" server_lookid="9044" z-order="7950">
 		<item id="9043" chance="2500"/>
 		<item id="9044" chance="10"/>
 		<item id="9045" chance="25"/>
@@ -2689,7 +2689,7 @@
 		<border align="outer" id="162"/>
 	</brush>
 	
-	<brush name="muddy floor" type="ground" server_lookid="11561" z-order="16000">
+	<brush name="muddy floor" type="ground" server_lookid="11561" z-order="7900">
 		<item id="11561" chance="1"/>
 		
 		<border align="outer" id="163"/>
@@ -2988,5 +2988,39 @@
 		<border align="outer" id="191"/>
 		<border align="outer" to="none" id="191"/>
 		<optional id="194"/>
+	</brush>
+	
+	<brush name="pirate wooden floor" type="ground" server_lookid="9224" z-order="22000">
+		<item id="9224" chance="1"/>
+		<item id="9225" chance="1"/>
+		<item id="9226" chance="1"/>
+		<item id="9227" chance="1"/>
+		<item id="9228" chance="1"/>
+		<item id="9229" chance="1"/>
+		<item id="9230" chance="1"/>
+		<item id="9231" chance="1"/>
+		<item id="9232" chance="1"/>
+		
+		<border align="outer" id="195"/>
+		<border align="outer" to="none" id="195"/>
+	</brush>
+	
+	<brush name="sandy tile" type="ground" server_lookid="12913" z-order="22000">
+		<item id="12913" chance="1"/>
+		<item id="12914" chance="1"/>
+		<item id="12915" chance="1"/>
+		<item id="12916" chance="1"/>
+		<item id="12917" chance="1"/>
+		<item id="12918" chance="1"/>
+		<item id="12919" chance="1"/>
+		<item id="12920" chance="1"/>
+		<item id="12921" chance="1"/>
+		<item id="12922" chance="1"/>
+		<item id="12923" chance="1"/>
+		<item id="12924" chance="1"/>
+		<item id="12925" chance="1"/>
+		<item id="12926" chance="1"/>
+		<item id="12927" chance="1"/>
+		<item id="12928" chance="1"/>
 	</brush>
 </materials>
