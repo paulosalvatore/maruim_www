@@ -1,0 +1,10 @@
+﻿Atualizando o Fork e aplicando o repositório copiado
+	git remote add upstream git://github.com/otland/forgottenserver.git (Caso não tenha nenhum upstream criado)
+	git pull upstream master
+	git push
+Excluindo último commit
+	git reset --soft HEAD^
+	Caso não seja o último
+		git rebase -i HEAD~2
+	Depois
+		git push origin +master
