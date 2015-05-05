@@ -109,7 +109,7 @@
 		<friend name="grass pitfall"/>
 	</brush>
 	
-	<brush name="sea" type="ground" server_lookid="4608" z-order="20000">
+	<brush name="sea" type="ground" server_lookid="4608" z-order="6000">
 		<item id="4608" chance="3"/>
 		<item id="4609" chance="1"/>
 		<item id="4610" chance="1"/>
