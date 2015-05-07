@@ -59,12 +59,14 @@
 				$danoMax = abs($habilidade["max"]);
 			if((isset($habilidade["skill"])) AND (isset($habilidade["attack"])))
 				$danoMax = ($habilidade["skill"]*($habilidade["attack"]*0.05))+($habilidade["attack"]*0.5);
-			return array("min" => $danoMin, "max" => $danoMax);
+			return array("min" => (int)$danoMin, "max" => (int)$danoMax);
 		}
 		public function calcularDanoMaximoCriatura($habilidades){
 			$danoMaxCriatura = 0;
-			foreach($habilidades as $habilidade)
-				$danoMaxCriatura = $danoMaxCriatura+$this->calcularDanoHabilidade($habilidade)["max"];
+			foreach($habilidades as $habilidade){
+				$calcularDanoHabilidade = $this->calcularDanoHabilidade($habilidade);
+				$danoMaxCriatura = $danoMaxCriatura+$calcularDanoHabilidade["max"];
+			}
 			return $danoMaxCriatura;
 		}
 		public function calcularDanoMaximoCriaturaSummons($criatura){
@@ -446,7 +448,8 @@
 			$xml = $this->loadXML();
 			$listaCriaturas = array();
 			foreach($xml->children() as $criatura){
-				$criaturaAtributos = json_decode(json_encode($criatura->attributes()), true)["@attributes"];
+				$criaturaAtributos = json_decode(json_encode($criatura->attributes()), true);
+				$criaturaAtributos = $criaturaAtributos["@attributes"];
 				foreach($criaturaAtributos as $c => $v)
 					$$c = $v;
 				// $resultado .= 'Carregando monstro "<b>'.$name.'</b>". Arquivo: "<i>'.$file.'</i>"... ';
@@ -465,7 +468,8 @@
 				return false;
 			$xml = $this->loadXML($arquivo);
 			$getCriaturaChildrens = json_decode(json_encode($xml->children()), true);
-			$getCriaturaAtributos = json_decode(json_encode($xml->attributes()), true)["@attributes"];
+			$getCriaturaAtributos = json_decode(json_encode($xml->attributes()), true);
+			$getCriaturaAtributos = $getCriaturaAtributos["@attributes"];
 			$criaturaAtributos = array();
 			foreach($getCriaturaAtributos as $chave => $valor)
 				$criaturaAtributos[$chave] = $valor;

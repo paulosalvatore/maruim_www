@@ -11,12 +11,12 @@
 				<div class="box_frame_conteudo_principal" carregar_box="1">
 					<div class="box_frame_conteudo">
 						';
-						if(empty($area))
+						if(empty($id))
 							$conteudo_pagina .= '
-								<a href="?p=desenvolvedor_gerenciamento&a=atualizarListaCriaturas">Atualizar Criaturas</a>
+								<a href="?p=desenvolvedor_gerenciamento-atualizarListaCriaturas">Atualizar Criaturas</a>
 							';
-						elseif(in_array($area, $areas)){
-							if($area == "atualizarListaCriaturas")
+						elseif(in_array($id, $areas)){
+							if($id == "atualizarListaCriaturas")
 								$conteudo_pagina .= $ClassCriaturas->atualizarListaCriaturas();
 						}
 						$conteudo_pagina .= '
