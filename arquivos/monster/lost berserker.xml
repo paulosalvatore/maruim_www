@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lost Berserker" nameDescription="a lost berserker" race="blood" experience="4400" speed="250" manacost="0">
+	<health now="5900" max="5900"/>
+	<look type="496" corpse="17416"/>
+	<targetchange interval="4000" chance="15"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="91"/>
+		<attack name="physical" interval="2000" chance="15" range="7" min="-0" max="-300">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" target="1" radius="3" min="-0" max="-250" >
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" radius="5" target="0" spread="0" min="-150" max="-250">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="10" radius="2" target="0" spread="0" speedchange="-800" duration="20000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" target="1" radius="4" duration="6000">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="invisible" interval="2000" chance="5" duration="3000">
+			<attribute key="areaEffect" value="teleport"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="10"/>
+		<element physicalPercent="40"/>
+		<element deathPercent="10"/>
+		<element icePercent="40"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Kill! Kill! Kill!"/>
+		<voice sentence="Death! Death! Death!"/>
+	</voices>
+	<loot>
+		<item id="5880" countmax="1" chance="10000"/><!-- iron ore -->
+		<item id="2350" countmax="1" chance="10000"/><!-- sword hilt -->
+		<item id="20134" countmax="1" chance="10000"/><!-- mad froth -->
+		<item id="20135" countmax="1" chance="10000"/><!-- red hair dye -->
+		<item id="5904" countmax="1" chance="10000"/><!-- magic sulphur -->
+		<item id="18417" countmax="1" chance="10000"/><!-- Brown crystal splinter -->
+		<item id="9970" countmax="1" chance="10000"/><!-- small topaz -->
+		<item id="18421" countmax="1" chance="10000"/><!-- green crystal fragment -->
+		<item id="18418" countmax="1" chance="10000"/><!-- blue crystal splinter -->
+		<item id="18414" countmax="1" chance="10000"/><!-- violet crystal shard -->
+	</loot>
+</monster>

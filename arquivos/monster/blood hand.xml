@@ -3,6 +3,7 @@
 	<health now="700" max="700"/>
 	<look type="552" corpse="21257"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -55,5 +56,14 @@
 		<voice sentence="Die, filth!"/>
 	</voices>
 	<loot>
+		<item id="21245" countmax="1" chance="10000"/><!-- Blood Tincture in a Vial -->
+		<item id="11237" countmax="1" chance="10000"/><!-- Book of Necromantic Rituals -->
+		<item id="21243" countmax="1" chance="10000"/><!-- Horoscope -->
+		<item id="21246" countmax="1" chance="10000"/><!-- Incantation Notes -->
+		<item id="21247" countmax="1" chance="10000"/><!-- Pieces of Magic Chalk -->
+		<item id="21242" countmax="1" chance="10000"/><!-- Lancet -->
+		<item id="5909" countmax="1" chance="10000"/><!-- White Piece of Cloth -->
+		<item id="5911" countmax="1" chance="10000"/><!-- Red Piece of Cloth -->
+		<item id="2217" countmax="1" chance="10000"/><!-- Spellbook -->
 	</loot>
 </monster>

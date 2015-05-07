@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Beggar" nameDescription="a crazed beggar" race="blood" experience="35" speed="200" manacost="300">
+	<health now="100" max="100"/>
+	<look type="153" body="38" feet="97" head="59" legs="38" addons="3" corpse="20351"/>
+	<targetchange interval="4000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag staticattack="80"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="10"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="15" attack="20"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element physicalPercent="5"/>
+		<element energyPercent="20"/>
+		<element holyPercent="10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hehehe!"/>
+		<voice sentence="Raahhh!"/>
+		<voice sentence="You are one of THEM! Die!"/>
+		<voice sentence="Wanna buy roses??"/>
+		<voice sentence="They're coming!"/>
+		<voice sentence="Make it stop!"/>
+	</voices>
+	<loot>
+		<item id="12382" countmax="1" chance="10000"/><!-- scribbled sheet of paper -->
+		<item id="1987" countmax="1" chance="10000"/><!-- bag -->
+		<item id="2148" countmax="1" chance="10000"/><!-- gold coin -->
+		<item id="5909" countmax="1" chance="10000"/><!-- white piece of cloth -->
+		<item id="6092" chance="10000"/><!-- very noble-looking watch -->
+	</loot>
+</monster>

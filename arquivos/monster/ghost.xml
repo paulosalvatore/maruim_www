@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ghost" nameDescription="a ghost" race="undead" experience="120" speed="160" manacost="100">
+	<health now="150" max="150"/>
+	<look type="48" corpse="5993"/>
+	<targetchange interval="4000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="40"/>
+		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-20" max="-45">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<immunities>
+		<immunity physical="1"/>
+		<immunity drown="1"/>
+		<immunity earth="1"/>
+		<immunity death="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Huh!"/>
+		<voice sentence="Shhhhhh"/>
+		<voice sentence="Buuuuuh"/>
+	</voices>
+	<loot>
+		<item id="10607" countmax="1" chance="100000"/><!-- Ghostly Tissue -->
+		<item id="2804" countmax="1" chance="100000"/><!-- Shadow Herb -->
+		<item id="9662" countmax="1" chance="100000"/><!-- Ghost's Tear -->
+		<item id="5912" countmax="1" chance="100000"/><!-- Blue Piece of Cloth -->
+	</loot>
+</monster>

@@ -3,11 +3,12 @@
 	<health now="8900" max="8900"/>
 	<look type="246" corpse="6354"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="0"/>
+		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
@@ -17,19 +18,20 @@
 		<flag runonhealth="800"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-490"/>
-		<attack name="earth" interval="2000" chance="20" range="7" target="1" radius="1" min="-220" max="-405">
+		<attack name="melee" interval="2000" skill="88" attack="100"/>
+		<attack name="earth" interval="2000" chance="20" range="7" target="1" radius="1" min="-225" max="-405">
 			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="15" target="0" radius="4" min="-65" max="-135">
-			<attribute key="areaEffect" value="greenshimmer"/>
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-800" duration="30000">
+			<attribute key="shootEffect" value="poison"/>
 		</attack>
 		<attack name="drunk" interval="2000" chance="10" target="0" radius="3" duration="5000">
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
 		<attack name="blightwalker curse" interval="2000" chance="15"/>
-		<attack name="speed" interval="2000" chance="15" target="1" range="7" speedchange="-300" duration="30000">
-			<attribute key="shootEffect" value="poison"/>
+		<attack name="lifedrain" interval="2000" chance="15" target="0" radius="4" min="-125" max="-185">
+			<attribute key="areaEffect" value="greenshimmer"/>
 		</attack>
 	</attacks>
 	<defenses armor="50" defense="50"/>
@@ -52,5 +54,16 @@
 		<voice sentence="Your lifeforce is waning!"/>
 	</voices>
 	<loot>
+		<item id="2694" countmax="1" chance="10000"/><!-- Bunch of Wheat -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="10605" countmax="1" chance="10000"/><!-- Bundle of Cursed Straw -->
+		<item id="7632" countmax="1" chance="10000"/><!-- Giant Shimmering Pearl -->
+		<item id="7732" countmax="1" chance="10000"/><!-- Seeds -->
+		<item id="2550" countmax="1" chance="10000"/><!-- Scythe -->
+		<item id="2418" countmax="1" chance="10000"/><!-- Golden Sickle -->
+		<item id="7885" countmax="1" chance="10000"/><!-- Terra Legs -->
+		<item id="7884" countmax="1" chance="10000"/><!-- Terra Mantle -->
+		<item id="6300" countmax="1" chance="10000"/><!-- Death Ring -->
 	</loot>
 </monster>

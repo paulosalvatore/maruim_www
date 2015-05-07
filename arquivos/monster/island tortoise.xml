@@ -22,7 +22,7 @@
 	</attacks>
 	<defenses armor="15" defense="15"/>
 	<loot>
-		<item id="5678" countmax="10" chance="50000"/><!-- tortoise egg -->
-		<item id="5899" chance="5000"/><!-- turtle shell -->
+		<item id="5678" countmax="10" chance="50000"/> <!-- Tortoise Egg -->
+		<item id="5899" chance="5000"/> <!-- Turtle Shell -->
 	</loot>
 </monster>

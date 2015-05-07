@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Swamp Troll" nameDescription="a swamp troll" race="venom" experience="25" speed="170" manacost="320">
+	<health now="55" max="55"/>
+	<look type="76" corpse="6018"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-13" poison="1"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element earthPercent="5"/>
+		<element firePercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Grrrr"/>
+		<voice sentence="Groar!"/>
+		<voice sentence="Me strong! Me ate spinach!"/>
+	</voices>
+	<loot>
+		<item id="10606" countmax="1" chance="10000"/><!-- Bunch of Troll Hair -->
+		<item id="2666" countmax="1" chance="10000"/><!-- Meat -->
+		<item id="2805" countmax="1" chance="10000"/><!-- Troll Green -->
+		<item id="12471" countmax="1" chance="10000"/><!-- Trollroot -->
+		<item id="2235" countmax="1" chance="10000"/><!-- Mouldy Cheese -->
+		<item id="10603" countmax="1" chance="10000"/><!-- Swamp Grass -->
+	</loot>
+</monster>

@@ -3,6 +3,7 @@
 	<health now="5800" max="5800"/>
 	<look type="232" corpse="6310"/>
 	<targetchange interval="4000" chance="15"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -45,5 +46,13 @@
 		<voice sentence="Help meeee!"/>
 	</voices>
 	<loot>
+		<item id="2144" countmax="1" chance="10000"/><!-- Black Pearl -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="11233" countmax="1" chance="10000"/><!-- Unholy Bone -->
+		<item id="6300" countmax="1" chance="10000"/><!-- Death Ring -->
+		<item id="6526" countmax="1" chance="10000"/><!-- Skeleton Decoration -->
+		<item id="2436" countmax="1" chance="10000"/><!-- Skull Staff -->
+		<item id="5741" countmax="1" chance="10000"/><!-- Skull Helmet -->
 	</loot>
 </monster>

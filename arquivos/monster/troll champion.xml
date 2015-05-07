@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Troll Champion" nameDescription="a troll champion" race="blood" experience="40" speed="190" manacost="340">
+	<health now="75" max="75"/>
+	<look type="281" corpse="7926"/>
+	<targetchange interval="4000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="25" attack="20"/>
+	</attacks>
+	<defenses armor="20" defense="20"/>
+	<elements>
+		<element energyPercent="15"/>
+		<element holyPercent="10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Meee maity!"/>
+		<voice sentence="Grrrr"/>
+		<voice sentence="Whaaaz up!?"/>
+		<voice sentence="Gruntz!"/>
+	</voices>
+	<loot>
+		<item id="10606" countmax="1" chance="10000"/><!-- Bunch of Troll Hair -->
+		<item id="2666" countmax="1" chance="10000"/><!-- Meat -->
+		<item id="2805" countmax="1" chance="10000"/><!-- Troll Green -->
+		<item id="12471" countmax="1" chance="10000"/><!-- Trollroot -->
+	</loot>
+</monster>

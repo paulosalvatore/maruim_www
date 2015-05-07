@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Corym Charlatan" nameDescription="a corym charlatan" race="blood" experience="150" speed="180" manacost="0">
+	<health now="250" max="250"/>
+	<look type="532" body="97" legs="116" corpse="19725"/>
+	<targetchange interval="5000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="35"/>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element earthPercent="20"/>
+		<element deathPercent="20"/>
+		<element energyPercent="25"/>
+		<element holyPercent="-20"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Mehehe!"/>
+		<voice sentence="Beware! Me hexing you!"/>
+	</voices>
+	<loot>
+		<item id="20089" countmax="1" chance="10000"/><!-- Bola -->
+		<item id="2696" countmax="1" chance="10000"/><!-- Cheese -->
+		<item id="20097" countmax="1" chance="10000"/><!-- Cheese Cutter -->
+		<item id="20098" countmax="1" chance="10000"/><!-- Cheesy Figurine -->
+		<item id="20101" countmax="1" chance="10000"/><!-- Rat Cheese -->
+		<item id="20100" countmax="1" chance="10000"/><!-- Soft Cheese -->
+		<item id="20126" countmax="1" chance="10000"/><!-- Leather Harness -->
+		<item id="21475" countmax="1" chance="10000"/><!-- Pannier Backpack -->
+	</loot>
+</monster>

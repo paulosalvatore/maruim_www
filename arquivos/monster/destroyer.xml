@@ -3,6 +3,7 @@
 	<health now="3700" max="3700"/>
 	<look type="236" corpse="6320"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -46,5 +47,12 @@
 		<voice sentence="It's a good day to destroy!"/>
 	</voices>
 	<loot>
+		<item id="2150" countmax="1" chance="10000"/><!-- Small Amethyst -->
+		<item id="11215" countmax="1" chance="10000"/><!-- Metal Spike -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="2178" countmax="1" chance="10000"/><!-- Mind Orb -->
+		<item id="6300" countmax="1" chance="10000"/><!-- Death Ring -->
+		<item id="5741" countmax="1" chance="10000"/><!-- Skull Helmet -->
 	</loot>
 </monster>

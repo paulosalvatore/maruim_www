@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Worker Golem" nameDescription="a worker golem" race="energy" experience="1250" speed="230" manacost="0">
+	<health now="1470" max="1470"/>
+	<look type="304" corpse="9801"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="80"/>
+		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-125">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="10" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="50"/>
+		<element holyPercent="50"/>
+		<element energyPercent="-5"/>
+		<element physicalPercent="10"/>
+		<element icePercent="10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="INTRUDER ALARM!"/>
+		<voice sentence="klonk klonk klonk"/>
+		<voice sentence="Rrrtttarrrttarrrtta"/>
+		<voice sentence="Awaiting orders."/>
+		<voice sentence="Secret objective complete."/>
+	</voices>
+	<loot>
+		<item id="2145" countmax="1" chance="10000"/><!--  -->
+		<item id="8309" countmax="1" chance="10000"/><!--  -->
+		<item id="9690" countmax="1" chance="10000"/><!--  -->
+		<item id="5880" countmax="1" chance="10000"/><!--  -->
+		<item id="10572" countmax="1" chance="10000"/><!--  -->
+		<item id="2177" countmax="1" chance="10000"/><!--  -->
+		<item id="2158" countmax="1" chance="10000"/><!--  -->
+	</loot>
+</monster>

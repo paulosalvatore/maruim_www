@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dwarf" nameDescription="a dwarf" race="blood" experience="45" speed="180" manacost="320">
+	<health now="90" max="90"/>
+	<look type="69" corpse="6007"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="20" attack="20"/>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element earthPercent="10"/>
+		<element firePercent="-5"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hail Durin!"/>
+	</voices>
+	<loot>
+		<item id="5880" countmax="1" chance="10000"/><!-- iron ore -->
+		<item id="9814" countmax="1" chance="10000"/><!-- rusty shield -->
+		<item id="2350" countmax="1" chance="10000"/><!-- sword hilt -->
+		<item id="2339" countmax="1" chance="10000"/><!-- damaged helmet -->
+	</loot>
+</monster>

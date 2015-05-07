@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Orewalker" nameDescription="orewalker" race="undead" experience="4800" speed="250" manacost="0">
+	<health now="7200" max="7200"/>
+	<look type="490" corpse="17256"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="90" defense="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" attack="75" />
+		<attack name="manadrain" interval="2000" chance="15" length="4" spread="3" min="-296" max="-700">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" length="6" spread="0" target="0" min="0" max="-1500">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="10" target="1" radius="3" min="-800" max="-1080" >
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="smallplants"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="15" target="0" radius="4" duration="6000">
+			<attribute key="areaEffect" value="purplenote"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="2" target="0" spread="0" speedchange="-800" duration="20000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45"/>
+	<elements>
+		<element energyPercent="-5"/>
+		<element firePercent="65"/>
+		<element deathPercent="15"/>
+		<element physicalPercent="5"/>
+		<element icePercent="5"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Sizzle!"/>
+		<voice sentence="CLONK!"/>
+	</voices>
+	<loot>
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="18418" countmax="1" chance="10000"/><!-- Blue Crystal Splinter -->
+		<item id="18413" countmax="1" chance="10000"/><!-- Blue Crystal Shard -->
+		<item id="18416" countmax="1" chance="10000"/><!-- Green Crystal Splinter -->
+		<item id="18415" countmax="1" chance="10000"/><!-- Green Crystal Shard -->
+		<item id="18419" countmax="1" chance="10000"/><!-- Cyan Crystal Fragment -->
+		<item id="2156" countmax="1" chance="10000"/><!-- Red Gem -->
+		<item id="2154" countmax="1" chance="10000"/><!-- Yellow Gem -->
+		<item id="13757" countmax="1" chance="10000"/><!-- Coal -->
+		<item id="18427" countmax="1" chance="10000"/><!-- Pulverized Ore -->
+		<item id="18429" countmax="1" chance="10000"/><!-- Vein of Ore -->
+		<item id="11227" countmax="1" chance="10000"/><!-- Shiny Stone -->
+		<item id="11232" countmax="1" chance="10000"/><!-- Sulphurous Stone -->
+		<item id="5904" countmax="1" chance="10000"/><!-- Magic Sulphur -->
+		<item id="2225" countmax="1" chance="10000"/><!-- Piece of Ore -->
+		<item id="5880" countmax="1" chance="10000"/><!-- Iron Ore -->
+		<item id="18423" countmax="1" chance="10000"/><!-- Major Crystalline Token -->
+		<item id="18528" countmax="1" chance="10000"/><!-- Prismatic Ring -->
+		<item id="18394" countmax="1" chance="10000"/><!-- Crystal Backpack -->
+	</loot>
+</monster>

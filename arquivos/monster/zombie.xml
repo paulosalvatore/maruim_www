@@ -3,6 +3,7 @@
 	<health now="500" max="500"/>
 	<look type="311" corpse="9875"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -17,12 +18,12 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-130"/>
-		<attack name="manadrain" interval="2000" chance="10" target="1" range="1" min="-14" max="-23"/>
-		<attack name="lifedrain" interval="2000" chance="15" target="1" range="7" min="-15" max="-24">
+		<attack name="melee" interval="2000" skill="42" attack="50"/>
+		<attack name="manadrain" interval="2000" chance="10" range="1" min="-14" max="-23"/>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" min="-15" max="-24">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="death" interval="2000" chance="15" target="1" range="1" min="-30" max="-49">
+		<attack name="death" interval="2000" chance="15" range="1" min="-30" max="-49">
 			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>
 	</attacks>
@@ -47,5 +48,9 @@
 		<voice sentence="Httt.... hmnnsss..."/>
 	</voices>
 	<loot>
+		<item id="11367" countmax="1" chance="10000"/><!-- Undead Heart -->
+		<item id="2657" countmax="1" chance="10000"/><!-- Simple Dress -->
+		<item id="10576" countmax="1" chance="10000"/><!-- Half-eaten Brain -->
+		<item id="11200" countmax="1" chance="10000"/><!-- Half-digested Piece of Meat -->
 	</loot>
 </monster>

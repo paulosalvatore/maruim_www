@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepling Brawler" nameDescription="a deepling brawler" race="blood" experience="260" speed="190" manacost="0">
+	<health now="380" max="380"/>
+	<look type="470" corpse="13840"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="0"/>
+		<flag runonhealth="40"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="40" attack="40"/>
+		<attack name="drown" interval="2000" chance="15" range="7" target="1" min ="-60" max="-120">
+			<attribute key="shootEffect" value="spear"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element energyPercent="-10"/>
+		<element earthPercent="-1"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1" />
+		<immunity drown="1" />
+		<immunity fire="1" />
+	</immunities>
+	<loot>
+		<item id="15430" chance="10000"/><!-- deepling scales -->
+		<item id="15425" chance="10000"/><!-- deepling warts -->
+		<item id="5895" chance="10000"/><!-- fish fin -->
+		<item id="2146" chance="10000"/><!-- small sapphire -->
+	</loot>
+</monster>

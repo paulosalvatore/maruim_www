@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Nomad" nameDescription="a nomad" race="blood" experience="60" speed="205" manacost="0">
+	<health now="160" max="160"/>
+	<look type="146" head="114" body="48" legs="49" feet="2" addons="2" corpse="20603"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-80"/>
+		<attack name="physical" interval="2000" chance="10" target="0" radius="1">
+			<attribute key="areaeffect" value="whitenote" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element firePercent="20"/>
+		<element holyPercent="20"/>
+		<element physicalPercent="-10"/>
+		<element icePercent="-10"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<loot>
+		<item id="12412" chance="10000"/><!-- dirty turban -->
+		<item id="5912" chance="10000"/><!-- blue piece of cloth -->
+	</loot>
+</monster>

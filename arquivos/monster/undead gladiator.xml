@@ -3,6 +3,7 @@
 	<health now="1000" max="1000"/>
 	<look type="306" corpse="9823"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -45,5 +46,10 @@
 		<voice sentence="Another foolish adventurer who tries to beat me."/>
 	</voices>
 	<loot>
+		<item id="2143" countmax="1" chance="10000"/><!-- White Pearl -->
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="10573" countmax="1" chance="10000"/><!-- Broken Gladiator Shield -->
+		<item id="5885" countmax="1" chance="10000"/><!-- Flask of Warrior's Sweat -->
+		<item id="2200" countmax="1" chance="10000"/><!-- Protection Amulet -->
 	</loot>
 </monster>

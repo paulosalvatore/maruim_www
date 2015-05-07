@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Frost Giantess" nameDescription="a frost giantess" race="blood" experience="150" speed="210" manacost="490">
+	<health now="275" max="275"/>
+	<look type="265" corpse="7330"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="60"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="4"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="30"/>
+		<attack name="physical" interval="2000" chance="30" range="7" min="0" max="-90">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="20"/>
+		<element holyPercent="10"/>
+		<element energyPercent="-10"/>
+		<element deathPercent="-3"/>
+	</elements>
+	<immunities>
+		<immunity ice="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ymirs Mjalle!"/>
+		<voice sentence="No run so much, must stay fat!"/>
+		<voice sentence="Horre, Sjan Flan!"/>
+		<voice sentence="Damned fast food."/>
+		<voice sentence="Come kiss the cook!"/>
+	</voices>
+	<loot>
+		<item id="10575" countmax="1" chance="10000"/><!-- Frost Giant Pelt -->
+		<item id="2671" countmax="1" chance="10000"/><!-- Ham -->
+	</loot>
+</monster>

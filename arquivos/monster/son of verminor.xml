@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Son of Verminor" nameDescription="a son of verminor" race="venom" experience="5900" speed="240" manacost="0">
 	<health now="8500" max="8500"/>
-	<look type="19" corpse="1490"/>
+	<look type="19" corpse="6532"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -57,4 +58,10 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Blubb"/>
 	</voices>
+	<loot>
+		<item id="2149" countmax="1" chance="10000"/><!-- Small Emerald -->
+		<item id="10557" countmax="1" chance="10000"/><!-- Poisonous Slime -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="2155" countmax="1" chance="10000"/><!-- Green Gem -->
+	</loot>
 </monster>

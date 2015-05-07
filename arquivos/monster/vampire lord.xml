@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Vampire Lord" nameDescription="a vampire lord" race="undead" experience="2900" speed="300" manacost="0">
+	<health now="3000" max="3000"/>
+	<look type="287" corpse="8937"/>
+	<targetchange interval="5000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="80"/>
+		<attack name="death" interval="2000" chance="10" radius="3" range="6" target="1" min="-300" max="-500"> <!-- sudden death -->
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="1" range="1" target="1" min="-100" max="-230"> <!-- life drain -->
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="5" target="0" min="-100" max="-250"> <!-- bat ball -->
+			<attribute key="areaEffect" value="bats"/>
+		</attack>
+		<attack name="bleedcondition" interval="2000" chance="10" target="1" min="-400" max="-600"> <!-- bleeding -->
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="1000" chance="15" min="100" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="30" speedchange="450" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="outfit" interval="4500" chance="30" monster="bat" duration="4000"/>
+	</defenses>
+	<elements>
+		<element earthPercent="20"/>
+		<element physicalPercent="10"/>
+		<element icePercent="10"/>
+		<element holyPercent="-20"/>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity death="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I was the shadow that haunted the cradle of humanity!"/>
+		<voice sentence="I exist since eons and you want to defy me?"/>
+		<voice sentence="Can you feel the passage of time, mortal?"/>
+	</voices>
+	<loot>
+		<item id="12405" countmax="1" chance="10000"/><!-- Blood Preservation -->
+		<item id="10602" countmax="1" chance="10000"/><!-- Vampire Teeth -->
+		<item id="2144" countmax="1" chance="10000"/><!-- Black Pearl -->
+		<item id="2747" countmax="1" chance="10000"/><!-- Grave Flower -->
+		<item id="2229" countmax="1" chance="10000"/><!-- Skull -->
+		<item id="21244" countmax="1" chance="10000"/><!-- Vampire's Cape Chain -->
+		<item id="21708" countmax="1" chance="10000"/><!-- Vampire Silk Slippers -->
+		<item id="9019" countmax="1" chance="10000"/><!-- Vampire Doll -->
+		<item id="21252" countmax="1" chance="10000"/><!-- Vampire's signet ring -->
+		<item id="9020" countmax="1" chance="10000"/><!-- Vampire lord token -->
+	</loot>
+</monster>

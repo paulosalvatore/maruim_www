@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crystal Golem" nameDescription="crystal golem" race="energy" experience="550" speed="200" manacost="0">
+	<health now="700" max="700"/>
+	<look type="508" corpse="18466"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="0"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element physicalPercent="15"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Crrrrk! Chhhhr!"/>
+	</voices>
+	<loot>
+		<item id="18418" countmax="1" chance="10000"/><!-- Blue Crystal Splinter -->
+		<item id="18413" countmax="1" chance="10000"/><!-- Blue Crystal Shard -->
+		<item id="18416" countmax="1" chance="10000"/><!-- Green Crystal Splinter -->
+		<item id="18415" countmax="1" chance="10000"/><!-- Green Crystal Shard -->
+		<item id="18419" countmax="1" chance="10000"/><!-- Cyan Crystal Fragment -->
+		<item id="18432" countmax="1" chance="10000"/><!-- Crystalline Spikes -->
+		<item id="2225" countmax="1" chance="10000"/><!-- Piece of Iron -->
+		<item id="5880" countmax="1" chance="10000"/><!-- Iron Ore -->
+		<item id="18422" countmax="1" chance="10000"/><!-- Minor Crystalline Token -->
+		<item id="18394" countmax="1" chance="10000"/><!-- Crystal Backpack -->
+	</loot>
+</monster>

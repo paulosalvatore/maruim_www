@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Slime" nameDescription="a slime" race="venom" experience="160" speed="180" manacost="0">
 	<health now="150" max="150"/>
-	<look type="19" corpse="1496"/>
+	<look type="19" corpse="6532"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -34,4 +35,8 @@
 	<summons maxSummons="3">
 		<summon name="Slime" interval="2000" chance="10"/>
 	</summons>
+	<loot>
+		<item id="10557" countmax="1" chance="10000"/><!-- Poisonous Slime -->
+		<item id="18396" countmax="1" chance="10000"/><!-- Mucus Plug -->
+	</loot>
 </monster>

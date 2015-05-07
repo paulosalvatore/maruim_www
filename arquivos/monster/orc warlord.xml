@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Orc Warlord" nameDescription="a orc warlord" race="blood" experience="670" speed="240" manacost="0">
+	<health now="950" max="950"/>
+	<look type="2" corpse="6008"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="50"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-200">
+			<attribute key="shootEffect" value="throwingstar"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="invisible" interval="2000" chance="5" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="80"/>
+		<element energyPercent="20"/>
+		<element holyPercent="10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ranat Ulderek!"/>
+		<voice sentence="Orc buta bana!"/>
+		<voice sentence="Ikem rambo zambo!"/>
+		<voice sentence="Futchi maruk buta!"/>
+	</voices>
+	<loot>
+		<item id="7395" countmax="1" chance="10000"/><!-- Orc Trophy -->
+		<item id="12435" countmax="1" chance="10000"/><!-- Orc Leather -->
+		<item id="11113" countmax="1" chance="10000"/><!-- Orc Tooth -->
+		<item id="12433" countmax="1" chance="10000"/><!-- Orcirsh Gear -->
+		<item id="8614" countmax="1" chance="10000"/><!-- Orc Tusk -->
+		<item id="12436" countmax="1" chance="2008"/><!-- skull belt -->
+	</loot>
+</monster>

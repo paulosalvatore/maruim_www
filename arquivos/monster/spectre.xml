@@ -3,6 +3,7 @@
 	<health now="1350" max="1350"/>
 	<look type="235" head="20" corpse="6348"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -58,23 +59,14 @@
 		<voice sentence="Life...force! Feed me your... lifeforce!"/>
 	</voices>
 	<loot>
-		<item id="2148" countmax="100" chance="33000"/><!-- gold coin -->
-		<item id="2148" countmax="100" chance="33000"/><!-- gold coin -->
-		<item id="2148" countmax="97" chance="33000"/><!-- gold coin -->
-		<item id="2260" countmax="2" chance="30310"/><!-- blank rune -->
-		<item id="2152" countmax="7" chance="3850"/><!-- platinum coin -->
-		<item id="5944" chance="6005"/><!-- soul orb -->
-		<item id="2165" chance="190"/><!-- stealth ring -->
-		<item id="2189" chance="9800"/><!-- wand of cosmic energy -->
-		<item id="6500" chance="6270"/><!-- demonic essence -->
-		<item id="2071" chance="9620"/><!-- lyre -->
-		<item id="7383" chance="700"/><!-- relic sword -->
-		<item id="2134" chance="850"/><!-- silver brooch -->
-		<item id="5909" chance="3800"/><!-- white piece of cloth -->
-		<item id="6300" chance="280"/><!-- death ring -->
-		<item id="7590" chance="920"/><!-- great mana potion -->
-		<item id="2134" chance="110"/><!-- shadow sceptre -->
-		<item id="2136" chance="110"/><!--demonbone amulet -->
-		<item id="11227" chance="1000"/><!-- shiny stone -->
+		<item id="2260" countmax="1" chance="10000"/><!-- Blank Rune -->
+		<item id="2144" countmax="1" chance="10000"/><!-- Black Pearl -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="10607" countmax="1" chance="10000"/><!-- Ghostly Tissue -->
+		<item id="2804" countmax="1" chance="10000"/><!-- Shadow Herb -->
+		<item id="2136" countmax="1" chance="10000"/><!-- Demonbone Amulet -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="11227" countmax="1" chance="10000"/><!-- Shiny Stone -->
+		<item id="5909" countmax="1" chance="10000"/><!-- White Piece of Cloth -->
 	</loot>
 </monster>

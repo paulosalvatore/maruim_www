@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Monk" nameDescription="a monk" race="blood" experience="200" speed="200" manacost="600">
+	<health now="240" max="240"/>
+	<look type="57" corpse="20559"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="65"/>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="30" max="50">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="50"/>
+		<element deathPercent="50"/>
+		<element physicalPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Repent Heretic!"/>
+		<voice sentence="A prayer to the almighty one!"/>
+		<voice sentence="I will punish the sinners!"/>
+	</voices>
+	<loot>
+		<item id="12382" countmax="1" chance="10000"/><!-- scribbled sheet of paper -->
+		<item id="1987" countmax="1" chance="10000"/><!-- bag -->
+		<item id="2148" countmax="1" chance="10000"/><!-- gold coin -->
+		<item id="5913" countmax="1" chance="10000"/><!-- brown piece of cloth -->
+	</loot>
+</monster>

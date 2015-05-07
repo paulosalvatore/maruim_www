@@ -3,6 +3,7 @@
 	<health now="550" max="550"/>
 	<look type="305" corpse="9871"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -58,18 +59,8 @@
 		<voice sentence="Fcccccchhhhhh"/>
 	</voices>
 	<loot>
-		<item id="2148" countmax="65" chance="38000"/><!-- gold coin -->
-		<item id="2148" countmax="65" chance="40000"/><!-- gold coin -->
-		<item id="2320" chance="20180"/><!-- skull -->
-		<item id="2235" chance="930"/><!-- mouldy cheese -->
-		<item id="2799" chance="4920"/><!-- stone herb -->
-		<item id="2796" chance="1390"/><!-- green mushroom -->
-		<item id="2510" chance="3750"/><!-- plate shield -->
-		<item id="2381" chance="3000"/><!-- halberd -->
-		<item id="2165" chance="540"/><!-- stealth ring -->
-		<item id="8900" chance="290"/><!-- spellbook of enlightenment -->
-		<item id="7618" chance="560"/><!-- health potion -->
-		<item id="2528" chance="60"/><!-- tower shield -->
-		<item id="10585" chance="3770"/><!-- Mutated Rat Tail -->
+		<item id="11225" countmax="1" chance="10000"/><!-- Mutated Flesh -->
+		<item id="10585" countmax="1" chance="10000"/><!-- Mutated Rat Tail -->
+		<item id="2799" countmax="1" chance="10000"/><!-- Stone Herb -->
 	</loot>
 </monster>

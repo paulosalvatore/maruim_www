@@ -3,6 +3,7 @@
 	<health now="1100" max="1100"/>
 	<look type="318" corpse="9913"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -46,5 +47,11 @@
 		<voice sentence="CHHHHHHHHHHH"/>
 	</voices>
 	<loot>
+		<item id="2144" countmax="1" chance="10000"/><!--  -->
+		<item id="2150" countmax="1" chance="10000"/><!--  -->
+		<item id="11225" countmax="1" chance="10000"/><!--  -->
+		<item id="11228" countmax="1" chance="10000"/><!-- Sabretooth -->
+		<item id="11224" countmax="1" chance="10000"/><!--  -->
+		<item id="2800" countmax="1" chance="10000"/><!--  -->
 	</loot>
 </monster>

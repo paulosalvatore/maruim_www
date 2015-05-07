@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Water Elemental" nameDescription="a water elemental" race="undead" experience="650" speed="220" manacost="0">
+	<health now="550" max="550"/>
+	<look type="286" corpse="10499"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="80" poison="60" />
+		<attack name="drown" interval="2000" chance="10" target="1" range="7" radius="2" min="-125" max="-235">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="icicle" interval="2000" chance="20" range="7" min="-88" max="-150"/>
+		<attack name="poisoncondition" interval="2000" chance="15" target="0" radius="5" min="-225" max="-260">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="5" min="50" max="80">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="35"/>
+		<element holyPercent="50"/>
+		<element deathPercent="50"/>
+		<element energyPercent="-25"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
+		<immunity earth="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<loot>
+		<item id="8302" countmax="1" chance="10000"/><!-- Iced Soil -->
+		<item id="12289" countmax="1" chance="10000"/><!-- Bowl With Sacred Water -->
+		<item id="7632" countmax="1" chance="10000"/><!-- giant shimmering pearl -->
+		<item id="2146" countmax="1" chance="10000"/><!-- small sapphire -->
+	</loot>
+</monster>

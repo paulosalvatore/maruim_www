@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Golden Servant" nameDescription="a golden servant" race="energy" experience="450" speed="205" manacost="0">
+	<health now="550" max="550"/>
+	<look type="396" corpse="13489"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="50"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="50"/>
+		<attack name="energy" interval="2000" chance="15" radius="4" target="1" min="-60" max="-100">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" radius="4" target="1" min="-80" max="-110">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" target="0" length="5" spread="2" min="-90" max="-150">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20"/>
+	<elements>
+		<element earthPercent="80"/>
+		<element firePercent="10"/>
+		<element icePercent="5"/>
+		<element deathPercent="5"/>
+	</elements>
+	<immunities>
+		<immunity holy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Error. LOAD 'PROGRAM"/>
+		<voice sentence="8,1"/>
+		<voice sentence="Remain. Obedient."/>
+	</voices>
+	<loot>
+		<item id="2157" countmax="1" chance="10000"/><!--  -->
+		<item id="2225" countmax="1" chance="10000"/><!--  -->
+		<item id="5880" countmax="1" chance="10000"/><!--  -->
+		<item id="13758" countmax="1" chance="10000"/><!--  -->
+		<item id="9690" countmax="1" chance="10000"/><!--  -->
+		<item id="13938" countmax="1" chance="10000"/><!--  -->
+		<item id="2154" countmax="1" chance="10000"/><!--  -->
+	</loot>
+</monster>

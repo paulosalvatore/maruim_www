@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Draken Abomination" nameDescription="a draken abomination" race="venom" experience="3800" speed="230" manacost="0">
+	<health now="6250" max="6250"/>
+	<look type="357" corpse="12623"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="110" attack="70"/>
+		<attack name="fire" interval="2000" chance="10" length="4" spread="3" min="-310" max="-630">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="draken abomination curse" interval="2000" range="5" chance="10"/>
+		<attack name="death" interval="2000" chance="15" length="4" spread="0" min="-170" max="-370">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="15" range="7" radius="4" target="0" duration="9000">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" range="7" radius="3" target="0">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="650" max="700">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element energyPercent="-5"/>
+		<element icePercent="5"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity earth="1"/>
+		<immunity death="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Death Blob" interval="2000" chance="10" max="2"/>
+	</summons>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ugggh!"/>
+		<voice sentence="Gll"/>
+	</voices>
+	<loot>
+		<item id="12614" countmax="1" chance="10000" /><!-- draken sulphur -->
+		<item id="12627" countmax="1" chance="10000" /><!-- eye of corruption -->
+		<item id="12628" countmax="1" chance="10000" /><!-- tail of corruption -->
+		<item id="9970" countmax="1" chance="10000" /><!-- small topaz -->
+		<item id="12629" countmax="1" chance="10000" /><!-- scale of corruption -->
+		<item id="12647" countmax="1" chance="10000" /><!-- snake god's wristguard -->
+		<item id="13538" countmax="1" chance="10000" /><!-- bamboo leaves -->
+		<item id="12660" countmax="1" chance="10000"/><!-- trashed draken boots -->
+		<item id="13030" countmax="1" chance="10000"/><!-- draken doll -->
+	</loot>
+</monster>

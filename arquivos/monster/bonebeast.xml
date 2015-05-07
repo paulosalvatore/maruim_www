@@ -3,6 +3,7 @@
 	<health now="515" max="515"/>
 	<look type="101" corpse="6030"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -56,5 +57,12 @@
 		<voice sentence="Knooorrrrr!"/>
 	</voices>
 	<loot>
+		<item id="2230" countmax="1" chance="10000"/><!-- Bone -->
+		<item id="2229" countmax="1" chance="10000"/><!-- Skull -->
+		<item id="11194" countmax="1" chance="10000"/><!-- Bony Tail -->
+		<item id="5925" countmax="1" chance="10000"/><!-- Hardened Bone -->
+		<item id="11161" countmax="1" chance="10000"/><!-- Bonebeast Trophy -->
+		<item id="2178" countmax="1" chance="10000"/><!-- Mind Stone -->
+		<item id="21446" countmax="1" chance="10000"/><!-- Shadow Ashes -->
 	</loot>
 </monster>

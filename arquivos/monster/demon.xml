@@ -3,6 +3,7 @@
 	<health now="8200" max="8200"/>
 	<look type="35" corpse="5995"/>
 	<targetchange interval="4000" chance="20"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -69,5 +70,18 @@
 		<voice sentence="Your resistance is futile!"/>
 	</voices>
 	<loot>
+		<item id="2147" countmax="1" chance="10000"/><!-- Small Ruby -->
+		<item id="2150" countmax="1" chance="10000"/><!-- Small Amethyst -->
+		<item id="2149" countmax="1" chance="10000"/><!-- Small Emerald -->
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="2151" countmax="1" chance="10000"/><!-- Talon -->
+		<item id="2795" countmax="1" chance="10000"/><!-- Fire Mushroom -->
+		<item id="5954" countmax="1" chance="10000"/><!-- Demon Horn -->
+		<item id="6558" countmax="1" chance="10000"/><!-- Concentrated Demonic Blood -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="7393" countmax="1" chance="10000"/><!-- Demon Trophy -->
+		<item id="2156" countmax="1" chance="10000"/><!-- Red Gem -->
+		<item id="2353" countmax="1" chance="10000"/><!-- Burning Heart -->
 	</loot>
 </monster>

@@ -3,6 +3,7 @@
 	<health now="5800" max="5800"/>
 	<look type="579" corpse="22392"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -53,5 +54,9 @@
 		<voice sentence="Thun... Thun... THUNDER!"/>
 	</voices>
 	<loot>
+		<item id="2146" countmax="1" chance="10000"/><!-- Small Sapphire -->	
+		<item id="22539" countmax="1" chance="10000"/><!-- Goosebump Leather -->	
+		<item id="22397" countmax="1" chance="10000"/><!-- Dream Matter -->	
+		<item id="22396" countmax="1" chance="10000"/><!-- Cluster of Solace -->	
 	</loot>
 </monster>

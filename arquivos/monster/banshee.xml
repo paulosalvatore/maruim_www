@@ -3,6 +3,7 @@
 	<health now="1000" max="1000"/>
 	<look type="78" corpse="6019"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -14,18 +15,18 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="500"/>
+		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-100" poison="3"/>
+		<attack name="melee" interval="2000" skill="30" attack="50" poison="60"/>
+		<attack name="speed" interval="2000" chance="10" range="7" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
 		<attack name="lifedrain" interval="2000" chance="15" radius="4" target="0" min="-100" max="-200">
 			<attribute key="areaEffect" value="rednote"/>
 		</attack>
 		<attack name="death" interval="2000" chance="5" range="1" target="1" radius="1" min="-55" max="-350">
 			<attribute key="areaEffect" value="smallclouds"/>
-		</attack>
-		<attack name="speed" interval="2000" chance="10" range="7" speedchange="-300" duration="15000">
-			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
 	<defenses armor="25" defense="25">
@@ -46,14 +47,25 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Dance for me your dance of death!"/>
+		<voice sentence="Are you ready to rock?"/>
+		<voice sentence="That's what I call easy listening!"/>
 		<voice sentence="Let the music play!"/>
 		<voice sentence="I will mourn your death!"/>
-		<voice sentence="Are you ready to rock?"/>
+		<voice sentence="IIIIEEEeeeeeehhhHHHHH!" yell="1"/>
+		<voice sentence="Dance for me your dance of death!"/>
 		<voice sentence="Feel my gentle kiss of death."/>
-		<voice sentence="That's what I call easy listening!"/>
-		<voice sentence="IIIIEEEeeeeeehhhHHHH!" yell="1"/>
 	</voices>
 	<loot>
+		<item id="2657" countmax="1" chance="10000"/><!-- Simple Dress -->
+		<item id="2170" countmax="1" chance="10000"/><!-- Silver Amulet -->
+		<item id="11337" countmax="1" chance="10000"/><!-- Petrified Scream -->
+		<item id="2144" countmax="1" chance="10000"/><!-- Black Pearl -->
+		<item id="2143" countmax="1" chance="10000"/><!-- White Pearl -->
+		<item id="12402" countmax="1" chance="10000"/><!-- Hair of a Banshee -->
+		<item id="2217" countmax="1" chance="10000"/><!-- Spellbook -->
+		<item id="2134" countmax="1" chance="10000"/><!-- Silver Brooch -->
+		<item id="2656" countmax="1" chance="10000"/><!-- Blue Robe -->
+		<item id="2121" countmax="1" chance="10000"/><!-- Wedding Ring -->
+		<item id="13307" countmax="1" chance="10000"/><!-- Sweet Smelling Bait -->
 	</loot>
 </monster>

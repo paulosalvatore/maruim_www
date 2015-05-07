@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Hellspawn" nameDescription="a hellspawn" experience="2550" speed="260" race="fire" manacost="0">
 	<health now="3500" max="3500"/>
+	<strategy attack="100" defense="0"/>
 	<targetchange interval="4000" chance="15"/>
 	<look type="322" corpse="9923"/>
 	<flags>
@@ -50,5 +51,11 @@
 		<voice sentence="I'm taking you down with me!" />
 	</voices>
 	<loot>
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="6558" countmax="1" chance="10000"/><!-- Concentrated Demonic Blood -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="11221" countmax="1" chance="10000"/><!-- Hellspawn Tail -->
+		<item id="9969" countmax="1" chance="10000"/><!-- Black Skull -->
+		<item id="9948" countmax="1" chance="10000"/><!-- Dracoyle Statue -->
 	</loot>
 </monster>

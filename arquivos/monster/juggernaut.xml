@@ -3,6 +3,7 @@
 	<health now="20000" max="20000"/>
 	<look type="244" corpse="6336"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -48,5 +49,15 @@
 		<voice sentence="WAHHHH!"/>
 	</voices>
 	<loot>
+		<item id="2149" countmax="1" chance="10000"/><!-- Small Emerald -->
+		<item id="2147" countmax="1" chance="10000"/><!-- Small Ruby -->
+		<item id="6558" countmax="1" chance="10000"/><!-- Concentrated Demonic Blood -->
+		<item id="6500" countmax="1" chance="10000"/><!-- Demonic Essence -->
+		<item id="5944" countmax="1" chance="10000"/><!-- Soul Orb -->
+		<item id="2155" countmax="1" chance="10000"/><!-- Green Gem -->
+		<item id="2156" countmax="1" chance="10000"/><!-- Red Gem -->
+		<item id="2153" countmax="1" chance="10000"/><!-- Purple Gem -->
+		<item id="7632" countmax="1" chance="10000"/><!-- Giant Shimmering Pearl -->
+		<item id="2136" countmax="1" chance="10000"/><!-- Demonbone Amulet -->
 	</loot>
 </monster>

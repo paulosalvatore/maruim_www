@@ -3,6 +3,7 @@
 	<health now="240" max="240"/>
 	<look type="323" corpse="9107"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -56,5 +57,8 @@
 		<voice sentence="Oh by the gods! What is this... aaaaaargh!"/>
 	</voices>
 	<loot>
+		<item id="11225" countmax="1" chance="10000"/><!-- Mutated Flesh -->
+		<item id="7910" countmax="1" chance="10000"/><!-- Peanut -->
+		<item id="2801" countmax="1" chance="10000"/><!-- Fern -->
 	</loot>
 </monster>

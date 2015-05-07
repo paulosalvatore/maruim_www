@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Vulcongra" nameDescription="vulcongra" race="fire" experience="1100" speed="230" manacost="0">
+	<health now="1600" max="1600"/>
+	<look type="509" corpse="18476"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="220"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="67"/>
+		<attack name="fire" interval="2000" chance="10" length="8" spread="0" min="-195" max="-340">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" target="1" min="-100" max="-200">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="vulcongra soulfire" interval="3000" chance="100"/>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element deathPercent="5"/>
+		<element icePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Fuchah! Fuchah!"/>
+		<voice sentence="Fuchah!"/>
+		<voice sentence="Yag! Yag! Yag!"/>
+	</voices>
+	<loot>
+		<item id="10553" countmax="1" chance="10000"/><!-- Fiery Heart -->
+		<item id="8299" countmax="1" chance="10000"/><!-- Glimmering Soil -->
+		<item id="21585" countmax="1" chance="10000"/><!-- Smoking Coal -->
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="18425" countmax="1" chance="10000"/><!-- Blazing Bone -->
+	</loot>
+</monster>

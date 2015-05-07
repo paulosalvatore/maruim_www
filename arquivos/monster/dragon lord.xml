@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dragon Lord" nameDescription="a dragon lord" race="blood" experience="2100" speed="200" manacost="0">
+	<health now="1900" max="1900"/>
+	<look type="39" corpse="5984"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="300"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="105" attack="40"/>
+		<attack name="fire" interval="2000" chance="20" range="7" radius="4" target="1" min="-100" max="-200">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="8" spread="3" min="-150" max="-230">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="57" max="93">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="80"/>
+		<element energyPercent="20"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="ZCHHHHH" yell="1"/>
+		<voice sentence="YOU WILL BURN!" yell="1"/>
+	</voices>
+	<loot>
+		<item id="21401" countmax="1" chance="10000"/><!-- small dragon tear -->
+		<item id="7399" countmax="1" chance="10000"/><!-- dragon lord trophy -->
+		<item id="5948" countmax="1" chance="10000"/><!-- red dragon leather -->
+		<item id="5882" countmax="1" chance="10000"/><!-- red dragon scale -->
+		<item id="5919" countmax="1" chance="10000"/><!-- dragon claw -->
+		<item id="2146" countmax="1" chance="10000"/><!-- small sapphire -->
+	</loot>
+</monster>

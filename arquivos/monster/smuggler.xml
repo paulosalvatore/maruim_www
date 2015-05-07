@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Smuggler" nameDescription="a smuggler" race="blood" experience="48" speed="170" manacost="390">
+	<health now="130" max="130"/>
+	<look type="134" head="95" body="0" legs="113" feet="115" corpse="20507"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="20" attack="40"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element physicalPercent="-5"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="I will silence you forever!"/>
+		<voice sentence="You saw something you shouldn't!"/>
+	</voices>
+	<loot>
+		<item id="12382" countmax="1" chance="10000"/><!-- scribbled sheet of paper -->
+		<item id="1987" countmax="1" chance="10000"/><!-- bag -->
+		<item id="2148" countmax="1" chance="10000"/><!-- gold coin -->
+		<item id="8840" countmax="5" chance="10000"/><!-- raspberries -->
+		<item id="5909" countmax="1" chance="10000"/><!-- white piece of cloth -->
+		<item id="5911" countmax="1" chance="10000"/><!-- red piece of cloth -->
+		<item id="7397" chance="10000"/><!-- deer trophy -->
+	</loot>
+</monster>

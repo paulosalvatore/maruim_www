@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Pirate Corsair" nameDescription="a pirate corsair" race="blood" experience="350" speed="250" manacost="775">
+	<health now="675" max="675"/>
+	<look type="98" corpse="20475"/>
+	<targetchange interval="4000" chance="15"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="1"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="40"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="75" attack="40"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-150">
+			<attribute key="shootEffect" value="throwingstar"/>
+		</attack>
+		<attack name="pirate corsair skill reducer" interval="2000" chance="5"/>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element earthPercent="20"/>
+		<element holyPercent="10"/>
+		<element deathPercent="-5"/>
+		<element icePercent="-5"/>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Give up!"/>
+		<voice sentence="Hiyaa!"/>
+		<voice sentence="Plundeeeeer!"/>
+	</voices>
+	<loot>
+		<item id="5800" countmax="1" chance="10000"/><!-- grappling hook -->
+		<item id="5810" chance="10000"/><!-- pirate voodoo doll -->
+		<item id="10123" chance="10000"/><!-- pirate treasure map -->
+		<item id="6126" chance="10000"/><!-- peg leg -->
+		<item id="6097" chance="10000"/><!-- hook -->
+		<item id="6098" chance="10000"/><!-- eye patch -->
+	</loot>
+</monster>

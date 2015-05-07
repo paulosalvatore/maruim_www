@@ -3,6 +3,7 @@
 	<health now="900" max="900"/>
 	<look type="307" corpse="9829"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -47,5 +48,10 @@
 		<voice sentence="Shriiiiiek"/>
 	</voices>
 	<loot>
+		<item id="2150" countmax="1" chance="10000"/><!--  -->
+		<item id="11225" countmax="1" chance="10000"/><!--  -->
+		<item id="10579" countmax="1" chance="10000"/><!--  -->
+		<item id="5894" countmax="1" chance="10000"/><!--  -->
+		<item id="2802" countmax="1" chance="10000"/><!--  -->
 	</loot>
 </monster>

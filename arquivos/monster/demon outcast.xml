@@ -3,6 +3,7 @@
 	<health now="6900" max="6900"/>
 	<look type="590" corpse="22549"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -60,5 +61,15 @@
 		<voice sentence="No one will imprison me again!"/>
 	</voices>
 	<loot>
+		<item id="2145" countmax="1" chance="10000"/><!-- Small Diamond -->
+		<item id="2146" countmax="1" chance="10000"/><!-- Small Sapphire -->
+		<item id="2147" countmax="1" chance="10000"/><!-- Small Ruby -->
+		<item id="2149" countmax="1" chance="10000"/><!-- Small Emerald -->
+		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
+		<item id="2150" countmax="1" chance="10000"/><!-- Small Amethyst -->
+		<item id="5906" countmax="1" chance="10000"/><!-- Demon Dust -->
+		<item id="5911" countmax="1" chance="10000"/><!-- Red Piece of Cloth -->
+		<item id="2171" countmax="1" chance="10000"/><!-- Platinum Amulet -->
+		<item id="22396" countmax="1" chance="10000"/><!-- Cluster of Solace -->
 	</loot>
 </monster>

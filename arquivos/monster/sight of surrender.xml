@@ -3,6 +3,7 @@
 	<health now="28000" max="28000"/>
 	<look type="583" corpse="22478"/>
 	<targetchange interval="4000" chance="20"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -53,5 +54,16 @@
 		<voice sentence="NOW YOU WILL SURRENDER!"/>
 	</voices>
 	<loot>
+		<item id="22518" countmax="1" chance="10000"/><!-- Broken Visor -->
+		<item id="22517" countmax="1" chance="10000"/><!-- Sight of Surrender's Eye -->
+		<item id="18418" countmax="1" chance="10000"/><!-- Blue Crystal Splinter -->
+		<item id="18413" countmax="1" chance="10000"/><!-- Blue Crystal Shard -->
+		<item id="18417" countmax="1" chance="10000"/><!-- Brown Crystal Splinter -->
+		<item id="18414" countmax="1" chance="10000"/><!-- Violet Crystal Shard -->
+		<item id="18416" countmax="1" chance="10000"/><!-- Green Cystal Splinter -->
+		<item id="18415" countmax="1" chance="10000"/><!-- Green Crystal Shard -->
+		<item id="2197" countmax="1" chance="10000"/><!-- Stone Skin Amulet -->
+		<item id="22396" countmax="1" chance="10000"/><!-- Cluster of Solace -->
+		<item id="22542" countmax="1" chance="10000"/><!--  -->
 	</loot>
 </monster>

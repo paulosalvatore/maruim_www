@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bandit" nameDescription="a bandit" race="blood" experience="65" speed="180" manacost="450">
+	<health now="245" max="245"/>
+	<look type="129" head="58" body="59" legs="45" feet="114" corpse="20331"/>
+	<targetchange interval="5000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="25"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="20" attack="30"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element physicalPercent="-10"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Your money or your life!"/>
+		<voice sentence="Hand me your purse!"/>
+	</voices>
+	<loot>
+		<item id="12382" countmax="1" chance="10000"/><!-- scribbled sheet of paper -->
+		<item id="1987" countmax="1" chance="10000"/><!-- bag -->
+		<item id="2148" countmax="1" chance="10000"/><!-- gold coin -->
+		<item id="5913" countmax="1" chance="10000"/><!-- brown piece of cloth -->
+	</loot>
+</monster>

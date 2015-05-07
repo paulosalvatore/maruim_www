@@ -3,6 +3,7 @@
 	<health now="1500" max="1500"/>
 	<look type="558" corpse="21279"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -57,5 +58,14 @@
 		<voice sentence="Put it there!"/>
 	</voices>
 	<loot>
+		<item id="6300" countmax="1" chance="10000"/><!-- Death Ring -->
+		<item id="5925" countmax="1" chance="10000"/><!-- Hardened Bone -->
+		<item id="10609" countmax="1" chance="10000"/><!-- Lump of Dirt -->
+		<item id="5669" countmax="1" chance="10000"/><!-- Mysterious Voodoo Skull -->
+		<item id="12440" countmax="1" chance="10000"/><!-- Pile of Grave Earth -->
+		<item id="12449" countmax="1" chance="10000"/><!-- Safety Pin -->
+		<item id="11233" countmax="1" chance="10000"/><!-- Unholy Bone -->
+		<item id="2154" countmax="1" chance="10000"/><!-- Yellow Gem -->
+		<item id="22396" countmax="1" chance="10000"/><!-- Cluster of Solace -->
 	</loot>
 </monster>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cliff Strider" nameDescription="a cliff strider" race="undead" experience="5700" speed="260" manacost="0">
+	<health now="9400" max="9400"/>
+	<look type="497" corpse="17420"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="95" attack="95"/>
+		<attack name="physical" interval="2000" chance="20" radius="4" target="1" min="0" max="-800">
+			<attribute key="shootEffect" value="largerock"/>
+			<attribute key="areaEffect" value="stones"/>
+		</attack>
+		<attack name="cliff strider skill reducer" interval="2000" chance="10"/>
+		<attack name="cliff strider electrify" range="1" interval="2000" chance="15"/>
+		<attack name="physical" interval="2000" chance="10" length="6" spread="0" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" radius="4" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55"/>
+	<elements>
+		<element firePercent="1"/>
+		<element physicalPercent="1"/>
+		<element deathPercent="40"/>
+		<element icePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Knorrrr"/>
+	</voices>
+	<loot>
+		<item id="18428" countmax="1" chance="10000"/><!-- Cliff Strider Claw -->
+		<item id="18418" countmax="1" chance="10000"/><!-- Blue Crystal Splinter -->
+		<item id="18413" countmax="1" chance="10000"/><!-- Blue Crystal Shard -->
+		<item id="18419" countmax="1" chance="10000"/><!-- Cyan Crystal Fragment -->
+		<item id="2158" countmax="1" chance="10000"/><!-- Blue Gem -->
+		<item id="11227" countmax="1" chance="10000"/><!-- Shiny Stone -->
+		<item id="13757" countmax="1" chance="10000"/><!-- Coal -->
+		<item id="18427" countmax="1" chance="10000"/><!-- Pulverized Ore -->
+		<item id="18429" countmax="1" chance="10000"/><!-- Vein of Ore -->
+		<item id="9980" countmax="1" chance="10000"/><!-- Crystal of Power -->
+		<item id="9942" countmax="1" chance="10000"/><!-- Crystal of Balance -->
+		<item id="5904" countmax="1" chance="10000"/><!-- Magic Sulphur -->
+		<item id="5880" countmax="1" chance="10000"/><!-- Iron Ore -->
+		<item id="18423" countmax="1" chance="10000"/><!-- Major Crystalline Token -->
+		<item id="18528" countmax="1" chance="10000"/><!-- Prismatic Ring -->
+		<item id="18394" countmax="1" chance="10000"/><!-- Crystal Backpack -->
+	</loot>
+</monster>

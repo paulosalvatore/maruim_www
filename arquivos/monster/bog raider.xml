@@ -3,6 +3,7 @@
 	<health now="1300" max="1300"/>
 	<look type="299" corpse="8951"/>
 	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -53,5 +54,12 @@
 		<voice sentence="Slurp!"/>
 	</voices>
 	<loot>
+		<item id="2149" countmax="1" chance="10000" /><!--  -->
+		<item id="10557" countmax="1" chance="10000" /><!--  -->
+		<item id="10584" countmax="1" chance="10000" /><!--  -->
+		<item id="2802" countmax="1" chance="10000" /><!--  -->
+		<item id="2800" countmax="1" chance="10000" /><!--  -->
+		<item id="2155" countmax="1" chance="10000" /><!--  -->
+		<item id="18396" countmax="1" chance="10000" /><!--  -->
 	</loot>
 </monster>
