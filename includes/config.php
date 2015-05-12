@@ -14,7 +14,10 @@
 	$data_min[] = $noticias_min["valor"];
 	$data_min = gmdate("d/m/Y", min($data_min));
 	$config["login_obrigatorio"] = array(
-		""
+		"criar_noticia"
+	);
+	$config["acesso_restrito"] = array(
+		"criar_noticia"
 	);
 	$config["players"] = array(
 		"lookbody" => 44,

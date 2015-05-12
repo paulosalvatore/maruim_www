@@ -31,6 +31,8 @@
 		$incluir_arquivo = "login_necessario";
 		session_unset();
 	}
+	if((in_array($pagina, $config["acesso_restrito"])) AND ($informacoesConta["acesso_pagina"] != 1))
+		$incluir_arquivo = "acesso_restrito";
 	include("corpo.php");
 	echo'
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
