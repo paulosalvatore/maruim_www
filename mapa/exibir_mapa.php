@@ -3,19 +3,19 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
 <style type="text/css">
-	html { height:100%; width:100%; }
-	body { height:100%; width:100%; margin:0px; padding:0px; font:13px/1.2 Helvetica,Arial,sans-serif; color: #000000}
+	html { height:100%; width:99.8%; }
+	body { height:100%; width:100%%; margin:0px; padding:0px; font:13px/1.2 Helvetica,Arial,sans-serif; color: #000000}
 	#tibia_map { height:80%; width:100%; margin:0px; padding:0px; position:relative; }
-	#map_info { height:auto; width:798px; margin:5px auto; padding:0px; border:1px solid #A7D7F9; position:relative; }
-	table { height:auto; width:798px; margin:0px; padding:0px; border:0px solid; }
-	td { height:17px; width:798px; margin:0px; padding:0px; border:0px solid; font:inherit; }
+	#map_info { height:auto; width:100%; margin:0px auto; padding:0px; border:1px solid #A7D7F9; position:relative; }
+	table { height:auto; width:100%; margin:0px; padding:0px; border:0px solid; }
+	td { height:17px; width:100%; margin:0px; padding:0px; border:0px solid; font:inherit; }
 	a { font:inherit; text-decoration:none; }
 	#info_hide { border-bottom:1px solid #A7D7F9; text-align:center; }
 	.td1 { width:80px; }
-	.td2 { width:420px; padding:1px 3px 0px; }
+	.td2 { width:420px; padding:0px 0px 0px; }
 </style>
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../js/lib/javascript-googlemaps-api.js"></script>
 
 <script type="text/javascript">
 var MAP_VERSION = 6;
@@ -34,6 +34,7 @@ var start_x;
 var start_y;
 var start_zoom;
 var linkMarker = null;
+var exibirControles = false;
 
 var NPC = {};
 NPC['Mano Widin'] = [1045, 1601, 7];
@@ -101,7 +102,7 @@ function MapUpdate() {
 	var url;
 	document.getElementById("info_coords").innerHTML = "x: "+coord_x+"&nbsp;&nbsp;&nbsp;y: "+coord_y+"&nbsp;&nbsp;&nbsp;z: "+floor;
 	document.getElementById("wiki").value=url = "{{mapa|"+coord_x+","+coord_y+","+floor+":"+zoom+"|aqui}}";
-	url="http://www.paulosalvatore.com.br/maruim/?p=mapa&x="+coord_x+"&y="+coord_y+"&z="+floor+"&zoom="+zoom;
+	url="http://www.maruimserver.com.br/?p=mapa&x="+coord_x+"&y="+coord_y+"&z="+floor+"&zoom="+zoom;
 	document.getElementById("info_link").value=url;
 	document.getElementById("info_link").innerHTML=url;
 	zoom2 = Math.max(3,zoom+2);
@@ -187,10 +188,10 @@ function LoadMap() {
 			
 			if (x<0 || x>max || y<0 || y>max) {
 				if (floor == 7)
-					return "imagens/mapa/blue.png";
-				return "imagens/mapa/black.png";
+					return "../imagens/mapa/blue.png";
+				return "../imagens/mapa/black.png";
 			}
-			return "tiles_maruim/"+ floor + "/" + zoom + "/" + x + "/" + y + ".png";
+			return "../tiles_maruim/"+ floor + "/" + zoom + "/" + x + "/" + y + ".png";
 		},
 		tileSize: new google.maps.Size(256,256),
 		isPng: true,
@@ -241,7 +242,7 @@ function FloorControl() {
 	upDiv.style.margin = "0px";
 	upDiv.style.padding = "5px 6px";
 	upDiv.title = "+1";
-	upDiv.style.background = "url('http://www.tibiawiki.com.br/up.png') no-repeat center";
+	upDiv.style.background = "url(../imagens/mapa/up.png) no-repeat center";
 	controlDiv.appendChild(upDiv);
 	
 	var floorDiv = document.createElement("DIV");
@@ -250,7 +251,7 @@ function FloorControl() {
 	floorDiv.style.margin = "0px 6px";
 	floorDiv.style.padding = "0px";
 	floorDiv.style.pointerEvents = "none";
-	floorDiv.style.background = "url('http://www.tibiawiki.com.br/floor.png') no-repeat center";
+	floorDiv.style.background = "url(../imagens/mapa/floor.png) no-repeat center";
 	controlDiv.appendChild(floorDiv);
 	
 	var textDiv = document.createElement("DIV");
@@ -272,7 +273,7 @@ function FloorControl() {
 	downDiv.style.margin = "0px 0px";
 	downDiv.style.padding = "5px 6px";
 	downDiv.title = "-1";
-	downDiv.style.background = "url('http://www.tibiawiki.com.br/down.png') no-repeat center";
+	downDiv.style.background = "url(../imagens/mapa/down.png) no-repeat center";
 	controlDiv.appendChild(downDiv);
 	
 	var centerDiv = document.createElement("DIV");
@@ -282,14 +283,15 @@ function FloorControl() {
 	centerDiv.style.margin = "0px 0px";
 	centerDiv.style.padding = "5px 6px";
 	centerDiv.title = "Centro";
-	centerDiv.style.background = "url('http://www.tibiawiki.com.br/center.png') no-repeat center";
+	centerDiv.style.background = "url(../imagens/mapa/center.png) no-repeat center";
 	controlDiv.appendChild(centerDiv);
 	
 	var CENTER = CoordToLatLng(start_x,start_y);
 	google.maps.event.addDomListener(upDiv,"click",function() {ChangeFloor(-1)});
 	google.maps.event.addDomListener(downDiv,"click",function() {ChangeFloor(+1)});
 	google.maps.event.addDomListener(centerDiv,"click",function() {map.setCenter(CENTER)});
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv);
+	if(exibirControles)
+		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv);
 }
 
 function Crosshair() {
@@ -297,14 +299,14 @@ function Crosshair() {
 		var xDiv = document.createElement("DIV");
 		xDiv.style.width = "100%";
 		xDiv.style.height = "1px";
-		xDiv.style.background = "url('http://www.tibiawiki.com.br/cx.png') repeat-x center";
+		xDiv.style.background = "url(../imagens/mapa/cx.png) repeat-x center";
 		xDiv.style.pointerEvents = "none";
 		map.controls[google.maps.ControlPosition.LEFT_CENTER].push(xDiv);
 		
 		var yDiv = document.createElement("DIV");
 		yDiv.style.width = "1px";
 		yDiv.style.height = "100%";
-		yDiv.style.background = "url('http://www.tibiawiki.com.br/cy.png') repeat-y center";
+		yDiv.style.background = "url(../imagens/mapa/cy.png) repeat-y center";
 		yDiv.style.pointerEvents = "none";
 		map.controls[google.maps.ControlPosition.TOP_CENTER].push(yDiv);
 	}else{

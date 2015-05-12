@@ -40,7 +40,7 @@
 				"magias" => "Magias",
 				"conquistas" => "Conquistas (?)",
 				"tabela_experiencia" => "Tabela de Experiência",
-				"mapas" => "Mapas",
+				"mapa" => "Mapa",
 				"cidades" => "Cidades (?)"
 			)
 		),
