@@ -7,10 +7,14 @@
 		);
 		private $vocacoes = array(
 			0 => array("campo" => "nenhuma", "exibicao" => "Nenhuma"),
-			1 => array("campo" => "arqueiro", "exibicao" => "Arqueiro"),
-			2 => array("campo" => "feiticeiro", "exibicao" => "Feiticeiro"),
-			3 => array("campo" => "clerigo", "exibicao" => "Clérigo"),
-			4 => array("campo" => "cavaleiro", "exibicao" => "Cavaleiro")
+			1 => array("campo" => "sorcerer", "exibicao" => "Sorcerer"),
+			2 => array("campo" => "druid", "exibicao" => "Druid"),
+			3 => array("campo" => "paladin", "exibicao" => "Paladin"),
+			4 => array("campo" => "knight", "exibicao" => "Knight"),
+			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer"),
+			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid"),
+			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin"),
+			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight")
 		);
 		public function transformarDiasTempo($dias){
 			return $dias*24*60*60;
