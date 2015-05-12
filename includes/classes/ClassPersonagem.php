@@ -1,7 +1,7 @@
 <?php
 	class Personagem {
 		public $limiteRank = 100;
-		public $diasDeletarPersonagem = 30;
+		public $diasDeletarPersonagem = 7;
 		private $cidades = array(
 			1 => "Cidade"
 		);

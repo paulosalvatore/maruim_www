@@ -1,6 +1,6 @@
 <?php
 	class Conta {
-		public $diasTrocarEmail = 15;
+		public $diasTrocarEmail = 7;
 		public $delayReenvio = 60;
 		public function formatarData($tempo){
 			return date("d/m/Y, H\hi\ms\s", $tempo);

@@ -13,6 +13,8 @@
 							<br>
 							Anote a sua Chave de Recuperação:<br>
 							<h2>'.$chaveRecuperacao.'</h2>
+							<br>
+							<span class="vermelho">CASO PERCA A SUA CHAVE DE RECUPERAÇÃO, VOCÊ FICARÁ IMPOSSIBILITADO DE DELETAR QUALQUER PERSONAGEM DE SUA CONTA.</span><br>
 							<div align="center">
 								<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';"/>
 							</div>
@@ -761,11 +763,21 @@
 											$exibirValor = "Conta Premium";
 										}
 									}
+									elseif($c == "registro_conta"){
+										if(empty($valor)){
+											$classes = "vermelho";
+											$exibirValor = "Conta Não Registrada. Clique no botão abaixo para Registrá-la.";
+										}
+										else{
+											$classes = "verde";
+											$exibirValor = "Conta Registrada!";
+										}
+									}
 									if((!empty($v["mensagem_valor_vazio"])) AND (($valor == 0) OR (empty($valor))))
 										$exibirValor = $v["mensagem_valor_vazio"];
 									$conteudo_minha_conta .= '
 										<tr class="item">
-											<td width="130">
+											<td width="145">
 												<b class="exibicao_bloco">'.$v["nome"].':</b>
 											</td>
 											<td>

@@ -53,6 +53,10 @@
 		"status_conta" => array(
 			"nome" => "Status da Conta",
 			"coluna" => "premdays"
+		),
+		"registro_conta" => array(
+			"nome" => "Registro da Conta",
+			"coluna" => "chave_recuperacao"
 		)
 	);
 ?>
