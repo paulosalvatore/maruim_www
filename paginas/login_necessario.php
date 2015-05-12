@@ -6,7 +6,7 @@
 					Login Necessário
 				</div>
 				<div class="box_frame_conteudo_principal" carregar_box="1">
-					<div class="box_frame_conteudo dark">
+					<div class="box_frame_conteudo dark padding">
 						Para acessar esse conteúdo você deve efetuar o <a href="?p=minha_conta">login</a> em nosso sistema.
 					</div>
 				</div>
