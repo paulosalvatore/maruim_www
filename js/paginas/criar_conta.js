@@ -91,6 +91,7 @@ function verificarCampos(formulario){
 	}
 };
 $(function(){
+	$("#conta").focus();
 	$("#formulario_criacao_conta input[type=text], #formulario_criacao_conta input[type=password]").blur(function(){
 		verificarCampo($(this).attr("name"), $(this).val());
 	});

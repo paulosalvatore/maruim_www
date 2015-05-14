@@ -111,7 +111,7 @@
 				<div class="box_frame" carregar_box="1">
 					Criar Nova Conta
 				</div>
-				<div class="box_frame_conteudo_principal" carregar_box="1">
+				<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
 					<form id="formulario_criacao_conta" align="center">
 						'.$exibicao_formulario_criacao_conta.'
 						<br>
