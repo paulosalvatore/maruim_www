@@ -637,7 +637,9 @@ img.ordenar {
 .botao:hover {
 	background-position: -120px;
 }
-.botao_azul {
+.botao_azul,
+.botao_verde,
+.botao_vermelho {
 	width: 135px;
 	height: 25px;
 	border: 0;
@@ -671,8 +673,9 @@ img.ordenar {
 	margin-left: 290px;
 	width: 145px;
 }
-.fundo_botao_azul {
-	background: url(../imagens/corpo/fundo_botao_azul.png);
+.fundo_botao_azul,
+.fundo_botao_verde 
+.fundo_botao_vermelho {
 	background-repeat: no-repeat;
 	width: 135px;
 	height: 25px;
@@ -680,8 +683,19 @@ img.ordenar {
 	border: 0px;
 	cursor: pointer;
 }
-.fundo_botao_azul:hover {
+.fundo_botao_azul:hover,
+.fundo_botao_verde:hover ,
+.fundo_botao_vermelho:hover {
 	background-position: -135px;
+}
+.fundo_botao_azul {
+	background: url(../imagens/corpo/fundo_botao_azul.png);
+}
+.fundo_botao_verde {
+	background: url(../imagens/corpo/fundo_botao_verde.png);
+}
+.fundo_botao_vermelho {
+	background: url(../imagens/corpo/fundo_botao_vermelho.png);
 }
 #rodape {
 	font-size: 9px;
@@ -814,6 +828,9 @@ img.ordenar {
 .box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_id,
 .box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_sd {
 	right: 21px;
+}
+.box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_sd {
+	margin-top: 0px;
 }
 .box_frame_conteudo_principal.ocultar_borda3 .box_frame_tabela_canto_id,
 .box_frame_conteudo_principal.ocultar_borda3 .box_frame_tabela_canto_sd {

@@ -89,7 +89,7 @@
 									<b>Conta:</b>
 								</td>
 								<td width="280">
-									<input type="password" name="conta" style="width: 278px;">
+									<input type="password" id="conta" name="conta" style="width: 278px;">
 								</td>
 							</tr>
 							<tr>
@@ -97,7 +97,7 @@
 									<b>Senha:</b>
 								</td>
 								<td>
-									<input type="password" name="senha" style="width: 278px;">
+									<input type="password" id="senha" name="senha" style="width: 278px;">
 								</td>
 							</tr>
 							<tr>
@@ -866,6 +866,30 @@
 								</div>
 							';
 						$conteudo_minha_conta .= '
+					</div>
+					<br>
+					<div class="box_frame" carregar_box="1">
+						Serviços Disponíveis
+					</div>
+					<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								';
+								foreach($config["servicos"] as $categoria)
+									$conteudo_minha_conta .= '
+										<tr class="conteudo dark">
+											<td>
+												<div style="float: right;">
+													<input type="button" class="botao_verde" value="entrar" />
+												</div>
+												<b>'.$categoria["nome"].'</b><br>
+												'.$categoria["descricao"].'
+											</td>
+										</tr>
+									';
+								$conteudo_minha_conta .= '
+							</table>
+						</div>
 					</div>
 				';
 			}

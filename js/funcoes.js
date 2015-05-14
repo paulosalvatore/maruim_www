@@ -108,19 +108,24 @@ $(function(){
 				$(".data.de").datepicker("option", "maxDate", selectedDate);
 		}
 	});
-	$(".botao_azul").each(function(){
+	$(".botao_azul, .botao_verde, .botao_vermelho").each(function(){
+		var corBotao;
+		if($(this).hasClass("botao_azul"))
+			corBotao = "azul";
+		else if($(this).hasClass("botao_verde"))
+			corBotao = "verde";
+		else if($(this).hasClass("botao_vermelho"))
+			corBotao = "vermelho";
 		var valor = $(this).val();
 		var imagem = "imagens/botoes/"+valor+".png";
 		$(this)
 		.css("background", "url("+imagem+")")
 		.val("");
 		var botao = $(this).clone();
-		var id_botao = $("div.fundo_botao_azul").length+1;
-		var fundo_botao = '\
-			<div class="fundo_botao_azul" id="'+id_botao+'"></div>\
-		';
+		var id_botao = $("div.fundo_botao_"+corBotao).length+1;
+		var fundo_botao = '<div class="fundo_botao_'+corBotao+'" id="botao_'+corBotao+'_'+id_botao+'"></div>';
 		$(this).before(fundo_botao);
-		$("#"+id_botao).html(botao);
+		$("#botao_"+corBotao+"_"+id_botao).html(botao);
 		$(this).remove();
 	});
 });

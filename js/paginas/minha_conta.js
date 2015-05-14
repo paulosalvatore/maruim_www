@@ -1,4 +1,5 @@
 $(function(){
+	$("#conta").focus();
 	$(".infoDeletado").mouseenter(function(){
 		$(this).next(".boxInfo").show();
 	}).mouseleave(function(){
