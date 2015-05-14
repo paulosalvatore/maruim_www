@@ -441,6 +441,12 @@
 						';
 					}
 				}
+				elseif($id == "servicos"){
+					$ativarOverlay = true;
+					$conteudo_minha_conta = '
+						<div id="barraProgresso" data-config="1"></div>
+					';
+				}
 				else
 					$conteudo_minha_conta = $conteudo_nao_encontrado_full;
 			}
@@ -880,7 +886,7 @@
 										<tr class="conteudo dark">
 											<td>
 												<div style="float: right;">
-													<input type="button" class="botao_verde" value="entrar" />
+													<input type="button" class="botao_verde" value="adquirir" onClick="document.location = \'?p=minha_conta-servicos\';" />
 												</div>
 												<b>'.$categoria["nome"].'</b><br>
 												'.$categoria["descricao"].'

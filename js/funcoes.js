@@ -1,3 +1,79 @@
+function ativarOverlay(){
+	$("#conteudo").before('<div id="overlay"></div>');
+	$(".conteudo_pagina").css({
+		"position": "relative",
+		"z-index": 11
+	});
+};
+function construirBarraProgresso(){
+	var barraProgressoElemento = $("#barraProgresso");
+	var config = parseInt(barraProgressoElemento.data("config"));
+	config = 0;
+	var icones = ["azul", "azul", "azul", "azul"];
+	var tubos = ["azul", "azul", "azul", "azul", "azul"];
+	var negritos = ["", "", "", ""];
+	if(config > 0){
+		negritos[config-1] = " negrito";
+		for(i=0;i<=config;i++){
+			if(i > 0)
+				icones[i-1] = "verde";
+			if(i == tubos.length-1)
+				tubos[i] = "verde";
+			else if((i == config) && (i != 0) && (i != tubos.length-1))
+				tubos[i] = "verde_azul";
+			else
+				tubos[i] = "verde";
+		}
+	}
+	var barraProgresso = '\
+		<div id="barraProgressoBase">\
+			<div id="barraProgressoInicio"></div>\
+			<div id="barraProgressoFim"></div>\
+		</div>\
+		<div id="barraProgressoConteudo">\
+			<div class="barraProgressoTuboEsquerda '+tubos[0]+'"></div>\
+			<div class="barraProgressoTuboDireita '+tubos[4]+'"></div>\
+			<div id="barraProgressoPrimeiroPasso">\
+				<div class="barraProgressoPrimeiroPassoIcone">\
+					<img src="imagens/corpo/barraProgresso_icone1_'+icones[0]+'.gif">\
+				</div>\
+				<div class="barraProgressoTexto'+negritos[0]+'" align="left">Selecionar Serviço</b></div>\
+			</div>\
+			<div id="barraProgressoPassos">\
+				<div id="barraProgressoPassosConteudo">\
+					<div class="barraProgressoPasso">\
+						<div class="barraProgressoTubo">\
+							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[1]+'.gif">\
+						</div>\
+						<div class="barraProgressoIcone" align="right">\
+							<img src="imagens/corpo/barraProgresso_icone2_'+icones[1]+'.gif">\
+							<div class="barraProgressoTexto'+negritos[1]+'">Informações do Pagamento</div>\
+						</div>\
+					</div>\
+					<div class="barraProgressoPasso">\
+						<div class="barraProgressoTubo">\
+							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[2]+'.gif">\
+						</div>\
+						<div class="barraProgressoIcone" align="right">\
+							<img src="imagens/corpo/barraProgresso_icone3_'+icones[2]+'.gif">\
+							<div class="barraProgressoTexto'+negritos[2]+'">Confirmação</div>\
+						</div>\
+					</div>\
+					<div class="barraProgressoPasso">\
+						<div class="barraProgressoTubo">\
+							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[3]+'.gif">\
+						</div>\
+						<div class="barraProgressoIcone" align="right">\
+							<img src="imagens/corpo/barraProgresso_icone4_'+icones[3]+'.gif">\
+							<div class="barraProgressoTexto'+negritos[3]+'">Revisão</div>\
+						</div>\
+					</div>\
+				</div>\
+			</div>\
+		</div>\
+	';
+	barraProgressoElemento.html(barraProgresso);
+};
 function getCookie(cookiename){
 	var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
 	return unescape(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
@@ -128,4 +204,6 @@ $(function(){
 		$("#botao_"+corBotao+"_"+id_botao).html(botao);
 		$(this).remove();
 	});
+	if($("#barraProgresso").length)
+		construirBarraProgresso();
 });

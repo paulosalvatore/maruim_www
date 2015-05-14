@@ -10,6 +10,7 @@
 	$login = $_SESSION["login"];
 	$senha = $_SESSION["senha"];
 	$usuarioEncontrado = false;
+	$ativarOverlay = false;
 	include("includes/classes/ClassConta.php");
 	include("includes/classes/ClassFuncao.php");
 	$ClassConta = new Conta();
@@ -61,4 +62,12 @@
 			</body>
 		</html>
 	';
+	if($ativarOverlay == true)
+		echo'
+			<script>
+				$(function(){
+					ativarOverlay();
+				});
+			</script>
+		';
 ?>

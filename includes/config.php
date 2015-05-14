@@ -62,4 +62,32 @@
 			"coluna" => "chave_recuperacao"
 		)
 	);
+	$config["servicos"] = array(
+		"premium_time" => array(
+			"nome" => "Premium Time",
+			"descricao" => "Adquira Premium Time para sua conta.",
+			"itens" => array(),
+		),
+		"premium_scroll" => array(
+			"nome" => "Premium Scroll",
+			"descricao" => "Adquira Premium Scroll para sua conta.",
+			"itens" => array(),
+		),
+		"servicos_extras" => array(
+			"nome" => "Serviços Extras",
+			"descricao" => "Buy an extra service to transfer a character to another game world, to change your character name or sex, to change your account name, or to get a new recovery key.",
+		),
+		"montaria" => array(
+			"nome" => "Montaria",
+			"descricao" => "Buy your characters one or more of the fabulous mounts offered here.",
+		),
+		"outfits" => array(
+			"nome" => "Outfits",
+			"descricao" => "Buy your characters one or more of the fancy outfits offered here.",
+		),
+		"itens" => array(
+			"nome" => "Itens",
+			"descricao" => "Buy items for your character be more stronger in the game.",
+		)
+	);
 ?>

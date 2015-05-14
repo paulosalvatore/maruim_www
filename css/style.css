@@ -1082,3 +1082,118 @@ textarea {
 	color: green;
 	background: url(../imagens/geral/sucesso.png) no-repeat left top;
 }
+#overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 10;
+	background: black;
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-webkit-opacity: 0.75;
+}
+#barraProgresso {
+	width: 100%;
+	height: 50px;
+	padding-top: 20px;
+}
+#barraProgressoBase {
+	margin-left: 10px;
+	margin-right: 10px;
+	background: url(../imagens/corpo/barraProgresso_centro.gif) repeat-x;
+	height: 17px;
+}
+#barraProgressoInicio,
+#barraProgressoFim {
+	height: 17px;
+	width: 25px;
+}
+#barraProgressoInicio {
+	float: left;
+	margin-left: -8px;
+	background: url(../imagens/corpo/barraProgresso_inicio.gif) no-repeat;
+}
+#barraProgressoFim {
+	position: absolute;
+	right: 13px;
+	background: url(../imagens/corpo/barraProgresso_fim.gif) no-repeat;
+}
+#barraProgressoConteudo {
+	width: 100%;
+	height: 39px;
+}
+.barraProgressoTuboEsquerda,
+.barraProgressoTuboDireita {
+	position: absolute;
+	width: 25px;
+	height: 9px;
+}
+.barraProgressoTuboEsquerda {
+	margin-top: -13px;
+	margin-left: 26px;
+}
+.barraProgressoTuboDireita {
+	margin-top: -13px;
+	right: 38px;
+}
+.barraProgressoTuboEsquerda.verde {
+	background: url(../imagens/corpo/barraProgresso_tubo_esquerda_verde.gif) no-repeat;
+}
+.barraProgressoTuboEsquerda.azul {
+	background: url(../imagens/corpo/barraProgresso_tubo_esquerda_azul.gif) no-repeat;
+}
+.barraProgressoTuboDireita.verde {
+	background: url(../imagens/corpo/barraProgresso_tubo_direita_verde.gif) no-repeat;
+}
+.barraProgressoTuboDireita.azul {
+	background: url(../imagens/corpo/barraProgresso_tubo_direita_azul.gif) no-repeat;
+}
+#barraProgressoPrimeiroPasso {
+	position: absolute;
+	margin-top: -28px;
+	left: 57px;
+}
+#barraProgressoPrimeiroPassoIcone img {
+	margin-top: -28px;
+}
+#barraProgressoPassos {
+	width: 100%;
+	position: absolute;
+	height: 39px;
+	margin-top: -28px;
+}
+#barraProgressoPassosConteudo {
+	margin-left: 93px;
+	margin-right: 73px;
+}
+.barraProgressoPasso {
+	float: left;
+	height: 7px;
+	width: 33.3%;
+	margin-top: 16px;
+}
+.barraProgressoIcone img {
+	margin-top: -23px;
+}
+.barraProgressoTubo {
+	padding-right: 47px;
+}
+.barraProgressoTubo img {
+	margin-top: 0px;
+	width: 100%;
+	height: 7px;
+}
+.barraProgressoIcone {
+	position: relative;
+}
+.barraProgressoTexto {
+	position: absolute;
+	width: 200px;
+	right: -77px;
+	font-size: 9px;
+	text-align: center;
+}
+.barraProgressoTexto.negrito {
+	font-weight: bold;
+}
