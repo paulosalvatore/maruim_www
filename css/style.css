@@ -892,7 +892,7 @@ img.ordenar {
 	background: url(../imagens/corpo/box_frame_tabela_sombra_canto_sd.png);
 	position: absolute;
 	right: 12px;
-	margin-top: 1px;
+	margin-top: 0px;
 	width: 4px;
 	height: 5px;
 	z-index: 3;
@@ -1196,4 +1196,53 @@ textarea {
 }
 .barraProgressoTexto.negrito {
 	font-weight: bold;
+}
+.abas {
+	position: relative;
+	height: 48px;
+}
+.abas .aba {
+	position: relative;
+	float: left;
+	top: 4px;
+	margin-left: 1px;
+	margin-right: 0px;
+	cursor: pointer;
+	vertical-align: middle;
+	width: 105px;
+	height: 45px;
+}
+.abas .aba img {
+	width: 105px;
+	height: 45px;
+	position: absolute;
+}
+.abas .aba .texto {
+	position: relative;
+	top: 3px;
+	left: 0px;
+	text-align: center;
+	width: 86px;
+	height: 35px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #5A2800;
+	font-weight: normal;
+}
+.abas .aba.ativa {
+	z-index: 1;
+	top: 5px;
+}
+.abas .aba.ativa .texto {
+	top: 0px;
+}
+.conteudo_aba {
+	display: none;
+	min-height: 200px;
+	padding: 5px 5px 0 5px;
+}
+.conteudo_aba.exibir {
+	display: block;
 }

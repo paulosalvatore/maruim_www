@@ -154,4 +154,17 @@ $(function(){
 			.html(html);
 		}
 	});
+	$(".aba").click(function(){
+		var servicoId = $(this).data("servico_id");
+		var imagemAtiva = "imagens/corpo/fundo_aba_ativa.png";
+		var imagemInativa = "imagens/corpo/fundo_aba_inativa.png";
+		$(".aba.ativa")
+		.removeClass("ativa")
+		.find("img").attr("src", imagemInativa);
+		$(this)
+		.addClass("ativa")
+		.find("img").attr("src", imagemAtiva);
+		$(".conteudo_aba.exibir").removeClass("exibir");
+		$("#conteudo_aba_"+servicoId).addClass("exibir");
+	});
 });

@@ -64,14 +64,10 @@
 	);
 	$config["servicos"] = array(
 		"premium_time" => array(
-			"nome" => "Premium Time",
-			"descricao" => "Adquira Premium Time para sua conta.",
+			"nome" => "Premium",
+			"descricao" => "Adquira Premium Time ou Premium Scroll para sua conta.",
 			"itens" => array(),
-		),
-		"premium_scroll" => array(
-			"nome" => "Premium Scroll",
-			"descricao" => "Adquira Premium Scroll para sua conta.",
-			"itens" => array(),
+			"padrao" => true
 		),
 		"servicos_extras" => array(
 			"nome" => "Serviços Extras",

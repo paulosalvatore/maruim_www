@@ -443,8 +443,42 @@
 				}
 				elseif($id == "servicos"){
 					$ativarOverlay = true;
+					$conteudo_abas = "";
+					$exibicao_abas = "";
+					foreach($config["servicos"] as $servicoId => $servico){
+						$classeAba = "aba";
+						$classeConteudo = "conteudo_aba";
+						$imagem = "inativa";
+						if($servico["padrao"]){
+							$classeAba .= " ativa";
+							$classeConteudo .= " exibir";
+							$imagem = "ativa";
+						}
+						$conteudo_abas .= '
+							<div class="'.$classeAba.'" data-servico_id="'.$servicoId.'">
+								<img src="imagens/corpo/fundo_aba_'.$imagem.'.png" />
+								<div class="texto">'.$servico["nome"].'</div>
+							</div>
+						';
+						$exibicao_abas .= '
+							<div id="conteudo_aba_'.$servicoId.'" class="'.$classeConteudo.'">
+								'.$servico["descricao"].'
+							</div>
+						';
+					}
 					$conteudo_minha_conta = '
 						<div id="barraProgresso" data-config="1"></div>
+						<br>
+						<div class="abas">'.$conteudo_abas.'</div>
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark">
+									<td>
+										'.$exibicao_abas.'
+									</td>
+								</tr>
+							</table>
+						</div>
 					';
 				}
 				else
