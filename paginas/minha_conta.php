@@ -181,10 +181,10 @@
 								</div>
 							</div>
 							<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
-								<div class="botao_azul2_1">
+								<div class="botao_colorido2_1">
 									<input type="submit" class="botao_azul" value="alterar_senha" />
 								</div>
-								<div class="botao_azul2_2">
+								<div class="botao_colorido2_2">
 									<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 								</div>
 							</div>
@@ -259,10 +259,10 @@
 									</table>
 								</div>
 								<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
-									<div class="botao_azul2_1">
+									<div class="botao_colorido2_1">
 										<input type="submit" class="botao_azul" value="registrar" />
 									</div>
-									<div class="botao_azul2_2">
+									<div class="botao_colorido2_2">
 										<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 									</div>
 								</div>
@@ -430,10 +430,10 @@
 									</div>
 								</div>
 								<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
-									<div class="botao_azul2_1">
+									<div class="botao_colorido2_1">
 										<input type="submit" class="botao_azul" value="alterar_email" />
 									</div>
-									<div class="botao_azul2_2">
+									<div class="botao_colorido2_2">
 										<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 									</div>
 								</div>
@@ -442,6 +442,8 @@
 					}
 				}
 				elseif($id == "servicos"){
+					include("includes/classes/ClassServicos.php");
+					$ClassServicos = new Servicos();
 					$ativarOverlay = true;
 					$conteudo_abas = "";
 					$exibicao_abas = "";
@@ -462,7 +464,37 @@
 						';
 						$exibicao_abas .= '
 							<div id="conteudo_aba_'.$servicoId.'" class="'.$classeConteudo.'">
-								'.$servico["descricao"].'
+								';
+								foreach($ClassServicos->getProdutos($servicoId) as $produto){
+									$exibirFundoServico = "";
+									$exibirImagem = "";
+									if($produto["fundoServico"])
+										$exibirFundoServico = ' style="background: url('.$produto["imagem"].') no-repeat;"';
+									if($produto["tipo"] == "item")
+										$exibirImagem = '<div class="servicoImagem" style="background: url('.$produto["imagem"].');"></div>';
+									$exibicao_abas .= '
+										<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'">
+											<div class="fundo">
+												<div class="fundoServico"'.$exibirFundoServico.'>
+													'.$exibirImagem.'
+														<div class="servicoEtiquetaBox">
+															<div class="servicoTextoBox">
+																<input type="radio" id="servico_'.$produto["id"].'" name="servico" value="'.$servicoId.'">
+																'.$produto["nome"].'
+															</div>
+														</div>
+														<div class="servicoBoxPreco">
+															'.$produto["exibirPreco"].'
+														</div>
+												</div>
+											</div>
+											<div class="fundoOver"></div>
+											<div class="fundoSelecionado"></div>
+											<div class="fundoDesativado"></div>
+										</div>
+									';
+								}
+								$exibicao_abas .= '
 							</div>
 						';
 					}
@@ -478,6 +510,41 @@
 									</td>
 								</tr>
 							</table>
+						</div>
+						<br>
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark">
+									<td>
+										';
+										foreach($config["formas_pagamento"] as $pagamentoId => $pagamento){
+											$conteudo_minha_conta .= '
+												<div class="formaPagamento" data-tipo="'.$pagamento["tipo"].'">
+													<div class="fundo">
+														<div class="fundoFormaPagamento">
+															<img src="imagens/servicos/pagamento_'.$pagamentoId.'.gif">
+															<input type="radio" id="pagamento_'.$pagamentoId.'" name="forma_pagamento" value="'.$pagamentoId.'">
+															<div class="formaPagamentoNome">'.$pagamento["nome"].'</div>
+														</div>
+													</div>
+													<div class="fundoOver"></div>
+													<div class="fundoSelecionado"></div>
+													<div class="fundoDesativado"></div>
+												</div>
+											';
+										}
+										$conteudo_minha_conta .= '
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div align="center" style="margin-top: 5px;">
+							<div class="botao_colorido2_1">
+								<input type="submit" class="botao_verde" value="proximo" onClick="" />
+							</div>
+							<div class="botao_colorido2_2">
+								<input type="button" class="botao_vermelho" value="cancelar" onClick="document.location = \'?p=minha_conta\'" />
+							</div>
 						</div>
 					';
 				}
@@ -851,13 +918,13 @@
 						if(empty($informacoesConta["chave_recuperacao"]))
 							$conteudo_minha_conta .= '
 								<div align="center" style="margin-top: 5px;">
-									<div class="botao_azul3_1">
+									<div class="botao_colorido3_1">
 										<input type="submit" class="botao_azul" value="alterar_senha" onClick="document.location = \'?p=minha_conta-alterar_senha\'" />
 									</div>
-									<div class="botao_azul3_2">
+									<div class="botao_colorido3_2">
 										<input type="button" class="botao_azul" value="registrar" onClick="document.location = \'?p=minha_conta-registrar\'" />
 									</div>
-									<div class="botao_azul3_3">
+									<div class="botao_colorido3_3">
 										<input type="button" class="botao_azul" value="alterar_email" onClick="document.location = \'?p=minha_conta-alterar_email\'" />
 									</div>
 								</div>
@@ -865,10 +932,10 @@
 						else
 							$conteudo_minha_conta .= '
 								<div align="center" style="margin-top: 5px;">
-									<div class="botao_azul2_1">
+									<div class="botao_colorido2_1">
 										<input type="submit" class="botao_azul" value="alterar_senha" onClick="document.location = \'?p=minha_conta-alterar_senha\'" />
 									</div>
-									<div class="botao_azul2_2">
+									<div class="botao_colorido2_2">
 										<input type="button" class="botao_azul" value="alterar_email" onClick="document.location = \'?p=minha_conta-alterar_email\'" />
 									</div>
 								</div>

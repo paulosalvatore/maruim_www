@@ -63,27 +63,40 @@
 		)
 	);
 	$config["servicos"] = array(
-		"premium_time" => array(
-			"nome" => "Premium",
-			"descricao" => "Adquira Premium Time ou Premium Scroll para sua conta.",
-			"itens" => array(),
-			"padrao" => true
+		"premium" => array(
+			"nome" => "Premium / Pontos",
+			"descricao" => "Adquira Premium Scroll ou Pontos para sua conta."
 		),
 		"servicos_extras" => array(
 			"nome" => "Serviços Extras",
-			"descricao" => "Buy an extra service to transfer a character to another game world, to change your character name or sex, to change your account name, or to get a new recovery key.",
+			"descricao" => "Compre um serviço extra para trocar o nome ou o sexo de seu personagem, trocar o nome da sua conta ou adquirir uma nova chave de recuperação.",
+			"padrao" => true
 		),
-		"montaria" => array(
-			"nome" => "Montaria",
-			"descricao" => "Buy your characters one or more of the fabulous mounts offered here.",
+		"montarias" => array(
+			"nome" => "Montarias",
+			"descricao" => "Compre para seus personagens fabulosas montarias ofertadas aqui."
 		),
 		"outfits" => array(
 			"nome" => "Outfits",
-			"descricao" => "Buy your characters one or more of the fancy outfits offered here.",
+			"descricao" => "Compre para seus personagens estilosos outfits ofertados aqui."
 		),
 		"itens" => array(
 			"nome" => "Itens",
-			"descricao" => "Buy items for your character be more stronger in the game.",
+			"descricao" => "Compre itens para seus personagens e fique mais forte no jogo."
+		)
+	);
+	$config["formas_pagamento"] = array(
+		"pagseguro" => array(
+			"nome" => "PagSeguro",
+			"tipo" => "real"
+		),
+		"transferencia" => array(
+			"nome" => "Transferência Bancária",
+			"tipo" => "real"
+		),
+		"pontos" => array(
+			"nome" => "Pontos",
+			"tipo" => "ponto"
 		)
 	);
 ?>

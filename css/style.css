@@ -645,36 +645,36 @@ img.ordenar {
 	border: 0;
 	cursor: pointer;
 }
-.botao_azul2_1 {
+.botao_colorido2_1 {
 	position: relative;
 	margin-left: -145px;
 	width: 145px;
 }
-.botao_azul2_2 {
+.botao_colorido2_2 {
 	position: relative;
 	margin-top: -25px;
 	margin-left: 145px;
 	width: 145px;
 }
-.botao_azul3_1 {
+.botao_colorido3_1 {
 	position: relative;
 	margin-left: -290px;
 	width: 145px;
 }
-.botao_azul3_2 {
+.botao_colorido3_2 {
 	position: relative;
 	margin-top: -25px;
 	margin-left: 0;
 	width: 145px;
 }
-.botao_azul3_3 {
+.botao_colorido3_3 {
 	position: relative;
 	margin-top: -25px;
 	margin-left: 290px;
 	width: 145px;
 }
 .fundo_botao_azul,
-.fundo_botao_verde 
+.fundo_botao_verde,
 .fundo_botao_vermelho {
 	background-repeat: no-repeat;
 	width: 135px;
@@ -684,7 +684,7 @@ img.ordenar {
 	cursor: pointer;
 }
 .fundo_botao_azul:hover,
-.fundo_botao_verde:hover ,
+.fundo_botao_verde:hover,
 .fundo_botao_vermelho:hover {
 	background-position: -135px;
 }
@@ -1241,8 +1241,165 @@ textarea {
 .conteudo_aba {
 	display: none;
 	min-height: 200px;
+	max-height: 200px;
+	overflow-y: auto;
 	padding: 5px 5px 0 5px;
 }
 .conteudo_aba.exibir {
 	display: block;
+}
+.servico {
+	position: relative;
+	width: 156px;
+	height: 156px;
+	float: left;
+	margin: 3px;
+}
+.servico .fundo {
+	background: url(../imagens/servicos/servico_normal.png);
+}
+.servico .fundoOver {
+	background: url(../imagens/servicos/servico_over.png);
+	display: none;
+}
+.servico .fundoSelecionado {
+	background: url(../imagens/servicos/servico_selecionado.png);
+	display: none;
+}
+.servico .fundoDesativado {
+	background: url(../imagens/servicos/servico_desativado.png);
+	display: none;
+}
+.servico .fundoDesativado.exibir,
+.servico .fundoSelecionado.exibir {
+	display: block;
+}
+.servico:hover .fundoOver {
+	display: block;
+}
+.servico .fundo,
+.servico .fundoOver,
+.servico .fundoDesativado,
+.servico .fundoSelecionado {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 3px;
+	left: 3px;
+	cursor: pointer;
+}
+.servico .fundoServico {
+	position: relative;
+	float: left;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	background-repeat: no-repeat;
+	color: white;
+	cursor: pointer;
+}
+.formaPagamento input[type=radio],
+.servico input[type=radio] {
+	display: none;
+}
+.servico label {
+	cursor: pointer;
+}
+.servico .servicoEtiquetaBox {
+	position: absolute;
+	left: 0px;
+	display: table;
+	top: 6px;
+	height: 35px;
+	width: 130px;
+	margin-left: 10px;
+	margin-right: 10px;
+	z-index: 99;
+}
+.servico .servicoTextoBox {
+	display: table-cell;
+	vertical-align: middle;
+}
+.servico .servicoBoxPreco {
+	position: absolute;
+	left: 0px;
+	bottom: 10px;
+	width: 140px;
+	margin-left: 5px;
+	margin-right: 5px;
+	z-index: 99;
+	font-size: 8pt;
+}
+.servico .servicoImagem {
+	margin: 20px 53px;
+	position: absolute;
+	left: 5px;
+	top: 38px;
+	height: 32px;
+	width: 32px;
+}
+.formaPagamento {
+	position: relative;
+	width: 156px;
+	height: 106px;
+	float: left;
+	margin: 3px;
+}
+.formaPagamento .fundo {
+	background: url(../imagens/servicos/pagamento_normal.png);
+}
+.formaPagamento .fundoOver {
+	background: url(../imagens/servicos/pagamento_over.png);
+	display: none;
+}
+.formaPagamento .fundoSelecionado {
+	background: url(../imagens/servicos/pagamento_selecionado.png);
+	display: none;
+}
+.formaPagamento .fundoDesativado {
+	background: url(../imagens/servicos/pagamento_desativado.png);
+	display: none;
+}
+.formaPagamento .fundoSelecionado.exibir,
+.formaPagamento .fundoDesativado.exibir {
+	display: block;
+}
+.formaPagamento:hover .fundoOver {
+	display: block;
+}
+.formaPagamento .fundo {
+	position: relative;
+	float: left;
+	top: 3px;
+	left: 3px;
+	width: 150px;
+	height: 100px;
+	text-align: center;
+	background-repeat: no-repeat;
+	color: white;
+	cursor: pointer;
+}
+.formaPagamento .fundoOver,
+.formaPagamento .fundoSelecionado,
+.formaPagamento .fundoDesativado {
+	position: absolute;
+	width: 150px;
+	height: 100px;
+	top: 3px;
+	left: 3px;
+	cursor: pointer;
+}
+.formaPagamento .fundoFormaPagamento img {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+}
+.formaPagamento .formaPagamentoNome {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 22px;
+	z-index: 99;
+	font-size: 8pt;
 }

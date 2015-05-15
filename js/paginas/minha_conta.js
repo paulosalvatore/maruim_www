@@ -167,4 +167,28 @@ $(function(){
 		$(".conteudo_aba.exibir").removeClass("exibir");
 		$("#conteudo_aba_"+servicoId).addClass("exibir");
 	});
+	$(".servico").click(function(){
+		if(!$(this).find(".fundoDesativado").hasClass("exibir")){
+			$(this).find("input:radio").prop("checked", true);
+			$(".servico .fundoSelecionado.exibir").removeClass("exibir");
+			$(this).find(".fundoSelecionado").addClass("exibir");
+			var formaPagamento = $(this).data("pagamento");
+			$(".formaPagamento").each(function(){
+				if($(this).data("tipo") != formaPagamento){
+					$(this).find(".fundoSelecionado.exibir").removeClass("exibir");
+					$(this).find(".fundoDesativado").addClass("exibir");
+					$(this).find("input:radio").prop("checked", false);
+				}
+				else
+					$(this).find(".fundoDesativado.exibir").removeClass("exibir");
+			});
+		}
+	});
+	$(".formaPagamento").click(function(){
+		if(!$(this).find(".fundoDesativado").hasClass("exibir")){
+			$(this).find("input:radio").prop("checked", true);
+			$(".formaPagamento .fundoSelecionado.exibir").removeClass("exibir");
+			$(this).find(".fundoSelecionado").addClass("exibir");
+		}
+	});
 });
