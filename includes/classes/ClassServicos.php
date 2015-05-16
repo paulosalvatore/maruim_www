@@ -22,8 +22,8 @@
 					"exibirPreco" => $exibirPreco,
 					"categoria" => $resultadoServico["categoria"],
 					"presente" => ($resultadoServico["presente"] == 1 ? true : false),
-					"imagem" => (empty($resultadoServico["imagem"]) ? $this->getImagemServico($resultadoServico["tipo"], $resultadoServico["produto_id1"]) : $this->getImagemServico($resultadoServico["id"])),
-					"fundoServico" => ($resultadoServico["tipo"] != "item" ? true : false),
+					"imagem" => ($resultadoServico["imagem"] == 0 ? $this->getImagemServico($resultadoServico["tipo"], $resultadoServico["produto_id1"]) : $this->getImagemServico($resultadoServico["id"])),
+					"fundoServico" => ((($resultadoServico["tipo"] != "item") OR ($resultadoServico["imagem"] == 1)) ? true : false),
 					"forma_pagamento" => $resultadoServico["forma_pagamento"]
 				);
 			}

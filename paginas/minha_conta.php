@@ -470,7 +470,7 @@
 									$exibirImagem = "";
 									if($produto["fundoServico"])
 										$exibirFundoServico = ' style="background: url('.$produto["imagem"].') no-repeat;"';
-									if($produto["tipo"] == "item")
+									if(($produto["tipo"] == "item") AND (!$produto["fundoServico"]))
 										$exibirImagem = '<div class="servicoImagem" style="background: url('.$produto["imagem"].');"></div>';
 									$exibicao_abas .= '
 										<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'">
