@@ -182,6 +182,24 @@ $(function(){
 				else
 					$(this).find(".fundoDesativado.exibir").removeClass("exibir");
 			});
+			if(formaPagamento == "ponto"){
+				var pontosDisponiveis = parseInt($("#pontosDisponiveis").data("pontos"));
+				var preco = parseInt($(this).data("preco"));
+				var balancoRapido = pontosDisponiveis - preco;
+				var exibirBalancoRapido = balancoRapido;
+				if(balancoRapido < 0)
+					exibirBalancoRapido = "Pontos insuficientes";
+				else if(balancoRapido == 1)
+					exibirBalancoRapido += " ponto"
+				else
+					exibirBalancoRapido += " pontos"
+				$("#balancoRapido")
+				.show()
+				.find("span")
+				.html(exibirBalancoRapido);
+			}
+			else
+				$("#balancoRapido").hide();
 		}
 	});
 	$(".formaPagamento").click(function(){
@@ -190,5 +208,46 @@ $(function(){
 			$(".formaPagamento .fundoSelecionado.exibir").removeClass("exibir");
 			$(this).find(".fundoSelecionado").addClass("exibir");
 		}
+	});
+	$("#servicos").submit(function(){
+		var servicoSelecionado = $("input[name=servico]:checked");
+		var servicoSelecionadoPreco = servicoSelecionado.closest(".servico").data("preco");
+		var pagamentoSelecionado = $("input[name=forma_pagamento]:checked");
+		var pagamentoSelecionadoTipo = pagamentoSelecionado.closest(".formaPagamento").data("tipo");
+		var pontosDisponiveis = parseInt($("#pontosDisponiveis").data("pontos"));
+		var balancoRapido = pontosDisponiveis - servicoSelecionadoPreco;
+		if(!servicoSelecionado.length)
+			inserirMensagemErro("Selecione um serviço.", "erro");
+		else if(!pagamentoSelecionado.length)
+			inserirMensagemErro("Selecione um pagamento.", "erro");
+		else if((pagamentoSelecionadoTipo == "ponto") && (balancoRapido < 0))
+			inserirMensagemErro("Você não possui pontos suficientes.", "erro");
+		else
+			return true;
+		return false;
+	});
+	$("#informacoesPagamento").submit(function(){
+		var nome = $("input[name=nome]").val();
+		var cidade = $("input[name=cidade]").val();
+		var email = $("input[name=email]").val();
+		if(nome.length == 0)
+			inserirMensagemErro("Informe seu nome.", "erro");
+		else if(cidade.length == 0)
+			inserirMensagemErro("Informe sua cidade.", "erro");
+		else if(email.length == 0)
+			inserirMensagemErro("Informe seu e-mail.", "erro");
+		else if(!verificarEmail(email))
+			inserirMensagemErro("Informe um e-mail válido.", "erro");
+		else
+			return true;
+		return false;
+	});
+	$("#confirmarPagamento").submit(function(){
+		var aceitarRegras = $("#aceitar_regras");
+		if(!aceitarRegras.is(":checked"))
+			inserirMensagemErro("Você deve estar de acordo com as Regras do Servidor antes de prosseguir.", "erro");
+		else
+			return true;
+		return false;
 	});
 });

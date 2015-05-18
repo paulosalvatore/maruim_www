@@ -20,6 +20,8 @@
 				foreach($resultadoConta as $c => $v){
 					if($c == "creation")
 						$informacoesConta["exibirDataCriacao"] = $this->formatarData($v);
+					elseif($c == "pontos")
+						$informacoesConta["exibirPontos"] = ($v > 1 ? $v." pontos" : $v." ponto");
 					$informacoesConta[$c] = $v;
 				}
 			return $informacoesConta;

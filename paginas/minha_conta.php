@@ -444,109 +444,348 @@
 				elseif($id == "servicos"){
 					include("includes/classes/ClassServicos.php");
 					$ClassServicos = new Servicos();
-					$ativarOverlay = true;
-					$conteudo_abas = "";
-					$exibicao_abas = "";
-					foreach($config["servicos"] as $servicoId => $servico){
-						$classeAba = "aba";
-						$classeConteudo = "conteudo_aba";
-						$imagem = "inativa";
-						if($servico["padrao"]){
-							$classeAba .= " ativa";
-							$classeConteudo .= " exibir";
-							$imagem = "ativa";
-						}
-						$conteudo_abas .= '
-							<div class="'.$classeAba.'" data-servico_id="'.$servicoId.'">
-								<img src="imagens/corpo/fundo_aba_'.$imagem.'.png" />
-								<div class="texto">'.$servico["nome"].'</div>
-							</div>
-						';
-						$exibicao_abas .= '
-							<div id="conteudo_aba_'.$servicoId.'" class="'.$classeConteudo.'">
-								';
-								foreach($ClassServicos->getProdutos($servicoId) as $produto){
-									$exibirFundoServico = "";
-									$exibirImagem = "";
-									if($produto["fundoServico"])
-										$exibirFundoServico = ' style="background: url('.$produto["imagem"].') no-repeat;"';
-									if(($produto["tipo"] == "item") AND (!$produto["fundoServico"]))
-										$exibirImagem = '<div class="servicoImagem" style="background: url('.$produto["imagem"].');"></div>';
-									$exibicao_abas .= '
-										<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'">
-											<div class="fundo">
-												<div class="fundoServico"'.$exibirFundoServico.'>
-													'.$exibirImagem.'
-														<div class="servicoEtiquetaBox">
-															<div class="servicoTextoBox">
-																<input type="radio" id="servico_'.$produto["id"].'" name="servico" value="'.$servicoId.'">
-																'.$produto["nome"].'
-															</div>
-														</div>
-														<div class="servicoBoxPreco">
-															'.$produto["exibirPreco"].'
-														</div>
-												</div>
-											</div>
-											<div class="fundoOver"></div>
-											<div class="fundoSelecionado"></div>
-											<div class="fundoDesativado"></div>
-										</div>
+					if(empty($acao)){
+						$conteudo_abas = "";
+						$exibicao_abas = "";
+						foreach($config["servicos"] as $servicoId => $servico){
+							$classeAba = "aba";
+							$classeConteudo = "conteudo_aba";
+							$imagem = "inativa";
+							if($servico["padrao"]){
+								$classeAba .= " ativa";
+								$classeConteudo .= " exibir";
+								$imagem = "ativa";
+							}
+							$conteudo_abas .= '
+								<div class="'.$classeAba.'" data-servico_id="'.$servicoId.'">
+									<img src="imagens/corpo/fundo_aba_'.$imagem.'.png" />
+									<div class="texto">'.$servico["nome"].'</div>
+								</div>
+							';
+							$exibicao_abas .= '
+								<div id="conteudo_aba_'.$servicoId.'" class="'.$classeConteudo.'">
 									';
-								}
-								$exibicao_abas .= '
+									foreach($ClassServicos->getProdutos($servicoId) as $produto){
+										$exibirFundoServico = "";
+										$exibirImagem = "";
+										if($produto["fundoServico"])
+											$exibirFundoServico = ' style="background: url('.$produto["imagem"].') no-repeat;"';
+										if(($produto["tipo"] == "item") AND (!$produto["fundoServico"]))
+											$exibirImagem = '<div class="servicoImagem" style="background: url('.$produto["imagem"].');"></div>';
+										$exibicao_abas .= '
+											<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'" data-preco="'.$produto["preco"].'">
+												<div class="fundo">
+													<div class="fundoServico"'.$exibirFundoServico.'>
+														'.$exibirImagem.'
+															<div class="servicoEtiquetaBox">
+																<div class="servicoTextoBox">
+																	<input type="radio" id="servico_'.$produto["id"].'" name="servico" value="'.$produto["id"].'">
+																	'.$produto["nome"].'
+																</div>
+															</div>
+															<div class="servicoBoxPreco">
+																'.$produto["exibirPreco"].'
+															</div>
+													</div>
+												</div>
+												<div class="fundoOver"></div>
+												<div class="fundoSelecionado"></div>
+												<div class="fundoDesativado"></div>
+											</div>
+										';
+									}
+									$exibicao_abas .= '
+								</div>
+							';
+						}
+						$conteudo_minha_conta = '
+							<div id="barraProgresso" data-config="1"></div>
+							<br>
+							<div class="small_box_frame erro" carregar_box="1">
+								<b>Algum erro ocorreu.</b><br>
+								Verifique as informações e tente novamente.
 							</div>
+							<form id="servicos" method="POST" action="?p=minha_conta-servicos-informacoes_pagamento">
+								<div class="abas">'.$conteudo_abas.'</div>
+								<div class="box_frame_conteudo" carregar_box="1">
+									<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+										<tr class="conteudo dark">
+											<td>
+												'.$exibicao_abas.'
+											</td>
+										</tr>
+									</table>
+								</div>
+								<br>
+								<div class="box_frame_conteudo" carregar_box="1">
+									<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+										<tr class="conteudo dark">
+											<td>
+												';
+												foreach($ClassServicos->formasPagamento as $pagamentoId => $pagamento){
+													$conteudo_minha_conta .= '
+														<div class="formaPagamento" data-tipo="'.$pagamento["tipo"].'">
+															<div class="fundo">
+																<div class="fundoFormaPagamento">
+																	<img src="imagens/servicos/pagamento_'.$pagamentoId.'.gif">
+																	<input type="radio" id="pagamento_'.$pagamentoId.'" name="forma_pagamento" value="'.$pagamentoId.'">
+																	<div class="formaPagamentoNome">'.$pagamento["nome"].'</div>
+																</div>
+															</div>
+															<div class="fundoOver"></div>
+															<div class="fundoSelecionado"></div>
+															<div class="fundoDesativado"></div>
+														</div>
+													';
+												}
+												$conteudo_minha_conta .= '
+											</td>
+										</tr>
+									</table>
+								</div>
+								<br>
+								<div id="pontosDisponiveis" data-pontos="'.$informacoesConta["pontos"].'"><b>Pontos disponíveis:</b> <span>'.$informacoesConta["exibirPontos"].'</span></div>
+								<div id="balancoRapido"><b>Pontos após aquisição:</b> <span></span></div>
+								<br>
+								<div align="center" style="margin-top: 5px;">
+									<div class="botao_colorido2_1">
+										<input type="submit" class="botao_verde" value="proximo" onClick="" />
+									</div>
+									<div class="botao_colorido2_2">
+										<input type="button" class="botao_vermelho" value="cancelar" onClick="document.location = \'?p=minha_conta\'" />
+									</div>
+								</div>
+							</form>
 						';
 					}
-					$conteudo_minha_conta = '
-						<div id="barraProgresso" data-config="1"></div>
-						<br>
-						<div class="abas">'.$conteudo_abas.'</div>
-						<div class="box_frame_conteudo" carregar_box="1">
-							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
-								<tr class="conteudo dark">
-									<td>
-										'.$exibicao_abas.'
-									</td>
-								</tr>
-							</table>
-						</div>
-						<br>
-						<div class="box_frame_conteudo" carregar_box="1">
-							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
-								<tr class="conteudo dark">
-									<td>
-										';
-										foreach($config["formas_pagamento"] as $pagamentoId => $pagamento){
-											$conteudo_minha_conta .= '
-												<div class="formaPagamento" data-tipo="'.$pagamento["tipo"].'">
-													<div class="fundo">
-														<div class="fundoFormaPagamento">
-															<img src="imagens/servicos/pagamento_'.$pagamentoId.'.gif">
-															<input type="radio" id="pagamento_'.$pagamentoId.'" name="forma_pagamento" value="'.$pagamentoId.'">
-															<div class="formaPagamentoNome">'.$pagamento["nome"].'</div>
-														</div>
-													</div>
-													<div class="fundoOver"></div>
-													<div class="fundoSelecionado"></div>
-													<div class="fundoDesativado"></div>
-												</div>
-											';
-										}
-										$conteudo_minha_conta .= '
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div align="center" style="margin-top: 5px;">
-							<div class="botao_colorido2_1">
-								<input type="submit" class="botao_verde" value="proximo" onClick="" />
-							</div>
-							<div class="botao_colorido2_2">
-								<input type="button" class="botao_vermelho" value="cancelar" onClick="document.location = \'?p=minha_conta\'" />
-							</div>
-						</div>
-					';
+					elseif($acao == "informacoes_pagamento"){
+						$produtoId = $_POST["servico"];
+						$pagamentoId = $_POST["forma_pagamento"];
+						$informacoesProduto = $ClassServicos->getInformacoesProduto($produtoId);
+						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produtoId, $pagamentoId, $accountId, $informacoesProduto);
+						if(!$verificarCompraProduto[0])
+							$conteudo_minha_conta = $verificarCompraProduto[1];
+						else{
+							if(empty($_POST["email"]))
+								$_POST["email"] = $informacoesConta["email"];
+							$conteudo_minha_conta = '
+								<div id="barraProgresso" data-config="2"></div>
+								<br>
+								<div class="small_box_frame erro" carregar_box="1">
+									<b>Algum erro ocorreu.</b><br>
+									Verifique as informações e tente novamente.
+								</div>
+								<div class="box_frame" carregar_box="1">
+									Insira Informações do Pagamento
+								</div>
+								<form id="informacoesPagamento" method="POST" action="?p=minha_conta-servicos-confirmar">
+									<input type="hidden" name="produto" value="'.$produtoId.'" />
+									<input type="hidden" name="pagamento" value="'.$pagamentoId.'" />
+									<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+										<div class="box_frame_conteudo" carregar_box="1">
+											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+												<tr class="conteudo dark">
+													<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="150">
+																	<b>Nome:</b>
+																</td>
+																<td>
+																	<input type="text" name="nome" value="'.$_POST["nome"].'"/>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>Cidade:</b>
+																</td>
+																<td>
+																	<input type="text" name="cidade" value="'.$_POST["cidade"].'"/>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>E-mail:</b>
+																</td>
+																<td>
+																	<input type="text" name="email" value="'.$_POST["email"].'"/>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<br>
+									<div align="center" style="margin-top: 5px;">
+										<div class="botao_colorido2_1">
+											<input type="submit" class="botao_verde" value="proximo" />
+										</div>
+										<div class="botao_colorido2_2">
+											<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta-servicos\'" />
+										</div>
+									</div>
+								</form>
+							';
+						}
+					}
+					elseif($acao == "confirmar"){
+						$produtoId = $_POST["produto"];
+						$pagamentoId = $_POST["pagamento"];
+						$nome = $_POST["nome"];
+						$cidade = $_POST["cidade"];
+						$email = $_POST["email"];
+						$informacoesProduto = $ClassServicos->getInformacoesProduto($produtoId);
+						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produtoId, $pagamentoId, $accountId, $informacoesProduto);
+						$informacoesPagamento = $ClassServicos->getInformacoesPagamento($pagamentoId);
+						if((empty($nome)) OR (empty($cidade)) OR (empty($email)) OR (!verificarEmail($email)))
+							$conteudo_minha_conta = '
+								<div class="box_frame" carregar_box="1">
+									Dados Inválidos
+								</div>
+								<div class="box_frame_conteudo_principal" carregar_box="1">
+									<div class="box_frame_conteudo dark padding">
+										Algum erro ocorreu ou você inseriu dados inválidos.
+									</div>
+								</div>
+								<br>
+								<div align="center">
+									<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
+								</div>
+							';
+						elseif(!$verificarCompraProduto[0])
+							$conteudo_minha_conta = $verificarCompraProduto[1];
+						else{
+							$conteudo_minha_conta = '
+								<div id="barraProgresso" data-config="3"></div>
+								<br>
+								<div class="small_box_frame erro" carregar_box="1">
+									<b>Algum erro ocorreu.</b><br>
+									Verifique as informações e tente novamente.
+								</div>
+								<div class="box_frame" carregar_box="1">
+									Confirmação
+								</div>
+								<form id="confirmarPagamento" method="POST" action="?p=minha_conta-servicos-finalizar">
+									<input type="hidden" name="produto" value="'.$produtoId.'" />
+									<input type="hidden" name="pagamento" value="'.$pagamentoId.'" />
+									<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+										<div class="box_frame_conteudo" carregar_box="1">
+											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+												<tr class="conteudo dark">
+													<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="200">
+																	<b>Produto:</b>
+																</td>
+																<td>
+																	'.$informacoesProduto["nome"].'
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>Preço:</b>
+																</td>
+																<td>
+																	'.$informacoesProduto["exibirPreco"].'
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<br>
+										<div class="box_frame_conteudo" carregar_box="1">
+											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+												<tr class="conteudo dark">
+													<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="200">
+																	<b>Método de Pagamento:</b>
+																</td>
+																<td>
+																	'.$informacoesPagamento["nome"].'
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>Nome:</b>
+																</td>
+																<td>
+																	'.$_POST["nome"].'
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>Cidade:</b>
+																</td>
+																<td>
+																	'.$_POST["cidade"].'
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<b>E-mail:</b>
+																</td>
+																<td>
+																	'.$_POST["email"].'
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<br>
+										<div class="box_frame_conteudo" carregar_box="1">
+											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+												<tr class="conteudo dark">
+													<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="20">
+																	<input type="checkbox" id="aceitar_regras"/>
+																</td>
+																<td>
+																	<label for="aceitar_regras">
+																		Eu li e estou de acordo com as <a href="?p=regras" target="_nova">Regras do Servidor</a>.
+																	</label>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<br>
+									<div align="center" style="margin-top: 5px;">
+										<div class="botao_colorido2_1">
+											<input type="submit" class="botao_verde" value="adquirir_agora" />
+										</div>
+										<div class="botao_colorido2_2">
+											<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta-servicos\'" />
+										</div>
+									</div>
+								</form>
+							';
+						}
+					}
+					elseif($acao == "finalizar"){
+						$conteudo_minha_conta = '
+							Sua solicitação foi efetuada com sucesso.<br>
+							<br>
+							Ao clicar em "Próximo" você será redirecionado para o PagSeguro para efetuar o pagamento.
+						';
+					}
+					else{
+						$ativarOverlay = false;
+						$conteudo_minha_conta = $conteudo_nao_encontrado_full;
+					}
 				}
 				else
 					$conteudo_minha_conta = $conteudo_nao_encontrado_full;

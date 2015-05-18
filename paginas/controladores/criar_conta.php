@@ -62,7 +62,7 @@
 			}
 			if(count($erros[$id_campo]) == 0){
 				if($tipo_dados_obrigatorio["email"])
-					if(!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/', $valor_campo))
+					if(!verificarEmail($valor_campo))
 						$erros[$id_campo][] = "Esse e-mail é inválido.";
 			}
 			if(count($erros[$id_campo]) == 0){

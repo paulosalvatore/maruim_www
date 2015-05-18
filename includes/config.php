@@ -85,18 +85,4 @@
 			"descricao" => "Compre itens para seus personagens e fique mais forte no jogo."
 		)
 	);
-	$config["formas_pagamento"] = array(
-		"pagseguro" => array(
-			"nome" => "PagSeguro",
-			"tipo" => "real"
-		),
-		"transferencia" => array(
-			"nome" => "Transferência Bancária",
-			"tipo" => "real"
-		),
-		"pontos" => array(
-			"nome" => "Pontos",
-			"tipo" => "ponto"
-		)
-	);
 ?>

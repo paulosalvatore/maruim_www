@@ -16,6 +16,11 @@
 		if((!$_SESSION["login"]) OR (!$usuarioEncontrado))
 			trigger_error('Acesso negado. ('.$script.')', E_USER_ERROR);
 	}
+	function verificarEmail($email){
+		if(!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/', $email))
+			return false;
+		return true;
+	}
 	function limpaString($string){
 		$a = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûıışÿRr';
 		$b = 'AAAAAAACEEEEIIIIDNOOOOOOUUUUYBSaaaaaaaceeeeiiiidnoooooouuuyybyRr';

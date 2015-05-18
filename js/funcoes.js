@@ -8,7 +8,6 @@ function ativarOverlay(){
 function construirBarraProgresso(){
 	var barraProgressoElemento = $("#barraProgresso");
 	var config = parseInt(barraProgressoElemento.data("config"));
-	config = 0;
 	var icones = ["azul", "azul", "azul", "azul"];
 	var tubos = ["azul", "azul", "azul", "azul", "azul"];
 	var negritos = ["", "", "", ""];
@@ -107,8 +106,14 @@ function inserirMensagemErro(mensagem, tipo){
 		elemento_principal.addClass("sucesso").removeClass("erro");
 	else if(tipo == "erro" && elemento_principal.hasClass("sucesso"))
 		elemento_principal.addClass("erro").removeClass("sucesso");
-	elemento.html(mensagem);
+	elemento.html("<b>"+mensagem+"</b>");
 	elemento_principal.show();
+};
+function verificarEmail(email){
+	var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	if(filter.test(email))
+		return true;
+	return false;
 };
 $(function(){
 	var pagina = $("#conteudo").attr("pagina");
