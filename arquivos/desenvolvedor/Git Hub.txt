@@ -3,8 +3,8 @@
 	git pull upstream master
 	git push
 Excluindo último commit
-	git reset --soft HEAD^
-	Caso não seja o último
-		git rebase -i HEAD~2
+	git reset --soft HEAD^ ou HEAD~1
+	git reset --hard HEAD^ ou HEAD~1
 	Depois
 		git push origin +master
+		ou:		git push --force-with-lease
