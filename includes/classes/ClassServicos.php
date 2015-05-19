@@ -32,10 +32,6 @@
 			$informacaoProdutoFormatada = array();
 			foreach($informacaoProduto as $c => $v)
 				$informacaoProdutoFormatada[$c] = $v;
-			if($informacaoProduto["forma_pagamento"] == "ponto")
-				$exibirPreco = ($informacaoProduto["preco"] > 1 ? $informacaoProduto["preco"]." pontos" : $informacaoProduto["preco"]." ponto");
-			elseif($informacaoProduto["forma_pagamento"] == "real")
-				$exibirPreco = "R$ ".number_format($informacaoProduto["preco"], 2, ",", ".");
 			if($informacaoProduto["tipo"] == "item")
 				$exibirNome = 'o item';
 			elseif($informacaoProduto["tipo"] == "nova_chave")
@@ -45,8 +41,17 @@
 			else
 				$exibirNome = 'o serviço';
 			$exibirNome .= ' "<b>'.$informacaoProduto["nome"].'</b>"';
-			$informacaoProdutoFormatada["exibirPreco"] = $exibirPreco;
 			$informacaoProdutoFormatada["exibirNome"] = $exibirNome;
+			if($informacaoProduto["forma_pagamento"] == "ponto"){
+				$exibirPreco = ($informacaoProduto["preco"] > 1 ? $informacaoProduto["preco"]." pontos" : $informacaoProduto["preco"]." ponto");
+				$pontos = $informacaoProduto["preco"];
+			}
+			elseif($informacaoProduto["forma_pagamento"] == "real"){
+				$exibirPreco = "R$ ".number_format($informacaoProduto["preco"], 2, ",", ".");
+				$pontos = $informacaoProduto["quantidade1"];
+			}
+			$informacaoProdutoFormatada["exibirPreco"] = $exibirPreco;
+			$informacaoProdutoFormatada["pontos"] = $pontos;
 			$informacaoProdutoFormatada["presente"] = ($informacaoProduto["presente"] == 1 ? true : false);
 			$informacaoProdutoFormatada["imagem"] = ($informacaoProduto["imagem"] == 0 ? $this->getImagemServico($informacaoProduto["tipo"], $informacaoProduto["produto_id1"]) : $this->getImagemServico($informacaoProduto["id"]));
 			$informacaoProdutoFormatada["fundoServico"] = ((($informacaoProduto["tipo"] != "item") OR ($informacaoProduto["imagem"] == 1)) ? true : false);
@@ -83,14 +88,52 @@
 			$ClassConta = new Conta();
 			$informacoesConta = $ClassConta->getInformacoesConta($contaId, true);
 			$pontosDisponiveis = $informacoesConta["pontos"];
-			if(($informacoesProduto["forma_pagamento"] == "ponto") AND ($informacoesProduto["preco"] > $pontosDisponiveis)){
-				$verificarCompraProduto[1] = '
+			if((count($informacoesProduto) == 0) AND ($this->getInformacoesPagamento($pagamentoId)))
+				$verificarCompraProduto[1] = $ClassServicos->carregarMensagem("dados_invalidos");
+			elseif(($informacoesProduto["forma_pagamento"] == "ponto") AND ($informacoesProduto["preco"] > $pontosDisponiveis))
+				$verificarCompraProduto[1] = $ClassServicos->carregarMensagem("pontos_insuficientes", array($informacoesProduto["exibirPreco"], $informacoesProduto["exibirNome"]));
+			else
+				$verificarCompraProduto[0] = true;
+			return $verificarCompraProduto;
+		}
+		public function getInformacoesPagamento($pagamentoId){
+			if($this->formasPagamento[$pagamentoId])
+				return $this->formasPagamento[$pagamentoId];
+			return false;
+		}
+		public function novoPedido($pedido){
+			$colunasPedido = array();
+			$valoresPedido = array();
+			foreach($pedido as $c => $v){
+				$colunasPedido[] = $c;
+				$valoresPedido[] = $v;
+			}
+			if((count($colunasPedido) > 0) AND (count($valoresPedido) > 0)){
+				$informacoesProduto = $this->getInformacoesProduto($pedido["produto"]);
+				$informacoesPagamento = $this->getInformacoesPagamento($pedido["pagamento"]);
+				$ClassFuncao = new Funcao();
+				if($informacoesPagamento["tipo"] == "ponto"){
+					$ClassConta = new Conta();
+					$informacoesConta = $ClassConta->getInformacoesConta($pedido["conta"], true);
+					$sqlPontos = $ClassFuncao->loadSQLQueryUpdate("accounts", "pontos", $informacoesConta["pontos"]-$informacoesProduto["preco"], "id", $pedido["conta"]);
+					mysql_query($sqlPontos);
+					$colunasPedido[] = "status";
+					$valoresPedido[] = 2;
+				}
+				$sqlHistorico = $ClassFuncao->loadSQLQuery("z_loja_historico", $colunasPedido, $valoresPedido);
+				mysql_query($sqlHistorico);
+			}
+		}
+		public function carregarMensagem($tipoMensagem, $informacaoAdicional = ""){
+			$mensagem = "";
+			if($tipoMensagem == "pontos_insuficientes")
+				$mensagem = '
 					<div class="box_frame" carregar_box="1">
 						Pontos Insuficientes
 					</div>
 					<div class="box_frame_conteudo_principal" carregar_box="1">
 						<div class="box_frame_conteudo dark padding">
-							Você precisa de pelo menos <b>'.$informacoesProduto["exibirPreco"].'</b> para adquirir '.$informacoesProduto["exibirNome"].'.
+							Você precisa de pelo menos <b>'.$informacaoAdicional[0].'</b> para adquirir '.$informacaoAdicional[1].'.
 						</div>
 					</div>
 					<br>
@@ -98,13 +141,39 @@
 						<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
 					</div>
 				';
-			}
-			else
-				$verificarCompraProduto[0] = true;
-			return $verificarCompraProduto;
-		}
-		public function getInformacoesPagamento($pagamentoId){
-			return $this->formasPagamento[$pagamentoId];
+			elseif($tipoMensagem == "erro")
+				$mensagem = '
+					<div class="box_frame" carregar_box="1">
+						Um Erro Ocorreu
+					</div>
+					<div class="box_frame_conteudo_principal" carregar_box="1">
+						<div class="box_frame_conteudo dark padding">
+							Algum erro grave ocorreu.<br>
+							<br>
+							Tente novamente, caso o erro persista entre em contato com o suporte.
+						</div>
+					</div>
+					<br>
+					<div align="center">
+						<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
+					</div>
+				';
+			elseif($tipoMensagem == "dados_invalidos")
+				$mensagem = '
+					<div class="box_frame" carregar_box="1">
+						Dados Inválidos
+					</div>
+					<div class="box_frame_conteudo_principal" carregar_box="1">
+						<div class="box_frame_conteudo dark padding">
+							Algum erro ocorreu ou você inseriu dados inválidos.
+						</div>
+					</div>
+					<br>
+					<div align="center">
+						<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
+					</div>
+				';
+			return $mensagem;
 		}
 	}
 ?>

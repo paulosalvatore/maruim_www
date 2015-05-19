@@ -7,71 +7,76 @@ function ativarOverlay(){
 };
 function construirBarraProgresso(){
 	var barraProgressoElemento = $("#barraProgresso");
-	var config = parseInt(barraProgressoElemento.data("config"));
-	var icones = ["azul", "azul", "azul", "azul"];
-	var tubos = ["azul", "azul", "azul", "azul", "azul"];
-	var negritos = ["", "", "", ""];
-	if(config > 0){
-		negritos[config-1] = " negrito";
-		for(i=0;i<=config;i++){
-			if(i > 0)
-				icones[i-1] = "verde";
-			if(i == tubos.length-1)
-				tubos[i] = "verde";
-			else if((i == config) && (i != 0) && (i != tubos.length-1))
-				tubos[i] = "verde_azul";
-			else
-				tubos[i] = "verde";
-		}
+	var tipo = barraProgressoElemento.data("tipo");
+	var maxOpcoes, icones = [], corIcones = [], tubos = [], negritos = [], textos = [];
+	if(tipo == "servicos"){
+		maxOpcoes = 4;
+		icones = ["icone1", "icone2", "icone3", "icone4"];
+		textos = ["Selecionar Serviço", "Informações do Pagamento", "Confirmação", "Finalização"];
 	}
-	var barraProgresso = '\
-		<div id="barraProgressoBase">\
-			<div id="barraProgressoInicio"></div>\
-			<div id="barraProgressoFim"></div>\
-		</div>\
-		<div id="barraProgressoConteudo">\
-			<div class="barraProgressoTuboEsquerda '+tubos[0]+'"></div>\
-			<div class="barraProgressoTuboDireita '+tubos[4]+'"></div>\
-			<div id="barraProgressoPrimeiroPasso">\
-				<div class="barraProgressoPrimeiroPassoIcone">\
-					<img src="imagens/corpo/barraProgresso_icone1_'+icones[0]+'.gif">\
-				</div>\
-				<div class="barraProgressoTexto'+negritos[0]+'" align="left">Selecionar Serviço</b></div>\
+	else if(tipo == "registrar"){
+		maxOpcoes = 3;
+		icones = ["icone2", "icone3", "icone4"];
+		textos = ["Informações de Registro", "Verificação", "Chave de Recuperação"];
+	}
+	if(maxOpcoes > 0){
+		var config = parseInt(barraProgressoElemento.data("config"));
+		for(i=0;i<maxOpcoes;i++){
+			corIcones[i] = "azul";
+			if(i == 0)
+				tubos[i] = "azul";
+			tubos[i+1] = "azul";
+			negritos[i] = "";
+		}
+		if(config > 0){
+			negritos[config-1] = " negrito";
+			for(i=0;i<=config;i++){
+				if(i > 0)
+					corIcones[i-1] = "verde";
+				if(i == tubos.length-1)
+					tubos[i] = "verde";
+				else if((i == config) && (i != 0) && (i != tubos.length-1))
+					tubos[i] = "verde_azul";
+				else
+					tubos[i] = "verde";
+			}
+		}
+		var barraProgresso = '\
+			<div id="barraProgressoBase">\
+				<div id="barraProgressoInicio"></div>\
+				<div id="barraProgressoFim"></div>\
 			</div>\
-			<div id="barraProgressoPassos">\
-				<div id="barraProgressoPassosConteudo">\
-					<div class="barraProgressoPasso">\
-						<div class="barraProgressoTubo">\
-							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[1]+'.gif">\
-						</div>\
-						<div class="barraProgressoIcone" align="right">\
-							<img src="imagens/corpo/barraProgresso_icone2_'+icones[1]+'.gif">\
-							<div class="barraProgressoTexto'+negritos[1]+'">Informações do Pagamento</div>\
-						</div>\
+			<div id="barraProgressoConteudo">\
+				<div class="barraProgressoTuboEsquerda '+tubos[0]+'"></div>\
+				<div class="barraProgressoTuboDireita '+tubos[maxOpcoes]+'"></div>\
+				<div id="barraProgressoPrimeiroPasso">\
+					<div class="barraProgressoPrimeiroPassoIcone">\
+						<img src="imagens/corpo/barraProgresso_'+icones[0]+'_'+corIcones[0]+'.gif">\
 					</div>\
-					<div class="barraProgressoPasso">\
-						<div class="barraProgressoTubo">\
-							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[2]+'.gif">\
-						</div>\
-						<div class="barraProgressoIcone" align="right">\
-							<img src="imagens/corpo/barraProgresso_icone3_'+icones[2]+'.gif">\
-							<div class="barraProgressoTexto'+negritos[2]+'">Confirmação</div>\
-						</div>\
-					</div>\
-					<div class="barraProgressoPasso">\
-						<div class="barraProgressoTubo">\
-							<img src="imagens/corpo/barraProgresso_tubo_'+tubos[3]+'.gif">\
-						</div>\
-						<div class="barraProgressoIcone" align="right">\
-							<img src="imagens/corpo/barraProgresso_icone4_'+icones[3]+'.gif">\
-							<div class="barraProgressoTexto'+negritos[3]+'">Revisão</div>\
-						</div>\
+					<div class="barraProgressoTexto'+negritos[0]+'" align="left">'+textos[0]+'</b></div>\
+				</div>\
+				<div id="barraProgressoPassos">\
+					<div id="barraProgressoPassosConteudo">\
+						';
+						for(i=1;i<maxOpcoes;i++)
+							barraProgresso += '\
+								<div class="barraProgressoPasso" style="width: '+(100/(maxOpcoes-1))+'%;">\
+									<div class="barraProgressoTubo">\
+										<img src="imagens/corpo/barraProgresso_tubo_'+tubos[i]+'.gif">\
+									</div>\
+									<div class="barraProgressoIcone" align="right">\
+										<img src="imagens/corpo/barraProgresso_'+icones[i]+'_'+corIcones[i]+'.gif">\
+										<div class="barraProgressoTexto'+negritos[i]+'">'+textos[i]+'</div>\
+									</div>\
+								</div>\
+							';
+						barraProgresso += '\
 					</div>\
 				</div>\
 			</div>\
-		</div>\
-	';
-	barraProgressoElemento.html(barraProgresso);
+		';
+		barraProgressoElemento.html(barraProgresso);
+	}
 };
 function getCookie(cookiename){
 	var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
@@ -171,7 +176,6 @@ $(function(){
 		changeYear: true,
 		showAnim: "slideDown",
 		onClose: function(selectedDate) {
-			console.log(selectedDate);
 			if((selectedDate) && (selectedDate != "__/__/____"))
 				$(".data.para").datepicker("option", "minDate", selectedDate);
 		}
@@ -184,7 +188,6 @@ $(function(){
 		changeYear: true,
 		showAnim: "slideDown",
 		onClose: function(selectedDate) {
-			console.log(selectedDate);
 			if((selectedDate) && (selectedDate != "__/__/____"))
 				$(".data.de").datepicker("option", "maxDate", selectedDate);
 		}

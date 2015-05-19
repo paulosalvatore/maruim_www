@@ -14,7 +14,8 @@
 							Anote a sua Chave de Recuperação:<br>
 							<h2>'.$chaveRecuperacao.'</h2>
 							<br>
-							<span class="vermelho">CASO PERCA A SUA CHAVE DE RECUPERAÇÃO, VOCÊ FICARÁ IMPOSSIBILITADO DE DELETAR QUALQUER PERSONAGEM DE SUA CONTA.</span><br>
+							<span class="vermelho">CASO PERCA A SUA CHAVE DE RECUPERAÇÃO, VOCÊ FICARÁ IMPOSSIBILITADO DE RECUPERÁ-LA OU DE DELETAR QUALQUER PERSONAGEM DE SUA CONTA.</span><br>
+							<br>
 							<div align="center">
 								<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';"/>
 							</div>
@@ -214,6 +215,23 @@
 						';
 					else
 						$conteudo_minha_conta = '
+							<div class="padding">
+								<div id="barraProgresso" data-config="1" data-tipo="registrar"></div>
+								<br>
+								O Registro de sua Conta oferece muitas vantagens importantes:<br>
+								<br>
+								<ul class="padding">
+									<li>Usuários Registrados recebem uma chave de recuperação, que pode ser usada para recuperar a conta se eles perderam o acesso ao e-mail registrado.</li>
+									<li>Usuários Registrados podem solicitar uma nova chave de recuperação por uma pequena taxa.</li>
+									<li>Serviços Extras só podem ser adquiridos por Usuários Registrados.</li>
+									<li>Finalmente, somente usuários registrados podem se tornar tutores.</li>
+								</ul>
+								<br>
+								<b>OBS.:</b> As informações fornecidas durante o processo de Registro serão usadas exclusivamente para levantamentos internos e serão tratadas de uma forma estritamente confidencial.<br>
+								<br>
+								Certifique-se de inserir seus dados completos e corretos para garantir que vamos providenciar para você o melhor suporte possível. Acima de tudo, informe corretamente seu endereço completo para garantir que nossas encomendas (cartas de recuperação/prêmios) irão chegar até você. Note que todos os dados de registro poderão ser editados no futuro.<br>
+								<br>
+							</div>
 							<div class="small_box_frame erro" carregar_box="1">
 								<b>Algum erro ocorreu.</b><br>
 								Verifique as informações e tente novamente.
@@ -222,41 +240,45 @@
 								Registrar Conta
 							</div>
 							<form id="registrar_conta">
-								<div class="box_frame_conteudo" carregar_box="1">
-									<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
-										<tr class="conteudo dark">
-											<td>
-												<table width="100%" cellpadding="0" cellspacing="0">
-													<tr>
-														<td colspan="2">
-															Para registrar sua conta você deve confirmar sua senha abaixo.<br>
-															<br>
-															Uma mensagem será enviada para o seu e-mail com as instruções para prosseguir com o registro.<br>
-															<br>
-															Caso você queira alterar seu e-mail, deverá ir para a página da sua conta e clicar em \'<i>Alterar E-mail</i>\', você será redirecionado para uma outra página onde colocará o novo e-mail. Lembre-se que você deverá esperar um certo prazo para que seu e-mail seja alterado com sucesso.<br>
-															<br>
-														</td>
-													</tr>
-													<tr>
-														<td width="80" align="left">
-															<b>E-mail cadastrado:</b>
-														</td>
-														<td width="220" align="left">
-															<i>'.$informacoesConta["email"].'</i>
-														</td>
-													</tr>
-													<tr>
-														<td width="80" align="left">
-															<b>Confirme sua Senha:</b>
-														</td>
-														<td width="220" align="left">
-															<input type="password" id="confirmar_senha" name="confirmar_senha" />
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</table>
+								<div class="box_frame_conteudo_principal" carregar_box="1">
+									<div class="box_frame_conteudo dark padding">
+										<table width="100%" cellpadding="0" cellspacing="0">
+											<tr>
+												<td colspan="2">
+													Para registrar sua conta você deve confirmar sua senha abaixo.<br>
+													<br>
+													Uma mensagem será enviada para o seu e-mail com as instruções para prosseguir com o registro.<br>
+													<br>
+													Caso você queira alterar seu e-mail, deverá ir para a página da sua conta e clicar em \'<i>Alterar E-mail</i>\', você será redirecionado para uma outra página onde colocará o novo e-mail. Lembre-se que você deverá esperar um certo prazo para que seu e-mail seja alterado com sucesso.<br>
+													<br>
+												</td>
+											</tr>
+											<tr>
+												<td width="80" align="left">
+													<b>E-mail cadastrado:</b>
+												</td>
+												<td width="220" align="left">
+													<i>'.$informacoesConta["email"].'</i>
+												</td>
+											</tr>
+											<tr>
+												<td width="80" align="left">
+													<b>Nome:</b>
+												</td>
+												<td width="220" align="left">
+													<input type="text" id="nome" name="nome" />
+												</td>
+											</tr>
+											<tr>
+												<td width="80" align="left">
+													<b>Confirme sua Senha:</b>
+												</td>
+												<td width="220" align="left">
+													<input type="password" id="confirmar_senha" name="confirmar_senha" />
+												</td>
+											</tr>
+										</table>
+									</div>
 								</div>
 								<div align="center" style="margin-top: 10px; margin-bottom: 10px;">
 									<div class="botao_colorido2_1">
@@ -468,18 +490,25 @@
 									foreach($ClassServicos->getProdutos($servicoId) as $produto){
 										$exibirFundoServico = "";
 										$exibirImagem = "";
+										$desativarProduto = false;
 										if($produto["fundoServico"])
 											$exibirFundoServico = ' style="background: url('.$produto["imagem"].') no-repeat;"';
 										if(($produto["tipo"] == "item") AND (!$produto["fundoServico"]))
 											$exibirImagem = '<div class="servicoImagem" style="background: url('.$produto["imagem"].');"></div>';
+										if((($produto["tipo"] == "nova_chave") OR ($servicoId == "servicos_extras")) AND (empty($informacoesConta["chave_recuperacao"])))
+											$desativarProduto = true;
+										if($desativarProduto)
+											$desativarProduto = " exibir";
+										else
+											$desativarProduto = "";
 										$exibicao_abas .= '
-											<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'" data-preco="'.$produto["preco"].'">
+											<div class="servico" data-pagamento="'.$produto["forma_pagamento"].'" data-pontos="'.$produto["pontos"].'">
 												<div class="fundo">
 													<div class="fundoServico"'.$exibirFundoServico.'>
 														'.$exibirImagem.'
 															<div class="servicoEtiquetaBox">
 																<div class="servicoTextoBox">
-																	<input type="radio" id="servico_'.$produto["id"].'" name="servico" value="'.$produto["id"].'">
+																	<input type="radio" id="servico_'.$produto["id"].'" name="produto" value="'.$produto["id"].'">
 																	'.$produto["nome"].'
 																</div>
 															</div>
@@ -490,7 +519,7 @@
 												</div>
 												<div class="fundoOver"></div>
 												<div class="fundoSelecionado"></div>
-												<div class="fundoDesativado"></div>
+												<div class="fundoDesativado'.$desativarProduto.'"></div>
 											</div>
 										';
 									}
@@ -499,7 +528,7 @@
 							';
 						}
 						$conteudo_minha_conta = '
-							<div id="barraProgresso" data-config="1"></div>
+							<div id="barraProgresso" data-config="1" data-tipo="servicos"></div>
 							<br>
 							<div class="small_box_frame erro" carregar_box="1">
 								<b>Algum erro ocorreu.</b><br>
@@ -528,7 +557,7 @@
 															<div class="fundo">
 																<div class="fundoFormaPagamento">
 																	<img src="imagens/servicos/pagamento_'.$pagamentoId.'.gif">
-																	<input type="radio" id="pagamento_'.$pagamentoId.'" name="forma_pagamento" value="'.$pagamentoId.'">
+																	<input type="radio" id="pagamento_'.$pagamentoId.'" name="pagamento" value="'.$pagamentoId.'">
 																	<div class="formaPagamentoNome">'.$pagamento["nome"].'</div>
 																</div>
 															</div>
@@ -559,17 +588,17 @@
 						';
 					}
 					elseif($acao == "informacoes_pagamento"){
-						$produtoId = $_POST["servico"];
-						$pagamentoId = $_POST["forma_pagamento"];
-						$informacoesProduto = $ClassServicos->getInformacoesProduto($produtoId);
-						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produtoId, $pagamentoId, $accountId, $informacoesProduto);
+						$produto = $_POST["produto"];
+						$pagamento = $_POST["pagamento"];
+						$informacoesProduto = $ClassServicos->getInformacoesProduto($produto);
+						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produto, $pagamento, $accountId, $informacoesProduto);
 						if(!$verificarCompraProduto[0])
 							$conteudo_minha_conta = $verificarCompraProduto[1];
 						else{
 							if(empty($_POST["email"]))
 								$_POST["email"] = $informacoesConta["email"];
 							$conteudo_minha_conta = '
-								<div id="barraProgresso" data-config="2"></div>
+								<div id="barraProgresso" data-config="2" data-tipo="servicos"></div>
 								<br>
 								<div class="small_box_frame erro" carregar_box="1">
 									<b>Algum erro ocorreu.</b><br>
@@ -579,8 +608,8 @@
 									Insira Informações do Pagamento
 								</div>
 								<form id="informacoesPagamento" method="POST" action="?p=minha_conta-servicos-confirmar">
-									<input type="hidden" name="produto" value="'.$produtoId.'" />
-									<input type="hidden" name="pagamento" value="'.$pagamentoId.'" />
+									<input type="hidden" name="produto" value="'.$produto.'" />
+									<input type="hidden" name="pagamento" value="'.$pagamento.'" />
 									<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
 										<div class="box_frame_conteudo" carregar_box="1">
 											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
@@ -631,34 +660,28 @@
 						}
 					}
 					elseif($acao == "confirmar"){
-						$produtoId = $_POST["produto"];
-						$pagamentoId = $_POST["pagamento"];
+						$produto = $_POST["produto"];
+						$pagamento = $_POST["pagamento"];
 						$nome = $_POST["nome"];
 						$cidade = $_POST["cidade"];
 						$email = $_POST["email"];
-						$informacoesProduto = $ClassServicos->getInformacoesProduto($produtoId);
-						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produtoId, $pagamentoId, $accountId, $informacoesProduto);
-						$informacoesPagamento = $ClassServicos->getInformacoesPagamento($pagamentoId);
+						$informacoesProduto = $ClassServicos->getInformacoesProduto($produto);
+						$verificarCompraProduto = $ClassServicos->verificarCompraProduto($produto, $pagamento, $accountId, $informacoesProduto);
+						$informacoesPagamento = $ClassServicos->getInformacoesPagamento($pagamento);
 						if((empty($nome)) OR (empty($cidade)) OR (empty($email)) OR (!verificarEmail($email)))
-							$conteudo_minha_conta = '
-								<div class="box_frame" carregar_box="1">
-									Dados Inválidos
-								</div>
-								<div class="box_frame_conteudo_principal" carregar_box="1">
-									<div class="box_frame_conteudo dark padding">
-										Algum erro ocorreu ou você inseriu dados inválidos.
-									</div>
-								</div>
-								<br>
-								<div align="center">
-									<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
-								</div>
-							';
+							$conteudo_minha_conta = $ClassServicos->carregarMensagem("dados_invalidos");
 						elseif(!$verificarCompraProduto[0])
 							$conteudo_minha_conta = $verificarCompraProduto[1];
 						else{
+							$camposOcultos = '
+								<input type="hidden" name="produto" value="'.$produto.'" />
+								<input type="hidden" name="pagamento" value="'.$pagamento.'" />
+								<input type="hidden" name="nome" value="'.$nome.'" />
+								<input type="hidden" name="cidade" value="'.$cidade.'" />
+								<input type="hidden" name="email" value="'.$email.'" />
+							';
 							$conteudo_minha_conta = '
-								<div id="barraProgresso" data-config="3"></div>
+								<div id="barraProgresso" data-config="3" data-tipo="servicos"></div>
 								<br>
 								<div class="small_box_frame erro" carregar_box="1">
 									<b>Algum erro ocorreu.</b><br>
@@ -668,8 +691,7 @@
 									Confirmação
 								</div>
 								<form id="confirmarPagamento" method="POST" action="?p=minha_conta-servicos-finalizar">
-									<input type="hidden" name="produto" value="'.$produtoId.'" />
-									<input type="hidden" name="pagamento" value="'.$pagamentoId.'" />
+									'.$camposOcultos.'
 									<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
 										<div class="box_frame_conteudo" carregar_box="1">
 											<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
@@ -716,7 +738,7 @@
 																	<b>Nome:</b>
 																</td>
 																<td>
-																	'.$_POST["nome"].'
+																	'.$nome.'
 																</td>
 															</tr>
 															<tr>
@@ -724,7 +746,7 @@
 																	<b>Cidade:</b>
 																</td>
 																<td>
-																	'.$_POST["cidade"].'
+																	'.$cidade.'
 																</td>
 															</tr>
 															<tr>
@@ -732,7 +754,7 @@
 																	<b>E-mail:</b>
 																</td>
 																<td>
-																	'.$_POST["email"].'
+																	'.$email.'
 																</td>
 															</tr>
 														</table>
@@ -767,8 +789,13 @@
 										<div class="botao_colorido2_1">
 											<input type="submit" class="botao_verde" value="adquirir_agora" />
 										</div>
+									</div>
+								</form>
+								<form method="POST" action="?p=minha_conta-servicos-informacoes_pagamento">
+									'.$camposOcultos.'
+									<div align="center">
 										<div class="botao_colorido2_2">
-											<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta-servicos\'" />
+											<input type="submit" class="botao_azul" value="voltar" />
 										</div>
 									</div>
 								</form>
@@ -776,11 +803,161 @@
 						}
 					}
 					elseif($acao == "finalizar"){
-						$conteudo_minha_conta = '
-							Sua solicitação foi efetuada com sucesso.<br>
-							<br>
-							Ao clicar em "Próximo" você será redirecionado para o PagSeguro para efetuar o pagamento.
-						';
+						$informacoesProduto = $ClassServicos->getInformacoesProduto($_POST["produto"]);
+						$informacoesPagamento = $ClassServicos->getInformacoesPagamento($_POST["pagamento"]);
+						if	(($informacoesProduto["forma_pagamento"] != $informacoesPagamento["tipo"]) OR
+							(($informacoesProduto["forma_pagamento"] == "ponto") AND ($informacoesConta["pontos"]-$informacoesProduto["preco"] < 0)))
+								$conteudo_minha_conta = $ClassServicos->carregarMensagem("erro");
+						elseif(($informacoesProduto["tipo"] == "nova_chave") AND (empty($informacoesConta["chave_recuperacao"])))
+								$conteudo_minha_conta = $ClassServicos->carregarMensagem("erro");
+						else{
+							$pedido = array(
+								"conta" => $accountId,
+								"produto" => $_POST["produto"],
+								"pagamento" => $_POST["pagamento"],
+								"preco" => $informacoesProduto["preco"],
+								"nome" => $_POST["nome"],
+								"cidade" => $_POST["cidade"],
+								"email" => $_POST["email"],
+								"data" => time()
+							);
+							$ClassServicos->novoPedido($pedido);
+							$exibirBotoesPagamento = '
+								<div align="center">
+									<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';">
+								</div>
+								<br>
+							';
+							$exibirDark = " dark";
+							$mensagemSolicitacao = '
+								'.ucfirst($informacoesProduto["exibirNome"]).' está disponível para que você escolha um personagem para receber.<br>
+								<br>
+								Para ativar, vá na página de sua conta e verifique os produtos disponíveis.
+							';
+							if($informacoesProduto["tipo"] == "trocar_conta")
+								$mensagemSolicitacao = '
+									A troca do nome da sua conta já está disponível para ser realizada.<br>
+									<br>
+									Para ativá-la, vá na página de sua conta e verifique os produtos disponíveis.
+								';
+							elseif($informacoesProduto["tipo"] == "nova_chave")
+								$mensagemSolicitacao = '
+									Uma nova chave de recuperação já está disponível para ser gerada.<br>
+									<br>
+									Para solicitá-la, vá na página de sua conta e verifique os produtos disponíveis.
+								';
+							elseif($_POST["pagamento"] == "pagseguro"){
+								$mensagemSolicitacao = 'Ao clicar em "Próximo" você será redirecionado para o PagSeguro para efetuar o pagamento.';
+								$exibirBotoesPagamento = '
+									<div align="center">
+										<form>
+											<div class="botao_colorido2_1">
+												<input type="submit" class="botao_verde" value="proximo" onClick="alert(\'Redirecionar para PagSeguro\');">
+											</div>
+										</form>
+										<div class="botao_colorido2_2">
+											<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';">
+										</div>
+									</div>
+								';
+							}
+							elseif($_POST["pagamento"] == "transferencia"){
+								$exibirDark = "";
+								$mensagemSolicitacao = '
+									<div class="box_frame_conteudo" carregar_box="1">
+										<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+											<tr class="conteudo dark">
+												<td>
+													<table width="100%" cellpadding="0" cellspacing="0">
+														<tr>
+															<td width="140">
+																<b>Banco:</b>
+															</td>
+															<td>
+																Bradesco
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br>
+									<div class="box_frame_conteudo" carregar_box="1">
+										<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+											<tr class="conteudo dark">
+												<td>
+													<table width="100%" cellpadding="0" cellspacing="0">
+														<tr>
+															<td width="140">
+																<b>Agência:</b>
+															</td>
+															<td>
+																1416-0
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<b>Conta Poupança:</b>
+															</td>
+															<td>
+																1014707-7
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<b>Nome:</b>
+															</td>
+															<td>
+																Paulo Henrique de Souza Salvatore MR
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br>
+									<div class="box_frame_conteudo" carregar_box="1">
+										<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+											<tr class="conteudo dark">
+												<td>
+													<table width="100%" cellpadding="0" cellspacing="0">
+														<tr>
+															<td width="140">
+																<b>Observação:</b>
+															</td>
+															<td>
+																Após efetuar a transferência bancária, é necessário a confirmação da mesma.<br>
+																Para isso, vá até seu histórico de pagamentos e clique em "Confirmar Transferência".
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>
+								';
+							}
+							$conteudo_minha_conta = '
+								'.$pagamento.'
+								<div id="barraProgresso" data-config="4" data-tipo="servicos"></div>
+								<br>
+								<div class="box_frame" carregar_box="1">
+									Pedido Finalizado
+								</div>
+								<div class="box_frame_conteudo_principal" carregar_box="1">
+									<div class="box_frame_conteudo'.$exibirDark.' padding">
+										Sua solicitação foi efetuada com sucesso.<br>
+										<br>
+										'.$mensagemSolicitacao.'
+									</div>
+								</div>
+								<br>
+								'.$exibirBotoesPagamento.'
+								
+							';
+						}
 					}
 					else{
 						$ativarOverlay = false;

@@ -99,7 +99,6 @@ $(function(){
 				informacoesEditarPersonagem: $(this).serialize()
 			}),
 			success: function(result){
-				console.log(result);
 				if(result == 0)
 					$(".small_box_frame.erro").show();
 				else if(result == 1)
@@ -182,24 +181,24 @@ $(function(){
 				else
 					$(this).find(".fundoDesativado.exibir").removeClass("exibir");
 			});
-			if(formaPagamento == "ponto"){
-				var pontosDisponiveis = parseInt($("#pontosDisponiveis").data("pontos"));
-				var preco = parseInt($(this).data("preco"));
-				var balancoRapido = pontosDisponiveis - preco;
-				var exibirBalancoRapido = balancoRapido;
-				if(balancoRapido < 0)
-					exibirBalancoRapido = "Pontos insuficientes";
-				else if(balancoRapido == 1)
-					exibirBalancoRapido += " ponto"
-				else
-					exibirBalancoRapido += " pontos"
-				$("#balancoRapido")
-				.show()
-				.find("span")
-				.html(exibirBalancoRapido);
-			}
+			var pontosDisponiveis = parseInt($("#pontosDisponiveis").data("pontos"));
+			var pontos = parseInt($(this).data("pontos"));
+			var balancoRapido = pontosDisponiveis;
+			if(formaPagamento == "ponto")
+				balancoRapido -= pontos;
+			else if(formaPagamento == "real")
+				balancoRapido += pontos;
+			var exibirBalancoRapido = balancoRapido;
+			if(balancoRapido < 0)
+				exibirBalancoRapido = "Pontos insuficientes";
+			else if(balancoRapido == 1)
+				exibirBalancoRapido += " ponto";
 			else
-				$("#balancoRapido").hide();
+				exibirBalancoRapido += " pontos";
+			$("#balancoRapido")
+			.show()
+			.find("span")
+			.html(exibirBalancoRapido);
 		}
 	});
 	$(".formaPagamento").click(function(){
@@ -210,14 +209,14 @@ $(function(){
 		}
 	});
 	$("#servicos").submit(function(){
-		var servicoSelecionado = $("input[name=servico]:checked");
-		var servicoSelecionadoPreco = servicoSelecionado.closest(".servico").data("preco");
-		var pagamentoSelecionado = $("input[name=forma_pagamento]:checked");
+		var produtoSelecionado = $("input[name=produto]:checked");
+		var produtoSelecionadoPreco = produtoSelecionado.closest(".servico").data("preco");
+		var pagamentoSelecionado = $("input[name=pagamento]:checked");
 		var pagamentoSelecionadoTipo = pagamentoSelecionado.closest(".formaPagamento").data("tipo");
 		var pontosDisponiveis = parseInt($("#pontosDisponiveis").data("pontos"));
-		var balancoRapido = pontosDisponiveis - servicoSelecionadoPreco;
-		if(!servicoSelecionado.length)
-			inserirMensagemErro("Selecione um serviço.", "erro");
+		var balancoRapido = pontosDisponiveis - produtoSelecionadoPreco;
+		if(!produtoSelecionado.length)
+			inserirMensagemErro("Selecione um produto.", "erro");
 		else if(!pagamentoSelecionado.length)
 			inserirMensagemErro("Selecione um pagamento.", "erro");
 		else if((pagamentoSelecionadoTipo == "ponto") && (balancoRapido < 0))

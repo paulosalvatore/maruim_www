@@ -17,7 +17,7 @@
 		if(!empty($acao)){
 			if($acao == "registrar_conta"){
 				parse_str(addslashes($informacoesRegistrarConta), $informacoesRegistrarConta);
-				if(($informacoesRegistrarConta["novo_email"] == $informacoesConta["email"]) AND (sha1($informacoesRegistrarConta["confirmar_senha"]) == $informacoesConta["password"])){
+				if(sha1($informacoesRegistrarConta["confirmar_senha"]) == $informacoesConta["password"]){
 					if($ClassConta->enviarEmailRegistro($informacoesConta))
 						echo 1;
 					else

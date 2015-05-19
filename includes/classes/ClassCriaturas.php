@@ -18,11 +18,6 @@
 		public function loadXML($arquivo = "monsters.xml"){
 			return simplexml_load_file($this->diretorio.$arquivo);
 		}
-		public function loadSQLQuery($tabela, $colunas, $valores){
-			foreach($valores as $c => $v)
-				$valores[$c] = "'".addslashes($v)."'";
-			return "INSERT INTO `$tabela` (".implode(",", $colunas).") VALUES (".implode(",", $valores).");";
-		}
 		public function getIconesElementos(){
 			$icones = array();
 			foreach($this->formatar as $c => $icone){
@@ -279,7 +274,8 @@
 							$valores[] = $criatura[$colunaNome];
 						}
 					}
-					$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+					$ClassFuncao = new Funcao();
+					$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 					if(mysql_query($sql))
 						$resultado .= 'Monstro "<b>'.$criatura["name"].'</b>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>".<br>';
 					else
@@ -292,7 +288,8 @@
 						foreach($flags as $a => $b){
 							$colunas = array("monstro_id", "atributo", "valor");
 							$valores = array($monstro_id, $a, $b);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Flag "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
@@ -306,7 +303,8 @@
 						foreach($ataques as $a => $b){
 							$colunas = array("monstro_id");
 							$valores = array($monstro_id);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql)){
 								if((!empty($ataques["name"])) AND ($a != "name"))
 									continue;
@@ -317,7 +315,8 @@
 								foreach($b as $c => $d){
 									$colunas = array("ataque_id", "atributo", "valor");
 									$valores = array($ataque_id, $c, $d);
-									$sql = $this->loadSQLQuery($tabela_atributos, $colunas, $valores);
+									$ClassFuncao = new Funcao();
+									$sql = $ClassFuncao->loadSQLQuery($tabela_atributos, $colunas, $valores);
 									if(mysql_query($sql))
 										$resultado .= 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para o ataque "<i>'.$b["name"].'</i>".<br>';
 									else
@@ -335,7 +334,8 @@
 						foreach($defesas as $a => $b){
 							$colunas = array("monstro_id");
 							$valores = array($monstro_id);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql)){
 								if((!empty($defesas["name"])) AND ($a != "name"))
 									continue;
@@ -346,7 +346,8 @@
 								foreach($b as $c => $d){
 									$colunas = array("defesa_id", "atributo", "valor");
 									$valores = array($defesa_id, $c, $d);
-									$sql = $this->loadSQLQuery($tabela_atributos, $colunas, $valores);
+									$ClassFuncao = new Funcao();
+									$sql = $ClassFuncao->loadSQLQuery($tabela_atributos, $colunas, $valores);
 									if(mysql_query($sql))
 										$resultado .= 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para a defesa "<i>'.$b["name"].'</i>".<br>';
 										// $resultado["defesas"][count($resultado["defesas"])-1]["atributos"][] = 'Atributo "<i>'.$c.'</i>" adicionado com sucesso na tabela "<i>'.$tabela_atributos.'</i>" para a defesa "<i>'.$b["name"].'</i>".<br>';
@@ -364,7 +365,8 @@
 						foreach($elementos as $a => $b){
 							$colunas = array("monstro_id", "elemento", "valor");
 							$valores = array($monstro_id, $a, $b);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Elemento "<i>'.$a.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
@@ -377,7 +379,8 @@
 						foreach($imunidades as $a => $b){
 							$colunas = array("monstro_id", "valor");
 							$valores = array($monstro_id, $a);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Imunidade "<i>'.$a.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
@@ -398,7 +401,8 @@
 							$summonMax = ($b["max"] > 1 ? $b["max"] : 1);
 							$colunas = array("monstro_id", "summon", "max");
 							$valores = array($monstro_id, $summonName, $summonMax);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Summon "<i>'.$summonName.'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
@@ -416,7 +420,8 @@
 							$voz = htmlentities((string)$b["sentence"]);
 							$colunas = array("monstro_id", "valor");
 							$valores = array($monstro_id, $voz);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Voz "<i>'.$voz.'</i>" adicionada com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
@@ -432,7 +437,8 @@
 							$chance = $b["chance"];
 							$colunas = array("monstro_id", "item_id", "quantidade", "chance");
 							$valores = array($monstro_id, $item_id, $quantidade, $chance);
-							$sql = $this->loadSQLQuery($tabela, $colunas, $valores);
+							$ClassFuncao = new Funcao();
+							$sql = $ClassFuncao->loadSQLQuery($tabela, $colunas, $valores);
 							if(mysql_query($sql))
 								$resultado .= 'Loot "<i>'.$b["id"].'</i>" adicionado com sucesso na tabela "<i>'.$tabela.'</i>" para o monstro '.$monstro_id.'.<br>';
 							else
