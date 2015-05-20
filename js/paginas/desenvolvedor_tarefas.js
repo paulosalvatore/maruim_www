@@ -2,6 +2,17 @@ function aplicarBackgroundTarefas(){
 	$("#tarefas .exibir:odd").find("td").css("background", "#D4C0A1");
 	$("#tarefas .exibir:even").find("td").css("background", "#F1E0C6");
 };
+function verificarTarefas(elemento1, elemento2){
+	var quantidadeElementos = 0;
+	if(elemento1)
+		quantidadeElementos += $(elemento1).length;
+	if(elemento2)
+		quantidadeElementos += $(elemento2).length;
+	if(quantidadeElementos == 0)
+		$(".vazio").show();
+	else
+		$(".vazio").hide();
+};
 $(function(){
 	$("textarea[name=descricao]").keyup(function(event){
 		if((event.ctrlKey) && (event.keyCode == 13))
@@ -57,6 +68,7 @@ $(function(){
 		return false;
 	});
 	$("#mostrarTodas").click(function(){
+		if(!verificarTarefas($(".pendente"), $(".concluida")))
 		$(".pendente").each(function(){
 			$(this).removeClass("ocultar").addClass("exibir");
 		});
@@ -68,6 +80,7 @@ $(function(){
 		aplicarBackgroundTarefas();
 	});
 	$("#mostrarPendentes").click(function(){
+		verificarTarefas($(".pendente"));
 		$(".pendente").each(function(){
 			$(this).removeClass("ocultar").addClass("exibir");
 		});
@@ -79,6 +92,7 @@ $(function(){
 		aplicarBackgroundTarefas();
 	});
 	$("#mostrarConcluidas").click(function(){
+		verificarTarefas($(".concluida"));
 		$(".concluida").each(function(){
 			$(this).removeClass("ocultar").addClass("exibir");
 		});

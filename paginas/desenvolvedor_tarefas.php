@@ -114,6 +114,11 @@
 									';
 								$conteudo_pagina .= '
 							</tr>
+							<tr class="item vazio ocultar">
+								<td colspan="5">
+									Nenhuma tarefa para exibir.
+								</td>
+							</tr>
 							';
 							$queryTarefas = mysql_query("SELECT * FROM z_tarefas ORDER BY data DESC");
 							while ($resultadoTarefas = mysql_fetch_assoc($queryTarefas)){

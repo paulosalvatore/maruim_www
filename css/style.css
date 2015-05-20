@@ -1409,9 +1409,8 @@ ul .sucesso {
 #balancoRapido {
 	display: none;
 }
-.tarefas .item.exibir {
-	display: table-row;
-}
-.tarefas .item.ocultar {
-	display: none;
+#tarefas .item.vazio {
+	height: 70px;
+	text-align: center;
+	font-weight: bold;
 }
