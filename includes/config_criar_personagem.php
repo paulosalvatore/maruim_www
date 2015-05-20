@@ -1,4 +1,6 @@
 <?php
+	include("includes/classes/ClassPersonagem.php");
+	$ClassPersonagem = new Personagem();
 	$formulario_criacao_personagem = array(
 		array(
 			"nome_personagem" => array(
@@ -70,4 +72,7 @@
 			)
 		)
 	);
+	foreach($ClassPersonagem->vocacoes as $vocacaoId => $vocacaoInfo)
+		if($vocacaoInfo["disponivel"])
+			$formulario_criacao_personagem[0]["vocacao_personagem"]["opcoes"][] = array("exibicao" => $vocacaoInfo["exibicao"], "valor" => $vocacaoId);
 ?>

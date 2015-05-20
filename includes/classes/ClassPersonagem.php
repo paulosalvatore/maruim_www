@@ -2,19 +2,19 @@
 	class Personagem {
 		public $limiteRank = 100;
 		public $diasDeletarPersonagem = 7;
-		private $cidades = array(
+		public $cidades = array(
 			1 => "Cidade"
 		);
-		private $vocacoes = array(
-			0 => array("campo" => "nenhuma", "exibicao" => "Nenhuma"),
-			1 => array("campo" => "sorcerer", "exibicao" => "Sorcerer"),
-			2 => array("campo" => "druid", "exibicao" => "Druid"),
-			3 => array("campo" => "paladin", "exibicao" => "Paladin"),
-			4 => array("campo" => "knight", "exibicao" => "Knight"),
-			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer"),
-			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid"),
-			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin"),
-			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight")
+		public $vocacoes = array(
+			0 => array("campo" => "nenhuma", "exibicao" => "Nenhuma", "disponivel" => false),
+			1 => array("campo" => "sorcerer", "exibicao" => "Sorcerer", "disponivel" => true),
+			2 => array("campo" => "druid", "exibicao" => "Druid", "disponivel" => true),
+			3 => array("campo" => "paladin", "exibicao" => "Paladin", "disponivel" => true),
+			4 => array("campo" => "knight", "exibicao" => "Knight", "disponivel" => true),
+			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer", "disponivel" => false),
+			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid", "disponivel" => false),
+			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin", "disponivel" => false),
+			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight", "disponivel" => false)
 		);
 		public function transformarDiasTempo($dias){
 			return $dias*24*60*60;

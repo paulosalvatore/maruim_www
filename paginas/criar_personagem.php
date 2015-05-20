@@ -1,11 +1,9 @@
 <?php
-	include("includes/classes/ClassPersonagem.php");
-	$ClassPersonagem = new Personagem();
+	include("includes/config_criar_personagem.php");
 	$listaPersonagens = $ClassPersonagem->getListaPersonagens($accountId);
 	if(count($listaPersonagens) >= $config["players"]["maxPersonagens"])
 		$conteudo_criacao_personagem = $conteudo_nao_encontrado;
 	else{
-		include("includes/config_criar_personagem.php");
 		$exibicao_formulario_criacao_personagem = "";
 		foreach($formulario_criacao_personagem as $bloco){
 			$exibicao_formulario_criacao_personagem .= '
@@ -116,10 +114,10 @@
 					'.$exibicao_formulario_criacao_personagem.'
 					<br>
 					<div align="center">
-						<div class="botao_azul2_1">
+						<div class="botao_colorido2_1">
 							<input type="submit" class="botao_azul" value="criar_personagem" />
 						</div>
-						<div class="botao_azul2_2">
+						<div class="botao_colorido2_2">
 							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\'" />
 						</div>
 					</div>
