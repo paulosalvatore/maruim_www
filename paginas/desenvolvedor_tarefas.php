@@ -141,7 +141,7 @@
 										<td align="center" class="top">
 											'.formatarData($resultadoTarefas["data"]).'
 										</td>
-										<td style="word-break: break-all;" class="top">
+										<td style="word-break: break-word; text-align: justify;" class="top">
 											'.$resultadoTarefas["descricao"].'
 										</td>
 										';
