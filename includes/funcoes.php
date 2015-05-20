@@ -8,12 +8,15 @@
 	function check_if_logged($script){
 		session_start();
 		$usuarioEncontrado = false;
+		$login = $_SESSION["login"];
+		$senha = $_SESSION["senha"];
 		include("classes/ClassConta.php");
 		$ClassConta = new Conta();
-		$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
-		if(count($informacoesConta) > 0)
-			$usuarioEncontrado = true;
-		if((!$_SESSION["login"]) OR (!$usuarioEncontrado))
+		if(!empty($login) OR (!empty($senha)))
+			if($ClassConta->validarConta($login, $senha))
+				if(count($ClassConta->getInformacoesConta($login)) > 0)
+					$usuarioEncontrado = true;
+		if(!$usuarioEncontrado)
 			trigger_error('Acesso negado. ('.$script.')', E_USER_ERROR);
 	}
 	function verificarEmail($email){
