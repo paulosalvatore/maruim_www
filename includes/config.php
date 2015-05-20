@@ -72,12 +72,12 @@
 	$config["servicos"] = array(
 		"premium" => array(
 			"nome" => "Premium / Pontos",
-			"descricao" => "Adquira Premium Scroll ou Pontos para sua conta."
+			"descricao" => "Adquira Premium Scroll ou Pontos para sua conta.",
+			"padrao" => true
 		),
 		"servicos_extras" => array(
 			"nome" => "Serviços Extras",
-			"descricao" => "Compre um serviço extra para trocar o nome ou o sexo de seu personagem, trocar o nome da sua conta ou adquirir uma nova chave de recuperação.",
-			"padrao" => true
+			"descricao" => "Compre um serviço extra para trocar o nome ou o sexo de seu personagem, trocar o nome da sua conta ou adquirir uma nova chave de recuperação."
 		),
 		"montarias" => array(
 			"nome" => "Montarias",
