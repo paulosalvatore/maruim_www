@@ -1086,7 +1086,7 @@ textarea {
 	width: 8px;
 	height: 13px;
 }
-.tarefas .sucesso {
+ul .sucesso {
 	color: green;
 	background: url(../imagens/geral/sucesso.png) no-repeat left top;
 }
@@ -1407,5 +1407,11 @@ textarea {
 	font-size: 8pt;
 }
 #balancoRapido {
+	display: none;
+}
+.tarefas .item.exibir {
+	display: table-row;
+}
+.tarefas .item.ocultar {
 	display: none;
 }
