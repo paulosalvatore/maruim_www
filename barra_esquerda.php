@@ -86,7 +86,7 @@
 				"desenvolvedor_downloads" => "Downloads",
 				"desenvolvedor_informacoes_uteis" => "Informações Úteis",
 				"desenvolvedor_ids_utilizadas" => "IDs Utilizadas",
-				"tarefas_jogo" => "Tarefas do Jogo",
+				"desenvolvedor_tarefas" => "Tarefas",
 				"criar_npc" => "Criar NPC",
 				"desenvolvedor_orcish" => "Orcish"
 			),
