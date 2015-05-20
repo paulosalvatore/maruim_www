@@ -48,24 +48,7 @@
 			"vocacao_personagem" => array(
 				"exibicao" => "Vocação",
 				"tipo" => "lista",
-				"opcoes" => array(
-					array(
-						"exibicao" => "Arqueiro",
-						"valor" => 1
-					),
-					array(
-						"exibicao" => "Feiticeiro",
-						"valor" => 2
-					),
-					array(
-						"exibicao" => "Clérigo",
-						"valor" => 3
-					),
-					array(
-						"exibicao" => "Cavaleiro",
-						"valor" => 4
-					)
-				),
+				"opcoes" => array(),
 				"opcao_ativa" => 1,
 				"obrigatorio" => true,
 				"msg_opcao_inexistente" => "O valor atribuído para a vocação do personagem não é válido."
