@@ -6,7 +6,6 @@
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/protocolo.php");
-	// include("../../includes/classes/ClassConta.php");
 	$ClassConta = new Conta();
 	$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
 	$acesso_pagina = $informacoesConta["acesso_pagina"];
@@ -14,41 +13,25 @@
 		exit;
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
+	$tabela = "z_registro_mudancas";
+	include("../../includes/classes/ClassFuncao.php");
+	$ClassFuncao = new Funcao();
 	if($acao == "deletar")
-		mysql_query("DELETE FROM z_registro_mudancas WHERE (id LIKE '$registro_id')");
+		mysql_query($ClassFuncao->loadSQLQuery($tabela, "id", $registro_id));
 	elseif($acao == "adicionar"){
 		parse_str(addslashes($formulario), $formulario);
-		$sql_queries = array(
-			"z_registro_mudancas" => array(
-				"local_mudanca" => $formulario["local_mudanca"],
-				"descricao" => nl2br($formulario["descricao"]),
-				"data" => time(),
-				"account_id" => $informacoesConta["id"]
-			)
+		$sql = array(
+			"local_mudanca" => $formulario["local_mudanca"],
+			"descricao" => nl2br($formulario["descricao"]),
+			"data" => time(),
+			"conta" => $informacoesConta["id"]
 		);
-		foreach($sql_queries as $tabela => $query){
-			$sql_query = "INSERT INTO $tabela (";
-			for($i=0;$i<2;$i++){
-				$j = 0;
-				foreach($query as $coluna => $valor){
-					if($j > 0)
-						$sql_query .= ", ";
-					if($i == 0)
-						$sql_query .= "$coluna";
-					else{
-						if($coluna == "account_id")
-							$valor = $accountId;
-						$sql_query .= "'$valor'";
-					}
-					$j++;
-				}
-				if($i == 0)
-					$sql_query .= ") VALUES (";
-				else{
-					$sql_query .= ");";
-				}
-			}
+		$colunas = array();
+		$valores = array();
+		foreach($sql as $c => $v){
+			$colunas[] = $c;
+			$valores[] = $v;
 		}
-		mysql_query($sql_query);
+		mysql_query($ClassFuncao->loadSQLQuery($tabela, $colunas, $valores));
 	}
 ?>

@@ -97,7 +97,7 @@
 										<td align="center" class="top">
 											'.formatarData($resultadoRegistroMudancas["data"]).'
 										</td>
-										<td style="word-break: break-all;">
+										<td style="word-break: break-all;" class="top">
 											'.$resultadoRegistroMudancas["descricao"].'
 										</td>
 										';
