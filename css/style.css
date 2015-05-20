@@ -971,6 +971,15 @@ img.ordenar {
 .pequeno {
 	font-size: 11px;
 }
+.negrito {
+	font-weight: bold;
+}
+.italico {
+	font-style: italic;
+}
+.sublinhado {
+	text-decoration: underline;
+}
 .vermelho {
 	font-weight: bold;
 	color: red;
@@ -1191,9 +1200,6 @@ textarea {
 	right: -77px;
 	font-size: 9px;
 	text-align: center;
-}
-.barraProgressoTexto.negrito {
-	font-weight: bold;
 }
 .abas {
 	position: relative;
