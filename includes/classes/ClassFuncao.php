@@ -18,6 +18,9 @@
 				$valores[$c] = "'".addslashes($v)."'";
 			return "INSERT INTO `$tabela` (".implode(",", $colunas).") VALUES (".implode(",", $valores).");";
 		}
+		public function loadSQLQueryDelete($tabela, $procurar, $valor){
+			return "DELETE FROM $tabela WHERE ($procurar LIKE '$valor')";
+		}
 		public function loadSQLQueryUpdate($tabela, $colunas, $valores, $procurarColunas, $procurarValores){
 			if(!is_array($colunas))
 				$colunas = array($colunas);
