@@ -89,7 +89,8 @@
 				"tarefas_jogo" => "Tarefas do Jogo",
 				"criar_npc" => "Criar NPC",
 				"desenvolvedor_orcish" => "Orcish"
-			)
+			),
+			"acesso_pagina" => true
 		)
 	);
 	$botoes_menu = '
@@ -97,39 +98,40 @@
 			<div class="borda_superior"></div>
 			';
 			foreach($config_menu as $categoria_id => $categoria){
-				$categoria_background = $categoria["background"];
-				$categoria_opcoes = $categoria["opcoes"];
-				$botoes_menu .= '
-					<div class="categoria">
-						<div class="botao">
-							<div class="icone" style="background-position: -'.($categoria_background*32).'px;"></div>
-							<div class="etiqueta" style="background-position: 0 -'.($categoria_background*22).'px;"></div>
-							<div class="luz_verde se"></div>
-							<div class="luz_verde sd"></div>
-							<div class="luz_verde ie"></div>
-							<div class="abrir_fechar_botao"></div>
-						</div>
-						<div class="opcoes">
-							';
-							foreach($categoria_opcoes as $botao_id => $botao_nome){
-								$estilosTexto = '';
-								if(strlen($botao_nome) >= 23)
-									$estilosTexto = ' style="font-size: 12px;"';
-								$botoes_menu .= '
-									<div class="opcao '.$botao_id.'">
-										<a href="?p='.$botao_id.'">
-											<div class="borda_esquerda"></div>
-											<div class="icone"></div>
-											<div class="texto"'.$estilosTexto.'>'.$botao_nome.'</div>
-											<div class="borda_direita"></div>
-										</a>
-									</div>
+				if((!$categoria["acesso_pagina"]) OR (($categoria["acesso_pagina"]) AND ($usuarioEncontrado) AND ($informacoesConta["acesso_pagina"] == 1))){
+					$categoria_background = $categoria["background"];
+					$botoes_menu .= '
+						<div class="categoria">
+							<div class="botao">
+								<div class="icone" style="background-position: -'.($categoria_background*32).'px;"></div>
+								<div class="etiqueta" style="background-position: 0 -'.($categoria_background*22).'px;"></div>
+								<div class="luz_verde se"></div>
+								<div class="luz_verde sd"></div>
+								<div class="luz_verde ie"></div>
+								<div class="abrir_fechar_botao"></div>
+							</div>
+							<div class="opcoes">
 								';
-							}
-							$botoes_menu .= '
+								foreach($categoria["opcoes"] as $botao_id => $botao_nome){
+									$estilosTexto = '';
+									if(strlen($botao_nome) >= 23)
+										$estilosTexto = ' style="font-size: 12px;"';
+									$botoes_menu .= '
+										<div class="opcao '.$botao_id.'">
+											<a href="?p='.$botao_id.'">
+												<div class="borda_esquerda"></div>
+												<div class="icone"></div>
+												<div class="texto"'.$estilosTexto.'>'.$botao_nome.'</div>
+												<div class="borda_direita"></div>
+											</a>
+										</div>
+									';
+								}
+								$botoes_menu .= '
+							</div>
 						</div>
-					</div>
-				';
+					';
+				}
 			}
 			$botoes_menu .= '
 			<div class="borda_inferior"></div>

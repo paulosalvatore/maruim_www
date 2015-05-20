@@ -17,7 +17,14 @@
 		"criar_noticia"
 	);
 	$config["acesso_restrito"] = array(
-		"criar_noticia"
+		"criar_noticia",
+		"desenvolvedor_downloads",
+		"desenvolvedor_gerenciamento",
+		"desenvolvedor_ids_utilizadas",
+		"desenvolvedor_informacoes_uteis",
+		"desenvolvedor_orcish",
+		"tarefas_jogo",
+		"criar_npc"
 	);
 	$config["players"] = array(
 		"lookbody" => 44,
