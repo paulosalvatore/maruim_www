@@ -24,7 +24,7 @@
 		parse_str(addslashes($formulario), $formulario);
 		$sql = array(
 			"categoria" => $formulario["categoria"],
-			"descricao" => nl2br($formulario["descricao"]),
+			"descricao" => nl2br(utf8_decode($formulario["descricao"])),
 			"data" => time(),
 			"conta" => $informacoesConta["id"]
 		);
