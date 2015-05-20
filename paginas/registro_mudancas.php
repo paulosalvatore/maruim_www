@@ -32,7 +32,8 @@
 												<b>Descrição:</b>
 											</td>
 											<td>
-												<textarea name="descricao" style="width: 100%;"></textarea>
+												<textarea name="descricao" style="width: 100%;"></textarea><br>
+												<span class="pequeno italico">Pressione ctrl+enter para adicionar.</span>
 											</td>
 										</tr>
 										<tr align="center">

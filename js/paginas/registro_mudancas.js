@@ -1,4 +1,8 @@
 $(function(){
+	$("textarea[name=descricao]").keyup(function(event){
+		if((event.ctrlKey) && (event.keyCode == 13))
+			$("#adicionarRegistroMudanca").submit();
+	});
 	$("#adicionarRegistroMudanca").submit(function(){
 		if($("textarea[name=descricao]").val() == ""){
 			alert("Por favor, preencha o campo descrição");
