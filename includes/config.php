@@ -23,7 +23,7 @@
 		"desenvolvedor_ids_utilizadas",
 		"desenvolvedor_informacoes_uteis",
 		"desenvolvedor_orcish",
-		"tarefas_jogo",
+		"desenvolvedor_tarefas",
 		"criar_npc"
 	);
 	$config["players"] = array(
