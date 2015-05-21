@@ -142,7 +142,7 @@
 											'.formatarData($resultadoTarefas["data"]).'
 										</td>
 										<td style="word-break: break-word; text-align: justify;" class="top">
-											'.$resultadoTarefas["descricao"].'
+											'.stripslashes($resultadoTarefas["descricao"]).'
 										</td>
 										';
 										if($informacoesConta["acesso_pagina"] == 1)
