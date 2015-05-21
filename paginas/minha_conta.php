@@ -473,7 +473,7 @@
 							$classeAba = "aba";
 							$classeConteudo = "conteudo_aba";
 							$imagem = "inativa";
-							if($servico["padrao"]){
+							if((((!$_POST["servico"]) OR (!array_key_exists($_POST["servico"], $config["servicos"]))) AND ($servico["padrao"])) OR ($_POST["servico"] == $servicoId)){
 								$classeAba .= " ativa";
 								$classeConteudo .= " exibir";
 								$imagem = "ativa";
@@ -1398,13 +1398,16 @@
 						<div class="box_frame_conteudo" carregar_box="1">
 							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
 								';
-								foreach($config["servicos"] as $categoria)
+								foreach($config["servicos"] as $categoriaId => $categoria)
 									$conteudo_minha_conta .= '
 										<tr class="conteudo dark">
 											<td>
-												<div style="float: right;">
-													<input type="button" class="botao_verde" value="adquirir" onClick="document.location = \'?p=minha_conta-servicos\';" />
-												</div>
+												<form method="POST" action="?p=minha_conta-servicos">
+													<input type="hidden" name="servico" value="'.$categoriaId.'" />
+													<div style="float: right;">
+														<input type="submit" class="botao_verde" value="adquirir" />
+													</div>
+												</form>
 												<b>'.$categoria["nome"].'</b><br>
 												'.$categoria["descricao"].'
 											</td>

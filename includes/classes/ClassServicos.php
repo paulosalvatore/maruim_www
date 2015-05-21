@@ -89,9 +89,11 @@
 			$informacoesConta = $ClassConta->getInformacoesConta($contaId, true);
 			$pontosDisponiveis = $informacoesConta["pontos"];
 			if((count($informacoesProduto) == 0) AND ($this->getInformacoesPagamento($pagamentoId)))
-				$verificarCompraProduto[1] = $ClassServicos->carregarMensagem("dados_invalidos");
+				$verificarCompraProduto[1] = $this->carregarMensagem("dados_invalidos");
+			elseif(($informacoesProduto["categoria"] == "servicos_extras") AND (empty($informacoesConta["chave_recuperacao"])))
+				$verificarCompraProduto[1] = $this->carregarMensagem("registro_necessario");
 			elseif(($informacoesProduto["forma_pagamento"] == "ponto") AND ($informacoesProduto["preco"] > $pontosDisponiveis))
-				$verificarCompraProduto[1] = $ClassServicos->carregarMensagem("pontos_insuficientes", array($informacoesProduto["exibirPreco"], $informacoesProduto["exibirNome"]));
+				$verificarCompraProduto[1] = $this->carregarMensagem("pontos_insuficientes", array($informacoesProduto["exibirPreco"], $informacoesProduto["exibirNome"]));
 			else
 				$verificarCompraProduto[0] = true;
 			return $verificarCompraProduto;
@@ -166,6 +168,21 @@
 					<div class="box_frame_conteudo_principal" carregar_box="1">
 						<div class="box_frame_conteudo dark padding">
 							Algum erro ocorreu ou você inseriu dados inválidos.
+						</div>
+					</div>
+					<br>
+					<div align="center">
+						<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta-servicos\';">
+					</div>
+				';
+			elseif($tipoMensagem == "registro_necessario")
+				$mensagem = '
+					<div class="box_frame" carregar_box="1">
+						Registro Necessário
+					</div>
+					<div class="box_frame_conteudo_principal" carregar_box="1">
+						<div class="box_frame_conteudo dark padding">
+							Você precisa registrar sua conta para adquirir esse produto.
 						</div>
 					</div>
 					<br>
