@@ -1,5 +1,9 @@
 <?php
-	include("includes/classes/ClassPersonagem.php");
+	$arquivoClassPersonagem = "includes/classes/ClassPersonagem.php";
+	if(is_file($arquivoClassPersonagem))
+		include($arquivoClassPersonagem);
+	elseif(is_file("../../".$arquivoClassPersonagem))
+		include("../../".$arquivoClassPersonagem);
 	$ClassPersonagem = new Personagem();
 	$formulario_criacao_personagem = array(
 		array(

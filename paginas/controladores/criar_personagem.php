@@ -7,7 +7,6 @@
 	include("../../includes/config.php");
 	include("../../includes/config_criar_personagem.php");
 	include("../../includes/protocolo.php");
-	include("../../includes/classes/ClassPersonagem.php");
 	$ClassPersonagem = new Personagem();
 	$ClassConta = new Conta();
 	foreach($_REQUEST as $c => $v)
