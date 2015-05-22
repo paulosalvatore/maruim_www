@@ -1,0 +1,29 @@
+Arquivo luascript.cpp
+	Linha 2230
+		registerMethod("Player", "createParty", LuaScriptInterface::luaPlayerCreateParty);
+	Linha 9086
+		int LuaScriptInterface::luaPlayerCreateParty(lua_State* L)
+		{
+			// player:createParty(targetPlayer)
+			Player* player = getUserdata<Player>(L, 1);
+			Player* targetPlayer = getUserdata<Player>(L, 2);
+			if (!player || !targetPlayer) {
+				lua_pushnil(L);
+				return 1;
+			}
+
+			Party* partyPlayer = player->getParty();
+			Party* partyInvitedPlayer = targetPlayer->getParty();
+
+			if (!partyPlayer && !partyInvitedPlayer) {
+				partyPlayer = new Party(player);
+				partyPlayer->invitePlayer(*targetPlayer);
+				// partyPlayer->joinParty(*targetPlayer); - Essa linha não está aplicada no código
+				pushUserdata<Party>(L, partyPlayer);
+				setMetatable(L, -1, "Party");
+			}
+			return 1;
+		}
+Arquivo luascript.h
+	Linha 936
+		static int luaPlayerCreateParty(lua_State* L);
