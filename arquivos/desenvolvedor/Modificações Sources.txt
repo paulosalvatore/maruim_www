@@ -74,3 +74,21 @@ Arquivo luascript.cpp
 Arquivo luascript.h
 	Linha 936
 		static int luaPlayerCreateParty(lua_State* L);
+Arquivo player.cpp
+	Linha 3393
+		if (weapon) {
+			uint32_t delay;
+
+			if (!weapon->interruptSwing() || canDoAction()) {
+				result = weapon->useWeapon(this, tool, attackedCreature);
+				delay = getAttackSpeed();
+			} else {
+				delay = getNextActionTime();
+			}
+
+			SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::checkCreatureAttack,
+				&g_game, getID()));
+			setNextActionTask(task);
+		} else {
+			result = Weapon::useFist(this, attackedCreature);
+		}
