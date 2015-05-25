@@ -38,5 +38,18 @@
 				$procurar[] = "($v LIKE '".addslashes($procurarValores[$c])."')";
 			return "UPDATE `$tabela` SET ".implode(",", $editar)." WHERE (".implode(" AND ", $procurar).");";
 		}
+		public function separarForm($array, $utf8_decode = false){
+			$arrayReturn = array();
+			if(!is_array($array))
+				parse_str($array, $array);
+			if(is_array($array)){
+				foreach($array as $c => $v){
+					if($utf8_decode)
+						$v = utf8_decode($v);
+					$arrayReturn[$c] = addslashes($v);
+				}
+			}
+			return $arrayReturn;
+		}
 	}
 ?>

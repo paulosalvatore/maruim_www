@@ -17,14 +17,15 @@
 	include("../../includes/classes/ClassFuncao.php");
 	$ClassFuncao = new Funcao();
 	if($acao == "deletar")
-		mysql_query($ClassFuncao->loadSQLQuery($tabela, "id", $registro_id));
+		mysql_query($ClassFuncao->loadSQLQueryDelete($tabela, "id", $registro_id));
 	elseif($acao == "concluir")
 		mysql_query($ClassFuncao->loadSQLQueryUpdate($tabela, "concluida", 1, "id", $registro_id));
 	elseif($acao == "adicionar"){
-		parse_str(addslashes($formulario), $formulario);
+		$formulario = $ClassFuncao->separarForm($formulario, true);
+		print_r($formulario);
 		$sql = array(
 			"categoria" => $formulario["categoria"],
-			"descricao" => nl2br(utf8_decode($formulario["descricao"])),
+			"descricao" => nl2br($formulario["descricao"]),
 			"data" => time(),
 			"conta" => $informacoesConta["id"]
 		);

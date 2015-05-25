@@ -11,50 +11,45 @@
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$pagina.'">
 			<div class="conteudo_box pagina">
-				';
-				if($informacoesConta["acesso_pagina"] == 1)
-					$conteudo_pagina .= '
-						<div class="box_frame" carregar_box="1">
-							Adicionar Tarefas
-						</div>
-						<div class="box_frame_conteudo_principal" carregar_box="1">
-							<div class="box_frame_conteudo dark padding">
-								<form id="adicionarTarefa">
-									<table width="100%">
-										<tr>
-											<td width="150">
-												<b>Categoria da Tarefa:</b>
-											</td>
-											<td>
-												<select name="categoria">
-													<option value="site">Site</option>
-													<option value="jogo">Jogo</option>
-													<option value="mapa">Mapa</option>
-												</select>
-											</td>
-										</tr>
-										<tr valign="top">
-											<td>
-												<b>Tarefa:</b>
-											</td>
-											<td>
-												<textarea name="descricao" style="width: 100%;"></textarea><br>
-												<span class="pequeno italico">Pressione ctrl+enter para adicionar.</span>
-											</td>
-										</tr>
-										<tr align="center">
-											<td colspan="2" style="padding-top: 10px;">
-												<input type="submit" class="botao" value="Adicionar" />
-											</td>
-										</tr>
-									</table>
-								</form>
-							</div>
-						</div>
-						<br>
-						<br>
-					';
-				$conteudo_pagina .= '
+				<div class="box_frame" carregar_box="1">
+					Adicionar Tarefas
+				</div>
+				<div class="box_frame_conteudo_principal" carregar_box="1">
+					<div class="box_frame_conteudo dark padding">
+						<form id="adicionarTarefa">
+							<table width="100%">
+								<tr>
+									<td width="150">
+										<b>Categoria da Tarefa:</b>
+									</td>
+									<td>
+										<select name="categoria">
+											<option value="site">Site</option>
+											<option value="jogo">Jogo</option>
+											<option value="mapa">Mapa</option>
+										</select>
+									</td>
+								</tr>
+								<tr valign="top">
+									<td>
+										<b>Tarefa:</b>
+									</td>
+									<td>
+										<textarea name="descricao" style="width: 100%;"></textarea><br>
+										<span class="pequeno italico">Pressione ctrl+enter para adicionar.</span>
+									</td>
+								</tr>
+								<tr align="center">
+									<td colspan="2" style="padding-top: 10px;">
+										<input type="submit" class="botao" value="Adicionar" />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+				<br>
+				<br>
 					<table cellpadding="0" cellspacing="0" class="tabela dark" width="100%">
 						<tr class="cabecalho">
 							<td>
@@ -105,14 +100,9 @@
 								<td>
 									Descrição
 								</td>
-								';
-								if($informacoesConta["acesso_pagina"] == 1)
-									$conteudo_pagina .= '
-										<td width="70">
-											Opções
-										</td>
-									';
-								$conteudo_pagina .= '
+								<td width="70">
+									Opções
+								</td>
 							</tr>
 							<tr class="item vazio ocultar">
 								<td colspan="5">
@@ -144,15 +134,10 @@
 										<td style="word-break: break-word; text-align: justify;" class="top">
 											'.stripslashes($resultadoTarefas["descricao"]).'
 										</td>
-										';
-										if($informacoesConta["acesso_pagina"] == 1)
-											$conteudo_pagina .= '
-												<td align="center" class="top">
-													<input type="button" class="botao concluirTarefa" registro_id="'.$resultadoTarefas["id"].'" value="Concluir" /><br>
-													<input type="button" class="botao deletarTarefa" registro_id="'.$resultadoTarefas["id"].'" value="Deletar" style="margin-top: 2px;" />
-												</td>
-											';
-										$conteudo_pagina .= '
+										<td align="center" class="top">
+											<input type="button" class="botao concluirTarefa" registro_id="'.$resultadoTarefas["id"].'" value="Concluir" /><br>
+											<input type="button" class="botao deletarTarefa" registro_id="'.$resultadoTarefas["id"].'" value="Deletar" style="margin-top: 2px;" />
+										</td>
 									</tr>
 								';
 							}
