@@ -22,7 +22,6 @@
 		mysql_query($ClassFuncao->loadSQLQueryUpdate($tabela, "concluida", 1, "id", $registro_id));
 	elseif($acao == "adicionar"){
 		$formulario = $ClassFuncao->separarForm($formulario, true);
-		print_r($formulario);
 		$sql = array(
 			"categoria" => $formulario["categoria"],
 			"descricao" => nl2br($formulario["descricao"]),
