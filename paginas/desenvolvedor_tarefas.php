@@ -50,18 +50,18 @@
 				</div>
 				<br>
 				<br>
-					<table cellpadding="0" cellspacing="0" class="tabela dark" width="100%">
-						<tr class="cabecalho">
-							<td>
-								Tarefas
-							</td>
-						</tr>
-						<tr class="item" height="40">
-							<td>
-								Atualmente o sistema '.$exibirQuantidadeTarefasRegistradas.'.
-							</td>
-						</tr>
-					</table>
+				<table cellpadding="0" cellspacing="0" class="tabela dark" width="100%">
+					<tr class="cabecalho">
+						<td>
+							Tarefas
+						</td>
+					</tr>
+					<tr class="item" height="40">
+						<td>
+							Atualmente o sistema '.$exibirQuantidadeTarefasRegistradas.'.
+						</td>
+					</tr>
+				</table>
 				';
 				if($quantidadeTarefasRegistradas > 0){
 					$conteudo_pagina .= '
