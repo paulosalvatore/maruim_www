@@ -32,7 +32,7 @@
 								</tr>
 								<tr valign="top">
 									<td>
-										<b>Tarefa:</b>
+										<b>Descrição:</b>
 									</td>
 									<td>
 										<textarea name="descricao" style="width: 100%;"></textarea><br>

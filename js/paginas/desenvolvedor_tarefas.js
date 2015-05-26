@@ -20,7 +20,7 @@ $(function(){
 	});
 	$("#adicionarTarefa").submit(function(){
 		if($("textarea[name=descricao]").val() == ""){
-			alert("Por favor, preencha o campo descrição");
+			alert("Por favor, preencha o campo descrição.");
 			return false;
 		}
 		else if($("textarea[name=descricao]").val().length < 8){
