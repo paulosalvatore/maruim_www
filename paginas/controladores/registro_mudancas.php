@@ -21,7 +21,7 @@
 	elseif($acao == "adicionar"){
 		parse_str(addslashes($formulario), $formulario);
 		$sql = array(
-			"local_mudanca" => $formulario["local_mudanca"],
+			"local" => $formulario["local"],
 			"descricao" => nl2br(utf8_decode($formulario["descricao"])),
 			"data" => time(),
 			"conta" => $informacoesConta["id"]

@@ -18,10 +18,10 @@
 									<table width="100%">
 										<tr>
 											<td width="150">
-												<b>Local da Mudança:</b>
+												<b>Local:</b>
 											</td>
 											<td>
-												<select name="local_mudanca">
+												<select name="local">
 													<option value="servidor">Servidor</option>
 													<option value="site">Site</option>
 												</select>

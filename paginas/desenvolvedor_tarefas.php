@@ -20,7 +20,7 @@
 							<table width="100%">
 								<tr>
 									<td width="150">
-										<b>Categoria da Tarefa:</b>
+										<b>Categoria:</b>
 									</td>
 									<td>
 										<select name="categoria">
