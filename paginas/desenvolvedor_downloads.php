@@ -38,13 +38,13 @@
 								"exibir_ultima_atualizacao" => false,
 								"descricao" => "Instalação do Tibia Client 10.76, necessário para o Map Editor.",
 							),
--							"1077" => array(
-								"nome" => "Tibia Client 10.77",
+-							"1078" => array(
+								"nome" => "Tibia Client 10.78",
 								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1077.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1077",
+								"arquivo" => "tibia1078.exe",
+								"link_externo" => "http://clients.tibiaking.com/client/windows/1078",
 								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.77, necessário para jogar.",
+								"descricao" => "Instalação do Tibia Client 10.78, necessário para jogar.",
 							),
 							"ipchanger" => array(
 								"nome" => "IP Changer",
