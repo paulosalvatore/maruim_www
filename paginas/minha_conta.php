@@ -84,6 +84,7 @@
 			<div class="box_frame_conteudo_principal sombra" carregar_box="1">
 				<div class="box_frame_conteudo dark">
 					<form id="form_login">
+						<input type="hidden" name="url" value="'.$_POST["url"].'" />
 						<table width="100%">
 							<tr>
 								<td width="100">

@@ -6,8 +6,15 @@
 					Acesso Restrito
 				</div>
 				<div class="box_frame_conteudo_principal" carregar_box="1">
-					<div class="box_frame_conteudo dark">
-						O acesso a essa página é restrito e você não está autorizado a visualizar seu conteúdo.
+					<div class="box_frame_conteudo dark padding">
+						O acesso a essa página é restrito e você não está autorizado a visualizar seu conteúdo.<br>
+						<br>
+						<form method="POST" action="?p=minha_conta">
+							<input type="hidden" name="url" value="'.$pagina_atual.'" />
+							<div align="center">
+								<input type="submit" class="botao_azul" value="Entrar">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

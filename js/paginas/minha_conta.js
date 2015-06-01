@@ -128,8 +128,12 @@ $(function(){
 			success: function(result){
 				if(result == 0)
 					$(".small_box_frame.erro").show();
-				else if(result == 1)
-					document.location = "?p=minha_conta";
+				else if(result == 1){
+					if($("input[name=url]").val() != "")
+						document.location = $("input[name=url]").val();
+					else
+						document.location = "?p=minha_conta";
+				}
 			}
 		}).responseText;
 		return false;
