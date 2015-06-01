@@ -12,7 +12,7 @@
 						<form method="POST" action="?p=minha_conta">
 							<input type="hidden" name="url" value="'.$pagina_atual.'" />
 							<div align="center">
-								<input type="submit" class="botao_azul" value="Entrar">
+								<input type="submit" class="botao_azul" value="entrar">
 							</div>
 						</form>
 					</div>
