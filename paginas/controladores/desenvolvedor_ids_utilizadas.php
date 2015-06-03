@@ -16,30 +16,22 @@
 	$tabela = "z_ids_utilizadas";
 	include("../../includes/classes/ClassFuncao.php");
 	$ClassFuncao = new Funcao();
-	function checarRange($min, $max, $valor){
-		return ($valor >= $min AND $valor <= $max);
+	function checarRange($min, $max, $checar, $valor1, $valor2){
+		return (($valor1 == $valor2) AND ($checar >= $min AND $checar <= $max));
 	}
 	function verificarIDUtilizada($min, $max, $valor, $categoria){
 		$liberarID = true;
-		$queryVerificar = mysql_query("SELECT * FROM z_ids_utilizadas WHERE ((categoria LIKE '$categoria') AND (min >= '$min') AND (max <= '$max'))");
+		$queryVerificar = mysql_query("SELECT * FROM z_ids_utilizadas WHERE (categoria LIKE '$categoria')");
 		while ($resultadoVerificar = mysql_fetch_assoc($queryVerificar)){
 			if(($max == 0) OR ($max == $min)){
-				if(($max > 0) AND ($resultadoVerificar["max"] != $resultadoVerificar["min"])){
-					if(checarRange($resultadoVerificar["min"], $resultadoVerificar["max"], $min)){
-						$liberarID = false;
-						break;
-					}
-				}
-				else{
-					if($resultadoVerificar["min"] == $min){
-						$liberarID = false;
-						break;
-					}
+				if(checarRange($resultadoVerificar["min"], $resultadoVerificar["max"], $min, $resultadoVerificar["valor"], $valor)){
+					$liberarID = false;
+					break;
 				}
 			}
 			else{
 				for($i=$min;$i<=$max;$i++){
-					if(checarRange($resultadoVerificar["min"], $resultadoVerificar["max"], $i)){
+					if(checarRange($resultadoVerificar["min"], $resultadoVerificar["max"], $i, $resultadoVerificar["valor"], $valor)){
 						$liberarID = false;
 						break;
 					}
