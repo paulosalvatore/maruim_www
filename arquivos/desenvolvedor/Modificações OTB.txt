@@ -1,0 +1,4 @@
+Modificações do OTB
+Item 23816 (War Backpack)
+Readable removido
+Max read chars removido
