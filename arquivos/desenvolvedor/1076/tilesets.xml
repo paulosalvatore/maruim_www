@@ -152,6 +152,7 @@
 		<terrain>
 			<brush name="sea"/>
 			<brush name="walkable sea"/>
+			<brush name="dirty water"/>
 			<brush name="water"/>
 			<brush name="mountain"/>
 			<brush name="ramp"/>

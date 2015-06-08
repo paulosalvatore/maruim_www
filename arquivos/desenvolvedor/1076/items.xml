@@ -13197,6 +13197,8 @@
 	</item>
 	<item id="7553" article="a" name="large seashell">
 		<attribute key="description" value="It is empty." />
+		<attribute key="decayTo" value="7552" />
+		<attribute key="duration" value="36000" />
 	</item>
 	<item fromid="7554" toid="7557" article="a" name="spider victim">
 		<attribute key="description" value="This poor guy has been wrapped up in spider silk." />
@@ -22335,6 +22337,7 @@
 		<attribute key="weight" value="999" />
 	</item>
 	<item fromid="13547" toid="13552" name="dirty water" />
+	<item fromid="13553" toid="13558" name="shallow water" />
 	<item id="13559" name="dread doll">
 		<attribute key="description" value="It is shining with positive energy and was awarded by the gods." />
 		<attribute key="weight" value="1100" />
@@ -22486,6 +22489,7 @@
 	<item id="13739" article="a" name="hieroglyph banner">
 		<attribute key="weight" value="1000" />
 	</item>
+	<item fromid="13740" toid="13551" name="dirty water" />
 	<item id="13752" article="a" name="dead yielothax">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="13753" />
@@ -29431,10 +29435,10 @@
 		<attribute key="weight" value="1500" />
 		<attribute key="description" value="It glistens and pulsates with a subtle, worrying glow." />
 	</item>
-	<item id="21399" article="a" name="golden raid token">
+	<item id="21399" article="a" name="golden token">
 		<attribute key="weight" value="110" />
 	</item>
-	<item id="21400" article="a" name="silver raid token">
+	<item id="21400" article="a" name="silver token">
 		<attribute key="weight" value="100" />
 	</item>
 	<item id="21401" article="a" name="small dragon tear">
@@ -30595,6 +30599,27 @@
 	<item id="23474" article="a" name="glooth injection tube">
 		<attribute key="weight" value="1400" />
 	</item>
+	<item id="23481" name="remains of a rot elemental">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="23482" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="23482" name="remains of a rot elemental">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="23482" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="23483" name="remains of a rot elemental">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
 	<item id="23495" article="a" name="necrometer">
 		<attribute key="weight" value="800" />
 	</item>
@@ -30789,6 +30814,7 @@
 	<item id="23575" article="a" name="cowbell">
 		<attribute key="weight" value="400" />
 	</item>
+	<item id="23587" article="a" name="special liquid" />
 	<item id="23588" name="green light">
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="20" />
@@ -30812,6 +30838,16 @@
 		<attribute key="weight" value="1800" />
 	</item>
 	<item id="23666" article="a" name="glooth backpack">
+		<attribute key="containerSize" value="20" />
+		<attribute key="slotType" value="backpack" />
+		<attribute key="weight" value="1800" />
+	</item>
+	<item id="23782" article="a" name="shopping bag">
+		<attribute key="containerSize" value="20" />
+		<attribute key="slotType" value="backpack" />
+		<attribute key="weight" value="1800" />
+	</item>
+	<item id="23816" article="a" name="war backpack">
 		<attribute key="containerSize" value="20" />
 		<attribute key="slotType" value="backpack" />
 		<attribute key="weight" value="1800" />

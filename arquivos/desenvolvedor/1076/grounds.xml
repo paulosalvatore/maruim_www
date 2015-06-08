@@ -3023,4 +3023,13 @@
 		<item id="12927" chance="1"/>
 		<item id="12928" chance="1"/>
 	</brush>
+	
+	<brush name="dirty water" type="ground" server_lookid="13547" z-order="6000">
+		<item id="13547" chance="3"/>
+		<item id="13548" chance="1"/>
+		<item id="13549" chance="1"/>
+		<item id="13550" chance="1"/>
+		<item id="13551" chance="1"/>
+		<item id="13552" chance="1"/>
+	</brush>
 </materials>
