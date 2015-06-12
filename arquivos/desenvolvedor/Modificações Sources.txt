@@ -45,7 +45,9 @@ Arquivo protocolgame.cpp
 Arquivo luascript.cpp
 	Linha 2230
 		registerMethod("Player", "createParty", LuaScriptInterface::luaPlayerCreateParty);
-	Linha 9086
+	Linha 2274
+		registerMethod("Player", "closeModalId", LuaScriptInterface::luaPlayerCloseModalId);
+	Linha 9088
 		int LuaScriptInterface::luaPlayerCreateParty(lua_State* L)
 		{
 			// player:createParty(targetPlayer[, joinTargetPlayer = false])
@@ -71,9 +73,32 @@ Arquivo luascript.cpp
 			}
 			return 1;
 		}
+	Linha 9648
+		int LuaScriptInterface::luaPlayerCloseModalId(lua_State* L)
+		{
+			// player:closeModalId(window)
+			Player* player = getUserdata<Player>(L, 1);
+			if (!player) {
+				lua_pushnil(L);
+				return 1;
+			}
+
+			uint32_t windowId = getNumber<uint32_t>(L, 2);
+			if (windowId) {
+				if (player->hasModalWindowOpen(windowId)) {
+					player->onModalWindowHandled(windowId);
+				}
+				pushBoolean(L, true);
+			} else {
+				lua_pushnil(L);
+			}
+			return 1;
+		}
 Arquivo luascript.h
 	Linha 936
 		static int luaPlayerCreateParty(lua_State* L);
+	Linha 980
+		static int luaPlayerCloseModalId(lua_State* L);
 Arquivo player.cpp
 	Linha 3393
 		if (weapon) {
