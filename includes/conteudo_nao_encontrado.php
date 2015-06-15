@@ -5,7 +5,7 @@
 		</div>
 	';
 	$conteudo_nao_encontrado_full = '
-		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
+		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="nao_encontrado">
 			<div class="conteudo_box pagina">
 				<div class="box_frame" carregar_box="1">
 					Página Não Encontrada
