@@ -36,6 +36,7 @@
 		"biblioteca" => array(
 			"background" => 3,
 			"opcoes" => array(
+				"itens" => "Itens",
 				"criaturas" => "Criaturas",
 				"magias" => "Magias",
 				"conquistas" => "Conquistas (?)",
