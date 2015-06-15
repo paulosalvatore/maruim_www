@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rot Elemental" nameDescription="a rot elemental" race="fire" experience="3900" speed="250" manacost="0">
-	<health now="5300" max="5300"/>
-	<look type="588" corpse="22508"/>
-	<targetchange interval="4000" chance="10"/>
+<monster name="Rot Elemental" nameDescription="a rot elemental" race="blood" experience="750" speed="200" manacost="490">
+	<health now="850" max="850" />
+	<look type="615" corpse="6532" />
+	<targetchange interval="4000" chance="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="90" attack="80"/>
-		<attack name="drunk" interval="2000" chance="10" length="4" spread="3" target="1" duration="5000">
-			<attribute key="areaEffect" value="greenshimmer"/>
+		<attack name="melee" interval="2000" min="0" max="-120" poison="300" /> <!-- poison attack -->
+		<attack name="earth" interval="2000" chance="15" length="5" spread="0" min="-0" max="-200"> <!-- poison beam -->
+			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="speed" interval="2000" chance="15" radius="4" target="1" speedchange="-700" duration="15000">
-			<attribute key="shootEffect" value="whirlwindclub"/>
-			<attribute key="areaEffect" value="stun"/>
+		<attack name="earth" interval="2000" chance="15" target="1" range="7" radius="5" min="-0" max="-200"> <!-- poison ball -->
+			<attribute key="shootEffect" value="poison" />
+			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="physical" interval="2000" chance="15" radius="4" target="0" min="0" max="-110">
-			<attribute key="areaEffect" value="blackspark"/>
-		</attack>
-		<attack name="physical" interval="2000" chance="15" radius="1" target="1" min="0" max="-200">
-			<attribute key="shootEffect" value="sniperarrow"/>
-		</attack>
-		<attack name="fire" interval="2000" chance="10" radius="1" target="1" min="-200" max="-350">
-			<attribute key="shootEffect" value="fire"/>
-			<attribute key="areaEffect" value="fireattack"/>
+		<attack name="speed" interval="1000" chance="15" target="0" radius="4" speedchange="-800" duration="20000"> <!-- musical paralyze -->
+			<attribute key="areaEffect" value="rednote" />
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="30"/>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="15" min="10" max="60"> <!-- self heal -->
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
 	<elements>
-		<element physicalPercent="10"/>
-		<element deathPercent="20"/>
-		<element energyPercent="10"/>
-		<element icePercent="15"/>
+		<element firePercent="5" />
+		<element energyPercent="5" />
+		<element deathPercent="-20" />
+		<element icePercent="-30" />
 	</elements>
 	<immunities>
-		<immunity fire="1"/>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
+		<immunity earth="1" />
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Wait for us, little maggot..." />
-		<voice sentence="We will devour you..."/>
-		<voice sentence="My little beetles, go forth, eat, feast!"/>
+		<voice sentence="*splib*" />
+		<voice sentence="*glibb*" />
 	</voices>
 	<loot>
+		<item id="10557" countmax="5" chance="90000" /><!-- Poisonous Slime -->
+		<item id="23474" chance="10000" /><!-- Glooth Injection Tube -->
+		<item id="23515" chance="50000" /><!-- Bowl of Glooth Soup -->
 	</loot>
 </monster>

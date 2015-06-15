@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Farm Sheep" nameDescription="a farm sheep" race="blood" experience="0" speed="110" manacost="0">
-	<health now="20" max="20"/>
-	<look type="14" corpse="5991"/>
-	<targetchange interval="4000" chance="0"/>
-	<strategy attack="0" defense="0"/>
+	<health now="20" max="20" />
+	<look type="14" corpse="5991" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="0" defense="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="0"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="0"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="0" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="0" />
+		<flag runonhealth="0" />
 	</flags>
 	<voices interval="5000" chance="10">
-		<voice sentence="Maeh"/>
+		<voice sentence="Maeh" />
 	</voices>
 </monster>

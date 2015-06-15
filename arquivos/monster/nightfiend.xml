@@ -1,39 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Nightfiend" nameDescription="a nightfiend" race="blood" experience="0" speed="210" manacost="390">
-	<health now="95" max="95"/>
-	<look type="568" corpse="2669"/>
-	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
+<monster name="Nightfiend" nameDescription="a nightfiend" race="blood" experience="2100" speed="240" manacost="0">
+	<health now="2700" max="2700" />
+	<look type="556" corpse="21266" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="1"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="10"/>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="20" attack="30"/>
-		<attack name="physical" interval="1000" chance="10" range="7" min="-5" max="-40">
-			<attribute key="shootEffect" value="throwingknife"/>
+		<attack name="melee" interval="2000" skill="65" attack="70" />
+		<attack name="death" interval="2000" chance="15" radius="3" range="4" target="1" min="-100" max="-200"> <!-- sudden death bomb -->
+			<attribute key="shootEffect" value="death" />
+			<attribute key="areaEffect" value="mortarea" />
 		</attack>
+		<attack name="bleedcondition" interval="2000" chance="20" radius="2" target="0" min="-400" max="-600"> <!-- Bleeding Area -->
+			<attribute key="areaEffect" value="redspark" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="5" range="7" min="-40" max="-60" /> <!-- Mana Drain -->
 	</attacks>
-	<defenses armor="11" defense="11"/>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="1000" chance="10" min="35" max="150"> <!-- self healing -->
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
 	<elements>
-		<element physicalPercent="-8"/>
-		<element deathPercent="-7"/>
+		<element physicalPercent="-5" />
+		<element energyPercent="-5" />
+		<element icePercent="-5" />
+		<element firePercent="5" />
+		<element holyPercent="10" />
 	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+		<immunity death="1" />
+		<immunity earth="1" />
+	</immunities>
 	<loot>
-		<item id="12405" countmax="1" chance="10000"/><!-- Blood Preservation -->
-		<item id="10602" countmax="1" chance="10000"/><!-- Vampire Teeth -->
-		<item id="21241" countmax="1" chance="10000"/><!-- Tooth File -->
-		<item id="2147" countmax="1" chance="10000"/><!-- Small Ruby -->
-		<item id="2156" countmax="1" chance="10000"/><!-- Red Gem -->
+		<item id="12405" countmax="3" chance="70000" /><!-- Blood Preservation -->
+		<item id="10602" countmax="2" chance="50000" /><!-- Vampire Teeth -->
+		<item id="21241" chance="5000" /><!-- Tooth File -->
+		<item id="2147" countmax="2" chance="20000" /><!-- Small Ruby -->
+		<item id="2156" chance="5000" /><!-- Red Gem -->
 	
 	</loot>
 </monster>

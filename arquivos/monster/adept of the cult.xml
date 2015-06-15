@@ -1,62 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Adept of the Cult" nameDescription="an adept of the cult" race="blood" experience="400" speed="215" manacost="0">
-	<health now="430" max="430"/>
-	<look type="194" head="114" body="94" legs="94" feet="57" corpse="20311"/>
-	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
+	<health now="430" max="430" />
+	<look type="194" head="114" body="94" legs="94" feet="57" corpse="20311" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="4"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag staticattack="90" />
+		<flag targetdistance="4" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="30" poison="40" />
 		<attack name="lifedrain" interval="2000" chance="20" range="7" target="0" min="-70" max="-150">
-			<attribute key="shootEffect" value="poison"/>
-			<attribute key="areaEffect" value="poison"/>
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="shootEffect" value="poison" />
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="drunk" interval="2000" chance="10" range="7" radius="1" target="1" duration="4000">
-			<attribute key="shootEffect" value="holy"/>
-			<attribute key="areaEffect" value="holydamage"/>
+			<attribute key="shootEffect" value="holy" />
+			<attribute key="areaEffect" value="holydamage" />
 		</attack>
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="2000" chance="20" min="50" max="70">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="invisible" interval="2000" chance="10" duration="3000">
-			<attribute key="areaEffect" value="yellowbubble"/>
+			<attribute key="areaEffect" value="yellowbubble" />
 		</defense>
 	</defenses>
 	<elements>
-		<element holyPercent="30"/>
-		<element earthPercent="40"/>
-		<element icePercent="20"/>
-		<element energyPercent="-5"/>
-		<element deathPercent="-5"/>
+		<element holyPercent="30" />
+		<element earthPercent="40" />
+		<element icePercent="20" />
+		<element energyPercent="-5" />
+		<element deathPercent="-5" />
 	</elements>
 	<immunities>
-		<immunity invisible="1"/>
+		<immunity invisible="1" />
 	</immunities>
 	<summons maxSummons="2">
-		<summon name="Ghoul" interval="2000" chance="10"/>
+		<summon name="Ghoul" interval="2000" chance="10" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Praise the voodoo!"/>
-		<voice sentence="Power to the cult!"/>
-		<voice sentence="Feel the power of the cult!"/>
+		<voice sentence="Praise the voodoo!" />
+		<voice sentence="Power to the cult!" />
+		<voice sentence="Feel the power of the cult!" />
 	</voices>
 	<loot>
-		<item id="12411" countmax="1" chance="10000"/><!-- cultish symbol -->
-		<item id="10556" countmax="1" chance="10000"/><!-- cultish robe -->
+		<item id="2175" chance="30000" /><!-- Spellbook -->
+		<item id="12411" countmax="2" chance="80000" /><!-- cultish symbol -->
+		<item id="10556" chance="60000" /><!-- cultish robe -->
 	</loot>
 </monster>

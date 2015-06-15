@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Lich" nameDescription="a lich" race="undead" experience="900" speed="220" manacost="0">
-	<health now="880" max="880"/>
-	<look type="99" head="95" body="116" legs="119" feet="115" corpse="6028"/>
-	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
+	<health now="880" max="880" />
+	<look type="99" head="95" body="116" legs="119" feet="115" corpse="6028" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="40" attack="30"/>
+		<attack name="melee" interval="2000" skill="40" attack="30" />
 		<attack name="lifedrain" interval="2000" chance="10" range="1" min="-200" max="-245">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="30000">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="10" radius="3" target="0" min="-130" max="-195">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-130" max="-195">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="poisoncondition" interval="2000" chance="10" length="8" spread="0" min="-300" max="-400">
-			<attribute key="areaEffect" value="greenspark"/>
+			<attribute key="areaEffect" value="greenspark" />
 		</attack>
 	</attacks>
 	<defenses armor="25" defense="25">
 		<defense name="healing" interval="2000" chance="15" min="80" max="100">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="80"/>
-		<element holyPercent="-10"/>
+		<element energyPercent="80" />
+		<element holyPercent="-10" />
 	</elements>
 	<immunities>
-		<immunity death="1"/>
-		<immunity earth="1"/>
-		<immunity lifedrain="1"/>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
+		<immunity death="1" />
+		<immunity earth="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
 	</immunities>
 	<summons maxSummons="4">
-		<summon name="Bonebeast" interval="2000" chance="10"/>
+		<summon name="Bonebeast" interval="2000" chance="10" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Doomed be the living!"/>
-		<voice sentence="You will endure agony beyond thy death!"/>
-		<voice sentence="Death awaits all!"/>
-		<voice sentence="Thy living flesh offends me!"/>
-		<voice sentence="Death and Decay!"/>
+		<voice sentence="Doomed be the living!" />
+		<voice sentence="You will endure agony beyond thy death!" />
+		<voice sentence="Death awaits all!" />
+		<voice sentence="Thy living flesh offends me!" />
+		<voice sentence="Death and Decay!" />
 	</voices>
 	<loot>
-		<item id="2144" countmax="1" chance="10000"/><!-- Black Pearl -->
-		<item id="2143" countmax="1" chance="10000"/><!-- White Pearl -->
-		<item id="2149" countmax="1" chance="10000"/><!-- Small Emerald -->
-		<item id="9970" countmax="1" chance="10000"/><!-- Small Topaz -->
-		<item id="2154" countmax="1" chance="10000"/><!-- Yellow Gem -->
-		<item id="13291" countmax="1" chance="10000"/><!-- Maxilla Maximus -->
-		<item id="2178" countmax="1" chance="10000"/><!-- Mind Stone -->
-		<item id="2217" countmax="1" chance="10000"/><!-- Spellbook -->
+		<item id="2144" countmax="2" chance="20000" /><!-- Black Pearl -->
+		<item id="2143" countmax="2" chance="20000" /><!-- White Pearl -->
+		<item id="2149" countmax="3" chance="30000" /><!-- Small Emerald -->
+		<item id="9970" countmax="3" chance="30000" /><!-- Small Topaz -->
+		<item id="2154" chance="5000" /><!-- Yellow Gem -->
+		<item id="13291" chance="1000" /><!-- Maxilla Maximus -->
+		<item id="2178" chance="5000" /><!-- Mind Stone -->
+		<item id="2217" chance="5000" /><!-- Spellbook -->
 	</loot>
 </monster>

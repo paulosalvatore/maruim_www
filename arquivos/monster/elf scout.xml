@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Elf Scout" nameDescription="a elf scout" race="blood" experience="75" speed="170" manacost="360">
-	<health now="160" max="160"/>
-	<look type="64" corpse="6012"/>
-	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
+	<health now="160" max="160" />
+	<look type="64" corpse="6012" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="1"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="20" attack="20"/>
+		<attack name="melee" interval="2000" skill="20" attack="20" />
 		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-80">
-			<attribute key="shootEffect" value="arrow"/>
+			<attribute key="shootEffect" value="arrow" />
 		</attack>
 	</attacks>
-	<defenses armor="10" defense="10"/>
+	<defenses armor="10" defense="10" />
 	<elements>
-		<element holyPercent="20"/>
-		<element deathPercent="-1"/>
+		<element holyPercent="20" />
+		<element deathPercent="-1" />
 	</elements>
 	<immunities>
-		<immunity invisible="1"/>
+		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Tha'shi Ab'Dendriel!"/>
-		<voice sentence="Feel the sting of my arrows!"/>
-		<voice sentence="Thy blood will quench the soil's thirst!"/>
-		<voice sentence="Evicor guide my arrow."/>
-		<voice sentence="Your existence will end here!"/>
+		<voice sentence="Tha'shi Ab'Dendriel!" />
+		<voice sentence="Feel the sting of my arrows!" />
+		<voice sentence="Thy blood will quench the soil's thirst!" />
+		<voice sentence="Evicor guide my arrow." />
+		<voice sentence="Your existence will end here!" />
 	</voices>
 	<loot>
-		<item id="12421" chance="10000"/><!-- Elven Astral Observer -->
-		<item id="10552" chance="10000"/><!-- elvish talisman -->
-		<item id="12420" chance="10000"/><!-- Elven Scouting Glass -->
-		<item id="2122" chance="10000"/><!-- Elven brooch -->
-		<item id="7731" chance="10000"/><!-- Elvenhair rope -->
-		<item id="4855" chance="10000"/><!-- Elven Poetry Book -->
+		<item id="12421" chance="10000" /><!-- Elven Astral Observer -->
+		<item id="10552" chance="10000" /><!-- elvish talisman -->
+		<item id="12420" chance="10000" /><!-- Elven Scouting Glass -->
+		<item id="2122" chance="10000" /><!-- Elven brooch -->
+		<item id="7731" chance="10000" /><!-- Elvenhair rope -->
+		<item id="4855" chance="10000" /><!-- Elven Poetry Book -->
 	</loot>
 </monster>

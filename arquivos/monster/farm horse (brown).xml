@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Farm Horse" nameDescription="a farm horse" race="undead" experience="0" speed="190" manacost="0">
-	<health now="75" max="75"/>
-	<look type="436" corpse="0"/>
-	<targetchange interval="4000" chance="20"/>
-	<strategy attack="0" defense="0"/>
+	<health now="75" max="75" />
+	<look type="436" corpse="0" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="0" defense="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="0"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="0"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="0" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="0" />
+		<flag runonhealth="0" />
 	</flags>
 	<voices interval="5000" chance="10">
-		<voice sentence="Weeeeeheeeee"/>
-		<voice sentence="*snort*"/>
-		<voice sentence="Weeeeheeeeaaa"/>
+		<voice sentence="Weeeeeheeeee" />
+		<voice sentence="*snort*" />
+		<voice sentence="Weeeeheeeeaaa" />
 	</voices>
 </monster>

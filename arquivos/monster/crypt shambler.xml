@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Crypt Shambler" nameDescription="a crypt shambler" race="undead" experience="195" speed="170" manacost="0">
-	<health now="330" max="330"/>
-	<look type="100" corpse="6029"/>
-	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
+	<health now="330" max="330" />
+	<look type="100" corpse="6029" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="60" attack="40"/>
-		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-28" max="-55"/>
+		<attack name="melee" interval="2000" skill="60" attack="40" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-28" max="-55" />
 	</attacks>
-	<defenses armor="25" defense="25"/>
+	<defenses armor="25" defense="25" />
 	<elements>
-		<element holyPercent="-25"/>
+		<element holyPercent="-25" />
 	</elements>
 	<immunities>
-		<immunity lifedrain="1"/>
-		<immunity paralyze="1"/>
-		<immunity earth="1"/>
-		<immunity death="1"/>
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity earth="1" />
+		<immunity death="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Uhhhhhhh!"/>
-		<voice sentence="Aaaaahhhh!"/>
-		<voice sentence="Hoooohhh!"/>
-		<voice sentence="Chhhhhhh!"/>
+		<voice sentence="Uhhhhhhh!" />
+		<voice sentence="Aaaaahhhh!" />
+		<voice sentence="Hoooohhh!" />
+		<voice sentence="Chhhhhhh!" />
 	</voices>
 	<loot>
-		<item id="11367" countmax="1" chance="10000"/><!-- Undead Heart -->
-		<item id="2145" countmax="1" chance="10000"/><!-- Small Diamond -->
-		<item id="2229" countmax="1" chance="10000"/><!-- Skull -->
-		<item id="2230" countmax="1" chance="10000"/><!-- Bone -->
-		<item id="12440" countmax="1" chance="10000"/><!-- Pile of Grave Earth -->
-		<item id="11200" countmax="1" chance="10000"/><!-- Half-digested Piece of Meat -->
+		<item id="11367" chance="40000" /><!-- Undead Heart -->
+		<item id="12440" countmax="5" chance="80000" /><!-- Pile of Grave Earth -->
+		<item id="2145" countmax="2" chance="20000" /><!-- Small Diamond -->
+		<item id="2230" chance="70000" /><!-- Bone -->
+		<item id="11200" countmax="2" chance="20000" /><!-- Half-digested Piece of Meat -->
 	</loot>
 </monster>

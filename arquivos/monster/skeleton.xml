@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Skeleton" nameDescription="a skeleton" race="undead" experience="35" speed="150" manacost="300">
-	<health now="50" max="50"/>
-	<look type="33" corpse="5972"/>
-	<targetchange interval="4000" chance="0"/>
-	<strategy attack="100" defense="0"/>
+	<health now="50" max="50" />
+	<look type="33" corpse="5972" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="1"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
-		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="15" attack="16"/>
-		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-7" max="-13"/>
+		<attack name="melee" interval="2000" skill="15" attack="16" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-7" max="-13" />
 	</attacks>
-	<defenses armor="10" defense="10"/>
+	<defenses armor="10" defense="10" />
 	<elements>
-		<element holyPercent="-5"/>
+		<element holyPercent="-5" />
 	</elements>
 	<immunities>
-		<immunity death="1"/>
-		<immunity drown="1"/>
-		<immunity lifedrain="1"/>
+		<immunity death="1" />
+		<immunity drown="1" />
+		<immunity lifedrain="1" />
 	</immunities>
 	<loot>
-		<item id="2230" countmax="1" chance="10000"/><!-- Bone -->
-		<item id="2229" countmax="1" chance="10000"/><!-- Skull -->
-		<item id="12437" countmax="1" chance="10000"/><!-- Pelvis Bone -->
-		<item id="21446" countmax="1" chance="10000"/><!-- Shadow Ashes -->
+		<item id="2230" countmax="5" chance="80000" /><!-- Bone -->
+		<item id="12437" chance="20000" /><!-- Pelvis Bone -->
 	</loot>
 </monster>
