@@ -120,13 +120,19 @@ $(function(){
 		exibirCriaturas();
 		gerarCookie("exibicao", tipoTabela, 700);
 	});
-	var ultimaOrdem = getCookie("ultimaOrdem");
-	if(!ultimaOrdem)
-		ultimaOrdem = "nome-asc";
 	var exibicao = getCookie("exibicao");
 	if((exibicao != "lista") && (exibicao != "galeria"))
 		exibicao = "lista";
 	$("#"+exibicao).click();
+	var ultimaOrdem = getCookie("ultimaOrdem"), ordenarPor;
+	if(!ultimaOrdem)
+		ultimaOrdem = "nome-asc";
+	ultimaOrdem = ultimaOrdem.split("-");
+	if(ultimaOrdem[1] == "desc")
+		ordenarPor = 2
+	else
+		ordenarPor = 1
+	$(".coluna."+ultimaOrdem[0]).find(".ordenar").attr("ordenar", ordenarPor).click();
 	aplicarBackgroundTabelaCriaturas();
 	var criaturas = []
 	$("#criaturas .criatura").each(function(){
