@@ -862,6 +862,9 @@ img.ordenar {
 .box_frame_conteudo_borda4 {
 	border: 1px solid #FAF0D7;
 }
+.box_frame_conteudo {
+	text-align: justify;
+}
 .box_frame_conteudo.padding {
 	padding: 7px;
 }
