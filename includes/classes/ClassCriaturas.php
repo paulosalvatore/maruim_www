@@ -617,6 +617,7 @@
 			$queryListaCriaturas = mysql_query("SELECT * FROM z_monstros WHERE (ocultarCriatura LIKE '0')");
 			while($resultadoListaCriaturas = mysql_fetch_assoc($queryListaCriaturas)){
 				$listaCriaturas[] = array(
+					"id" => $resultadoListaCriaturas["id"],
 					"imagem" => $this->getImagemCriatura($resultadoListaCriaturas),
 					"nome" => $resultadoListaCriaturas["fileName"],
 					"link" => "?p=criaturas-".urlencode($resultadoListaCriaturas["fileName"]),
