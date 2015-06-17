@@ -32,7 +32,7 @@
 							</tr>
 						</table>
 					</div>
-					<div class="tabela odd lista"  id="criaturas" align="center" cellpadding="0" cellspacing="0" ordenar_ativo="0" ordenar="" ordenar_por="">
+					<div class="tabela odd lista"  id="criaturas" cellpadding="0" cellspacing="0" ordenar_ativo="0" ordenar="" ordenar_por="">
 						<div class="cabecalho">
 							<div class="coluna">
 								Imagem
@@ -66,7 +66,7 @@
 								$exibirAtributos = "";
 								foreach($atributos as $atributo)
 									$exibirAtributos .= ' '.$atributo.'="'.$criatura[$atributo].'"';
-								$conteudo_pagina .= '<div class="item criatura exibir"'.$exibirAtributos.'></div>';
+								$conteudo_pagina .= '<div class="item criatura exibir" align="center"'.$exibirAtributos.'></div>';
 							}
 						}
 						$conteudo_pagina .= '
