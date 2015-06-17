@@ -51,5 +51,27 @@
 			}
 			return $arrayReturn;
 		}
+		public function pegarConteudoNaoEncontrado($full = false){
+			$conteudoNaoEncontrado = '
+				<div class="box_frame_conteudo padding dark">
+					O conteúdo que você está tentando visualizar não foi encontrado em nosso sistema.
+				</div>
+			';
+			if(!$full)
+				return $conteudoNaoEncontrado;
+			$conteudoNaoEncontrado = '
+				<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="nao_encontrado">
+					<div class="conteudo_box pagina">
+						<div class="box_frame" carregar_box="1">
+							Página Não Encontrada
+						</div>
+						<div class="box_frame_conteudo_principal" carregar_box="1">
+							'.$conteudoNaoEncontrado.'
+						</div>
+					</div>
+				</div>
+			';
+			return $conteudoNaoEncontrado;
+		}
 	}
 ?>
