@@ -11,7 +11,7 @@
 			foreach($itens as $c => $v)
 				if(empty($v))
 					unset($itens[$c]);
-			$itensCarregados = $ClassItens->getItemInfo($itens);
+			$itensCarregados = $ClassItens->getItemInfoXml($itens);
 			$stringXml = "";
 			if(count($itensCarregados) > 0){
 				foreach($itensCarregados as $itemId => $itemInfo){

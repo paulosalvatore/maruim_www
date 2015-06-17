@@ -120,7 +120,7 @@
 						</tr>
 						<tr class="item">
 							<td width="180" align="right">
-								<img src="'.$criatura["imagem"].'">
+								'.$criatura["imagemTag"].'
 							</td>
 							<td>
 								<b>'.$criatura["nome"].'</b><br>
@@ -267,7 +267,7 @@
 													<table>
 														<tr>
 															<td width="64" align="center">
-																<img src="'.$summon["imagem"].'" title="'.$summon["nome"].'"/>
+																'.$summon["imagem"].'
 															</td>
 															<td>
 																<a href="?p=criaturas-'.urlencode($summon["nome"]).'">'.$summon["nome"].'</a>
@@ -323,7 +323,7 @@
 					<br>
 					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 						<tr class="cabecalho">
-							<td colspan="2">
+							<td colspan="3">
 								Loot
 							</td>
 						</tr>
@@ -333,7 +333,7 @@
 						else
 							$conteudo_pagina .= '
 								<tr class="item">
-									<td colspan="2">
+									<td colspan="3">
 										Essa criatura não possui <i>loot</i>.
 									</td>
 								</tr>

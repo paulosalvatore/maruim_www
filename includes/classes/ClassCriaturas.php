@@ -107,7 +107,6 @@
 		public function exibirItem($item){
 			$itemId = $item["item_id"];
 			$itemQuantidade = $item["quantidade"];
-			$itemChance = $item["chance"];
 			$exibirQuantidade = "";
 			if($itemQuantidade > 1)
 				$exibirQuantidade = " (1-$itemQuantidade)";
@@ -632,9 +631,13 @@
 				return $listaCriaturas;
 			return false;
 		}
-		public function getInfoCriatura($criaturaNome){
-			$criaturaNome = urldecode($criaturaNome);
-			$queryCriatura = mysql_query("SELECT * FROM z_monstros WHERE ((fileName LIKE '$criaturaNome') AND (ocultarCriatura LIKE '0'))");
+		public function getInfoCriatura($criatura, $id = false){
+			if($id)
+				$queryCriatura = mysql_query("SELECT * FROM z_monstros WHERE ((id LIKE '$criatura') AND (ocultarCriatura LIKE '0'))");
+			else{
+				$criaturaNome = urldecode($criatura);
+				$queryCriatura = mysql_query("SELECT * FROM z_monstros WHERE ((fileName LIKE '$criaturaNome') AND (ocultarCriatura LIKE '0'))");
+			}
 			while($resultadoCriatura = mysql_fetch_assoc($queryCriatura)){
 				$criaturaId = $resultadoCriatura["id"];
 				$summonable = 0;
@@ -668,26 +671,27 @@
 						$fraco[] = '<img src="'.$iconeArquivo.'" title="'.$tituloImagem.'" alt="" />';
 				}
 				$querySummons = mysql_query("SELECT * FROM z_monstros_summons WHERE (monstro_id LIKE '$criaturaId')");
-				while($resultadoSummons = mysql_fetch_assoc($querySummons)){
+				while($resultadoSummons = mysql_fetch_assoc($querySummons))
 					$summons[]["nome"] = $resultadoSummons["summon"];
-				}
 				foreach($summons as $c => $v){
 					$querySummons = mysql_query("SELECT * FROM z_monstros WHERE (name LIKE '".$v["nome"]."')");
 					while($resultadoSummons = mysql_fetch_assoc($querySummons)){
 						$summons[$c]["id"] = $resultadoSummons["id"];
-						$summons[$c]["imagem"] = $this->getImagemCriatura($resultadoSummons);
+						$summons[$c]["imagem"] = '<img src="'.$this->getImagemCriatura($resultadoSummons).'" title="'.$resultadoSummons["name"].'" border="0" />';
 					}
 				}
 				$ataques = $this->getCriaturaAtaques($criaturaId);
 				$defesas = $this->getCriaturaDefesas($criaturaId);
 				$queryLoot = mysql_query("SELECT * FROM z_monstros_loot WHERE (monstro_id LIKE '$criaturaId')");
-				while($resultadoLoot = mysql_fetch_assoc($queryLoot)){
+				while($resultadoLoot = mysql_fetch_assoc($queryLoot))
 					$loot[] = array("item_id" => $resultadoLoot["item_id"], "quantidade" => $resultadoLoot["quantidade"], "chance" => $resultadoLoot["chance"]);
-				}
+				$imagemCriatura = $this->getImagemCriatura($resultadoCriatura);
 				$criatura = array(
 					"id" => $resultadoCriatura["id"],
-					"imagem" => $this->getImagemCriatura($resultadoCriatura),
+					"imagem" => $imagemCriatura,
+					"imagemTag" => '<img src="'.$imagemCriatura.'" title="'.$resultadoListaCriaturas["name"].'" border="0" />',
 					"nome" => $resultadoCriatura["fileName"],
+					"url" => "?p=criaturas-".urlencode($resultadoCriatura["fileName"]),
 					"experiencia" => $resultadoCriatura["experience"],
 					"velocidade" => $resultadoCriatura["speed"],
 					"vida" => $resultadoCriatura["health"],
