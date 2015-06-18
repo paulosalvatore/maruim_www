@@ -1,7 +1,9 @@
 <?php
 	include("includes/classes/ClassCriaturas.php");
+	include("includes/classes/ClassItens.php");
 	$ClassCriaturas = new Criaturas();
-	$areas = array("atualizarListaCriaturas");
+	$ClassItens = new Itens();
+	$areas = array("atualizarListaCriaturas", "inserirItensSQL", "inserirItensCategoria");
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="">
 			<div class="conteudo_box pagina">
@@ -13,11 +15,17 @@
 						';
 						if(empty($id))
 							$conteudo_pagina .= '
-								<a href="?p=desenvolvedor_gerenciamento-atualizarListaCriaturas">Atualizar Criaturas</a>
+								<a href="?p=desenvolvedor_gerenciamento-atualizarListaCriaturas">Atualizar Criaturas</a><br>
+								<a href="?p=desenvolvedor_gerenciamento-inserirItensSQL">Inserir Itens SQL</a><br>
+								<a href="?p=desenvolvedor_gerenciamento-inserirItensCategoria">Inserir Itens Categoria</a><br>
 							';
 						elseif(in_array($id, $areas)){
 							if($id == "atualizarListaCriaturas")
 								$conteudo_pagina .= $ClassCriaturas->atualizarListaCriaturas();
+							elseif($id == "inserirItensSQL")
+								$conteudo_pagina .= $ClassItens->inserirItensSQL($ClassItens->pegarTodosItens());
+							elseif($id == "inserirItensCategoria")
+								$conteudo_pagina .= $ClassItens->inserirItensCategoria();
 						}
 						$conteudo_pagina .= '
 					</div>
