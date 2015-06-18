@@ -55,8 +55,6 @@ function clickOrdenarCriaturas(elemento){
 };
 function exibirCriaturas(){
 	var tipoExibicao, exibicao, ultimaOrdem = pegarUltimaOrdem(), ordenarPor = pegarOrdenarPor(ultimaOrdem);
-	alterarTipoOrdenar($(".ordenar.ativo"), 1, true);
-	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
 	if($("#criaturas").hasClass("galeria"))
 		tipoExibicao = "galeria";
 	else
@@ -67,10 +65,6 @@ function exibirCriaturas(){
 			$("#criaturas .coluna").each(function(){
 				if($(this).attr("ordenar")){
 					$(this).append(imagemOrdenar);
-					if($(this).attr("ordenar") == "nome")
-						alterarTipoOrdenar($(this).find(".ordenar"), 2, false);
-					else
-						alterarTipoOrdenar($(this).find(".ordenar"), 1, false);
 				}
 			});
 			$("#criaturas").attr("ordenar_ativo", 1);
@@ -114,11 +108,14 @@ function exibirCriaturas(){
 			$(this).html(exibicao);
 		});
 	}
+	alterarTipoOrdenar($(".ordenar.ativo"), 1, true);
+	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
 };
 $(function(){
+	var exibicao = getCookie("exibicao");
+	if((exibicao != "lista") && (exibicao != "galeria"))
+		exibicao = "lista";
 	$(".exibicao").click(function(){
-		$(".exibicao.ativo").removeClass("ativo");
-		$(this).addClass("ativo");
 		var tipoTabela = $(this).attr("id");
 		if((tipoTabela == "lista") && (!$("#criaturas").hasClass(tipoTabela))){
 			$("#criaturas")
@@ -133,24 +130,23 @@ $(function(){
 			.addClass("galeria");
 			$("#vazio")
 			.css("background", "none");
+		}
+		if($(".exibicao.ativo")[0] != "undefined"){
+			exibirCriaturas();
+			$(".exibicao.ativo").removeClass("ativo");
 			$(".ordenar").click(function(){
 				clickOrdenarCriaturas($(this));
 			});
 		}
-		exibirCriaturas();
+		$(this).addClass("ativo");
 		gerarCookie("exibicao", tipoTabela, 700);
 	});
-	var exibicao = getCookie("exibicao");
-	if((exibicao != "lista") && (exibicao != "galeria"))
-		exibicao = "lista";
-	$("#"+exibicao).click();
 	var ultimaOrdem = pegarUltimaOrdem(), ordenarPor = pegarOrdenarPor(ultimaOrdem);
 	alterarTipoOrdenar($(".ordenar.ativo"), 1, true);
 	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
 	ordenarCriaturas(ultimaOrdem[0], ultimaOrdem[1]);
-	$(".ordenar").click(function(){
-		clickOrdenarCriaturas($(this));
-	});
+	$("#"+exibicao).click();
+	exibirCriaturas();
 	aplicarBackgroundTabelaCriaturas();
 	var criaturas = []
 	$("#criaturas .criatura").each(function(){
