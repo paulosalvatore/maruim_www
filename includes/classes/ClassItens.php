@@ -7,20 +7,23 @@
 				$arquivo = "../".$arquivo;
 			return simplexml_load_file($arquivo);
 		}
-		public function pegarUrlItem($itemId){
-			return "?p=itens-$itemId";
+		public function pegarUrlItem($itemId, $itemNome){
+			$url = "?p=itens-item-$itemId";
+			if(!empty($itemNome))
+				$url .= "-".urlencode($itemNome);
+			return $url;
 		}
 		public function exibirItem($loot, $item){
 			$itemId = $item["id"];
-			$urlItem = $this->pegarUrlItem($itemId);
+			$exibirNome = $item["nome"];
+			if(empty($exibirNome))
+				$exibirNome = "Item sem nome";
+			$urlItem = $this->pegarUrlItem($itemId, $item["nome"]);
 			$itemQuantidade = $loot["quantidade"];
 			$itemChance = number_format($loot["chance"]/1000, 2, ".", "").'%';
 			$exibirQuantidade = "";
 			if($itemQuantidade > 1)
 				$exibirQuantidade = " (1-$itemQuantidade)";
-			$exibirNome = $item["nome"];
-			if(empty($exibirNome))
-				$exibirNome = "Item sem nome";
 			$exibirImagem = $item["imagem"];
 			if(empty($exibirImagem))
 				$exibirImagem = '<img src="imagens/itens/item_nao_encontrado.png" title="Imagem de Item não encontrada" border="0" />';
@@ -284,6 +287,84 @@
 					copy($arquivo, $destino);
 			}
 		}
+		public function pegarAtaqueElemento($atributos){
+			$ataqueElemento = 0;
+			if(is_array($atributos)){
+				foreach($atributos as $c => $v){
+					if(strpos($c, "element") !== false){
+						$ataqueElemento = array(strtolower(str_replace("element", "", $c)), $v);
+						break;
+					}
+				}
+			}
+			return $ataqueElemento;
+		}
+		public function pegarAtributosItem($item){
+			$atributos = $item["atributos"];
+			$exibirAtributos = array();
+			if($item["agrupavel"] == 1)
+				$exibirAtributos[] = "Agrupável";
+			if($item["carrega_liquido"] == 1)
+				$exibirAtributos[] = "Carrega Líquido";
+			if(is_array($atributos)){
+				foreach($atributos as $atributo => $v){
+					if($atributo == "slotType"){
+						if($v == "one-handed")
+							$exibirAtributos[] = "Arma de uma mão";
+						elseif($v == "two-handed")
+							$exibirAtributos[] = "Arma de duas mãos";
+					}
+					elseif($atributo == "weaponType"){
+						if(empty($atributos["slotType"]))
+							$exibirAtributos[] = "Arma de uma mão";
+					}
+				}
+			}
+			if(count($exibirAtributos) == 0)
+				$exibirAtributos[] = "Nenhum";
+			return implode("; ", $exibirAtributos).".";
+		}
+		public function pegarExibicaoAtributosDescricaoItem($atributos){
+			$tiposAtributos = array(
+				"defense" => array(
+					"exibicao" => "Def"
+				),
+				"attack" => array(
+					"exibicao" => "Atq"
+				),
+			);
+			if($atributos["attack"] > 0){
+				$descricaoAtributos .= '(Atq: '.$atributos["attack"];
+				$ataqueElemento = $this->pegarAtaqueElemento($atributos);
+				if(is_array($ataqueElemento))
+					$descricaoAtributos .= ' + '.$ataqueElemento[1].' '.$ataqueElemento[0];
+				if(!$atributos["defense"])
+					$descricaoAtributos .= ')<br>';
+				else
+					$descricaoAtributos .= ', ';
+			}
+			if($atributos["defense"] > 0){
+				if(!$atributos["attack"])
+					$descricaoAtributos .= '(';
+				$descricaoAtributos .= 'Def: '.$atributos["defense"];
+				if($atributos["extradef"] > 0)
+					$descricaoAtributos .= ' +'.$atributos["extradef"];
+				$descricaoAtributos .= ').<br>';
+			}
+			if($atributos["armor"] > 0)
+				$descricaoAtributos .= '
+					(Arm: '.$atributos["armor"].')<br>
+				';
+			if($atributos["range"] > 0)
+				$descricaoAtributos .= '
+					(Range: '.$atributos["range"].')<br>
+				';
+			if($atributos["weight"] > 0)
+				$descricaoAtributos .= '
+					Peso: '.number_format($atributos["weight"]/100, 2, ".", "").' oz.<br>
+				';
+			return '<span class="verde">'.$descricaoAtributos.'</span>';
+		}
 		public function getItemInfoSQL($ids){
 			if(!is_array($ids)){
 				if(is_numeric($ids))
@@ -310,12 +391,33 @@
 						"quantidade" => $resultadoDrop["quantidade"],
 						"chance" => $resultadoDrop["chance"]
 					);
+				$categoria = $this->pegarCategoriaItem($id);
+				$categoriaId = $categoria;
+				if(is_array($categoria))
+					$categoriaId = $categoria[0];
+				$categoriaVoltar = 0;
+				$urlAnterior = parse_url($_SERVER['HTTP_REFERER']);
+				if($urlAnterior["query"]){
+					parse_str($urlAnterior["query"], $queryUrlAnterior);
+					if($queryUrlAnterior["p"]){
+						$queryUrlAnterior = explode("-", $queryUrlAnterior["p"]);
+						if(count($queryUrlAnterior) == 3)
+							if(($queryUrlAnterior[0] == "itens") and ($queryUrlAnterior[1] == "categorias") and (is_numeric($queryUrlAnterior[2])))
+								if((is_array($categoria)) and (in_array($queryUrlAnterior[2], $categoria)))
+									$categoriaVoltar = $queryUrlAnterior[2];
+					}
+				}
 				$itens[$id] = array(
 					"id" => $id,
 					"nome" => (!empty($itemInfo["nome"]) ? $itemInfo["nome"] : "Item sem nome"),
 					"imagem" => '<img src="'.(is_file("imagens/itens/$id.gif") ? 'imagens/itens/'.$id.'.gif" title="'.$resultadoItem["nome"].'"' : 'imagens/itens/item_nao_encontrado.png" title="Imagem de Item não encontrada"').'" border="0" />',
-					"url" => "?p=itens-".$id,
+					"url" => $this->pegarUrlItem($id, $itemInfo["nome"]),
+					"exibirAtributos" => $this->pegarExibicaoAtributosDescricaoItem($atributos),
+					"agrupavel" => $itemInfo["agrupavel"],
+					"carrega_liquido" => $itemInfo["carrega_liquido"],
 					"atributos" => $atributos,
+					"categoria" => $categoriaId,
+					"urlVoltar" => "?p=itens".($categoriaId > 0 ? "-categorias-".($categoriaVoltar > 0 ? $categoriaVoltar : $categoriaId) : "-menus"),
 					"drop" => $drop
 				);
 			}
@@ -342,20 +444,6 @@
 					}
 				}
 			}
-		}
-		public function pegarAtributosItem($atributos){
-			$exibirAtributos = array();
-			if(is_array($atributos)){
-				foreach($atributos as $atributo => $valor){
-					if($atributo == "slotType"){
-						if($valor == "two-handed")
-							$exibirAtributos[] = "Arma de duas mãos";
-					}
-				}
-			}
-			if(count($exibirAtributos) == 0)
-				$exibirAtributos[] = "Nenhum";
-			return implode(";", $exibirAtributos).".";
 		}
 		public function getInfoReceita($receita, $material = false){
 			$exibirReceita = array();
@@ -420,7 +508,6 @@
 						</td>
 						<td>
 							<a href="'.$ferramentaInfo["url"].'">'.$ferramentaInfo["nome"].'</a>
-							
 						</td>
 					</tr>
 				</table>
@@ -702,13 +789,13 @@
 		}
 		public function pegarNpcsInfo($npcs){
 			$npcsInfo = array();
-			$localizarNpcs = "";
+			$localizarNpcs = " WHERE ";
 			foreach($npcs as $c => $npcId){
-				if($c > 1)
+				if($c > 0)
 					$localizarNpcs .= " or ";
 				$localizarNpcs .= "(id LIKE '$npcId')";
 			}
-			$queryNpcs = mysql_query("SELECT * FROM z_npcs WHERE $localizarNpcs");
+			$queryNpcs = mysql_query("SELECT * FROM z_npcs$localizarNpcs");
 			while($resultadoNpcs = mysql_fetch_assoc($queryNpcs))
 				$npcsInfo[$resultadoNpcs["id"]] = $resultadoNpcs["nome"];
 			return $npcsInfo;
@@ -777,6 +864,283 @@
 			foreach($npcsVendem as $npcItem)
 				$exibirNpcsVendem .= $this->formatarNpcItem($npcItem, $npcs);
 			return array($exibirNpcsCompram, $exibirNpcsVendem);
+		}
+		public function pegarExibicaoMenus($id = ""){
+			$exibirMenus = "";
+			if((!empty($id)) and (is_numeric($id)))
+				$queryMenus = mysql_query("SELECT * FROM z_itens_menus WHERE (id LIKE '$id')");
+			else
+				$queryMenus = mysql_query("SELECT * FROM z_itens_menus ORDER BY ordem ASC");
+			while($resultadoMenus = mysql_fetch_assoc($queryMenus)){
+				$exibirMenus .= '
+					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+						<tr class="cabecalho">
+							<td colspan="2">
+								'.$resultadoMenus["nome"].'
+							</td>
+						</tr>
+						';
+						$queryCategorias = mysql_query("SELECT * FROM z_itens_categorias WHERE (menu LIKE '".$resultadoMenus["id"]."') ORDER BY ordem ASC");
+						while($resultadoCategorias = mysql_fetch_assoc($queryCategorias)){
+							$nomeCategoria = $resultadoCategorias["nome"];
+							$linkCategoria = '?p=itens-categorias-'.$resultadoCategorias["id"];
+							$imagemCategoria = "imagens/itens/".$resultadoCategorias["item_imagem"].".gif";
+							if(!is_file($imagemCategoria))
+								$imagemCategoria = 'imagens/itens/item_nao_encontrado.png';
+							$imagemCategoria = '<img src="'.$imagemCategoria.'" title="'.$nomeCategoria.'" />';
+							$exibirMenus .= '
+								<tr class="item">
+									<td width="50" align="center">
+										<a href="'.$linkCategoria.'">'.$imagemCategoria.'</a>
+									</td>
+									<td>
+										<a href="'.$linkCategoria.'">'.$nomeCategoria.'</a>
+									</td>
+								</tr>
+							';
+						}
+						$exibirMenus .= '
+					</table>
+					<br>					
+				';
+			}
+			if(empty($exibirMenus))
+				$exibirMenus = $ClassFuncao->pegarConteudoNaoEncontrado();
+			else{
+				$setaVoltar = '';
+				if(!empty($id))
+					$setaVoltar = '
+						<div class="setas">
+							<div class="seta voltar">
+								<a href="?p=itens"><img src="imagens/corpo/arrow_up.gif" /> voltar</a>
+							</div>
+						</div>
+					';
+				$exibirMenus = '
+					'.$setaVoltar.'
+					'.$this->pegarBuscaItem().'
+					'.$exibirMenus.'
+				';
+			}
+			return $exibirMenus;
+		}
+		public function pegarExibicaoCategoria($id){
+			$exibirCategoria = "";
+			$queryCategoria = mysql_query("SELECT * FROM z_itens_categorias WHERE (id LIKE '$id')");
+			while($resultadoCategoria = mysql_fetch_assoc($queryCategoria)){
+				$menuId = $resultadoCategoria["menu"];
+				$exibirCategoria .= '
+					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+						<tr class="cabecalho">
+							<td colspan="2">
+								'.$resultadoCategoria["nome"].'
+							</td>
+						</tr>
+						';
+						$itens = array();
+						$queryCategoriaItens = mysql_query("SELECT * FROM z_itens_categorias_itens WHERE (categoria LIKE '$id')");
+						while($resultadoCategoriaItens = mysql_fetch_assoc($queryCategoriaItens)){
+							$itens[] = $resultadoCategoriaItens["item"];
+						}
+						$itensInfo = $this->getItemInfoSQL($itens);
+						foreach($itens as $item){
+							$itemInfo = $itensInfo[$item];
+							$exibirCategoria .= '
+								<tr class="item">
+									<td width="30" align="center">
+										<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
+									</td>
+									<td>
+										<a href="'.$itemInfo["url"].'">'.$itemInfo["nome"].'</a>
+									</td>
+								</tr>
+							';
+						}
+						if(count($itens) == 0)
+							$exibirCategoria .= '
+								<tr class="item">
+									<td colspan="2" height="100" align="center">
+										<b>Essa categoria está vazia.</b>
+									</td>
+								</tr>
+							';
+						$exibirCategoria .= '
+					</table>
+					<br>					
+				';
+			}
+			if(empty($exibirCategoria))
+				$exibirCategoria = $ClassFuncao->pegarConteudoNaoEncontrado();
+			else
+				$exibirCategoria = '
+					<div class="setas">
+						<div class="seta voltar">
+							<a href="?p=itens-menus-'.$menuId.'"><img src="imagens/corpo/arrow_up.gif" /> voltar</a>
+						</div>
+					</div>
+					'.$this->pegarBuscaItem().'
+					'.$exibirCategoria.'
+				';
+			return $exibirCategoria;
+		}
+		public function inserirItensCategoria(){
+			$categoriasSlotType = array(
+				1 => "head",
+				2 => "body",
+				4 => "legs",
+				6 => "feet"
+			);
+			$categoriasWeaponType = array(
+				3 => "shield",
+				5 => "spellbook",
+				7 => "axe",
+				8 => "club",
+				9 => "sword",
+				10 => "rod",
+				11 => "wand",
+				12 => "distance",
+				13 => "ammunition"
+			);
+			$categoriasProfissoes = array(
+				14 => "ferreiro",
+				15 => "alfaiate",
+				16 => "alquimista",
+				17 => "cozinheiro",
+			);
+			mysql_query("TRUNCATE TABLE z_itens_categorias_itens");
+			foreach($categoriasSlotType as $categoriaId => $slotType){
+				$queryItensCategoria = mysql_query("SELECT * FROM z_itens_atributos WHERE ((atributo LIKE 'slotType') AND (valor LIKE '$slotType'))");
+				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria))
+					mysql_query("INSERT INTO z_itens_categorias_itens (categoria, item) VALUES ('$categoriaId', '".$resultadoItensCategoria["item"]."')");
+			}
+			foreach($categoriasWeaponType as $categoriaId => $weaponType){
+				$checkWeaponType = $weaponType;
+				if($weaponType == "spellbook")
+					$checkWeaponType = "shield";
+				elseif($weaponType == "rod")
+					$checkWeaponType = "wand";
+				$queryItensCategoria = mysql_query("SELECT * FROM z_itens_atributos WHERE ((atributo LIKE 'weaponType') AND (valor LIKE '$checkWeaponType'))");
+				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
+					$itemId = $resultadoItensCategoria["item"];
+					if($checkWeaponType == "shield"){
+						$checarML = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_atributos WHERE ((item LIKE '$itemId') AND (atributo LIKE 'magiclevelpoints'))"));
+						$checarML = $checarML["total"];
+						$itemInfo = $this->getItemInfoSQL($itemId);
+						$itemNome = $itemInfo[$itemId]["nome"];
+						if((strpos(strtolower($itemNome), "spellbook") !== false) or ($checarML > 0))
+							$realWeaponType = "spellbook";
+						else
+							$realWeaponType = "shield";
+					}
+					elseif($checkWeaponType == "wand"){
+						$itemInfo = $this->getItemInfoSQL($itemId);
+						$itemNome = $itemInfo[$itemId]["nome"];
+						if(strpos(strtolower($itemNome), "rod") !== false)
+							$realWeaponType = "rod";
+						else
+							$realWeaponType = "wand";
+					}
+					if	((($weaponType == "shield") and ($realWeaponType == "shield")) or
+						(($weaponType == "spellbook") and ($realWeaponType == "spellbook")) or
+						(($weaponType == "rod") and ($realWeaponType == "rod")) or
+						(($weaponType == "wand") and ($realWeaponType == "wand")) or
+						(($checkWeaponType != "shield") and ($checkWeaponType != "wand")))
+						mysql_query("INSERT INTO z_itens_categorias_itens (categoria, item) VALUES ('$categoriaId', '$itemId')");
+				}
+			}
+			foreach($categoriasProfissoes as $categoriaId => $profissao){
+				$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '".ucfirst($profissao)."')");
+				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
+					$itemId = $resultadoItensCategoria["item"];
+					$checarReceita = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_categorias_itens WHERE ((categoria LIKE '$categoriaId') AND (item LIKE '$itemId'))"));
+					$checarReceita = $checarReceita["total"];
+					if($checarReceita == 0)
+						mysql_query("INSERT INTO z_itens_categorias_itens (categoria, item) VALUES ('$categoriaId', '$itemId')");
+				}
+			}
+		}
+		public function pegarCategoriaItem($id){
+			$categoria = array();
+			$queryCategoria = mysql_query("SELECT * FROM z_itens_categorias_itens WHERE (item LIKE '$id')");
+			while($resultadoCategoria = mysql_fetch_assoc($queryCategoria))
+				$categoria[] = $resultadoCategoria["categoria"];
+			$quantidadeCategoria = count($categoria);
+			if($quantidadeCategoria == 0)
+				return 0;
+			elseif($quantidadeCategoria == 1)
+				return $categoria[0];
+			else
+				return $categoria;
+		}
+		public function pegarBuscaItem($busca = ""){
+			return '
+				<form method="POST" action="?p=itens-buscar">
+				<table class="tabela dark" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="cabecalho">
+						<td>
+							Buscar Itens
+						</td>
+					</tr>
+					<tr class="item">
+						<td>
+							Item: <input type="text" name="busca" id="buscar_itens" value="'.$busca.'"> <input type="submit" class="botao" value="Procurar">
+						</td>
+					</tr>
+				</table>
+				</form>
+				<br>
+			';
+		}
+		public function exibirBuscaItem($busca){
+			$checarBuscaExata = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens WHERE (nome LIKE '$busca')"));
+			$checarBuscaExata = $checarBuscaExata["total"];
+			$queryBusca = $busca;
+			if($checarBuscaExata != 1)
+				$queryBusca = "%$busca%";
+			$itens = array();
+			$queryBuscaItem = mysql_query("SELECT * FROM z_itens WHERE (nome LIKE '$queryBusca')");
+			while($resultadoBuscaItem = mysql_fetch_assoc($queryBuscaItem))
+				$itens[] = $resultadoBuscaItem["id"];
+			$itensInfo = $this->getItemInfoSQL($itens);
+			if(count($itens) == 1){
+				header("Location: ".$itensInfo[$itens[0]]["url"]);
+				exit;
+			}
+			$exibirBusca .= '
+				'.$this->pegarBuscaItem($busca).'
+				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="cabecalho">
+						<td colspan="2">
+							Resultados da Busca por "'.$busca.'"
+						</td>
+					</tr>
+					';
+					foreach($itens as $itemId){
+						$itemInfo = $itensInfo[$itemId];
+						$exibirBusca .= '
+							<tr class="item">
+								<td width="30" align="center">
+									<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
+								</td>
+								<td>
+									<a href="'.$itemInfo["url"].'">'.$itemInfo["nome"].'</a>
+								</td>
+							</tr>
+						';
+					}
+					if(count($itens) == 0)
+						$exibirBusca .= '
+							<tr class="item">
+								<td colspan="2" height="100" align="center">
+									<b>Sua busca não encontrou nenhum resultado.</b>
+								</td>
+							</tr>
+						';
+					$exibirBusca .= '
+				</table>
+				<br>					
+			';
+			return $exibirBusca;
 		}
 	}
 ?>

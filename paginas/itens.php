@@ -1,19 +1,22 @@
 <?php
-	set_time_limit(60*60);
 	include("includes/classes/ClassCriaturas.php");
 	include("includes/classes/ClassItens.php");
 	$ClassCriaturas = new Criaturas();
 	$ClassItens = new Itens();
-	// $ClassItens->inserirItensSQL($ClassItens->pegarTodosItens());
-	// exit;
 	$area = $id;
 	$id = $acao;
-	if(is_numeric($area)){
-		$id = $area;
+	$exibirBuscaItem = $ClassItens->pegarBuscaItem();
+	if(($area == "item") and (is_numeric($id))){
 		$item = $ClassItens->getItemInfoSQL($id)[$id];
 		$conteudo_pagina .= '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 				<div class="conteudo_box pagina">
+					<div class="setas">
+						<div class="seta voltar">
+							<a href="'.$item["urlVoltar"].'"><img src="imagens/corpo/arrow_up.gif" /> voltar</a>
+						</div>
+					</div>
+					'.$exibirBuscaItem.'
 					<div class="box_frame" carregar_box="1">
 						'.$item["nome"].'
 					</div>
@@ -30,22 +33,11 @@
 							</td>
 							<td>
 								<b>'.$item["nome"].'</b><br>
-								<span class="verde">
-								';
-								if($item["atributos"]["range"] > 0)
-									$conteudo_pagina .= '
-										(Range: '.$item["atributos"]["range"].').<br>
-									';
-								if($item["atributos"]["weight"] > 0)
-									$conteudo_pagina .= '
-										Peso: '.number_format($item["atributos"]["weight"]/100, 2, ".", "").' oz.<br>
-									';
-								$conteudo_pagina .= '
-								</span>
+								'.$item["exibirAtributos"].'
 							</td>
 						</tr>
 						';
-						$atributosItem = $ClassItens->pegarAtributosItem($item["atributos"]);
+						$atributosItem = $ClassItens->pegarAtributosItem($item);
 						if(!empty($atributosItem))
 							$conteudo_pagina .= '
 								<tr class="item">
@@ -149,28 +141,58 @@
 				</div>
 			</div>
 		';
-		// echo'<pre>';
-		// print_r($item);
-		// echo'</pre>';
 	}
-	// elseif($area == "menu"){
-		// $conteudo_pagina .= '
-			// <div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
-				// <div class="conteudo_box pagina">
-					// Exibir Menu de Itens
-				// </div>
-			// </div>
-		// ';
-	// }
-	// elseif($area == "categorias"){
-		// $conteudo_pagina .= '
-			// <div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
-				// <div class="conteudo_box pagina">
-					// Exibir Categorias de Itens
-				// </div>
-			// </div>
-		// ';
-	// }
-	// else
-		// $conteudo_pagina .= $conteudo_nao_encontrado_full;
+	elseif((empty($area)) or ($area == "menus")){
+		if((!empty($id)) and (is_numeric($id)))
+			$conteudo_pagina .= '
+				<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="itens_menus">
+					<div class="conteudo_box pagina">
+						'.$ClassItens->pegarExibicaoMenus($id).'
+					</div>
+				</div>
+			';
+		else
+			$conteudo_pagina .= '
+				<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="itens_menus">
+					<div class="conteudo_box pagina">
+						<div class="box_frame" carregar_box="1">
+							Itens
+						</div>
+						<div class="box_frame_conteudo_principal" carregar_box="1">
+							<div class="box_frame_conteudo padding dark">
+								Diversos itens podem ser encontrados no mundo.<br>
+								<br>
+								Muitos deles podem ser comercializados por jogadores dentro do mercado encontrado nos <i>depots</i> das cidades.<br>
+								<br>
+								No mercado é possível ver os valores praticados de um determinado item, como também informaçôes sobre o peso, as descrições, os ataques e defesas de armas e escudos.<br>
+								<br>
+								Existem tantos itens catalogados com tantos propósitos diferentes que essa lista foi dividida em diferentes categorias.
+							</div>
+						</div>
+						<br>
+						'.$ClassItens->pegarExibicaoMenus().'
+					</div>
+				</div>
+			';
+	}
+	elseif(($area == "categorias") and (is_numeric($id))){
+		$conteudo_pagina .= '
+			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="itens_categorias">
+				<div class="conteudo_box pagina">
+					'.$ClassItens->pegarExibicaoCategoria($id).'
+				</div>
+			</div>
+		';
+	}
+	elseif($area == "buscar"){
+		$conteudo_pagina .= '
+			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="itens_buscar">
+				<div class="conteudo_box pagina">
+					'.$ClassItens->exibirBuscaItem($_POST["busca"]).'
+				</div>
+			</div>
+		';
+	}
+	else
+		$conteudo_pagina .= $conteudo_nao_encontrado_full;
 ?>
