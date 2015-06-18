@@ -2,6 +2,10 @@
 	session_start();
 	header("Content-Type: text/html; charset=ISO-8859-1", true);
 	require_once("conexao/conexao.php");
+	include("includes/classes/ClassConta.php");
+	include("includes/classes/ClassFuncao.php");
+	$ClassConta = new Conta();
+	$ClassFuncao = new Funcao();
 	include("includes/variaveis.php");
 	include("includes/protocolo.php");
 	include("includes/data.php");
@@ -12,10 +16,6 @@
 	$senha = $_SESSION["senha"];
 	$usuarioEncontrado = false;
 	$ativarOverlay = false;
-	include("includes/classes/ClassConta.php");
-	include("includes/classes/ClassFuncao.php");
-	$ClassConta = new Conta();
-	$ClassFuncao = new Funcao();
 	if(!empty($login) OR (!empty($senha))){
 		if($ClassConta->validarConta($login, $senha)){
 			$informacoesConta = $ClassConta->getInformacoesConta($login);
