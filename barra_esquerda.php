@@ -21,16 +21,16 @@
 			"background" => 1,
 			"opcoes" => array(
 				"caracteristicas" => "Características",
-				"screenshots" => "Screenshots",
+				// "screenshots" => "Screenshots",
 				"informacoes_servidor" => "Informações do Servidor"
 			)
 		),
 		"guias" => array(
 			"background" => 2,
 			"opcoes" => array(
-				"iniciando" => "Iniciando",
-				"manual" => "Manual",
-				"dicas_seguranca" => "Dicas de Segurança"
+				// "iniciando" => "Iniciando",
+				// "manual" => "Manual",
+				// "dicas_seguranca" => "Dicas de Segurança"
 			)
 		),
 		"biblioteca" => array(
@@ -38,11 +38,11 @@
 			"opcoes" => array(
 				"itens" => "Itens",
 				"criaturas" => "Criaturas",
-				"magias" => "Magias",
-				"conquistas" => "Conquistas (?)",
+				// "magias" => "Magias",
+				// "conquistas" => "Conquistas (?)",
 				"tabela_experiencia" => "Tabela de Experiência",
 				"mapa" => "Mapa",
-				"cidades" => "Cidades (?)"
+				// "cidades" => "Cidades (?)"
 			)
 		),
 		"comunidade" => array(
@@ -51,41 +51,41 @@
 				"personagens" => "Personagens",
 				"rank" => "Rank",
 				"estatisticas_abates" => "Estatísticas de Abates",
-				"casas" => "Casas",
-				"clas" => "Clãs",
-				"enquetes" => "Enquetes (?)"
+				// "casas" => "Casas",
+				// "clas" => "Clãs",
+				// "enquetes" => "Enquetes (?)"
 			)
 		),
-		"forum" => array(
-			"background" => 5,
-			"opcoes" => array(
-				"forum_geral" => "Geral",
-				"forum_comercio" => "Comércio",
-				"forum_comunidade" => "Comunidade",
-				"forum_suporte" => "Suporte",
-				"forum_clas" => "Clãs"
-			)
-		),
+		// "forum" => array(
+			// "background" => 5,
+			// "opcoes" => array(
+				// "forum_geral" => "Geral",
+				// "forum_comercio" => "Comércio",
+				// "forum_comunidade" => "Comunidade",
+				// "forum_suporte" => "Suporte",
+				// "forum_clas" => "Clãs"
+			// )
+		// ),
 		"suporte" => array(
 			"background" => 7,
 			"opcoes" => array(
-				"faq" => "FAQ",
+				// "faq" => "FAQ",
 				"regras" => "Regras",
-				"guia_tutor" => "Guia de Tutores"
+				// "guia_tutor" => "Guia de Tutores"
 			)
 		),
-		"shop" => array(
-			"background" => 8,
-			"opcoes" => array(
-				"adquirir_pontos" => "Adquirir Pontos",
-				"trocar_pontos" => "Trocar Pontos"
-			)
-		),
+		// "shop" => array(
+			// "background" => 8,
+			// "opcoes" => array(
+				// "adquirir_pontos" => "Adquirir Pontos",
+				// "trocar_pontos" => "Trocar Pontos"
+			// )
+		// ),
 		"desenvolvedor" => array(
 			"background" => 9,
 			"opcoes" => array(
 				"desenvolvedor_downloads" => "Downloads",
-				"desenvolvedor_informacoes_uteis" => "Informações Úteis",
+				// "desenvolvedor_informacoes_uteis" => "Informações Úteis",
 				"desenvolvedor_ids_utilizadas" => "IDs Utilizadas",
 				"desenvolvedor_tarefas" => "Tarefas",
 				"criar_npc" => "Criar NPC",
