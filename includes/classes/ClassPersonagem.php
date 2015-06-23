@@ -6,15 +6,154 @@
 			1 => "Cidade"
 		);
 		public $vocacoes = array(
-			0 => array("campo" => "nenhuma", "exibicao" => "Nenhuma", "disponivel" => false),
-			1 => array("campo" => "sorcerer", "exibicao" => "Sorcerer", "disponivel" => true),
-			2 => array("campo" => "druid", "exibicao" => "Druid", "disponivel" => true),
-			3 => array("campo" => "paladin", "exibicao" => "Paladin", "disponivel" => true),
-			4 => array("campo" => "knight", "exibicao" => "Knight", "disponivel" => true),
-			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer", "imagem" => "sorcerer", "disponivel" => false),
-			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid", "imagem" => "druid", "disponivel" => false),
-			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin", "imagem" => "paladin", "disponivel" => false),
-			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight", "imagem" => "knight", "disponivel" => false)
+			0 => array(
+				"campo" => "nenhuma",
+				"exibicao" => "Nenhuma"
+			),
+			1 => array(
+				"campo" => "sorcerer",
+				"exibicao" => "Sorcerer",
+				"disponivel" => true,
+				"texto" => "
+					Ataque Mágico<br>
+					<b>Tipo:</b> Mago<br>
+					<b>Elemento:</b> <img src='imagens/icones/fire_icone.gif'/> <img src='imagens/icones/energy_icone.gif'/><br>
+					<b>Promoção:</b><br>
+					Master Sorcerer<br>
+					<br>
+					<b>Ganhos por Nível:</b><br>
+					10 oz de capacidade<br>
+					5 pontos de vida<br>
+					30 de Mana<br>
+				",
+				"informacoes" => array(
+					"armamento" => array(
+						8921 => "Wands"
+					),
+					"tipo" => "Mago",
+					"elemento" => array("fire", "energy"),
+					"promocao" => "Master Sorcerer",
+					"ganhos" => array(10, 5, 30)
+				)
+			),
+			2 => array(
+				"campo" => "druid",
+				"exibicao" => "Druid",
+				"disponivel" => true,
+				"texto" => "
+					Ataque Mágico<br>
+					<b>Tipo:</b> Mago<br>
+					<b>Elemento:</b> <img src='imagens/icones/ice_icone.gif'/> <img src='imagens/icones/earth_icone.gif'/><br>
+					<b>Promoção:</b><br>
+					Elder Druid<br>
+					<br>
+					<b>Ganhos por Nível:</b><br>
+					10 oz de capacidade<br>
+					5 pontos de vida<br>
+					30 de Mana<br>
+				",
+				"informacoes" => array(
+					"armamento" => array(
+						2185 => "Rods"
+					),
+					"tipo" => "Mago",
+					"elemento" => array("ice", "earth"),
+					"promocao" => "Elder Druid",
+					"ganhos" => array(10, 5, 30)
+				)
+				/*
+				"informacoes" => array(
+					// "armas" => array(
+						// 2389 => "Lanças",
+						// 2456 => "Arcos",
+						// 2455 => "Bestas",
+					// ),
+					"armas" => array(
+						2185 => "Rods"
+					),
+					"tipo" => "Mago",
+					"elemento" => array("ice, earth"),
+					"promocao" = "Elder Druid",
+					"ganhos" = array(10, 5, 30)
+				)
+				*/
+			),
+			3 => array(
+				"campo" => "paladin",
+				"exibicao" => "Paladin",
+				"disponivel" => true,
+				"texto" => "
+					Ataque à distância<br>
+					<b>Tipo:</b> Arqueiro<br>
+					<b>Elemento:</b> <img src='imagens/icones/holy_icone.gif'/><br>
+					<b>Promoção:</b><br>
+					Royal Paladin<br>
+					<br>
+					<b>Ganhos por Nível:</b><br>
+					20 oz de capacidade<br>
+					10 pontos de vida<br>
+					15 de Mana<br>
+				",
+				"informacoes" => array(
+					"armamento" => array(
+						2389 => "Lanças",
+						2456 => "Arcos",
+						2455 => "Bestas",
+					),
+					"tipo" => "Arqueiro",
+					"elemento" => array("holy"),
+					"promocao" => "Royal Paladin",
+					"ganhos" => array(20, 10, 15)
+				)
+			),
+			4 => array(
+				"campo" => "knight",
+				"exibicao" => "Knight",
+				"disponivel" => true,
+				"texto" => "
+					Ataque corpo-a-corpo<br>
+					<b>Tipo:</b> Cavaleiro<br>
+					<b>Elemento:</b> <img src='imagens/icones/physical_icone.gif'/><br>
+					<b>Promoção:</b><br>
+					Elite Knight<br>
+					<br>
+					<b>Ganhos por Nível:</b><br>
+					25 oz de capacidade<br>
+					15 pontos de vida<br>
+					5 de Mana<br>
+				",
+				"informacoes" => array(
+					"armamento" => array(
+						2387 => "Machados",
+						2391 => "Clavas",
+						2397 => "Espadas",
+					),
+					"tipo" => "Cavaleiro",
+					"elemento" => array("physical"),
+					"promocao" => "Elite Knight",
+					"ganhos" => array(25, 15, 5)
+				)
+			),
+			5 => array(
+				"campo" => "master sorcerer",
+				"exibicao" => "Master Sorcerer",
+				"imagem" => "sorcerer"
+			),
+			6 => array(
+				"campo" => "elder druid",
+				"exibicao" => "Elder Druid",
+				"imagem" => "druid"
+			),
+			7 => array(
+				"campo" => "royal paladin",
+				"exibicao" => "Royal Paladin",
+				"imagem" => "paladin"
+			),
+			8 => array(
+				"campo" => "elite knight",
+				"exibicao" => "Elite Knight",
+				"imagem" => "knight"
+			)
 		);
 		public function transformarDiasTempo($dias){
 			return $dias*24*60*60;
@@ -175,7 +314,7 @@
 					if(($contaId > 0) OR (($contaId == 0) AND ($v["deletar"] == 0) AND (($v["ocultar_conta"] == 0) AND ((!empty($personagemAtualId)) AND ($v["id"] != $personagemAtualId)))))
 						$exibirListaPersonagens .= '
 							<tr class="item">
-								<td width="10%">
+								<td width="10%" align="center">
 									<img src="imagens/vocacoes/'.$v["imagem"].'_miniatura.png" alt="" title="'.$v["vocacao"].'" />
 								</td>
 								<td width="40%">
@@ -207,9 +346,9 @@
 				return false;
 			return true;
 		}
-		public function getUltimoPersonagem($contaId){
+		public function getPersonagemSemVocacao($contaId){
 			$personagemId = 0;
-			$queryPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId')");
+			$queryPersonagem = mysql_query("SELECT * FROM players WHERE ((account_id LIKE '$contaId') AND (vocation LIKE '0'))");
 			while($resultadoPersonagem = mysql_fetch_assoc($queryPersonagem))
 				$personagemId = $resultadoPersonagem["id"];
 			return $personagemId;

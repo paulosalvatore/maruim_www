@@ -108,7 +108,7 @@
 			$vocacoes_permitidas = array(1, 2, 3, 4);
 			if(!in_array($vocacao, $vocacoes_permitidas))
 				$vocacao = 1;
-			$personagemId = $ClassPersonagem->getUltimoPersonagem($contaId);
+			$personagemId = $ClassPersonagem->getPersonagemSemVocacao($contaId);
 			if($ClassPersonagem->mudarVocacaoPersonagem($personagemId, $vocacao))
 				$ClassConta->registrarUltimoAcesso($contaId);
 		}

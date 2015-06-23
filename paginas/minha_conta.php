@@ -1214,30 +1214,99 @@
 		else{
 			if(($informacoesConta["ultimo_acesso"] == 0) || ($ClassPersonagem->checarPersonagemSemVocacao($accountId))){
 				$conteudo_minha_conta = '
-					Escolher Vocação do Personagem<br>
-					<br>
-					- Arqueiro<br>
-					Os Arqueiros usam armas à distância. Podem virar Caçadores ou Lanceiros<br>
-					<br>
-					- Feiticeiro<br>
-					Os Feiticeiros usam magias poderosas que causam dano e aplicam atributos negativos. Podem virar Arquimagos ou Arcanistas.<br>
-					<br>
-					- Clérigo<br>
-					Os Clérigos podem curar o aliado e usar armas corpo-a-corpo. Podem virar Bispos ou Cruzados.<br>
-					<br>
-					- Cavaleiro<br>
-					Os Cavaleiros são resistentes e usam armas corpo-a-corpo. Podem virar Guardiões ou Gladiadores.<br>
-					<br>
-					Caso tenha dúvida na vocação, <a href="?p=vocacoes" target="_new">clique aqui</a>. <span class="pequeno">(o link abrirá em uma nova página)</span><br>
-					<br>
-					<hr>
-					<br>
-					<b>Espaço para testes:</b><br>
-					<br>
-					<input type="button" class="mudar_vocacao_personagem" vocacao="1" value="Criar Arqueiro" />
-					<input type="button" class="mudar_vocacao_personagem" vocacao="2" value="Criar Cavaleiro" />
-					<input type="button" class="mudar_vocacao_personagem" vocacao="3" value="Criar Feiticeiro" />
-					<input type="button" class="mudar_vocacao_personagem" vocacao="4" value="Criar Clérigo" />
+					<table width="100%" cellpadding="0" cellspacing="0" class="tabela dark">
+						<tr>
+							';
+							include("includes/classes/ClassCriaturas.php");
+							$ClassCriaturas = new Criaturas();
+							foreach($ClassPersonagem->vocacoes as $vocacaoId => $vocacao){
+								if($vocacao["disponivel"]){
+									$informacoes = $vocacao["informacoes"];
+									$exibirArmamento = '';
+									$exibirElemento = '';
+									foreach($informacoes["armamento"] as $armaId => $descricao)
+										$exibirArmamento .= '<img src="imagens/itens/'.$armaId.'.gif" title="'.$descricao.'"/> ';
+									foreach($informacoes["elemento"] as $elemento)
+										$exibirElemento .= '<img src="imagens/icones/'.$elemento.'_icone.gif" title="'.$ClassCriaturas->formatarNomeIcone($elemento).'"/> ';
+									$ganhos = $informacoes["ganhos"];
+									$conteudo_minha_conta .= '
+										<td style="padding: 0px;" width="25%" valign="top">
+											<table width="100%" cellpadding="0" cellspacing="0" class="tabela">
+												<tr class="cabecalho">
+													<td>
+														'.$vocacao["exibicao"].'
+													</td>
+												</tr>
+												<tr height="250" class="item">
+													<td align="center">
+														<img src="imagens/vocacoes/'.$vocacao["campo"].'_full.png" width="144" alt="" title="'.$vocacao["exibicao"].'" /><br>
+													</td>
+												</tr>
+												<tr class="cabecalho">
+													<td>
+														Armamento
+													</td>
+												</tr>
+												<tr class="item">
+													<td>
+														'.$exibirArmamento.'
+													</td>
+												</tr>
+												<tr class="cabecalho">
+													<td>
+														Tipo
+													</td>
+												</tr>
+												<tr class="item">
+													<td>
+														'.$informacoes["tipo"].'
+													</td>
+												</tr>
+												<tr class="cabecalho">
+													<td>
+														Elemento
+													</td>
+												</tr>
+												<tr class="item">
+													<td>
+														'.$exibirElemento.'
+													</td>
+												</tr>
+												<tr class="cabecalho">
+													<td>
+														Promoção
+													</td>
+												</tr>
+												<tr class="item">
+													<td>
+														'.$informacoes["promocao"].'
+													</td>
+												</tr>
+												<tr class="cabecalho">
+													<td>
+														Ganhos por Nível
+													</td>
+												</tr>
+												<tr class="item">
+													<td>
+														'.$ganhos[0].' oz de capacidade<br>
+														'.$ganhos[1].' pontos de vida<br>
+														'.$ganhos[2].' pontos de mana
+													</td>
+												</tr>
+												<tr class="item" align="center">
+													<td>
+														<input type="button" class="botao mudar_vocacao_personagem" value="Criar '.$vocacao["exibicao"].'" vocacao="'.$vocacaoId.'" />
+													</td>
+												</tr>
+											</table>
+										</td>
+									';
+								}
+							}
+							$conteudo_minha_conta .= '
+						</tr>
+					</table>
 				';
 			}
 			else{
