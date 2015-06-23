@@ -11,10 +11,10 @@
 			2 => array("campo" => "druid", "exibicao" => "Druid", "disponivel" => true),
 			3 => array("campo" => "paladin", "exibicao" => "Paladin", "disponivel" => true),
 			4 => array("campo" => "knight", "exibicao" => "Knight", "disponivel" => true),
-			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer", "disponivel" => false),
-			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid", "disponivel" => false),
-			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin", "disponivel" => false),
-			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight", "disponivel" => false)
+			5 => array("campo" => "master sorcerer", "exibicao" => "Master Sorcerer", "imagem" => "sorcerer", "disponivel" => false),
+			6 => array("campo" => "elder druid", "exibicao" => "Elder Druid", "imagem" => "druid", "disponivel" => false),
+			7 => array("campo" => "royal paladin", "exibicao" => "Royal Paladin", "imagem" => "paladin", "disponivel" => false),
+			8 => array("campo" => "elite knight", "exibicao" => "Elite Knight", "imagem" => "knight", "disponivel" => false)
 		);
 		public function transformarDiasTempo($dias){
 			return $dias*24*60*60;
@@ -44,6 +44,12 @@
 			if(array_key_exists($vocacaoId, $this->vocacoes))
 				return $this->vocacoes[$vocacaoId]["campo"];
 			return $this->vocacoes[$vocacaoId][0];
+		}
+		public function getImagemVocacao($vocacaoId){
+			$vocacao = $this->vocacoes[$vocacaoId];
+			if($vocacao["imagem"])
+				return $vocacao["imagem"];
+			return $vocacao["campo"];
 		}
 		public function getNomeVocacao($vocacaoId){
 			if(array_key_exists($vocacaoId, $this->vocacoes))
@@ -127,6 +133,7 @@
 						"rank" => $rank++,
 						"vocacao" => $this->getNomeVocacao($resultadoListaPersonagem["vocation"]),
 						"vocacao_campo" => $this->getCampoVocacao($resultadoListaPersonagem["vocation"]),
+						"imagem" => $this->getImagemVocacao($resultadoListaPersonagem["vocation"]),
 						"status" => $this->getStatusPersonagem($resultadoListaPersonagem["id"]),
 						"statusCompleto" => $this->getStatusPersonagem($resultadoListaPersonagem["id"], 1),
 						"deletar" => $resultadoListaPersonagem["deletion"],
@@ -169,7 +176,7 @@
 						$exibirListaPersonagens .= '
 							<tr class="item">
 								<td width="10%">
-									<img src="imagens/vocacoes/'.$v["vocacao_campo"].'_miniatura.png">
+									<img src="imagens/vocacoes/'.$v["imagem"].'_miniatura.png" alt="" title="'.$v["vocacao"].'" />
 								</td>
 								<td width="40%">
 									<a href="'.$v["link"].'"><span class="grande">'.$v["nome"].'</span></a><br>
