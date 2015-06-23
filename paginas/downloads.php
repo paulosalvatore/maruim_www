@@ -2,80 +2,96 @@
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$pagina.'">
 			<div class="conteudo_box pagina">
-				';
-				$diretorio_arquivos = "arquivos/desenvolvedor/";
-				$diretorio_imagens = "imagens/desenvolvedor/";
-				$downloads_itens = array(
-					"clientes" => array(
-						"exibicao" => "Tibia Clients e afins",
-						"itens" => array(
-							"1041" => array(
-								"nome" => "Tibia Client 10.41",
-								"imagem" => "download_tibia_client.png",
-								"arquivo" => "tibia1041.exe",
-								"link_externo" => "http://clients.tibiaking.com/client/windows/1041",
-								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Instalação do Tibia Client 10.41, versão utilizada para jogar.",
-							),
-							"ipchanger" => array(
-								"nome" => "IP Changer",
-								"imagem" => "ipchanger.png",
-								"arquivo" => "ipchanger.exe",
-								"link_externo" => "http://static.otland.net/ipchanger.exe",
-								"exibir_ultima_atualizacao" => false,
-								"descricao" => "Programa para trocar o IP do jogo, funciona para todas as versões do Tibia.",
-							)
-						)
-					)
-				);
-				$conteudo_pagina .= '
-				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-					';
-					foreach($downloads_itens as $categoria){
-						$exibicao = $categoria["exibicao"];
-						$itens = $categoria["itens"];
-						$conteudo_pagina .= '
-							<tr class="cabecalho">
-								<td colspan="2">
-									'.$exibicao.'
-								</td>
-							</tr>
-						';
-						foreach($itens as $item){
-							$nome = $item["nome"];
-							$imagem = $item["imagem"];
-							$arquivo = $item["arquivo"];
-							$caminho_arquivo = $diretorio_arquivos.$arquivo;
-							$link_externo = $item["link_externo"];
-							$exibir_ultima_atualizacao = $item["exibir_ultima_atualizacao"];
-							$descricao = $item["descricao"];
-							if(!empty($imagem))
-								$imagem = '<a href="'.$caminho_arquivo.'"><img src="'.$diretorio_imagens.$imagem.'"></a>';
-							else
-								$imagem = '<a href="'.$caminho_arquivo.'">Baixar</a>';
-							if(!empty($link_externo))
-								$link_externo = ' <span class="link_externo">(<a href="'.$link_externo.'">Link Externo</a>)</span>';
-							$ultima_atualizacao = "";
-							if($exibir_ultima_atualizacao)
-								$ultima_atualizacao = "<b>Última Atualização:</b> ".gmdate("d/m/Y \à\s H\hi\ms\s", (filemtime($caminho_arquivo)+$fuso_horario))."<br>";
-							$conteudo_pagina .= '
-								<tr class="item">
-									<td width="50" align="center">
-										'.$imagem.'
-									</td>
-									<td>
-										<a href="'.$caminho_arquivo.'">'.$nome.'</a>'.$link_externo.'<br>
-										'.$ultima_atualizacao.'
-										<div class="descricao_arquivo">
-											<b>Descrição do Arquivo:</b> '.$descricao.'
-										</div>
-									</td>
-								</tr>
-							';
-						}
-					}
-					$conteudo_pagina .= '
-				</table>
+				<div class="box_frame" carregar_box="1">
+					Downloads
+				</div>
+				<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+					<table width="100%" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<div class="box_frame_conteudo" carregar_box="1">
+									<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+										<tr class="conteudo dark">
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0">
+													<tr align="center">
+														<td>
+															<a href="arquivos/desenvolvedor/tibia'.$config["versao"]["valor"].'.exe">
+																<img src="imagens/corpo/download_windows.png" class="imgDownloadClient" border="0" alt="" title="Windows Tibia - Client '.$config["versao"]["exibicao"].'" /><br>
+																Windows Tibia<br>Client '.$config["versao"]["exibicao"].'
+															</a>
+														</td>
+														<td>
+															<a href="arquivos/desenvolvedor/tibia'.$config["versao"]["valor"].'.tgz">
+																<img src="imagens/corpo/download_linux.png" class="imgDownloadClient" border="0" alt="" title="Linux Tibia - Client '.$config["versao"]["exibicao"].'" /><br>
+																Linux Tibia<br>Client '.$config["versao"]["exibicao"].'
+															</a>
+														</td>
+														<td>
+															<a href="arquivos/desenvolvedor/ipchanger.exe">
+																<img src="imagens/corpo/download_ip.png" class="imgDownloadIp" border="0" alt="" title="Tibia IP Changer" /><br>
+																Tibia IP Changer
+															</a>
+															<br>
+															<br>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="box_frame_conteudo" carregar_box="1">
+									<table cellpadding="0" cellspacing="0" class="box_frame_tabela download">
+										<tr class="conteudo dark">
+											<td width="200" align="center">
+												<img src="imagens/corpo/download_ok.png" alt="" title="" />
+											</td>
+											<td valign="top">
+												<span class="negrito grande">Requisitos Mínimos:</span><br>
+												<br>
+												<b>Windows:</b><br>
+												Windows XP (<i>Service Pack</i> 2 ou superior)/Vista/7/8/8.1<br>
+												<i>DirectX</i> versão 5.0 ou superior, ou <i>OpenGL</i><br>
+												147 MB de espaço livre no HD<br>
+												Conexão com a Internet<br>
+												<br>
+												<b>Linux:</b><br>
+												Bibliotecas do <i>32 bits</i> em um sistema operacional de <i>64 bits</i><br>
+												Linux com libc versão 6 ou superior<br>
+												<i>X-Window system</i> instalado<br>
+												<i>Driver</i> de Acelerador de <i>Hardware</i> Gráfico<br>
+												146 MB de espaço livre no HD<br>
+												Conexão com a Internet<br>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="box_frame_conteudo dark" carregar_box="1">
+									<table cellpadding="0" cellspacing="0" class="box_frame_tabela download">
+										<tr class="conteudo dark">
+											<td>
+												<span class="negrito grande">Observação:</span><br>
+												<br>
+												Os programas e qualquer documentação relacionada são fornecidos "como estão" sem garantia de qualquer tipo. Todos os riscos decorrentes do uso do mesmo permanece com você. Em nenhum caso seremos responsáveis por quaisquer danos ao seu computador ou perda de dados.
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	';

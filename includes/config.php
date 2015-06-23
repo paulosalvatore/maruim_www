@@ -13,6 +13,10 @@
 	$data_min[] = $noticias_rapidas_min["valor"];
 	$data_min[] = $noticias_min["valor"];
 	$data_min = gmdate("d/m/Y", min($data_min));
+	$config["versao"] = array(
+		"valor" => "1078",
+		"exibicao" => "10.78"
+	);
 	$config["login_obrigatorio"] = array(
 		"criar_noticia"
 	);
