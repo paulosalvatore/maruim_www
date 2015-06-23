@@ -29,6 +29,9 @@ a:hover {
 	border-radius: 4px;
 	height: 18px;
 }
+.conteudo_pagina {
+	min-width: 800px;
+}
 .conteudo_pagina a {
 	font-family: Verdana, Arial, Times New Roman, sans-serif;
 	font-weight: bold;
@@ -581,6 +584,9 @@ img.ordenar {
 	text-align: center;
 	background: #F1E0C6;
 }
+.tabela .cabecalho {
+	height: 20px;
+}
 .tabela .cabecalho .coluna,
 .tabela .cabecalho td {
 	background: #505050;
@@ -827,7 +833,7 @@ img.ordenar {
 }
 .box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_id,
 .box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_sd {
-	right: 21px;
+	right: 1px;
 }
 .box_frame_conteudo_principal.borda2_padding .box_frame_tabela_canto_sd {
 	margin-top: 0px;
@@ -863,6 +869,7 @@ img.ordenar {
 	border: 1px solid #FAF0D7;
 }
 .box_frame_conteudo {
+	position: relative;
 	text-align: justify;
 }
 .box_frame_conteudo.padding {
@@ -872,6 +879,7 @@ img.ordenar {
 	font-size: 13px;
 }
 .box_frame_conteudo.dark,
+.box_frame_conteudo.dark .conteudo_box ,
 .box_frame_conteudo .conteudo.dark td {
 	background: #D4C0A1;
 }
@@ -886,6 +894,9 @@ img.ordenar {
 }
 .box_frame_tabela td {
 	padding: 3px;
+}
+.box_frame_tabela td.padding {
+	padding: 5px;
 }
 .box_frame_tabela .cabecalho td {
 	background: #D4C0A1;
@@ -1417,4 +1428,17 @@ ul .sucesso {
 	height: 70px;
 	text-align: center;
 	font-weight: bold;
+}
+.download td {
+	padding: 10px;
+}
+.imgDownloadClient,
+.imgDownloadIp {
+	position: relative;
+}
+.imgDownloadClient {
+	left: 12px;
+}
+.imgDownloadIp {
+	left: 19px;
 }
