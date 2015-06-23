@@ -17,6 +17,29 @@
 		"valor" => "1078",
 		"exibicao" => "10.78"
 	);
+	$config["info"] = array(
+		"protecao" => 10,
+		"taxas" => array(
+			"experiencia" => array(
+				1 => 4,
+				9 => 3,
+				15 => 2,
+				20 => 1
+			),
+			"skill" => 10,
+			"magic" => 10,
+			"loot" => "Personalizada"
+		),
+		"red" => 3,
+		"black" => 6,
+		"tempo_frag" => "24 horas",
+		"casas" => array(
+			"sqm" => 350,
+			"aluguel" => array(1000, "semanalmente"),
+			"nivel" => 75,
+			"tempo" => "30 dias"
+		)
+	);
 	$config["login_obrigatorio"] = array(
 		"criar_noticia"
 	);
