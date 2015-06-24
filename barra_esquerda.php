@@ -50,7 +50,8 @@
 			"opcoes" => array(
 				"personagens" => "Personagens",
 				"rank" => "Rank",
-				"estatisticas_abates" => "Estatísticas de Abates",
+				"ultimas_mortes" => "Últimas Mortes",
+				// "estatisticas_abates" => "Estatísticas de Abates",
 				// "casas" => "Casas",
 				// "clas" => "Clãs",
 				// "enquetes" => "Enquetes (?)"
