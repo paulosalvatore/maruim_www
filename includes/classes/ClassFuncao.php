@@ -73,5 +73,13 @@
 			';
 			return $conteudoNaoEncontrado;
 		}
+		public function pegarNumeroJogadoresOnline(){
+			$numeroJogadoresOnline = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM players_online"));
+			return $numeroJogadoresOnline["total"];
+		}
+		public function exibirNumeroJogadoresOnline(){
+			$numeroJogadoresOnline = $this->pegarNumeroJogadoresOnline();
+			return $numeroJogadoresOnline."<br>Jogador".($numeroJogadoresOnline == 1 ? "" : "es")." Online";
+		}
 	}
 ?>
