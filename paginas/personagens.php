@@ -1,4 +1,6 @@
 <?php
+	include("includes/classes/ClassPersonagem.php");
+	$ClassPersonagem = new Personagem();
 	$conteudo_busca_personagens .= '
 		<div id="resultadoBusca" style="margin-bottom: 30px; display: none;">
 			<table cellpadding="0" cellspacing="0" class="tabela dark" width="100%">
@@ -28,8 +30,6 @@
 		</table>
 	';
 	if(!empty($id)){
-		include("includes/classes/ClassPersonagem.php");
-		$ClassPersonagem = new Personagem();
 		$informacoesPersonagem = $ClassPersonagem->getInformacoesPersonagem($id);
 		if(count($informacoesPersonagem) > 0){
 			$exibirInformacoesPersonagem = array(
