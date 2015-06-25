@@ -1489,3 +1489,14 @@ ul .sucesso {
 img.margem {
 	margin-top: 5px;
 }
+.imagemNpc {
+	width: 32px;
+	height: 32px;
+}
+.imagemNpc img.largura64 {
+	max-width: 64px;
+}
+.imagemNpc img.largura64.semMontaria {
+	margin-left: -32px;
+	margin-top: -32px;
+}
