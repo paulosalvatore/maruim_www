@@ -41,7 +41,7 @@ class Outfitter {
 	protected function outfit($outfit, $addons, $head, $body, $legs, $feet, $mount, $direction = 3, $animation = 1) {
 		$outfitPath = "../../arquivos/outfits/";
 		$mount_id = ($mount & 0xFFFF);
-		$mountState = (($mount & 0xFFFF0000) != 0) ? 2 : 1;
+		$mountState = (($mount and 0xFFFF0000) != 0) ? 2 : 1;
 		$creature = false;
 		$max = ($addons != 0) ? 3 : 1;
 		for ($i = 1; $i <= $max; $i++) {
