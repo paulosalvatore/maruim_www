@@ -1,5 +1,16 @@
+function calcularLevel(n){
+	if(n == 0)
+		return 0
+	else{
+		o = 0
+		if(n != 1)
+			o = Math.pow((0.188*(Math.pow(n, 1.4))), 2)+10
+		return Math.max(0, (n-1)*40+o)+calcularLevel(n-1)
+	}
+}
 function construirTabelaExperiencia(){
-	var nivelMaximoPermitido = 1000;
+	var id = $("#tabelaExperiencia").data("id");
+	var nivelMaximoPermitido = (id == "profissao" ? 100 : 1000);
 	var nivelMinimo = 4;
 	var nivelMaximo = parseInt($("input:text.nivelMaximo").val());
 	if(nivelMaximo > nivelMaximoPermitido)
@@ -17,7 +28,7 @@ function construirTabelaExperiencia(){
 		<table class="tabela" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; border-spacing: 0px;">\
 			<tr class="cabecalho">\
 				<td colspan="4">\
-					Tabela de Experiência\
+					Tabela de Experiência'+(id == "profissao" ? " - Profissão" : "")+'\
 				</td>\
 			</tr>\
 			<tr class="conteudo">\
@@ -37,7 +48,7 @@ function construirTabelaExperiencia(){
 									</tr>\
 						';
 					nivelAtual = i;
-					experiencia = Math.round(50/3*(Math.pow(nivelAtual, 3)-6*Math.pow(nivelAtual, 2)+17*nivelAtual-12));
+					experiencia = Math.round((id == "profissao" ? calcularLevel(nivelAtual) : 50/3*(Math.pow(nivelAtual, 3)-6*Math.pow(nivelAtual, 2)+17*nivelAtual-12)));
 					tabelaExperiencia += '\
 						<tr class="item">\
 							<td>\
