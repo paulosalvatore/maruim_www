@@ -37,8 +37,10 @@
 		"biblioteca" => array(
 			"background" => 3,
 			"opcoes" => array(
+				"profissoes" => "Profissões",
 				"itens" => "Itens",
 				"criaturas" => "Criaturas",
+				"npcs" => "NPCs",
 				// "magias" => "Magias",
 				// "conquistas" => "Conquistas (?)",
 				"tabela_experiencia" => "Tabela de Experiência",
