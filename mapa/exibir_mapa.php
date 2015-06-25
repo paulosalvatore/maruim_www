@@ -102,7 +102,7 @@ function MapUpdate() {
 	var url;
 	document.getElementById("info_coords").innerHTML = "x: "+coord_x+"&nbsp;&nbsp;&nbsp;y: "+coord_y+"&nbsp;&nbsp;&nbsp;z: "+floor;
 	document.getElementById("wiki").value=url = "{{mapa|"+coord_x+","+coord_y+","+floor+":"+zoom+"|aqui}}";
-	url="http://www.maruimserver.com.br/?p=mapa&x="+coord_x+"&y="+coord_y+"&z="+floor+"&zoom="+zoom;
+	url=window.location.host+"/?p=mapa&x="+coord_x+"&y="+coord_y+"&z="+floor+"&zoom="+zoom;
 	document.getElementById("info_link").value=url;
 	document.getElementById("info_link").innerHTML=url;
 	zoom2 = Math.max(3,zoom+2);
