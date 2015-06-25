@@ -1,356 +1,277 @@
 <?php
-	$grupos_profissoes = array(
-		1 => "Coleta",
-		2 => "Fabricação"
-	);
-	$profissoes = array(
-		"Ferreiro" => array(
-			"caracteristica" => "Os ferreiros são capazes de produzir armamentos e armaduras a partir de minérios.",
-			"grupo" => array(1, 2),
-		),
-		"Alfaiate" => array(
-			"caracteristica" => "Os alfaiates são capazes de produzir roupas a partir de tecidos.",
-			"grupo" => array(1, 2),
-		),
-		"Alquimista" => array(
-			"caracteristica" => "Os alquimistas são capazes de coletar ervas, fazer poções e encantar itens.",
-			"grupo" => array(1, 2),
-		),
-		"Cozinheiro" => array(
-			"caracteristica" => "Os cozinheiros são capazes de produzir comidas.",
-			"grupo" => array(1, 2),
-		)
-	);
-	$itens = array(
-		"ferreiro" => array(
-			"mesa_trabalho" => array(
-				2555, //Anvil
-			),
-			"ferramentas" => array(
-				2556, //Wooden Hammer
-				2557, //Hammer
-				2422, //Iron Hammer
-				2421, //Thunder Hammer
-				7758, //Fiery War Hammer
-				7777, //Icy War Hammer
-				7868, //Earth War Hammer
-				7883, //Energy War Hammer
-				2417, //Battle Hammer
-				2434, //Dragon Hammer
-				2444, //Hammer of Wrath
-				7422, //Jade Hammer
-				7437, //Sapphire Hammer
-				7450, //Hammer of Prophecy
-				14334, //Giant Smithhammer
-				19956, //Trunkhammer
-				19793, //Can of Oil (ID?)
-				5468, //Fire Bug
-				9930, //Flask of Rusty Remover
-			),
-			"ingredientes" => array(
-				5892, //Huge Chunk of Crude Iron
-				5880, //Iron Ore
-				5889, //Piece of Draconian Steel
-				5888, //Piece of Hell Steel
-				5887, //Piece of Royal Steel
-				8300, //Flawless Ice Crystal
-				2177, //Life Crystal
-				15565, //Rough Red Gem
-				2147, //Small Ruby
-				2146, //Small Sapphire
-				2149, //Small Emerald
-				2150, //Small Amethyst
-				2145, //Small Diamond
-				9970, //Small Topaz
-				2157, //Gold Nugget
-				2151, //Talon
-				2143, //White Pearl
-				2144, //Black Pearl
-				2153, //Violet Gem
-				2154, //Yellow Gem
-				2155, //Green Gem
-				2156, //Red Gem
-				13866, //Heavy Stone
-				8310, //Neutral Matter
-				12505, //Old Iron
-				21401, //Small Dragon Tear
-				21585, //Smoking Coal
-				13213, //Strange Red Powder
-				13214, //Strange Yellow Powder
-				13215, //Strange Blue Powder
-				2336, //Gem Holder
-				15515, //Bar of Gold
-				18413, //Blue Crystal Shard
-				18418, //Blue Crystal Splinter
-				18417, //Brown Crystal Splinter
-				18419, //Cyan Crystal Fragment
-				7632, //Giant Shimmering Pearl
-				9971, //Gold Ingot
-				18421, //Green Crystal Fragment
-				18415, //Green Crystal Shard
-				18416, //Green Crystal Splinter
-				18420, //Green Crystal Splinter
-				2134, //Silver Brooch
-				12662, //Stone of Wisdom
-				5022, //Orichalcum Pearl
-				15431, //The Heart of the Sea
-				18414, //Violet Crystal Shard
-				10155, //Shadow Orb
-				13757, //Coal
-				10033, //Wooden Ties
-				18427, //Pulverized Ore
-				11227, //Shiny Stone
-				5944, //Soul Orb
-				11325, //Spiked Iron Ball
-				11232, //Sulphurous Stone
-				18429, //Vein of Ore
-				10571, //War Crystal
-				8306, //Pure Energy
-				10531, //Midnight Shard
-			),
-			"produtos" => array(),
-			"receitas" => array(
-				2400 => array( //Magic Sword
-					array(2656, 2),
-				),
-			)
-		),
-		"alfaiate" => array(
-			"mesa_trabalho" => array(
-				9911, //Suspicious Cauldron
-			),
-			"ferramentas" => array(
-				5908, //Blessed Wooden Stake
-			),
-			"ingredientes" => array(
-				5909, //White Piece of Cloth
-				5910, //Green Piece of Cloth
-				5911, //Red Piece of Cloth
-				5912, //Blue Piece of Cloth
-				5913, //Brown Piece of Cloth
-				5914, //Yellow Piece of Cloth
-				5876, //Lizard Leather
-				5881, //Lizard Scale
-				5948, //Red Dragon Leather
-				5882, //Red Dragon Scale
-				5878, //Minotaur Leather
-				13541, //Dubious Piece of Cloth
-				13540, //Ominous Piece of Cloth
-				13542, //Voluminous Piece of Cloth
-				13543, //Obvious Piece of Cloth
-				13544, //Ludicrous Piece of Cloth
-				13545, //Luminous Piece of Cloth
-				6126, //Peg Leg
-				9678, //Piece of Royal Satin
-				13879, //War Wolf Skin
-				12435, //Orc Leather
-				11196, //Piece of Archer Armor
-				12438, //Piece of Warrior Armor
-				20135, //Red Hair Dye
-				11208, //Rotten Piece of Cloth
-				12629, //Scale of Corruption
-				11209, //Silky Fur
-				10611, //Snake Skin
-				5879, //Spider Silk
-				11210, //Striped Fur
-				11235, //Warwolf Fur
-				11234, //Werewolf Fur
-				13534, //White Deer Skin
-				11212, //Winter Wolf Fur
-				11236, //Wool
-				10582, //Wyrm Scale
-				5883, //Ape Fur
-				11224, //Thick Fur
-			),
-			"produtos" => array(),
-			"receitas" => array(
-				2656 => array( //Blue Robe
-					array(2656, 2),
-				),
-			)
-		),
-		"alquimista" => array(
-			"mesa_trabalho" => array(
-				9909, //Alchemical Apparatus
-				9910, //Alchemical Apparatus
-			),
-			"ferramentas" => array(
-				5908, //Blessed Wooden Stake
-			),
-			"ingredientes" => array(
-				5909, //White Piece of Cloth
-			),
-			"produtos" => array(),
-			"receitas" => array(
-				7439 => array( //Berserk Potion
-					array(2656, 2),
-					array(2656, 2),
-				),
-			)
-		),
-		"cozinheiro" => array(
-			"mesa_trabalho" => array(
-				10001, //Northern Fishburger
-			),
-			"ferramentas" => array(
-				10001, //Northern Fishburger
-			),
-			"ingredientes" => array(
-				10001, //Northern Fishburger
-			),
-			"produtos" => array(),
-			"receitas" => array(
-				10001 => array( //Northern Fishburger
-					array(2656, 2),
-				),
-			)
-		)
-	);
-	/*
-	Cozinheiro - Comidas diversas
-	Ferreiro - Armamentos
-	Alfaiate - Armaduras, Calças
-	Alquimista - Poções, Encantamento
-	*/
-	$carregarItens = array();
-	$categoriasPrincipais = array("mesa_trabalho" => "Mesa de Trabalho", "ferramentas" => "Ferramentas", "ingredientes" => "Ingredientes", "produtos" => "Produtos");
-	foreach($itens as $profissao_id => $profissao)
-			foreach($profissao["receitas"] as $produto_id => $receita)
-				$itens[$profissao_id]["produtos"][] = $produto_id;
-	foreach($itens as $profissao)
-		foreach($categoriasPrincipais as $c => $v)
-			foreach($profissao[$c] as $item)
-				if(!in_array($item, $carregarItens))
-					$carregarItens[] = $item;
-	include("includes/classes/ClassItems.php");
-	$ClassItems = new Items();
-	$itensCarregados = $ClassItems->getItemInfo($carregarItens);
-	// echo'<pre>';
-	// print_r($itensCarregados);
-	// echo'</pre>';
-	function exibirItens($itens, $itensCarregados){
-		$exibicao = "";
-		foreach($itens as $item_id)
-			$exibicao .= '
-				<tr class="item">
-					<td width="50" align="center">
-						'.$itensCarregados[$item_id]["imagem"].'
-					</td>
-					<td>
-						'.$itensCarregados[$item_id]["nome"].' (ID: '.$item_id.')
-					</td>
-				</tr>
-			';
-		return $exibicao;
-	}
-	function exibirReceitas($receitas, $itensCarregados){
-		$exibicao = "";
-		foreach($receitas as $itemProduzido => $receita){
-			$exibicao .= '
-				<tr class="item">
-					<td colspan="2" align="center">
-						'.$itensCarregados[$itemProduzido]["imagem"].' = 
-						';
-						$receitaItens = array();
-						foreach($receita as $receitaItem)
-							$receitaItens[] = '('.$receitaItem[1].') '.$itensCarregados[$receitaItem[0]]["imagem"];
-						$exibicao .= '
-						'.implode(" + ", $receitaItens).'
-					</td>
-				</tr>
-			';
-		}
-		return $exibicao;
-	}
-	$exibirProfissoes = "";
-	foreach($profissoes as $profissaoNome => $profissao){
-		$profissaoItens = $itens[strtolower($profissaoNome)];
-		$exibirProfissoes .= '
+	include("includes/classes/ClassItens.php");
+	$ClassItens = new Itens();
+	$conteudo_pagina = '
+		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 			<div class="box_frame" carregar_box="1">
-				'.$profissaoNome.'
+				Crafting
 			</div>
-			<div class="box_frame_conteudo_principal" carregar_box="1">
-				<div class="box_frame_conteudo">
-					';
-					foreach($profissaoItens as $categoria => $itensCategoria){
-						if($categoria != "produtos"){
-							if($categoria == "receitas"){
-								$exibirItens = exibirReceitas($itensCategoria, $itensCarregados);
-								$cabecalho = "Receitas";
-							}
-							else{
-								$exibirItens = exibirItens($itensCategoria, $itensCarregados);
-								$cabecalho = $categoriasPrincipais[$categoria];
-							}
-							$exibirProfissoes .= '
-								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-									<tr class="cabecalho">
-										<td colspan="2">
-											'.$cabecalho.'
+			<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<div class="box_frame_conteudo" carregar_box="1">
+								<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+									<tr class="conteudo_box">
+										<td class="padding">
+											<span class="grande negrito">Introdução</span><br>
+											<br>
+											O crafting é um sistema que permite ao jogador fabricar diversos itens e equipamentos através de receitas específicas que serão produzidas em uma mesa de trabalho.<br>
+											<br>
+											Você pode evoluir dentro de cada profissão, basta produzir as receitas.<br>
+											Conforme sua evolução, isso habilitará uma quantidade maior de receitas e fará com que a produção delas se torne cada vez mais fácil.<br>
+											<br>
+											<hr>
+											<br>
+											<span class="grande negrito">Profissões</span><br>
+											<br>
+											Atualmente o sistema está divido entre quatro profissões, são elas:<br>
+											<a href="?p=profissoes-ferreiro">Ferreiro</a>, <a href="?p=profissoes-alfaiate">Alfaiate</a>, <a href="?p=profissoes-alquimista">Alquimista</a> e <a href="?p=profissoes-cozinheiro">Cozinheiro</a>.<br>
+											<br>
+											Cada profissão possui uma <a href="#mesa_trabalho">mesa de trabalho</a> específica, que é onde o jogador terá acesso a todas as informações específicas.<br>
+											<br>
+											Além disso, possui diversas receitas que poderão ser fabricadas caso o jogador tenha todos os <a href="#requisito_necessarios">requisitos necessários</a>.<br>
+											<br>
+											Existem também os ingredientes de melhoria das profissões, que aumentam a chance de sucesso de qualquer receita.<br>
+											<br>
+											<hr>
+											<br>
+											<a name="mesa_trabalho"></a><span class="grande negrito">Mesas de Trabalho</span><br>
+											<br>
+											A mesa de trabalho é o lugar onde você poderá fabricar <a href="#receitas">receitas</a> e visualizar as <a href="#janelas">janelas</a> do sistema.<br>
+											<br>
+											Para ativá-la você deve clicar com o botão direito em cima.<br>
+											Caso uma janela apareça, selecione a opção "<i>Use</i>", conforme mostra a imagem abaixo.<br>
+											<img src="imagens/guias/crafting/usar_mesa_trabalho.png" alt="Usar Mesa de Trabalho" alt="Usar Mesa de Trabalho" class="margem" /><br>
+											<br>
+											<br>
+											<table width="250" cellpadding="0" cellspacing="0" class="tabela">
+												';
+												$profissoes = array(2555 => "Ferreiro", 9909 => "Alfaiate", 9896 => "Alquimista", 1786 => "Cozinheiro");
+												foreach($profissoes as $mesaTrabalho => $profissaoNome)
+													$conteudo_pagina .= '
+														<tr class="item">
+															<td width="60" align="center" style="background: #F1E0C6;">
+																'.$ClassItens->exibirImagem($mesaTrabalho, $profissaoNome).'
+															</td>
+															<td class="negrito" align="center" style="background: #F1E0C6;">
+																<a href="?p=profissoes-'.strtolower($profissaoNome).'">'.$profissaoNome.'</a>
+															</td>
+														</tr>
+													';
+												$conteudo_pagina .= '
+											</table>
+											<br>
+											<hr>
+											<br>
+											<a name="receitas"></a><span class="grande negrito">Receitas</span><br>
+											<br>
+											<a name="requisito_necessarios"></a>Para produzir uma receita você deverá observar os seguintes requisitos:<br>
+											<ul>
+												<li><b>Profissão;</b></li>
+												<li><b>Nível de Profissão;</b></li>
+												<li><b>Nível de Jogador;</b></li>
+												<li><b>Ferramenta;</b>
+													<ul>
+														<li>Para adquirir as ferramentas das receitas procure os <a href="#npcs_profissoes">NPCs de cada profissão</a>.</li>
+													</ul>
+												</li>
+												<li><b>Material;</b>
+													<ul>
+														<li>Alguns materiais podem ser obtidos através da <a href="#coleta">coleta</a> em diversos locais no <a href="?p=mapa">mapa</a>.</li>
+													</ul>
+												</li>
+												<li><b>Conhecimento.</b>
+													<ul>
+														<li>Você pode precisar aprender determinada receita para produzí-la.</li>
+													</ul>
+												</li>
+											</ul>
+											<br>
+											Note que cada receita também possuirá outras informações:<br>
+											<ul>
+												<li><b>Tempo de Fabricação;</b>
+													<ul>
+														<li>Pode ser instantâneo ou demorar alguns segundos.</li>
+													</ul>
+												</li>
+												<li><b>Chance de Sucesso Máxima;</b>
+													<ul>
+														<li>Mesmo que use itens de melhoria, a chance de sucesso não passará desse valor.</li>
+													</ul>
+												</li>
+												<li><b>Fabricar em Quantidade;</b>
+													<ul>
+														<li>A produção em quantidade de uma receita nem sempre estará disponível.</li>
+													</ul>
+												</li>
+												<li><b>Experiência de Profissão;</b>
+													<ul>
+														<li>Ao tentar produzir uma receita, você receberá uma quantidade de experiência de profissão (mesmo que a receita falhe).</li>
+													</ul>
+												</li>
+												<li><b>Pontos de Profissão;</b>
+													<ul>
+														<li>Ao produzir uma receita com sucesso, você receberá uma quantidade de pontos de profissão.</li>
+													</ul>
+												</li>
+											</ul>
+											Algumas receitas também possuem ingrediente secreto, que aumentam a chance de sucesso.<br>
+											<br>
+											<hr>
+											<br>
+											<a name="janelas"></a><span class="grande negrito">Janelas</span><br>
+											<br>
+											O sistema de crafting possui diversas janelas que exibem todo o conteúdo disponível para cada profissão.<br>
+											Atualmente existem as seguintes janelas:<br>
+											<br>
+											<ul>
+												';
+												$janelas = array(
+													"janela_principal" => array(
+														"nome" => "Janela Principal",
+														"indicadores" => array(
+															"Nome da Profissão" => '',
+															"Nível e Porcentagem de Experiência" => '',
+															"Fabricação da Última Receita" => '
+																Essa opção só aparecerá caso você tenha os ingredientes para a última receita que fabricada.<br>
+																<span class="pequeno">*Mesmo que a receita possibilite a fabricação em quantidade, essa opção fabricará apenas uma vez.</span>
+															',
+															"Informações da Profissão" => '
+																Ao selecionar essa opção, uma janela abrirá contendo as suas informações da profissão.<br>
+																<span class="pequeno">*<a href="#janela_profissao">Clique aqui</a> para ver os detalhes dessa janela.</span>
+															',
+															"Lista de Receitas - Prontas para Fabricação" => '
+																Ao selecionar essa opção, uma janela abrirá contendo uma lista com todas as receitas que você possui os requisitos para fabricação.
+															',
+															"Lista de Receitas - Conhecidas" => '
+																Ao selecionar essa opção, uma janela abrirá contendo uma lista com todas as receitas que você conhece.<br>
+																<span class="pequeno">*Você pode fabricar direto dessa janela caso tenha os materiais necessários.</span>
+															',
+															"Lista de Receitas - Geral" => '
+																Ao selecionar essa opção, uma janela abrirá contendo uma lista com todas as receitas da profissão.<br>
+																<span class="pequeno">*Você pode fabricar direto dessa janela caso tenha os requisitos necessários.</span>
+															'
+														)
+													),
+													"janela_profissao" => array(
+														"nome" => "Janela da Profissão",
+														"indicadores" => array(
+															"Pontos de Profissão" => '
+																Você receberá pontos de profissão a cada receita fabricada ou quando evoluir um nível de profissão.<br>
+																Você poderá utilizar seus pontos para comprar diversos itens, basta falar com o NPC da profissão.
+															',
+															"Bônus Adicional" => '
+																A cada 20 níveis de profissão, seus equipamentos produzidos que tiverem atributos de Armadura, Ataque ou Defesa receberão esse aumento fixo <span class="pequeno">(somado aos valores da receita, se houver)</span>.
+															',
+															"Chance de Sucesso Adicional" => '
+																A cada nível de profissão você receberá 0.2% de chance de sucesso adicional em suas receitas.<br>
+																<span class="pequeno">Esse valor não ultrapassa a chance de sucesso máxima de uma receita.</span>
+															'
+														)
+													),
+													"janela_lista" => array(
+														"nome" => "Janela da Lista de Receitas",
+														"indicadores" => array(
+															"Receitas" => '
+																As receitas da lista que você escolheu na janela principal serão exibidas aqui.
+															',
+															"Criar" => '
+																Ao clicar nesse botão, caso tenha todos os requisitos da receita selecionada, o processo de fabricação iniciará.
+															',
+															"Info" => '
+																Ao clicar nesse botão, uma janela com as informações da receita selecionada será exibido.
+															'
+														)
+													),
+													"janela_informacoes_receita" => array(
+														"nome" => "Janela com as Informações da Receita"
+													)
+												);
+												foreach($janelas as $janela => $janelaInfo){
+													$conteudo_pagina .= '
+														<li>
+															<a name="'.$janela.'"></a><b>'.$janelaInfo["nome"].'</b><br>
+															<img src="imagens/guias/crafting/'.$janela.'.png" alt="'.$janelaInfo["nome"].'" title="'.$janelaInfo["nome"].'" class="margem" /><br>
+															<br>
+															<table cellpadding="0" cellspacing="0">
+																';
+																$c = 1;
+																if(is_array($janelaInfo["indicadores"])){
+																	foreach($janelaInfo["indicadores"] as $indicador => $descricao){
+																		$conteudo_pagina .= '
+																			<tr>
+																				<td width="17" style="padding: 0px;">
+																					<img src="imagens/guias/circulo'.($c++).'.png">
+																				</td>
+																				<td>
+																					<b>'.$indicador.'</b>
+																				</td>
+																			</tr>
+																		';
+																		if(!empty($descricao))
+																			$conteudo_pagina .= '
+																				<tr>
+																					<td colspan="2">
+																						'.$descricao.'
+																					</td>
+																				</tr>
+																			';
+																	}
+																}
+																$conteudo_pagina .= '
+															</table>
+															<br>
+														</li>
+													';
+												}
+												$conteudo_pagina .= '
+											</ul>
+											<hr>
+											<br>
+											<a name="coleta"></a><span class="grande negrito">Coleta</span><br>
+											<br>
+											Alguns materiais necessários para a produção de diversas receitas podem ser obtidos coletando-os em diversas áreas do mapa.<br>
+											<br>
+											<hr>
+											<br>
+											<a name="npcs_profissoes"></a><span class="grande negrito">NPCs das Profissões</span><br>
+											<br>
+											Existem NPCs que trabalham especificamente com cada profissão.<br>
+											Neles você poderá vender e/ou comprar diversos itens especificos de cada profissão.<br>
+											<br>
+											<table width="250" cellpadding="0" cellspacing="0" class="tabela odd">
+												';
+												$npcs_profissoes = array(
+													"Ferreiro" => array("Rimi", "Mylo"),
+													"Alfaiate" => array("Arcus Arataron"),
+													"Alquimista" => array("Fron")
+												);
+												foreach($npcs_profissoes as $profissaoNome => $npcs){
+													$exibirNPCs = "";
+													foreach($npcs as $npc)
+														$exibirNPCs .= '<a href="?p=npcs-'.$npc.'">'.$npc.'</a><br>';
+													$conteudo_pagina .= '
+														<tr class="item">
+															<td width="60" align="center" class="negrito top">
+																'.$profissaoNome.'
+															</td>
+															<td class="negrito">
+																'.$exibirNPCs.'
+															</td>
+														</tr>
+													';
+												}
+												$conteudo_pagina .= '
+											</table>
+											<br>
 										</td>
 									</tr>
-									'.$exibirItens.'
 								</table>
-							';
-						}
-					}
-					$exibirProfissoes .= '
-				</div>
-			</div>
-			<br>
-		';
-	}
-	$conteudo_pagina = '
-		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="">
-			<div class="conteudo_box pagina">
-				<div class="box_frame" carregar_box="1">
-					Tarefas Gerais
-				</div>
-				<div class="box_frame_conteudo_principal" carregar_box="1">
-					<div class="box_frame_conteudo">
-						<ul class="tarefas">
-							<li class="sucesso">Criar Tabela dos Níveis 1 a 100</li>
-							<li>Criar Lista de Itens que podem ser feitos</li>
-							<li>Criar Lista de Ingredientes</li>
-							<li>Definir a EXP que os Itens feitos dão</li>
-							<li class="sucesso">A mesma poção, quando feita pelo alquimista, possui valores aleatórios de recuperação</li>
-							<li>
-								Influências do Nível
-								<ul>
-									<li>Quantidade de material produzida</li>
-									<li class="sucesso">Chance de sucesso</li>
-									<li class="sucesso">Tipos de Itens que podem ser feitos</li>
-								</ul>
-							</li>
-							<li>Coletar itens dá EXP para a profissão</li>
-							<li class="sucesso">Fazer itens dá EXP para a profissão (mesmo que falhe)</li>
-							<li>Definir níveis de coleta (Ex.: Lenhador: não precisa ser profissão, basta apenas atribuir níveis para que ele colete maiores quantidades no futuro)</li>
-						</ul>
-					</div>
-				</div>
-				<div class="box_frame" carregar_box="1">
-					Estruturação do Script de Crafting
-				</div>
-				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-					<tr class="cabecalho">
-						<td colspan="3">
-							Profissões
-						</td>
-					</tr>
-					<tr class="item bold">
-						<td>
-							Descrição
-						</td>
-						<td>
-							Característica
-						</td>
-						<td>
-							Grupo
+							</div>
 						</td>
 					</tr>
 				</table>
-				<br>
-				'.$exibirProfissoes.'
 			</div>
 		</div>
 	';

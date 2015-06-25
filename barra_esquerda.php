@@ -28,6 +28,7 @@
 		"guias" => array(
 			"background" => 2,
 			"opcoes" => array(
+				"crafting" => "Crafting",
 				// "iniciando" => "Iniciando",
 				// "manual" => "Manual",
 				// "dicas_seguranca" => "Dicas de Segurança"

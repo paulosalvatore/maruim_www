@@ -15,6 +15,9 @@ a:hover {
 a:hover {
 	color: #FFFFFF;
 }
+img {
+	max-width: 100%;
+}
 .input {
 	text-indent: 4px;
 	font-size: 12px;
@@ -1027,11 +1030,11 @@ img.ordenar {
 #rodape a:hover {
 	text-decoration: underline;
 }
-ul {
+ul.lista {
 	padding: 0px;
 	margin: 5px 0 5px 0;
 }
-ul li {
+ul.lista li {
 	background: url(../imagens/corpo/lista.png) no-repeat left top;
 	padding: 3px 0px 3px 20px;
 	list-style: none;
@@ -1471,7 +1474,7 @@ ul .sucesso {
 	position: absolute;
 	width: 92px;
 	bottom: 11px;
-	left: 21px;
+	left: 11px;
 	color: #cfa600;
 	border-bottom: 1px solid #010101;
 	cursor: pointer;
@@ -1482,4 +1485,7 @@ ul .sucesso {
 #premiumBox #adquirirPremium {
 	margin: -31px 0 0 24px;
 	position: relative;
+}
+img.margem {
+	margin-top: 5px;
 }

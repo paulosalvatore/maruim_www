@@ -1142,5 +1142,8 @@
 			';
 			return $exibirBusca;
 		}
+		public function exibirImagem($itemId, $titulo){
+			return '<img src="imagens/itens/'.$itemId.'.gif" alt="" title="'.$titulo.'" />';
+		}
 	}
 ?>
