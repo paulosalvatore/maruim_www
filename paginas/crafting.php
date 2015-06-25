@@ -18,7 +18,7 @@
 											<br>
 											O crafting é um sistema que permite ao jogador fabricar diversos itens e equipamentos através de receitas específicas que serão produzidas em uma mesa de trabalho.<br>
 											<br>
-											Você pode evoluir dentro de cada profissão, basta produzir as receitas.<br>
+											Você pode evoluir dentro de cada profissão, basta produzir receitas e receberá <a href="#experiencia">pontos de experiência</a> que aumentarão seu nível.<br>
 											Conforme sua evolução, isso habilitará uma quantidade maior de receitas e fará com que a produção delas se torne cada vez mais fácil.<br>
 											<br>
 											<hr>
@@ -45,16 +45,16 @@
 											<img src="imagens/guias/crafting/usar_mesa_trabalho.png" alt="Usar Mesa de Trabalho" alt="Usar Mesa de Trabalho" class="margem" /><br>
 											<br>
 											<br>
-											<table width="250" cellpadding="0" cellspacing="0" class="tabela">
+											<table width="250" cellpadding="0" cellspacing="0" class="tabela odd">
 												';
 												$profissoes = array(2555 => "Ferreiro", 9909 => "Alfaiate", 9896 => "Alquimista", 1786 => "Cozinheiro");
 												foreach($profissoes as $mesaTrabalho => $profissaoNome)
 													$conteudo_pagina .= '
 														<tr class="item">
-															<td width="60" align="center" style="background: #F1E0C6;">
+															<td width="60" align="center">
 																'.$ClassItens->exibirImagem($mesaTrabalho, $profissaoNome).'
 															</td>
-															<td class="negrito" align="center" style="background: #F1E0C6;">
+															<td class="negrito" align="center">
 																<a href="?p=profissoes-'.strtolower($profissaoNome).'">'.$profissaoNome.'</a>
 															</td>
 														</tr>
@@ -105,9 +105,12 @@
 														<li>A produção em quantidade de uma receita nem sempre estará disponível.</li>
 													</ul>
 												</li>
-												<li><b>Experiência de Profissão;</b>
+												<li><a name="experiencia"></a><b>Experiência de Profissão;</b>
 													<ul>
-														<li>Ao tentar produzir uma receita, você receberá uma quantidade de experiência de profissão (mesmo que a receita falhe).</li>
+														<li>
+															Ao tentar produzir uma receita, você receberá uma quantidade de experiência de profissão (mesmo que a receita falhe). Conforme você ganha experiência, seus níveis vão aumentando.<br>
+															<a href="?p=tabela_experiencia-profissao">Clique aqui</a> para visualizar a tabela de experiência de profissões.
+														</li>
 													</ul>
 												</li>
 												<li><b>Pontos de Profissão;</b>
