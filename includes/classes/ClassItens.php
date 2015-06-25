@@ -1,6 +1,12 @@
 <?php
 	set_time_limit(36000);
 	class Itens {
+		private $categoriasProfissoes = array(
+			14 => "ferreiro",
+			15 => "alfaiate",
+			16 => "alquimista",
+			17 => "cozinheiro",
+		);
 		public function loadXML(){
 			$arquivo = "arquivos/itens/items.xml";
 			if(!is_file($arquivo))
@@ -10,7 +16,7 @@
 		public function pegarUrlItem($itemId, $itemNome){
 			$url = "?p=itens-item-$itemId";
 			if(!empty($itemNome))
-				$url .= "-".urlencode($itemNome);
+				$url .= "-".urlencode(utf8_encode($itemNome));
 			return $url;
 		}
 		public function exibirItem($loot, $item){
@@ -430,7 +436,7 @@
 			mysql_query("TRUNCATE TABLE z_itens_atributos");
 			mysql_query("TRUNCATE TABLE z_itens_atributos_atributos");
 			foreach($itensInfo as $item){
-				mysql_query("INSERT INTO z_itens (id, nome) VALUES ('".$item["id"]."', '".addslashes($item["nome"])."')");
+				mysql_query("INSERT INTO z_itens (id, nome) VALUES ('".$item["id"]."', '".addslashes(utf8_decode($item["nome"]))."')");
 				if($item["atributos"] and is_array($item["atributos"])){
 					foreach($item["atributos"] as $atributo => $valor){
 						if(!is_array($valor))
@@ -608,7 +614,7 @@
 									<b>Profissão:</b>
 								</td>
 								<td>
-									<a href="?p=profissao-'.$receitaInfo["profissao"].'">'.$receitaInfo["profissao"].'</a>
+									<a href="?p=profissao-'.$this->pegarProfissaoNome($receitaInfo["profissao"], true).'">'.$this->pegarProfissaoNome($receitaInfo["profissao"]).'</a>
 								</td>
 							</tr>
 							<tr class="item">
@@ -739,6 +745,23 @@
 			}
 			return $exibirReceita;
 		}
+		public function pegarTodosItensProfissoes(){
+			$itens = array();
+			$queryProfissoes = mysql_query("SELECT * FROM z_profissoes");
+			while($resultadoProfissoes = mysql_fetch_assoc($queryProfissoes)){
+				$mesasTrabalho = explode(";", $resultadoProfissoes["mesaTrabalho"]);
+				foreach($mesasTrabalho as $mesaTrabalho)
+					if((!empty($mesaTrabalho)) and (!in_array($mesaTrabalho, $itens)))
+						$itens[] = $mesaTrabalho;
+				$ingredientesMelhoria = explode(";", $resultadoProfissoes["ingredientesMelhoria"]);
+				foreach($ingredientesMelhoria as $ingredienteMelhoria){
+					$ingredienteMelhoria = explode(",", $ingredienteMelhoria);
+					if((!empty($ingredienteMelhoria[0])) and (!in_array($ingredienteMelhoria[0], $itens)))
+						$itens[] = $ingredienteMelhoria[0];
+				}
+			}
+			return $itens;
+		}
 		public function pegarTodosItensReceitas(){
 			$itens = array();
 			$queryReceitas = mysql_query("SELECT * FROM z_receitas");
@@ -782,6 +805,7 @@
 		}
 		public function pegarTodosItens(){
 			return array_merge(
+				$this->pegarTodosItensProfissoes(),
 				$this->pegarTodosItensReceitas(),
 				$this->pegarTodosItensCriaturas(),
 				$this->pegarTodosItensNpcs()
@@ -813,6 +837,8 @@
 			';
 		}
 		public function exibirNpcsItem($item){
+			include("includes/classes/ClassNpcs.php");
+			$ClassNpcs = new Npcs();
 			$npcsCompram = array();
 			$npcsVendem = array();
 			$npcs = array();
@@ -821,7 +847,7 @@
 				$npcItem = array(
 					"npc" => $resultadoNpcsItem["npc"],
 					"valor" => $resultadoNpcsItem["valor"],
-					"link" => '?p=npcs-'.$resultadoNpcsItem["npc"]
+					"link" => $ClassNpcs->pegarLinkNpc($resultadoNpcsItem["npc"])
 				);
 				$npcs[] = $resultadoNpcsItem["npc"];
 				if($resultadoNpcsItem["acao"] == "c")
@@ -924,16 +950,17 @@
 			}
 			return $exibirMenus;
 		}
-		public function pegarExibicaoCategoria($id){
+		public function pegarExibicaoCategoria($id, $exibirCabecalho = true, $nomeTabela = ""){
 			$exibirCategoria = "";
 			$queryCategoria = mysql_query("SELECT * FROM z_itens_categorias WHERE (id LIKE '$id')");
 			while($resultadoCategoria = mysql_fetch_assoc($queryCategoria)){
 				$menuId = $resultadoCategoria["menu"];
+				$nomeTabela = (empty($nomeTabela) ? $resultadoCategoria["nome"] : $nomeTabela);
 				$exibirCategoria .= '
 					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 						<tr class="cabecalho">
 							<td colspan="2">
-								'.$resultadoCategoria["nome"].'
+								'.$nomeTabela.'
 							</td>
 						</tr>
 						';
@@ -969,9 +996,11 @@
 					<br>					
 				';
 			}
-			if(empty($exibirCategoria))
+			if(empty($exibirCategoria)){
+				$ClassFuncao = new Funcao();
 				$exibirCategoria = $ClassFuncao->pegarConteudoNaoEncontrado();
-			else
+			}
+			elseif($exibirCabecalho)
 				$exibirCategoria = '
 					<div class="setas">
 						<div class="seta voltar">
@@ -1001,12 +1030,7 @@
 				12 => "distance",
 				13 => "ammunition"
 			);
-			$categoriasProfissoes = array(
-				14 => "ferreiro",
-				15 => "alfaiate",
-				16 => "alquimista",
-				17 => "cozinheiro",
-			);
+			$categoriasProfissoes = $this->categoriasProfissoes;
 			mysql_query("TRUNCATE TABLE z_itens_categorias_itens");
 			foreach($categoriasSlotType as $categoriaId => $slotType){
 				$queryItensCategoria = mysql_query("SELECT * FROM z_itens_atributos WHERE ((atributo LIKE 'slotType') AND (valor LIKE '$slotType'))");
@@ -1049,7 +1073,7 @@
 				}
 			}
 			foreach($categoriasProfissoes as $categoriaId => $profissao){
-				$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '".ucfirst($profissao)."')");
+				$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '$profissao')");
 				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
 					$itemId = $resultadoItensCategoria["item"];
 					$checarReceita = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_categorias_itens WHERE ((categoria LIKE '$categoriaId') AND (item LIKE '$itemId'))"));
@@ -1144,6 +1168,65 @@
 		}
 		public function exibirImagem($itemId, $titulo){
 			return '<img src="imagens/itens/'.$itemId.'.gif" alt="" title="'.$titulo.'" />';
+		}
+		public function pegarProfissaoNome($profissaoId, $lowerCase = false){
+			$profissaoNome = "Profissão Sem Nome";
+			$queryProfissao = mysql_query("SELECT * FROM z_profissoes WHERE (id LIKE '$profissaoId')");
+			while($resultadoProfissao = mysql_fetch_assoc($queryProfissao))
+				$profissaoNome = $resultadoProfissao["nome"];
+			if($lowerCase)
+				$profissaoNome = strtolower($profissaoNome);
+			return $profissaoNome;
+		}
+		public function pegarProfissaoId($profissaoNome){
+			$profissaoId = 0;
+			$queryProfissao = mysql_query("SELECT * FROM z_profissoes WHERE (nome LIKE '$profissaoNome')");
+			while($resultadoProfissao = mysql_fetch_assoc($queryProfissao))
+				$profissaoId = $resultadoProfissao["id"];
+			return $profissaoId;
+		}
+		public function pegarProfissaoInfoByName($profissaoNome){
+			$profissaoInfo = array();
+			$queryProfissao = mysql_query("SELECT * FROM z_profissoes WHERE (nome LIKE '$profissaoNome')");
+			while($resultadoProfissao = mysql_fetch_assoc($queryProfissao))
+				$profissaoInfo = $resultadoProfissao;
+			return $profissaoInfo;
+		}
+		public function pegarExibicaoProfissao($profissaoNome){
+			return $this->pegarExibicaoCategoria(array_search(strtolower($profissaoNome), $this->categoriasProfissoes), false, "Lista de Receitas - $profissaoNome");
+		}
+		public function pegarExibicaoMesaTrabalho($mesaTrabalho){
+			$mesaTrabalho = explode(";", $mesaTrabalho);
+			$itens = array();
+			$exibirMesaTrabalho = '
+				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="cabecalho">
+						<td colspan="2">
+							'.(count($mesaTrabalho) < 3 ? "Mesa de Trabalho" : "Mesas de Trabalho").'
+						</td>
+					</tr>
+					';
+					foreach($mesaTrabalho as $mesaTrabalhoId)
+						if(!empty($mesaTrabalhoId))
+							$itens[] = $mesaTrabalhoId;
+					$itensInfo = $this->getItemInfoSQL($itens);
+					foreach($itens as $item){
+						$itemInfo = $itensInfo[$item];
+						$exibirMesaTrabalho .= '
+							<tr class="item">
+								<td width="30" align="center">
+									<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
+								</td>
+								<td>
+									<a href="'.$itemInfo["url"].'">'.$itemInfo["nome"].'</a>
+								</td>
+							</tr>
+						';
+					}
+					$exibirMesaTrabalho .= '
+				</table>
+			';
+			return $exibirMesaTrabalho;
 		}
 	}
 ?>
