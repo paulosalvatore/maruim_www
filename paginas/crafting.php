@@ -253,7 +253,7 @@
 												foreach($npcs_profissoes as $profissaoNome => $npcs){
 													$exibirNPCs = "";
 													foreach($npcs as $npc)
-														$exibirNPCs .= '<a href="?p=npcs-'.$npc.'">'.$npc.'</a><br>';
+														$exibirNPCs .= '<a href="?p=npcs-'.urlencode(utf8_encode($npc)).'">'.$npc.'</a><br>';
 													$conteudo_pagina .= '
 														<tr class="item">
 															<td width="60" align="center" class="negrito top">

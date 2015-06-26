@@ -112,7 +112,8 @@
 				<br>
 			';
 		}
-		public function exibirBuscaNpc($busca){
+		public function exibirBuscaNpc($busca, $exibir = true){
+			$busca = addslashes($busca);
 			$checarBuscaExata = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_npcs WHERE (nome LIKE '$busca')"));
 			$checarBuscaExata = $checarBuscaExata["total"];
 			$queryBusca = $busca;
@@ -126,6 +127,8 @@
 				header("Location: ".$this->pegarLinkNpc($npcs[0]["id"], $npcs[0]["nome"]));
 				exit;
 			}
+			if(!$exibir)
+				return;
 			$ClassFuncao = new Funcao();
 			$ClassFuncao->ordenarResultadosBusca($npcs, 'nome');
 			$exibirBusca .= '
