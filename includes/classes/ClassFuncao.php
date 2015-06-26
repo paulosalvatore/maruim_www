@@ -143,5 +143,11 @@
 				$jogadorNome = "Jogador Sem Nome";
 			return $jogadorNome;
 		}
+		public function ordenarResultadosBusca(&$arr, $col, $dir = SORT_ASC){
+			$sort_col = array();
+			foreach($arr as $key=> $row)
+				$sort_col[$key] = $row[$col];
+			array_multisort($sort_col, $dir, $arr);
+		}
 	}
 ?>

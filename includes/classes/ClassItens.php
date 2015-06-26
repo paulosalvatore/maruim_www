@@ -1130,6 +1130,10 @@
 				header("Location: ".$itensInfo[$itens[0]]["url"]);
 				exit;
 			}
+			$buscaItens = array();
+			foreach($itens as $c => $itemId)
+				$buscaItens[$c] = $itensInfo[$itemId]["nome"];
+			asort($buscaItens);
 			$exibirBusca .= '
 				'.$this->pegarBuscaItem($busca).'
 				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
@@ -1139,7 +1143,8 @@
 						</td>
 					</tr>
 					';
-					foreach($itens as $itemId){
+					foreach($buscaItens as $c => $itemNome){
+						$itemId = $itens[$c];
 						$itemInfo = $itensInfo[$itemId];
 						$exibirBusca .= '
 							<tr class="item">

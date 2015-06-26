@@ -126,6 +126,8 @@
 				header("Location: ".$this->pegarLinkNpc($npcs[0]["id"], $npcs[0]["nome"]));
 				exit;
 			}
+			$ClassFuncao = new Funcao();
+			$ClassFuncao->ordenarResultadosBusca($npcs, 'nome');
 			$exibirBusca .= '
 				'.$this->pegarBuscaNpc($busca).'
 				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
