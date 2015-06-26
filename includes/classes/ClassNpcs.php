@@ -83,14 +83,9 @@
 		}
 		public function pegarImagemNpc($npc){
 			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$npc["lookType"].'&head='.$npc["lookHead"].'&body='.$npc["lookBody"].'&legs='.$npc["lookLegs"].'&feet='.$npc["lookFeet"].'&addons='.$npc["lookAddons"].'&mount='.$npc["lookMount"];
-			$tamanhoImagem = getimagesize('http://'.$_SERVER['HTTP_HOST'].'/'.$arquivoImagem);
-			$estilos = array();
+			$estilos = array("imagemNpc");
 			if($npc["lookMount"] == 0)
 				$estilos[] = 'semMontaria';
-			if($tamanhoImagem[0] == 64)
-				$estilos[] = 'largura64';
-			else
-				$estilos[] = 'largura32';
 			return '
 				<div class="imagemNpc">
 					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" class="'.implode(" ", $estilos).'" />

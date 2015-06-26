@@ -1474,8 +1474,8 @@ ul .sucesso {
 	position: absolute;
 	width: 92px;
 	bottom: 11px;
-	left: 11px;
-	color: #cfa600;
+	left: 21px;
+	color: #CFA600;
 	border-bottom: 1px solid #010101;
 	cursor: pointer;
 }
@@ -1489,7 +1489,7 @@ ul .sucesso {
 img.margem {
 	margin-top: 5px;
 }
-.imagemNpc {
+div.imagemNpc {
 	width: 32px;
 	height: 32px;
 }

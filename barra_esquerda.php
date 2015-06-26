@@ -149,7 +149,7 @@
 	$conteudo_barra_esquerda .= '
 		<div id="logo">
 			<a href="?p=ultimas_noticias">
-				<img src="imagens/barra_esquerda/logo.png" border="0">
+				<img src="imagens/barra_esquerda/logo.png" border="0" style="max-width: none;">
 			</a>
 		</div>
 		<div class="login_box">
