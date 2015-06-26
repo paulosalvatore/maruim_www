@@ -75,8 +75,10 @@
 			';
 		}
 		public function pegarLinkNpc($npcId, $npcNome = ""){
-			if(empty($npcNome))
-				$npcNome = $this->pegarInfoNpc($npcId)["nome"];
+			if(empty($npcNome)){
+				$npcNome = $this->pegarInfoNpc($npcId);
+				$npcNome = $npcNome["nome"];
+			}
 			return "?p=npcs-".$npcId."-".urlencode($npcNome);
 		}
 		public function pegarImagemNpc($npc){

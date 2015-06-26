@@ -7,7 +7,8 @@
 	$id = $acao;
 	$exibirBuscaItem = $ClassItens->pegarBuscaItem();
 	if(($area == "item") and (is_numeric($id))){
-		$item = $ClassItens->getItemInfoSQL($id)[$id];
+		$item = $ClassItens->getItemInfoSQL($id);
+		$item = $item[$id];
 		$conteudo_pagina .= '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 				<div class="conteudo_box pagina">
