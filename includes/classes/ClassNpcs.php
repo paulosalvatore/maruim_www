@@ -81,14 +81,15 @@
 			}
 			return "?p=npcs-".$npcId."-".urlencode($npcNome);
 		}
-		public function pegarImagemNpc($npc){
+		public function pegarImagemNpc($npc, $z = ""){
 			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$npc["lookType"].'&head='.$npc["lookHead"].'&body='.$npc["lookBody"].'&legs='.$npc["lookLegs"].'&feet='.$npc["lookFeet"].'&addons='.$npc["lookAddons"].'&mount='.$npc["lookMount"];
 			$estilos = array("imagemNpc");
 			if($npc["lookMount"] == 0)
 				$estilos[] = 'semMontaria';
+			$exibirZ = (!empty($z) ? ' style="position: relative; z-index: '.$z.';"' : '');
 			return '
 				<div class="imagemNpc">
-					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" class="'.implode(" ", $estilos).'" />
+					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" class="'.implode(" ", $estilos).'"'.$exibirZ.' />
 				</div>
 			';
 		}
@@ -134,12 +135,12 @@
 						</td>
 					</tr>
 					';
-					foreach($npcs as $npc){
+					foreach($npcs as $c => $npc){
 						$linkNpc = $this->pegarLinkNpc($npc["id"], $npc["nome"]);
 						$exibirBusca .= '
 							<tr class="item">
 								<td width="30" align="center">
-									'.$this->pegarImagemNpc($npc).'
+									<a href="'.$linkNpc.'">'.$this->pegarImagemNpc($npc, count($npcs)-$c).'</a>
 								</td>
 								<td>
 									<a href="'.$linkNpc.'">'.$npc["nome"].'</a>
