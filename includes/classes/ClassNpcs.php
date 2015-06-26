@@ -139,7 +139,7 @@
 						$exibirBusca .= '
 							<tr class="item">
 								<td width="30" align="center">
-									<a href="'.$linkNpc.'">'.$this->pegarImagemNpc($npc).'</a>
+									'.$this->pegarImagemNpc($npc).'
 								</td>
 								<td>
 									<a href="'.$linkNpc.'">'.$npc["nome"].'</a>
