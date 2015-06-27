@@ -120,6 +120,27 @@ function verificarEmail(email){
 		return true;
 	return false;
 };
+function atualizarTempo(){
+	var elemento = $("#tempoOnline");
+	var tempo = parseInt(elemento.attr("tempo"));
+	var horas = parseInt(tempo/3600);
+	var minutos = parseInt(tempo/60)%60;
+	var segundos = tempo%60;
+	var exibirTempo = (horas>0?(horas<10?"0"+horas:horas)+"h":"")+(minutos>0||horas>0?(minutos<10?"0"+minutos:minutos)+"m":"")+(segundos<10?"0"+segundos:segundos)+"s";
+	elemento
+	.attr("tempo", tempo + 1)
+	.html(exibirTempo);
+	setTimeout(function(){
+		atualizarTempo();
+	}, 1000);
+};
+$(window).load(function(){
+	$("img.imagemOutfit").each(function(){
+		$(this).addClass("largura64");
+		if($(this).width() != 64)
+			$(this).removeClass("largura64");
+	});
+});
 $(function(){
 	var pagina = $("#conteudo").attr("pagina");
 	$("#barra_esquerda .opcoes .opcao."+pagina).addClass("ativo");
@@ -214,4 +235,5 @@ $(function(){
 	});
 	if($("#barraProgresso").length)
 		construirBarraProgresso();
+	atualizarTempo();
 });
