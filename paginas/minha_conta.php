@@ -132,8 +132,6 @@
 		';
 	}
 	else{
-		include("includes/classes/ClassPersonagem.php");
-		$ClassPersonagem = new Personagem();
 		if(!empty($id)){
 			if(!is_numeric($id)){
 				if($id == "alterar_senha"){
@@ -987,7 +985,7 @@
 								<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
 									<tr class="conteudo dark">
 										<td>
-											<form id="informacoes_personagem" personagem="'.$id.'">
+											<form id="informacoesPersonagem" personagem="'.$id.'">
 												<table width="100%" cellpadding="0" cellspacing="0">
 													<tr valign="top">
 														<td width="120" align="left">

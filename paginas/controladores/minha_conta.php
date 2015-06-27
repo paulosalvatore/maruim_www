@@ -7,6 +7,7 @@
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
 	$login = $_SESSION["login"];
+	include("../../includes/classes/ClassFuncao.php");
 	include("../../includes/classes/ClassConta.php");
 	include("../../includes/classes/ClassPersonagem.php");
 	$ClassConta = new Conta();

@@ -89,7 +89,7 @@ $(function(){
 		}).responseText;
 		return false;
 	});
-	$("#informacoes_personagem").submit(function(){
+	$("#informacoesPersonagem").submit(function(){
 		var personagemId = $(this).attr("personagem");
 		$.ajax({
 			url: "paginas/controladores/minha_conta.php",
