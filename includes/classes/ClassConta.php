@@ -143,7 +143,6 @@
 				return false;
 		}
 		public function iniciarAlteracaoEmail($informacoesConta){
-			$ClassFuncao = new Funcao();
 			$this->editarConta($informacoesConta["id"], "email_novo", $informacoesConta["proximo_email"]);
 			$this->editarConta($informacoesConta["id"], "email_novo_tempo", time());
 			$this->editarConta($informacoesConta["id"], "proximo_email", "");
@@ -151,7 +150,6 @@
 			$this->editarConta($informacoesConta["id"], "proximo_email_envio", 0);
 		}
 		public function alterarEmail($informacoesConta){
-			print_r($email_novo);
 			$this->editarConta($informacoesConta["id"], "email", $informacoesConta["email_novo"]);
 			$this->editarConta($informacoesConta["id"], "email_novo", "");
 			$this->editarConta($informacoesConta["id"], "email_novo_tempo", "");

@@ -3,9 +3,11 @@
 	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
 	check_is_ajax(__FILE__);
+	include("../../includes/classes/ClassFuncao.php");
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/protocolo.php");
+	$ClassFuncao = new Funcao();
 	$ClassConta = new Conta();
 	$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
 	$acesso_pagina = $informacoesConta["acesso_pagina"];
@@ -14,8 +16,6 @@
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
 	$tabela = "z_tarefas";
-	include("../../includes/classes/ClassFuncao.php");
-	$ClassFuncao = new Funcao();
 	if($acao == "deletar")
 		mysql_query($ClassFuncao->loadSQLQueryDelete($tabela, "id", $registro_id));
 	elseif($acao == "concluir")
