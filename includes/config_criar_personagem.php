@@ -1,10 +1,4 @@
 <?php
-	$arquivoClassPersonagem = "includes/classes/ClassPersonagem.php";
-	if(is_file($arquivoClassPersonagem))
-		include($arquivoClassPersonagem);
-	elseif(is_file("../../".$arquivoClassPersonagem))
-		include("../../".$arquivoClassPersonagem);
-	$ClassPersonagem = new Personagem();
 	$formulario_criacao_personagem = array(
 		array(
 			"nome_personagem" => array(
@@ -16,12 +10,12 @@
 				"tipo_dados" => array(
 					"numeros" => true,
 					"letras" => true,
-					"simbolos" => false,
+					"simbolos" => false
 				),
 				"tipo_dados_obrigatorio" => array(
 					"numeros" => false,
 					"letras" => false,
-					"email" => false,
+					"email" => false
 				),
 				"sugestao" => true,
 				"obrigatorio" => true,
