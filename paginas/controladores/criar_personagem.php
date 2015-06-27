@@ -5,9 +5,10 @@
 	check_is_ajax(__FILE__);
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
+	include("../../includes/classe/ClassPersonagem.php");
+	$ClassPersonagem = new Personagem();
 	include("../../includes/config_criar_personagem.php");
 	include("../../includes/protocolo.php");
-	$ClassPersonagem = new Personagem();
 	$ClassConta = new Conta();
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;

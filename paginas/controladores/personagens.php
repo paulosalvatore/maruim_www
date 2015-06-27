@@ -3,9 +3,7 @@
 	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
 	check_is_ajax(__FILE__);
-	include("../../includes/config.php");
-	include("../../includes/config_criar_personagem.php");
-	include("../../includes/protocolo.php");
+	include("../../includes/classes/ClassFuncao.php");
 	include("../../includes/classes/ClassPersonagem.php");
 	$ClassPersonagem = new Personagem();
 	foreach($_REQUEST as $c => $v)
