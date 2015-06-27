@@ -1,6 +1,4 @@
 <?php
-	include("includes/classes/ClassPersonagem.php");
-	$ClassPersonagem = new Personagem();
 	$conteudo_busca_personagens .= '
 		<div id="resultadoBusca" style="margin-bottom: 30px; display: none;">
 			<table cellpadding="0" cellspacing="0" class="tabela dark" width="100%">
@@ -35,7 +33,18 @@
 			$exibirInformacoesPersonagem = array(
 				"nome" => array(
 					"exibicao" => "Nome",
-					"valor" => $informacoesPersonagem["nome"]
+					"valor" => '
+						<table style="margin: 15px 0 0 10px;">
+							<tr>
+								<td>
+									'.$ClassPersonagem->pegarImagemPersonagem($informacoesPersonagem).'
+								</td>
+								<td>
+									'.$informacoesPersonagem["nome"].'
+								</td>
+							</tr>
+						</table>
+					'
 				),
 				"genero" => array(
 					"exibicao" => "Gênero",
@@ -57,9 +66,14 @@
 					"exibicao" => "Último Login",
 					"valor" => $informacoesPersonagem["ultimo_login"]
 				),
+				"idade_tibia" => array(
+					"exibicao" => "Idade no Tibia",
+					"valor" => $informacoesPersonagem["idade_tibia"],
+					"ocultar_vazio" => true
+				),
 				"comentario" => array(
 					"exibicao" => "Comentário",
-					"valor" => $informacoesPersonagem["comentario"],
+					"valor" => $informacoesPersonagem["exibirComentario"],
 					"ocultar_vazio" => true
 				)
 			);
@@ -88,8 +102,11 @@
 						$conteudo_personagens .= '
 					</table>
 				</div>
+				'.$ClassPersonagem->exibirUltimasMortesPersonagem($informacoesPersonagem["id"]).'
 			';
 			if($informacoesPersonagem["ocultar_conta"] == 0){
+				$contaPersonagemId = $informacoesPersonagem["contaId"];
+				$informacoesContaPersonagem = $ClassConta->getInformacoesConta($contaPersonagemId, true);
 				$conteudo_personagens .= '
 					<div style="margin-bottom: 30px;">
 						<table cellpadding="0" cellspacing="0" class="tabela odd" width="100%">
@@ -103,7 +120,7 @@
 									<b>Status da Conta:</b>
 								</td>
 								<td>
-									'.$ClassConta->getStatusConta($informacoesConta["premdays"]).'
+									'.$ClassConta->getStatusConta($informacoesContaPersonagem["premdays"]).'
 								</td>
 							</tr>
 							<tr class="item">
@@ -111,7 +128,7 @@
 									<b>Data de Criação:</b>
 								</td>
 								<td>
-									'.$informacoesConta["exibirDataCriacao"].'
+									'.$informacoesContaPersonagem["exibirDataCriacao"].'
 								</td>
 							</tr>
 						</table>
@@ -124,7 +141,7 @@
 								</td>
 							</tr>
 							';
-							$listaPersonagens = $ClassPersonagem->getListaPersonagens($accountId);
+							$listaPersonagens = $ClassPersonagem->getListaPersonagens($contaPersonagemId);
 							$exibirListaPersonagens = $ClassPersonagem->exibirListaPersonagens($listaPersonagens, 0, $informacoesPersonagem["id"]);
 							$conteudo_personagens .= $exibirListaPersonagens;
 							$conteudo_personagens .= '
