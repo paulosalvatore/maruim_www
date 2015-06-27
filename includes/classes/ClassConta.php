@@ -2,9 +2,6 @@
 	class Conta {
 		public $diasTrocarEmail = 7;
 		public $delayReenvio = 60;
-		public function formatarData($tempo){
-			return date("d/m/Y, H\hi\ms\s", $tempo);
-		}
 		public function getStatusConta($status){
 			if($status == 0)
 				return '<span class="vermelho">Conta Gratuita</span>';
@@ -16,14 +13,17 @@
 				$queryConta = mysql_query("SELECT * FROM accounts WHERE (id LIKE '$conta')");
 			else
 				$queryConta = mysql_query("SELECT * FROM accounts WHERE (name LIKE '$conta')");
-			while($resultadoConta = mysql_fetch_assoc($queryConta))
+			while($resultadoConta = mysql_fetch_assoc($queryConta)){
 				foreach($resultadoConta as $c => $v){
-					if($c == "creation")
-						$informacoesConta["exibirDataCriacao"] = $this->formatarData($v);
+					if($c == "creation"){
+						$ClassFuncao = new Funcao();
+						$informacoesConta["exibirDataCriacao"] = $ClassFuncao->formatarData($v);
+					}
 					elseif($c == "pontos")
 						$informacoesConta["exibirPontos"] = ($v > 1 ? $v." pontos" : $v." ponto");
 					$informacoesConta[$c] = $v;
 				}
+			}
 			return $informacoesConta;
 		}
 		public function getResultado($conta, $campo){
