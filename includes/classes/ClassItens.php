@@ -614,7 +614,7 @@
 									<b>Profissão:</b>
 								</td>
 								<td>
-									<a href="?p=profissao-'.$this->pegarProfissaoNome($receitaInfo["profissao"], true).'">'.$this->pegarProfissaoNome($receitaInfo["profissao"]).'</a>
+									<a href="?p=profissoes-'.$this->pegarProfissaoNome($receitaInfo["profissao"], true).'">'.$this->pegarProfissaoNome($receitaInfo["profissao"]).'</a>
 								</td>
 							</tr>
 							<tr class="item">
