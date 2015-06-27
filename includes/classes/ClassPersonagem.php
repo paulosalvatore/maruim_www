@@ -456,6 +456,7 @@
 					</tr>
 				';
 			else{
+				$ClassFuncao = new Funcao();
 				foreach($ultimasMortes as $numeroMorte => $informacoesMorte){
 					$mortoPor = ($informacoesMorte["is_player"] == 1 ? $this->exibirPersonagem($informacoesMorte["mostdamage_by"], true) : $informacoesMorte["mostdamage_by"]);
 					$exibirUltimasMortes .= '
@@ -467,7 +468,7 @@
 								'.$this->exibirPersonagem($informacoesMorte["player_id"], true).'
 							</td>
 							<td>
-								'.$this->formatarData($informacoesMorte["time"], true).', no nível '.$informacoesMorte["level"].' para '.$mortoPor.'.
+								'.$ClassFuncao->formatarData($informacoesMorte["time"], true).', no nível '.$informacoesMorte["level"].' para '.$mortoPor.'.
 							</td>
 						</tr>
 					';
