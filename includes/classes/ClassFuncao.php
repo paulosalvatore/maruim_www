@@ -7,7 +7,7 @@
 			if($extenso){
 				setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 				date_default_timezone_set('America/Sao_Paulo');
-				return strftime('%A, %d de %B de %Y às %Hh%Mm%Ss', $tempo);
+				return strftime('%d de %B de %Y às %Hh%Mm%Ss', $tempo);
 			}
 			return date("d/m/Y, H\hi\ms\s", $tempo);
 		}
@@ -77,71 +77,6 @@
 				</div>
 			';
 			return $conteudoNaoEncontrado;
-		}
-		public function pegarNumeroJogadoresOnline(){
-			$numeroJogadoresOnline = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM players_online"));
-			return $numeroJogadoresOnline["total"];
-		}
-		public function exibirNumeroJogadoresOnline(){
-			$numeroJogadoresOnline = $this->pegarNumeroJogadoresOnline();
-			return $numeroJogadoresOnline."<br>Jogador".($numeroJogadoresOnline == 1 ? "" : "es")." Online";
-		}
-		public function pegarUltimasMortes(){
-			$ultimasMortes = array();
-			$queryUltimasMortes = mysql_query("SELECT * FROM player_deaths ORDER BY time DESC");
-			while($resultadoUltimasMortes = mysql_fetch_assoc($queryUltimasMortes))
-				$ultimasMortes[] = $resultadoUltimasMortes;
-			return $ultimasMortes;
-		}
-		public function exibirUltimasMortes(){
-			$ultimasMortes = $this->pegarUltimasMortes();
-			$exibirUltimasMortes = "";
-			if(count($ultimasMortes) == 0)
-				$exibirUltimasMortes .= '
-					<tr class="item" height="100">
-						<td colspan="3" align="center">
-							O servidor não possui nenhuma morte registrada.
-						</td>
-					</tr>
-				';
-			else{
-				foreach($ultimasMortes as $numeroMorte => $informacoesMorte){
-					$mortoPor = ($informacoesMorte["is_player"] == 1 ? $this->exibirJogador($informacoesMorte["mostdamage_by"], true) : $informacoesMorte["mostdamage_by"]);
-					$exibirUltimasMortes .= '
-						<tr class="item">
-							<td align="center">
-								'.($numeroMorte+1).'
-							</td>
-							<td>
-								'.$this->exibirJogador($informacoesMorte["player_id"], true).'
-							</td>
-							<td>
-								'.$this->formatarData($informacoesMorte["time"], true).', no nível '.$informacoesMorte["level"].' para '.$mortoPor.'.
-							</td>
-						</tr>
-					';
-				}
-			}
-			return $exibirUltimasMortes;
-		}
-		public function pegarNomeJogador($jogadorId){
-			$queryJogador = mysql_query("SELECT * FROM players WHERE (id LIKE '$jogadorId')");
-			while($resultadoJogador = mysql_fetch_assoc($queryJogador))
-				return $resultadoJogador["name"];
-			return "";
-		}
-		public function exibirJogador($jogadorId, $link = false){
-			if(is_numeric($jogadorId))
-				$jogadorNome = $this->pegarNomeJogador($jogadorId);
-			else
-				$jogadorNome = $jogadorId;
-			if($link){
-				if(!empty($jogadorNome))
-					return '<a href="?p=personagens-'.$jogadorNome.'">'.$jogadorNome.'</a>';
-			}
-			if(empty($jogadorNome))
-				$jogadorNome = "Jogador Sem Nome";
-			return $jogadorNome;
 		}
 		public function ordenarResultadosBusca(&$arr, $col, $dir = SORT_ASC){
 			$sort_col = array();

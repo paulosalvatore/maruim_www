@@ -83,13 +83,13 @@
 		}
 		public function pegarImagemNpc($npc, $z = ""){
 			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$npc["lookType"].'&head='.$npc["lookHead"].'&body='.$npc["lookBody"].'&legs='.$npc["lookLegs"].'&feet='.$npc["lookFeet"].'&addons='.$npc["lookAddons"].'&mount='.$npc["lookMount"];
-			$estilos = array("imagemNpc");
+			$estilos = array("imagemOutfit");
 			if($npc["lookMount"] == 0)
 				$estilos[] = 'semMontaria';
 			$exibirZ = (!empty($z) ? ' style="position: relative; z-index: '.$z.';"' : '');
 			return '
-				<div class="imagemNpc">
-					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" class="'.implode(" ", $estilos).'"'.$exibirZ.' />
+				<div class="imagemOutfit">
+					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" border="0" class="'.implode(" ", $estilos).'"'.$exibirZ.' />
 				</div>
 			';
 		}
@@ -131,21 +131,22 @@
 				return;
 			$ClassFuncao = new Funcao();
 			$ClassFuncao->ordenarResultadosBusca($npcs, 'nome');
+			$q = count($npcs);
 			$exibirBusca .= '
 				'.$this->pegarBuscaNpc($busca).'
 				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 					<tr class="cabecalho">
-						<td colspan="2">
+						<td colspan="2" style="z-index: '.($q+1).'; position: relative;">
 							Resultados da Busca por "'.$busca.'"
 						</td>
 					</tr>
 					';
-					foreach($npcs as $c => $npc){
+					foreach($npcs as $npc){
 						$linkNpc = $this->pegarLinkNpc($npc["id"], $npc["nome"]);
 						$exibirBusca .= '
 							<tr class="item">
 								<td width="30" align="center">
-									<a href="'.$linkNpc.'">'.$this->pegarImagemNpc($npc, count($npcs)-$c).'</a>
+									<a href="'.$linkNpc.'">'.$this->pegarImagemNpc($npc, $q--).'</a>
 								</td>
 								<td>
 									<a href="'.$linkNpc.'">'.$npc["nome"].'</a>

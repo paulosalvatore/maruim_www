@@ -2,9 +2,9 @@
 	class Personagem {
 		public $limiteRank = 100;
 		public $diasDeletarPersonagem = 7;
-		public $cidades = array(
-			1 => "Cidade"
-		);
+		public $maximoUltimasMortes = 5;
+		public $diasUltimasMortes = 10;
+		public $limiteLinhasComentario = 15;
 		public $vocacoes = array(
 			0 => array(
 				"campo" => "nenhuma",
@@ -61,22 +61,6 @@
 					"promocao" => "Elder Druid",
 					"ganhos" => array(10, 5, 30)
 				)
-				/*
-				"informacoes" => array(
-					// "armas" => array(
-						// 2389 => "Lanças",
-						// 2456 => "Arcos",
-						// 2455 => "Bestas",
-					// ),
-					"armas" => array(
-						2185 => "Rods"
-					),
-					"tipo" => "Mago",
-					"elemento" => array("ice, earth"),
-					"promocao" = "Elder Druid",
-					"ganhos" = array(10, 5, 30)
-				)
-				*/
 			),
 			3 => array(
 				"campo" => "paladin",
@@ -158,19 +142,34 @@
 		public function transformarDiasTempo($dias){
 			return $dias*24*60*60;
 		}
-		public function formatarData($tempo){
-			return date("d/m/Y, H\hi\ms\s", $tempo);
-		}
 		public function formatarLogin($tempo){
+			$ClassFuncao = new Funcao();
 			if($tempo > 0)
-				$formatarLogin = $this->formatarData($tempo);
+				$formatarLogin = $ClassFuncao->formatarData($tempo);
 			else
 				$formatarLogin = "Nunca efetuou login.";
 			return $formatarLogin;
 		}
+		public function calcularIdadeTibia($tempoOnline){
+			$dia = 3600;
+			$mes = $dia*30;
+			$ano = $mes*12;
+			if($tempoOnline < 60)
+				return;
+			$idadeEmAnos = ($tempoOnline-(fmod($tempoOnline, $ano)))/$ano;
+			if($idadeEmAnos > 0)
+				return $idadeEmAnos." ano".($idadeEmAnos > 1 ? "s" : "");
+			$idadeEmMeses = ($tempoOnline-(fmod($tempoOnline, $mes)))/$mes;
+			if($idadeEmMeses > 0)
+				return $idadeEmMeses." ".($idadeEmMeses > 1 ? "meses" : "mês");
+			$idadeEmDias = ($tempoOnline-(fmod($tempoOnline, $dia)))/$dia;
+			if($idadeEmDias > 0)
+				return $idadeEmDias." dia".($idadeEmDias > 1 ? "s" : "");
+		}
 		public function getNomeCidade($cidadeId){
-			if(in_array($cidadeId, $this->cidades))
-				return $this->cidades[$cidadeId];
+			$queryCidade = mysql_query("SELECT * FROM z_cidades WHERE (id LIKE '$cidadeId')");
+			while($resultadoCidade = mysql_fetch_assoc($queryCidade))
+				return $resultadoCidade["nome"];
 			return "Cidade sem nome";
 		}
 		public function exibirGenero($genero){
@@ -231,20 +230,33 @@
 			while($resultadoPersonagem = mysql_fetch_assoc($queryPersonagem))
 				$informacoesPersonagem = array(
 					"id" => $resultadoPersonagem["id"],
+					"contaId" => $resultadoPersonagem["account_id"],
 					"nome" => $resultadoPersonagem["name"],
+					"link" => $this->gerarLinkPersonagem($resultadoPersonagem["name"]),
 					"genero" => $resultadoPersonagem["sex"],
 					"exibirGenero" => $this->exibirGenero($resultadoPersonagem["sex"]),
+					"lookBody" => $resultadoPersonagem["lookbody"],
+					"lookFeet" => $resultadoPersonagem["lookfeet"],
+					"lookHead" => $resultadoPersonagem["lookhead"],
+					"lookLegs" => $resultadoPersonagem["looklegs"],
+					"lookType" => $resultadoPersonagem["looktype"],
+					"lookAddons" => $resultadoPersonagem["lookaddons"],
 					"residencia" => $this->getNomeCidade($resultadoPersonagem["town_id"]),
 					"nivel" => $resultadoPersonagem["level"],
 					"vocacao" => $this->getNomeVocacao($resultadoPersonagem["vocation"]),
 					"vocacao_campo" => $this->getCampoVocacao($resultadoPersonagem["vocation"]),
 					"status" => $this->getStatusPersonagem($resultadoPersonagem["id"]),
-					"comentario" => $resultadoPersonagem["comentario"],
+					"comentario" => htmlentities($resultadoPersonagem["comentario"]),
+					"exibirComentario" => preg_replace('/\n/', '<br>', htmlentities($resultadoPersonagem["comentario"]), $this->limiteLinhasComentario),
 					"deletar" => $resultadoPersonagem["deletion"],
 					"ocultar_conta" => $resultadoPersonagem["ocultar_conta"],
-					"ultimo_login" => $this->formatarLogin($resultadoPersonagem["lastlogin"])
+					"ultimo_login" => $this->formatarLogin($resultadoPersonagem["lastlogin"]),
+					"idade_tibia" => $this->calcularIdadeTibia($resultadoPersonagem["onlinetime"])
 				);
 			return $informacoesPersonagem;
+		}
+		public function gerarLinkPersonagem($personagemNome){
+			return '?p=personagens-'.urlencode(utf8_encode($personagemNome));
 		}
 		public function getListaPersonagens($contaId, $tabelaRank = ""){
 			$listaPersonagens = array();
@@ -258,7 +270,7 @@
 					$listaPersonagens[] = array(
 						"id" => $resultadoListaPersonagem["id"],
 						"nome" => $resultadoListaPersonagem["name"],
-						"link" => '?p=personagens-'.urlencode($resultadoListaPersonagem["name"]),
+						"link" => $this->gerarLinkPersonagem($resultadoListaPersonagem["name"]),
 						"nivel" => $resultadoListaPersonagem["level"],
 						"level" => $resultadoListaPersonagem["level"],
 						"experience" => number_format($resultadoListaPersonagem["experience"], 0, "", "."),
@@ -285,7 +297,8 @@
 			if(count($listaPersonagens) > 0){
 				foreach($listaPersonagens as $c => $v){
 					$status = ($contaId == 0 ? $v["status"] : $v["statusCompleto"]);
-					$exibirTempoDeletado = $this->formatarData(time()+$this->transformarDiasTempo($this->diasDeletarPersonagem));
+					$ClassFuncao = new Funcao();
+					$exibirTempoDeletado = $ClassFuncao->formatarData(time()+$this->transformarDiasTempo($this->diasDeletarPersonagem));
 					$statusDeletado = '
 						<b>Deletado</b> <div class="infoDeletado" exibirTempo="'.$exibirTempoDeletado.'"></div>
 						<div class="boxInfo">
@@ -383,6 +396,110 @@
 				if(mysql_query("UPDATE players SET deletion = '0' WHERE id = '$personagemId'"))
 					return true;
 			return false;
+		}
+		public function pegarUltimasMortesPersonagem($personagemId){
+			$ultimasMortes = array();
+			$queryUltimasMortes = mysql_query("SELECT * FROM player_deaths WHERE ((player_id LIKE '$personagemId') AND (time >= '".(time()-$this->diasUltimasMortes*24*60*60)."')) ORDER BY time DESC LIMIT 0,".$this->maximoUltimasMortes);
+			while($resultadoUltimasMortes = mysql_fetch_assoc($queryUltimasMortes))
+				$ultimasMortes[] = $resultadoUltimasMortes;
+			return $ultimasMortes;
+		}
+		public function exibirUltimasMortesPersonagem($personagemId){
+			$ClassFuncao = new Funcao();
+			$ultimasMortes = $this->pegarUltimasMortesPersonagem($personagemId);
+			if(count($ultimasMortes) == 0)
+				return;
+			$exibirUltimasMortes = '
+				<div style="margin-bottom: 30px;">
+					<table cellpadding="0" cellspacing="0" class="tabela odd" width="100%">
+						<tr class="cabecalho">
+							<td colspan="2">
+								Mortes do Personagem
+							</td>
+						</tr>
+						';
+						foreach($ultimasMortes as $numeroMorte => $informacoesMorte){
+							$mortoPor = ($informacoesMorte["is_player"] == 1 ? $this->exibirPersonagem($informacoesMorte["mostdamage_by"], true) : $informacoesMorte["mostdamage_by"]);
+							$exibirUltimasMortes .= '
+								<tr class="item">
+									<td width="260" align="center">
+										'.$ClassFuncao->formatarData($informacoesMorte["time"], true).'
+									</td>
+									<td>
+										Morto no nível '.$informacoesMorte["level"].' para '.$mortoPor.'.
+									</td>
+								</tr>
+							';
+						}
+						$exibirUltimasMortes .= '
+					</table>
+				</div>
+			';
+			return $exibirUltimasMortes;
+		}
+		public function pegarUltimasMortes(){
+			$ultimasMortes = array();
+			$queryUltimasMortes = mysql_query("SELECT * FROM player_deaths ORDER BY time DESC");
+			while($resultadoUltimasMortes = mysql_fetch_assoc($queryUltimasMortes))
+				$ultimasMortes[] = $resultadoUltimasMortes;
+			return $ultimasMortes;
+		}
+		public function exibirUltimasMortes(){
+			$ultimasMortes = $this->pegarUltimasMortes();
+			$exibirUltimasMortes = "";
+			if(count($ultimasMortes) == 0)
+				$exibirUltimasMortes .= '
+					<tr class="item" height="100">
+						<td colspan="3" align="center">
+							O servidor não possui nenhuma morte registrada.
+						</td>
+					</tr>
+				';
+			else{
+				foreach($ultimasMortes as $numeroMorte => $informacoesMorte){
+					$mortoPor = ($informacoesMorte["is_player"] == 1 ? $this->exibirPersonagem($informacoesMorte["mostdamage_by"], true) : $informacoesMorte["mostdamage_by"]);
+					$exibirUltimasMortes .= '
+						<tr class="item">
+							<td align="center">
+								'.($numeroMorte+1).'
+							</td>
+							<td>
+								'.$this->exibirPersonagem($informacoesMorte["player_id"], true).'
+							</td>
+							<td>
+								'.$this->formatarData($informacoesMorte["time"], true).', no nível '.$informacoesMorte["level"].' para '.$mortoPor.'.
+							</td>
+						</tr>
+					';
+				}
+			}
+			return $exibirUltimasMortes;
+		}
+		public function pegarNomePersonagem($personagemId){
+			$queryJogador = mysql_query("SELECT * FROM players WHERE (id LIKE '$personagemId')");
+			while($resultadoJogador = mysql_fetch_assoc($queryJogador))
+				return $resultadoJogador["name"];
+			return "";
+		}
+		public function exibirPersonagem($personagemId, $link = false){
+			$personagemNome = (is_numeric($personagemId) ? $this->pegarNomePersonagem($personagemId) : $personagemId);
+			if(($link) and (!empty($personagemNome)))
+				return '<a href="'.$this->gerarLinkPersonagem($personagemNome).'">'.$personagemNome.'</a>';
+			if(empty($personagemNome))
+				$personagemNome = "Jogador Sem Nome";
+			return $personagemNome;
+		}
+		public function pegarImagemPersonagem($personagem, $z = ""){
+			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$personagem["lookType"].'&head='.$personagem["lookHead"].'&body='.$personagem["lookBody"].'&legs='.$personagem["lookLegs"].'&feet='.$personagem["lookFeet"].'&addons='.$personagem["lookAddons"].'&mount='.$personagem["lookMount"];
+			$estilos = array("imagemOutfit");
+			if($personagem["lookMount"] == 0)
+				$estilos[] = 'semMontaria';
+			$exibirZ = (!empty($z) ? ' style="position: relative; z-index: '.$z.';"' : '');
+			return '
+				<div class="imagemOutfit">
+					<img src="'.$arquivoImagem.'" alt="'.$personagem["nome"].'" title="'.$personagem["nome"].'" border="0" class="'.implode(" ", $estilos).'"'.$exibirZ.' />
+				</div>
+			';
 		}
 	}
 ?>
