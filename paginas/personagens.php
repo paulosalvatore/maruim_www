@@ -62,13 +62,23 @@
 					"exibicao" => "Residência",
 					"valor" => $informacoesPersonagem["residencia"]
 				),
-				"ultimo_login" => array(
-					"exibicao" => "Último Login",
-					"valor" => $informacoesPersonagem["ultimo_login"]
+				"exibirDataCriacao" => array(
+					"exibicao" => "Criado em",
+					"valor" => $informacoesPersonagem["exibirDataCriacao"],
+					"ocultar_vazio" => true
 				),
-				"idade_tibia" => array(
+				"ultimoLogin" => array(
+					"exibicao" => "Último Login",
+					"valor" => $informacoesPersonagem["ultimoLogin"]
+				),
+				"idadeTibia" => array(
 					"exibicao" => "Idade no Tibia",
-					"valor" => $informacoesPersonagem["idade_tibia"],
+					"valor" => $informacoesPersonagem["idadeTibia"],
+					"ocultar_vazio" => true
+				),
+				"tempoOnline" => array(
+					"exibicao" => "Tempo Online",
+					"valor" => $informacoesPersonagem["tempoOnline"],
 					"ocultar_vazio" => true
 				),
 				"comentario" => array(

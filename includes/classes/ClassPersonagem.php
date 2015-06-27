@@ -222,6 +222,7 @@
 			return $exibirPersonagemStatus;
 		}
 		public function getInformacoesPersonagem($personagemId){
+			$ClassFuncao = new Funcao();
 			$informacoesPersonagem = array();
 			if(is_numeric($personagemId))
 				$queryPersonagem = mysql_query("SELECT * FROM players WHERE (id LIKE '$personagemId')");
@@ -247,11 +248,13 @@
 					"vocacao_campo" => $this->getCampoVocacao($resultadoPersonagem["vocation"]),
 					"status" => $this->getStatusPersonagem($resultadoPersonagem["id"]),
 					"comentario" => htmlentities($resultadoPersonagem["comentario"]),
-					"exibirComentario" => preg_replace('/\n/', '<br>', htmlentities($resultadoPersonagem["comentario"]), $this->limiteLinhasComentario),
+					"exibirComentario" => preg_replace('/\n/', '<br>', htmlentities($resultadoPersonagem["comentario"]), $this->limiteLinhasComentario-1),
 					"deletar" => $resultadoPersonagem["deletion"],
-					"ocultar_conta" => $resultadoPersonagem["ocultar_conta"],
-					"ultimo_login" => $this->formatarLogin($resultadoPersonagem["lastlogin"]),
-					"idade_tibia" => $this->calcularIdadeTibia($resultadoPersonagem["onlinetime"])
+					"ocultarConta" => $resultadoPersonagem["ocultar_conta"],
+					"ultimoLogin" => $this->formatarLogin($resultadoPersonagem["lastlogin"]),
+					"exibirDataCriacao" => $ClassFuncao->formatarData($resultadoPersonagem["data_registro"]),
+					"tempoOnline" => $ClassFuncao->exibirTempo($resultadoPersonagem["onlinetime"]),
+					"idadeTibia" => $this->calcularIdadeTibia(time()-$resultadoPersonagem["data_registro"])
 				);
 			return $informacoesPersonagem;
 		}

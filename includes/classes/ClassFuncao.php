@@ -11,6 +11,15 @@
 			}
 			return date("d/m/Y, H\hi\ms\s", $tempo);
 		}
+		public function exibirTempo($tempo){
+			$horas = floor(($tempo)/3600);
+			$minutos = floor(($tempo/60)%60);
+			$segundos = $tempo%60;
+			$exibirHoras = ($horas > 0 ? ($horas < 10 ? "0".$horas : $horas)."h" : "");
+			$exibirMinutos = (($horas > 0 or $minutos > 0) ? ($minutos < 10 ? "0".$minutos : $minutos)."m" : "");
+			$exibirSegundos = (($horas > 0 or $minutos > 0 or $segundos > 0) ? ($segundos < 10 ? "0".$segundos : $segundos)."s" : "");
+			return $exibirHoras.$exibirMinutos.$exibirSegundos;
+		}
 		public function formatarLogin($tempo){
 			if($tempo > 0)
 				$formatarLogin = $this->formatarData($tempo);
