@@ -4,8 +4,12 @@
 	require_once("conexao/conexao.php");
 	include("includes/classes/ClassConta.php");
 	include("includes/classes/ClassFuncao.php");
+	include("includes/classes/ClassPersonagem.php");
+	include("includes/classes/ClassServidor.php");
 	$ClassConta = new Conta();
 	$ClassFuncao = new Funcao();
+	$ClassServidor = new Servidor();
+	$ClassPersonagem = new Personagem();
 	include("includes/variaveis.php");
 	include("includes/protocolo.php");
 	include("includes/data.php");
