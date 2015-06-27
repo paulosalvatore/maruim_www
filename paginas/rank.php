@@ -14,8 +14,6 @@
 		reset($ranks);
 		$rank = key($ranks);
 	}
-	include("includes/classes/ClassPersonagem.php");
-	$ClassPersonagem = new Personagem();
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 			<div class="conteudo_box pagina padding">
