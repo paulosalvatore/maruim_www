@@ -1,6 +1,4 @@
 <?php
-	include("includes/classes/ClassPersonagem.php");
-	$ClassPersonagem = new Personagem();
 	$informacoes = $config["info"];
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
