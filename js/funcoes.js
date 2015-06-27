@@ -140,6 +140,7 @@ $(window).load(function(){
 		if($(this).width() != 64)
 			$(this).removeClass("largura64");
 	});
+	$("input[name=busca]").focus();
 });
 $(function(){
 	var pagina = $("#conteudo").attr("pagina");

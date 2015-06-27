@@ -112,6 +112,7 @@ function exibirCriaturas(){
 	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
 };
 $(function(){
+	$("#buscar_criaturas").focus();
 	var exibicao = getCookie("exibicao");
 	if((exibicao != "lista") && (exibicao != "galeria"))
 		exibicao = "lista";
