@@ -19,7 +19,7 @@
 									Detalhes da Morte
 								</td>
 							</tr>
-							'.$ClassFuncao->exibirUltimasMortes().'
+							'.$ClassPersonagem->exibirUltimasMortes().'
 						</table>
 					</div>
 				</div>
