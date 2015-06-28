@@ -15,17 +15,16 @@
 	.td2 { width:420px; padding:0px 0px 0px; }
 </style>
 
-<script type="text/javascript" src="../js/lib/javascript-googlemaps-api.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <script type="text/javascript">
-var MAP_VERSION = 6;
 var MAP_WIDTH = 8*256;
 var MAP_HEIGHT = 8*256;
-var ORIGIN_X = -143;
-var ORIGIN_Y = 543;
+var ORIGIN_X = 29;
+var ORIGIN_Y = 594;
 var ORIGIN_Z = 7;
-var MAX_ZOOM = 5;
 var MIN_ZOOM = 1;
+var MAX_ZOOM = 6;
 var map_max = Math.max(MAP_WIDTH,MAP_HEIGHT);
 var map;
 var floor;
@@ -34,7 +33,7 @@ var start_x;
 var start_y;
 var start_zoom;
 var linkMarker = null;
-var exibirControles = false;
+var exibirControles = true;
 
 var NPC = {};
 NPC['Mano Widin'] = [1045, 1601, 7];
@@ -191,7 +190,7 @@ function LoadMap() {
 					return "../imagens/mapa/blue.png";
 				return "../imagens/mapa/black.png";
 			}
-			return "../tiles_maruim/"+ floor + "/" + zoom + "/" + x + "/" + y + ".png";
+			return "../tiles/"+ floor + "/" + zoom + "/" + x + "/" + y + ".jpg";
 		},
 		tileSize: new google.maps.Size(256,256),
 		isPng: true,
@@ -215,7 +214,7 @@ function LoadMap() {
 		linkMarker = new google.maps.Marker({
 			map: map,
 			position: CoordToLatLng(start_x,start_y),
-			title: "Duplo click para remover.",
+			title: "Duplo clique para remover.",
 			animation: google.maps.Animation.BOUNCE
 		});
 		
