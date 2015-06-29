@@ -41,7 +41,7 @@
 		)
 	);
 	$config["login_obrigatorio"] = array(
-		"criar_noticia"
+		"reportacoes"
 	);
 	$config["acesso_restrito"] = array(
 		"criar_noticia",
