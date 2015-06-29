@@ -90,7 +90,7 @@ $(function(){
 		$("#statusConcluidas").hide();
 		$("#statusPendentes").show();
 		aplicarBackgroundTarefas();
-	});
+	}).click();
 	$("#mostrarConcluidas").click(function(){
 		verificarTarefas($(".concluida"));
 		$(".concluida").each(function(){

@@ -75,7 +75,7 @@
 							</tr>
 							<tr class="item" height="40">
 								<td>
-									<span class="verde">'.$exibirQuantidadeTarefasConcluidas.'</span><span id="statusConcluidas" style="display: none;"> (exibindo)</span><br>
+									<span class="verde">'.$exibirQuantidadeTarefasConcluidas.'</span><span id="statusConcluidas"> (exibindo)</span><br>
 									<span class="vermelho">'.$exibirQuantidadeTarefasPendentes.'</span><span id="statusPendentes"> (exibindo)</span><br>
 								</td>
 							</tr>
@@ -94,7 +94,7 @@
 								<td width="40">
 									Categoria
 								</td>
-								<td width="50">
+								<td width="80">
 									Data
 								</td>
 								<td>
