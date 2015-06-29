@@ -2,10 +2,54 @@
 	set_time_limit(36000);
 	class Itens {
 		private $categoriasProfissoes = array(
-			14 => "ferreiro",
-			15 => "alfaiate",
-			16 => "alquimista",
-			17 => "cozinheiro",
+			14 => array(
+				"profissao" => 4,
+				"nome" => "ferreiro",
+				"subcategorias" => array(
+					1 => "mesas_trabalho",
+					2 => "ferramentas",
+					3 => "materiais",
+					4 => "receitas",
+					5 => "ingredientes_secretos",
+					6 => "ingredientes_melhoria"
+				)
+			),
+			15 => array(
+				"profissao" => 1,
+				"nome" => "alfaiate",
+				"subcategorias" => array(
+					7 => "mesas_trabalho",
+					8 => "ferramentas",
+					9 => "materiais",
+					10 => "receitas",
+					11 => "ingredientes_secretos",
+					12 => "ingredientes_melhoria"
+				)
+			),
+			16 => array(
+				"profissao" => 2,
+				"nome" => "alquimista",
+				"subcategorias" => array(
+					13 => "mesas_trabalho",
+					14 => "ferramentas",
+					15 => "materiais",
+					16 => "receitas",
+					17 => "ingredientes_secretos",
+					18 => "ingredientes_melhoria"
+				)
+			),
+			17 => array(
+				"profissao" => 3,
+				"nome" => "cozinheiro",
+				"subcategorias" => array(
+					19 => "mesas_trabalho",
+					20 => "ferramentas",
+					21 => "materiais",
+					22 => "receitas",
+					23 => "ingredientes_secretos",
+					24 => "ingredientes_melhoria"
+				)
+			),
 		);
 		public function loadXML(){
 			$arquivo = "arquivos/itens/items.xml";
@@ -494,7 +538,7 @@
 										<a href="'.$materialInfo["url"].'">
 											'.$materialInfo["nome"].'
 										</a>
-										
+
 									</td>
 								</tr>
 							';
@@ -927,7 +971,7 @@
 						}
 						$exibirMenus .= '
 					</table>
-					<br>					
+					<br>
 				';
 			}
 			if(empty($exibirMenus))
@@ -965,12 +1009,28 @@
 						</tr>
 						';
 						$itens = array();
+						$itensCategoria = array();
+						$subCategorias = array();
+						$itensSubCategorias = array();
 						$queryCategoriaItens = mysql_query("SELECT * FROM z_itens_categorias_itens WHERE (categoria LIKE '$id')");
-						while($resultadoCategoriaItens = mysql_fetch_assoc($queryCategoriaItens)){
-							$itens[] = $resultadoCategoriaItens["item"];
+						while($resultadoCategoriaItens = mysql_fetch_assoc($queryCategoriaItens))
+							if(!in_array($resultadoCategoriaItens["item"], $itens)){
+								$itens[] = $resultadoCategoriaItens["item"];
+							$itensCategoria[] = $resultadoCategoriaItens["item"];
+						}
+						$querySubCategoria = mysql_query("SELECT * FROM z_itens_subcategorias WHERE (categoria LIKE '$id')");
+						while($resultadoSubCategoria = mysql_fetch_assoc($querySubCategoria))
+							$subCategorias[] = $resultadoSubCategoria["id"];
+						foreach($subCategorias as $subCategoriaId){
+							$querySubCategoriaItens = mysql_query("SELECT * FROM z_itens_subcategorias_itens WHERE (subcategoria LIKE '$subCategoriaId')");
+							while($resultadoSubCategoriaItens = mysql_fetch_assoc($querySubCategoriaItens)){
+								if(!in_array($resultadoSubCategoriaItens["item"], $itens))
+									$itens[] = $resultadoSubCategoriaItens["item"];
+								$itensSubCategorias[$subCategoriaId][] = $resultadoSubCategoriaItens["item"];
+							}
 						}
 						$itensInfo = $this->getItemInfoSQL($itens);
-						foreach($itens as $item){
+						foreach($itensCategoria as $item){
 							$itemInfo = $itensInfo[$item];
 							$exibirCategoria .= '
 								<tr class="item">
@@ -986,15 +1046,58 @@
 						if(count($itens) == 0)
 							$exibirCategoria .= '
 								<tr class="item">
-									<td colspan="2" height="100" align="center">
+									<td colspan="2" height="80" align="center">
 										<b>Essa categoria está vazia.</b>
 									</td>
 								</tr>
 							';
 						$exibirCategoria .= '
 					</table>
-					<br>					
+					'.(count($itensCategoria) > 0 ? "<br>" : "").'
 				';
+				$querySubCategoria = mysql_query("SELECT * FROM z_itens_subcategorias WHERE (categoria LIKE '$id')");
+				while($resultadoSubCategoria = mysql_fetch_assoc($querySubCategoria)){
+					$exibirCategoria .= '
+						<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+							<tr class="cabecalho">
+								<td colspan="2">
+									'.$resultadoSubCategoria["nome"].'
+								</td>
+							</tr>
+							';
+							if(is_array($itensSubCategorias[$resultadoSubCategoria["id"]])){
+								$exibirItens = array();
+								foreach($itensSubCategorias[$resultadoSubCategoria["id"]] as $c => $itemId)
+									$exibirItens[$c] = $itensInfo[$itemId]["nome"];
+								asort($exibirItens);
+								foreach($exibirItens as $c => $itemNome){
+									$item = $itensSubCategorias[$resultadoSubCategoria["id"]][$c];
+									$itemInfo = $itensInfo[$item];
+									$exibirCategoria .= '
+										<tr class="item">
+											<td width="30" align="center">
+												<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
+											</td>
+											<td>
+												<a href="'.$itemInfo["url"].'">'.$itemNome.'</a>
+											</td>
+										</tr>
+									';
+								}
+							}
+							else
+								$exibirCategoria .= '
+									<tr class="item">
+										<td colspan="2" height="80" align="center">
+											<b>Essa categoria está vazia.</b>
+										</td>
+									</tr>
+								';
+							$exibirCategoria .= '
+						</table>
+						<br>
+					';
+				}
 			}
 			if(empty($exibirCategoria)){
 				$ClassFuncao = new Funcao();
@@ -1072,14 +1175,69 @@
 						mysql_query("INSERT INTO z_itens_categorias_itens (categoria, item) VALUES ('$categoriaId', '$itemId')");
 				}
 			}
-			foreach($categoriasProfissoes as $categoriaId => $profissao){
+			mysql_query("TRUNCATE TABLE z_itens_subcategorias_itens");
+			foreach($categoriasProfissoes as $categoriaId => $categoria){
+				$profissao = $categoria["profissao"];
+				$subCategoriaMesaTrabalho = array_search("mesas_trabalho", $categoria["subcategorias"]);
+				$subCategoriaIngredientesMelhoria = array_search("ingredientes_melhoria", $categoria["subcategorias"]);
+				$mesasTrabalho = array();
+				$ingredientesMelhoria = array();
+				$queryItensCategoria = mysql_query("SELECT * FROM z_profissoes WHERE (id LIKE '$profissao')");
+				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
+					$mesasTrabalho = explode(";", $resultadoItensCategoria["mesaTrabalho"]);
+					foreach($mesasTrabalho as $item)
+						if(!empty($item))
+							mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaMesaTrabalho', '$item')");
+					$ingredientesMelhoria = explode(";", $resultadoItensCategoria["ingredientesMelhoria"]);
+					foreach($ingredientesMelhoria as $item){
+						$item = explode(",", $item);
+						if(!empty($item[0]))
+							mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaIngredientesMelhoria', '".$item[0]."')");
+					}
+				}
 				$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '$profissao')");
 				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
-					$itemId = $resultadoItensCategoria["item"];
-					$checarReceita = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_categorias_itens WHERE ((categoria LIKE '$categoriaId') AND (item LIKE '$itemId'))"));
-					$checarReceita = $checarReceita["total"];
-					if($checarReceita == 0)
-						mysql_query("INSERT INTO z_itens_categorias_itens (categoria, item) VALUES ('$categoriaId', '$itemId')");
+					foreach($categoria["subcategorias"] as $subCategoriaId => $subCategoriaNome){
+						$itens = array();
+						switch($subCategoriaNome){
+							case "ferramentas":
+								if(!in_array($resultadoItensCategoria["ferramenta"], $itens))
+									$itens[] = $resultadoItensCategoria["ferramenta"];
+								break;
+							case "materiais":
+								$materiais = explode(";", $resultadoItensCategoria["materiais"]);
+								foreach($materiais as $item){
+									if(!empty($item)){
+										$item = explode(",", $item);
+										if(!in_array($item[0], $itens))
+											$itens[] = $item[0];
+									}
+								}
+								break;
+							case "receitas":
+								if(!in_array($resultadoItensCategoria["item"], $itens))
+									$itens[] = $resultadoItensCategoria["item"];
+								break;
+							case "ingredientes_secretos":
+								if(!empty($resultadoItensCategoria["ingredienteSecreto"])){
+									$ingredienteSecreto = explode(";", $resultadoItensCategoria["ingredienteSecreto"]);
+									foreach($ingredienteSecreto as $item){
+										if(!empty($item)){
+											$item = explode(",", $item);
+											if(!in_array($item[0], $itens))
+												$itens[] = $item[0];
+										}
+									}
+								}
+								break;
+						}
+						foreach($itens as $itemId){
+							$checarItem = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_subcategorias_itens WHERE ((subcategoria LIKE '$subCategoriaId') AND (item LIKE '$itemId'))"));
+							$checarItem = $checarItem["total"];
+							if($checarItem == 0)
+								mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaId', '$itemId')");
+						}
+					}
 				}
 			}
 		}
@@ -1167,7 +1325,7 @@
 						';
 					$exibirBusca .= '
 				</table>
-				<br>					
+				<br>
 			';
 			return $exibirBusca;
 		}
