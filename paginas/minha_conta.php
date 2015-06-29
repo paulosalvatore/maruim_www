@@ -77,58 +77,50 @@
 				<b>Os seguintes erros ocorerram:</b><br>
 				Usuário e/ou senha inválidos. Digite dados válidos.
 			</div>
-			<br>
 			<div class="box_frame" carregar_box="1">
 				Entrar na Conta
 			</div>
-			<div class="box_frame_conteudo_principal sombra" carregar_box="1">
-				<div class="box_frame_conteudo dark">
-					<form id="form_login">
-						<input type="hidden" name="url" value="'.$_POST["url"].'" />
-						<table width="100%">
-							<tr>
-								<td width="100">
-									<b>Conta:</b>
-								</td>
-								<td width="280">
-									<input type="password" id="conta" name="conta" style="width: 278px;">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<b>Senha:</b>
-								</td>
-								<td>
-									<input type="password" id="senha" name="senha" style="width: 278px;">
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" align="right">
-									<input type="submit" class="botao_azul" value="entrar">
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" align="right">
-									<input type="button" class="botao_azul" value="perdeu_sua_conta">
-								</td>
-							</tr>
-						</table>
-					</form>
+			<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+				<div class="box_frame_conteudo" carregar_box="1">
+					<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+						<tr class="conteudo dark">
+							<td>
+								<form id="form_login">
+									<input type="hidden" name="url" value="'.$_POST["url"].'" />
+									<table width="100%">
+										<tr>
+											<td width="100">
+												<b>Conta:</b>
+											</td>
+											<td width="280">
+												<input type="password" id="conta" name="conta" onClick="this.select();" style="width: 278px;">
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>Senha:</b>
+											</td>
+											<td>
+												<input type="password" id="senha" name="senha" onClick="this.select();" style="width: 278px;">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="right">
+												<input type="submit" class="botao_azul" value="entrar">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="right">
+												<input type="button" class="botao_azul" value="perdeu_sua_conta">
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
-			<br>
-			Tarefas para essa página:
-			<ul class="tarefas">
-				<li>
-					Criar Formulário de Login
-				</li>
-				<li>
-					Criar Formulário de "Perdeu sua Conta?"
-				</li>
-				<li>
-					Criar Sistema de Login/Criação de Conta com Facebook
-				</li>
-			</ul>
 		';
 	}
 	else{

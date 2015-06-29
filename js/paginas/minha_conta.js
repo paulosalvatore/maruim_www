@@ -126,8 +126,13 @@ $(function(){
 				formulario: formulario
 			}),
 			success: function(result){
-				if(result == 0)
+				if(result == 0){
 					$(".small_box_frame.erro").show();
+					if($("#senha").val() != "")
+						$("#senha").focus().select();
+					else
+						$("#conta").focus().select();
+				}
 				else if(result == 1){
 					if($("input[name=url]").val() != "")
 						document.location = $("input[name=url]").val();
