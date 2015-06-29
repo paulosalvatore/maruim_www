@@ -74,6 +74,7 @@
 			"background" => 7,
 			"opcoes" => array(
 				// "faq" => "FAQ",
+				"reportacoes" => "Reportações",
 				"regras" => "Regras",
 				// "guia_tutor" => "Guia de Tutores"
 			)
@@ -117,20 +118,22 @@
 							</div>
 							<div class="opcoes">
 								';
-								foreach($categoria["opcoes"] as $botao_id => $botao_nome){
-									$estilosTexto = '';
-									if(strlen($botao_nome) >= 23)
-										$estilosTexto = ' style="font-size: 12px;"';
-									$botoes_menu .= '
-										<div class="opcao '.$botao_id.'">
-											<a href="?p='.$botao_id.'">
-												<div class="borda_esquerda"></div>
-												<div class="icone"></div>
-												<div class="texto"'.$estilosTexto.'>'.$botao_nome.'</div>
-												<div class="borda_direita"></div>
-											</a>
-										</div>
-									';
+								foreach($categoria["opcoes"] as $botaoId => $botaoNome){
+									if((!in_array($botaoId, $config["login_obrigatorio"])) or ((in_array($botaoId, $config["login_obrigatorio"])) and ($usuarioEncontrado))){
+										$estilosTexto = '';
+										if(strlen($botaoNome) >= 23)
+											$estilosTexto = ' style="font-size: 12px;"';
+										$botoes_menu .= '
+											<div class="opcao '.$botaoId.'">
+												<a href="?p='.$botaoId.'">
+													<div class="borda_esquerda"></div>
+													<div class="icone"></div>
+													<div class="texto"'.$estilosTexto.'>'.$botaoNome.'</div>
+													<div class="borda_direita"></div>
+												</a>
+											</div>
+										';
+									}
 								}
 								$botoes_menu .= '
 							</div>
