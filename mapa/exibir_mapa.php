@@ -16,6 +16,7 @@
 </style>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="../js/lib/jquery.js"></script>
 
 <script type="text/javascript">
 var MAP_WIDTH = 8*256;
@@ -40,17 +41,11 @@ NPC['Mano Widin'] = [1045, 1601, 7];
 
 function LatLngToCoord(latLng) {
 	return new google.maps.Point(ORIGIN_X+Math.floor(latLng.lng()*map_max/2.56),ORIGIN_Y+Math.floor(latLng.lat()*map_max/2.56));
-}; 
+};
 
 function CoordToLatLng(x,y) {
 	return new google.maps.LatLng((y-ORIGIN_Y+0.5)/map_max*2.56,(x-ORIGIN_X+0.5)/map_max*2.56);
-}; 
-
-function SelectElement(element) {
-	var r = document.createRange();
-	r.selectNodeContents(document.getElementById(element));
-	window.getSelection().addRange(r);
-}
+};
 
 function CollapseTable() {
 	if (document.getElementById("info_table").style.display=="none") {
@@ -100,7 +95,6 @@ function MapUpdate() {
 	var zoom = map.getZoom();
 	var url;
 	document.getElementById("info_coords").innerHTML = "x: "+coord_x+"&nbsp;&nbsp;&nbsp;y: "+coord_y+"&nbsp;&nbsp;&nbsp;z: "+floor;
-	document.getElementById("wiki").value=url = "{{mapa|"+coord_x+","+coord_y+","+floor+":"+zoom+"|aqui}}";
 	url=window.location.host+"/?p=mapa&x="+coord_x+"&y="+coord_y+"&z="+floor+"&zoom="+zoom;
 	document.getElementById("info_link").value=url;
 	document.getElementById("info_link").innerHTML=url;
@@ -227,6 +221,10 @@ function LoadMap() {
 			linkMarker = null;
 		});
 	}
+	google.maps.event.addListenerOnce(map, 'idle', function(){
+		$("img[src='https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png']").remove();
+		$(".gmnoprint.gm-style-cc").remove();
+	});
 }
 
 function FloorControl() {
@@ -355,17 +353,11 @@ function Init() {
 		
 		<tr>
 			<td class="td1">Coordenadas:</td>
-			<td class="td2" id="info_coords" onclick="SelectElement('info_coords');"></td>
+			<td class="td2" id="info_coords"></td>
 		</tr>
 		<tr>
-			<td class="td1" onclick="SelectElement('info_link');">Código Local:</td>
-			<td class="td2" onclick="SelectElement('info_link2');">
-				<input id="wiki" readonly="readonly" type="text" value="" size="45" style="background:#FFFFFF; color:#000000; padding-left: 1px; border: 1px solid #A7D7F9; -moz-border-radius: 2px; border-radius: 2px;" onclick="this.select()" />
-			</td>
-		</tr>
-		<tr>
-			<td class="td1" onclick="SelectElement('info_link');" valign="top">Link direto:</td>
-			<td class="td2" onclick="SelectElement('info_link2');">
+			<td class="td1" valign="top">Link direto:</td>
+			<td class="td2">
 				<input id="info_link" readonly="readonly" type="text" value="" size="45" style="background:#FFFFFF; color:#000000; padding-left: 1px; border: 1px solid #A7D7F9; -moz-border-radius: 2px; border-radius: 2px;" onclick="this.select()" />
 			</td>
 		</tr>
