@@ -611,6 +611,18 @@
 				);
 			return $exibirReceita;
 		}
+		public function verificarItemMesaTrabalho($item){
+			$queryPofissoes = mysql_query("SELECT * FROM z_profissoes");
+			while($resultadoProfissoes = mysql_fetch_assoc($queryPofissoes)){
+				$mesasTrabalho = explode(";", $resultadoProfissoes["mesaTrabalho"]);
+				echo'<pre>';
+				print_r($mesaTrabalho);
+				echo'</pre>';
+				foreach($mesasTrabalho as $mesaTrabalho)
+					if($mesaTrabalho == $item)
+						return '<a href="<a href="?p=profissoes-'.strtolower($resultadoProfissoes["nome"]).'">'.$resultadoProfissoes["nome"].'</a>';
+			}
+		}
 		public function pegarReceitasItem($item, $tipo){
 			$receitas = array();
 			if($tipo == "fabricacao"){
@@ -901,6 +913,8 @@
 			}
 			if((count($npcs) > 0))
 				$npcs = $this->pegarNpcsInfo($npcs);
+			else
+				return false;
 			$exibirCompradores = "Jogadores".(count($npcsCompram) > 0 ? " e NPCs listados" : "").".";
 			$exibirVendedores = "Jogadores".(count($npcsVendem) > 0 ? " e NPCs listados" : "").".";
 			$exibirNpcsCompram = '

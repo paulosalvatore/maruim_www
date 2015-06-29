@@ -50,12 +50,24 @@
 									</td>
 								</tr>
 							';
+						$mesaTrabalho = $ClassItens->verificarItemMesaTrabalho($id);
+						if(!empty($mesaTrabalho))
+							$conteudo_pagina .= '
+								<tr class="item">
+									<td align="right">
+										<b>Mesa de Trabalho</b>
+									</td>
+									<td>
+										Na profissão de '.$mesaTrabalho.'
+									</td>
+								</tr>
+							';
 						$conteudo_pagina .= '
 					</table>
 					<br>
 					';
-					$exibirReceitas = $ClassItens->pegarReceitasItem($id, "fabricacao");
-					if(!empty($exibirReceitas)){
+					$exibirFabricacao = $ClassItens->pegarReceitasItem($id, "fabricacao");
+					if(!empty($exibirFabricacao)){
 						$conteudo_pagina .= '
 							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 								<tr class="cabecalho">
@@ -63,13 +75,13 @@
 										Receita para fazer esse Item:
 									</td>
 								</tr>
-								'.$exibirReceitas.'
+								'.$exibirFabricacao.'
 							</table>
 							<br>
 						';
 					}
-					$exibirReceitas = $ClassItens->pegarReceitasItem($id, "ferramenta");
-					if(!empty($exibirReceitas)){
+					$exibirFerramentas = $ClassItens->pegarReceitasItem($id, "ferramenta");
+					if(!empty($exibirFerramentas)){
 						$conteudo_pagina .= '
 							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 								<tr class="cabecalho">
@@ -77,7 +89,7 @@
 										Esse Item é utilizado como Ferramenta nas seguintes receitas:
 									</td>
 								</tr>
-								'.$exibirReceitas.'
+								'.$exibirFerramentas.'
 							</table>
 							<br>
 						';
@@ -111,33 +123,37 @@
 						';
 					}
 					$exibirNpcsItem = $ClassItens->exibirNpcsItem($id);
-					$exibirNpcsCompram = $exibirNpcsItem[0];
-					$exibirNpcsVendem = $exibirNpcsItem[1];
+					if(is_array($exibirNpcsItem)){
+						$exibirNpcsCompram = $exibirNpcsItem[0];
+						$exibirNpcsVendem = $exibirNpcsItem[1];
+						$conteudo_pagina .= '
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="50%" valign="top">
+										<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+											<tr class="cabecalho" align="center">
+												<td colspan="2">
+													Compra de:
+												</td>
+											</tr>
+											'.$exibirNpcsCompram.'
+										</table>
+									</td>
+									<td width="50%" valign="top">
+										<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+											<tr class="cabecalho" align="center">
+												<td colspan="2">
+													Vende para:
+												</td>
+											</tr>
+											'.$exibirNpcsVendem.'
+										</table>
+									</td>
+								</tr>
+							</table>
+						';
+					}
 					$conteudo_pagina .= '
-					<table width="100%" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="50%" valign="top">
-								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-									<tr class="cabecalho" align="center">
-										<td colspan="2">
-											Compra de:
-										</td>
-									</tr>
-									'.$exibirNpcsCompram.'
-								</table>
-							</td>
-							<td width="50%" valign="top">
-								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-									<tr class="cabecalho" align="center">
-										<td colspan="2">
-											Vende para:
-										</td>
-									</tr>
-									'.$exibirNpcsVendem.'
-								</table>
-							</td>
-						</tr>
-					</table>
 					<br>
 				</div>
 			</div>
