@@ -1,5 +1,4 @@
 <?php
-$nomeServidor = "nomeServidorOT";
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 			<div class="conteudo_box pagina">
@@ -8,9 +7,9 @@ $nomeServidor = "nomeServidorOT";
 				</div>
 				<div class="box_frame_conteudo_principal" carregar_box="1">
 					<div class="box_frame_conteudo">
-						'.$nomeServidor.' é um jogo online onde jogadores de todo o mundo se encontram diariamente. Para que este jogo se mantenha divertido e justo para todos, o '.$nomeServidor.' aponta gamemasters que têm poder de parar atitudes destrutivas no jogo ou no website oficial, penalisando, banindo ou deletando personagens e contas.<br>
+						MaruimOT é um jogo online onde jogadores de todo o mundo se encontram diariamente. Para que este jogo se mantenha divertido e justo para todos, o MaruimOT aponta gamemasters que têm poder de parar atitudes destrutivas no jogo ou no website oficial, penalisando, banindo ou deletando personagens e contas.<br>
 						<br>
-						Desta forma, o '.$nomeServidor.' considera as seguintes ações proibidas:<br>
+						Desta forma, o MaruimOT considera as seguintes ações proibidas:<br>
 						<br>
 						<br>
 						1- Nomes<br>
@@ -25,11 +24,11 @@ $nomeServidor = "nomeServidorOT";
 						<br>
 						c) Nome Inadequado<br>
 						<br>
-						Nomes que fujam da temática medieval do '.$nomeServidor.', ou que contenham anúncios ilegais.<br>
+						Nomes que fujam da temática medieval do MaruimOT, ou que contenham anúncios ilegais.<br>
 						<br>
 						d) Nome com Posições Oficiais ou Referente à Violação das Regras<br>
 						<br>
-						Nomes relacionados à administração do '.$nomeServidor.', ou que incentivem a violação das regras.<br>
+						Nomes relacionados à administração do MaruimOT, ou que incentivem a violação das regras.<br>
 						<br>
 						<br>
 						2- Mensagens e Declarações<br>
@@ -44,7 +43,7 @@ $nomeServidor = "nomeServidorOT";
 						<br>
 						c) Anúncios Ilegais<br>
 						<br>
-						Anúncios de outros servidores, sites, jogos ou qualquer conteúdo não relacionado ao '.$nomeServidor.'.<br>
+						Anúncios de outros servidores, sites, jogos ou qualquer conteúdo não relacionado ao MaruimOT.<br>
 						<br>
 						d) Estimular a Violação das Regras<br>
 						<br>
@@ -89,7 +88,7 @@ $nomeServidor = "nomeServidorOT";
 						<br>
 						5- Comportamento Destrutivo<br>
 						<br>
-						Qualquer atitude que não esteja citada nas regras acima, mas que seja analisada e considerada prejudicial ao jogo por qualquer membro da equipe '.$nomeServidor.'.<br>
+						Qualquer atitude que não esteja citada nas regras acima, mas que seja analisada e considerada prejudicial ao jogo por qualquer membro da equipe MaruimOT.<br>
 						<br>
 						<br>
 						A violação de qualquer uma das regras acima pode acarretar em um banimento ou até mesmo na exclusão da conta do personagem.<br>
