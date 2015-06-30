@@ -25,16 +25,21 @@
 									'.$ClassPersonagem->limiteRank.'
 								</td>
 							</tr>
-							<tr class="item">
-								<td>
-									<b>Proteção de PvP:</b>
-								</td>
-								<td>
-									Nível 1 ao '.$informacoes["protecao"].'<br>
-									<br>
-									Você não pode ser morto por outros jogadores até atingir o nível '.($informacoes["protecao"]+1).'.
-								</td>
-							</tr>
+							';
+							if($informacoes["protecao"] > 1)
+								$conteudo_pagina .= '
+									<tr class="item">
+										<td>
+											<b>Proteção de PvP:</b>
+										</td>
+										<td>
+											Nível 1 ao '.$informacoes["protecao"].'<br>
+											<br>
+											Você não pode ser morto por outros jogadores até atingir o nível '.($informacoes["protecao"]+1).'.
+										</td>
+									</tr>
+								';
+							$conteudo_pagina .= '
 							<tr class="item">
 								<td>
 									<b>Experiência:</b>
