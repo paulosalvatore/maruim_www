@@ -18,6 +18,7 @@
 										$maxlength = $valor_campo["maxlength"];
 										$igual = $valor_campo["igual"];
 										$sugestao = $valor_campo["sugestao"];
+										$adicional = $valor_campo["adicional"];
 										$variaveis[] = 'name="'.$id_campo.'"';
 										$variaveis[] = 'id="'.$id_campo.'"';
 										if(strpos($id_campo, "senha") !== false)
@@ -43,6 +44,7 @@
 										$input = "";
 										$opcoes = $valor_campo["opcoes"];
 										$opcao_ativa = $valor_campo["opcao_ativa"];
+										$adicional = $valor_campo["adicional"];
 										foreach($opcoes as $opcao){
 											$exibicao_opcao = $opcao["exibicao"];
 											$valor_opcao = $opcao["valor"];
@@ -76,6 +78,14 @@
 											</td>
 										</tr>
 									';
+									if($adicional)
+										$exibicao_formulario_criacao_conta .= '
+											<tr valign="top">
+												<td colspan="2" class="pequeno">
+													'.$adicional.'
+												</td>
+											</tr>
+										';
 								}
 								$exibicao_formulario_criacao_conta .= '
 							</table>

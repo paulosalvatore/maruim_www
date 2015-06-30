@@ -53,6 +53,7 @@
 				<script type="text/javascript" src="js/lib/jquery.maskInput.js"></script>
 				<script type="text/javascript" src="js/lib/jquery.tinysort.js"></script>
 				<script type="text/javascript" src="js/lib/jquery.donetyping.js"></script>
+				<script type="text/javascript" src="js/lib/jquery.zeroclipboard.js"></script>
 				<script type="text/javascript" src="js/funcoes.js"></script>
 				<script type="text/javascript" src="js/carregar_box.js"></script>
 				';

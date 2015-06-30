@@ -94,7 +94,8 @@
 				"desenvolvedor_ids_utilizadas" => "IDs Utilizadas",
 				"desenvolvedor_tarefas" => "Tarefas",
 				"criar_npc" => "Criar NPC",
-				"desenvolvedor_orcish" => "Orcish"
+				"desenvolvedor_orcish" => "Orcish",
+				"desenvolvedor_chaves_acesso" => "Chaves de Acesso"
 			),
 			"acesso_pagina" => true
 		)

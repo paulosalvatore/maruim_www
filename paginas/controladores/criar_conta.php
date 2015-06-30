@@ -3,7 +3,6 @@
 	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
 	check_is_ajax(__FILE__);
-	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/config_criar_conta.php");
 	include("../../includes/protocolo.php");
@@ -98,6 +97,12 @@
 					if($checar_campo > 0)
 						$erros[$id_campo][] = $msg_unico;
 				}
+				if($chaveAcessoObrigatoria and $id_campo == "chave_acesso"){
+					$checar_campo = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_chaves_acesso WHERE ((chave LIKE '$valor_campo') AND (disponivel LIKE '1'))"));
+					$checar_campo = $checar_campo["total"];
+					if($checar_campo == 0)
+						$erros[$id_campo][] = $msg_unico;
+				}
 			}
 		}
 		elseif($tipo == "opcao_radio"){
@@ -169,7 +174,10 @@
 					$sql_query .= ");";
 					if($formulario["conta"] != ""){
 						mysql_query($sql_query);
+						if($chaveAcessoObrigatoria)
+							mysql_query("UPDATE z_chaves_acesso SET disponivel = '0' WHERE (chave LIKE '".$formulario["chave_acesso"]."')");
 						$_SESSION["login"] = $formulario["conta"];
+						$_SESSION["senha"] = sha1($formulario["senha"]);
 					}
 				}
 			}

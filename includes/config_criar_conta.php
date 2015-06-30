@@ -1,4 +1,5 @@
 <?php
+	$chaveAcessoObrigatoria = true;
 	$formulario_criacao_conta = array(
 		array(
 			"conta" => array(
@@ -10,12 +11,12 @@
 				"tipo_dados" => array(
 					"numeros" => true,
 					"letras" => true,
-					"simbolos" => false,
+					"simbolos" => false
 				),
 				"tipo_dados_obrigatorio" => array(
 					"numeros" => true,
 					"letras" => true,
-					"email" => false,
+					"email" => false
 				),
 				"obrigatorio" => true,
 				"unico" => true,
@@ -34,12 +35,12 @@
 				"tipo_dados" => array(
 					"numeros" => true,
 					"letras" => true,
-					"simbolos" => true,
+					"simbolos" => true
 				),
 				"tipo_dados_obrigatorio" => array(
 					"numeros" => false,
 					"letras" => false,
-					"email" => true,
+					"email" => true
 				),
 				"obrigatorio" => true,
 				"unico" => true,
@@ -93,7 +94,7 @@
 				"msg_unico" => "",
 				"msg_igual" => "As senhas digitadas devem ser iguais.",
 				"msg_igual_vazio" => "Por favor digite uma senha."
-			),
+			)
 		),
 		array(
 			"nome_personagem" => array(
@@ -105,12 +106,12 @@
 				"tipo_dados" => array(
 					"numeros" => true,
 					"letras" => true,
-					"simbolos" => false,
+					"simbolos" => false
 				),
 				"tipo_dados_obrigatorio" => array(
 					"numeros" => false,
 					"letras" => false,
-					"email" => false,
+					"email" => false
 				),
 				"sugestao" => true,
 				"obrigatorio" => true,
@@ -136,8 +137,35 @@
 				),
 				"opcao_ativa" => 1,
 				"obrigatorio" => true,
-				"msg_opcao_inexistente" => "O valor atribuído para o sexo do personagem não é válido."
-			),
+				"msg_opcao_inexistente" => "O valor atribuído para o sexo do personagem não é válido.",
+				"adicional" => "Você poderá escolher a vocação do personagem na página seguinte."
+			)
 		)
 	);
+	if($chaveAcessoObrigatoria){
+		$formulario_criacao_conta[] = array(
+			"chave_acesso" => array(
+				"exibicao" => "Chave de Acesso",
+				"tipo" => "texto",
+				"size" => 25,
+				"minlength" => 1,
+				"maxlength" => 100,
+				"tipo_dados" => array(
+					"numeros" => true,
+					"letras" => true,
+					"simbolos" => false
+				),
+				"tipo_dados_obrigatorio" => array(
+					"numeros" => false,
+					"letras" => false,
+					"email" => false
+				),
+				"obrigatorio" => true,
+				"unico" => false,
+				"igual" => "",
+				"msg_unico" => "Chave de acesso inválida!",
+				"msg_igual" => ""
+			)
+		);
+	}
 ?>
