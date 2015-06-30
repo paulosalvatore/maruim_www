@@ -1424,6 +1424,7 @@ ul .sucesso {
 #balancoRapido {
 	display: none;
 }
+#reportacoes .item.vazio,
 #tarefas .item.vazio {
 	height: 70px;
 	text-align: center;
@@ -1499,4 +1500,11 @@ div.imagemOutfit {
 .imagemOutfit img.largura64.semMontaria {
 	margin-left: -32px;
 	margin-top: -32px;
+}
+.voltarTopo {
+	float: right;
+	background: url(../imagens/corpo/voltar_topo.gif);
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
 }

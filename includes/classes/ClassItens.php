@@ -1110,7 +1110,7 @@
 							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 								<tr class="cabecalho">
 									<td colspan="2">
-										<a name="'.$subCategoria["nome"].'"></a>'.$subCategoria["nome"].'
+										<a name="'.$subCategoria["nome"].'"></a>'.$subCategoria["nome"].'<a href="#top"><div class="voltarTopo"></div></a>
 									</td>
 								</tr>
 								';
