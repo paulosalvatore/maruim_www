@@ -150,19 +150,19 @@
 				$formatarLogin = "Nunca efetuou login.";
 			return $formatarLogin;
 		}
-		public function calcularIdadeTibia($tempoOnline){
+		public function calcularIdadeTibia($dataRegistro){
 			$dia = 3600;
 			$mes = $dia*30;
 			$ano = $mes*12;
-			if($tempoOnline < 60)
+			if($dataRegistro < 60)
 				return;
-			$idadeEmAnos = ($tempoOnline-(fmod($tempoOnline, $ano)))/$ano;
+			$idadeEmAnos = ($dataRegistro-(fmod($dataRegistro, $ano)))/$ano;
 			if($idadeEmAnos > 0)
 				return $idadeEmAnos." ano".($idadeEmAnos > 1 ? "s" : "");
-			$idadeEmMeses = ($tempoOnline-(fmod($tempoOnline, $mes)))/$mes;
+			$idadeEmMeses = ($dataRegistro-(fmod($dataRegistro, $mes)))/$mes;
 			if($idadeEmMeses > 0)
 				return $idadeEmMeses." ".($idadeEmMeses > 1 ? "meses" : "mês");
-			$idadeEmDias = ($tempoOnline-(fmod($tempoOnline, $dia)))/$dia;
+			$idadeEmDias = ($dataRegistro-(fmod($dataRegistro, $dia)))/$dia;
 			if($idadeEmDias > 0)
 				return $idadeEmDias." dia".($idadeEmDias > 1 ? "s" : "");
 		}
