@@ -18,25 +18,30 @@
 		"exibicao" => "10.78"
 	);
 	$config["info"] = array(
-		"protecao" => 10,
+		"protecao" => 1,
 		"taxas" => array(
 			"experiencia" => array(
 				1 => 4,
-				9 => 3,
-				15 => 2,
-				20 => 1
+				9 => 15,
+				51 => 12,
+				81 => 10,
+				121 => 6,
+				151 => 5,
+				171 => 3,
+				201 => 2,
+				221 => 1
 			),
-			"skill" => 10,
-			"magic" => 10,
+			"skill" => 15,
+			"magic" => 5,
 			"loot" => "Personalizada"
 		),
 		"red" => 3,
 		"black" => 6,
 		"tempo_frag" => "24 horas",
 		"casas" => array(
-			"sqm" => 350,
+			"sqm" => 1000,
 			"aluguel" => array(1000, "semanalmente"),
-			"nivel" => 75,
+			"nivel" => 1,
 			"tempo" => "30 dias"
 		)
 	);
