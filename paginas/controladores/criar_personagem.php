@@ -3,6 +3,7 @@
 	require_once("../../conexao/conexao.php");
 	include("../../includes/funcoes.php");
 	check_is_ajax(__FILE__);
+	include("../../includes/classes/ClassFuncao.php");
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/classe/ClassPersonagem.php");

@@ -73,7 +73,6 @@ function verificarCampos(formulario){
 			}),
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$.each(result, function(index, value){
 					if(value != ""){
 						inserirValidacao("erro", index, value);
@@ -94,6 +93,8 @@ $(function(){
 	$("#conta").focus();
 	$("#formulario_criacao_conta input[type=text], #formulario_criacao_conta input[type=password]").blur(function(){
 		verificarCampo($(this).attr("name"), $(this).val());
+		if($(this).attr("name") == "senha" && $("#repetir_senha").val() != "")
+			verificarCampo("repetir_senha", $("#repetir_senha").val());
 	});
 	$("#formulario_criacao_conta input[type=checkbox]").change(function(){
 		verificarCampo($(this).attr("name"), $(this).is(":checked"));

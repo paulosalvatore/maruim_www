@@ -1234,7 +1234,7 @@
 												</tr>
 												<tr class="cabecalho">
 													<td>
-														Armamento
+														Armamento'.(count($informacoes["armamento"]) > 1 ? "s" : "").'
 													</td>
 												</tr>
 												<tr class="item">
@@ -1254,7 +1254,7 @@
 												</tr>
 												<tr class="cabecalho">
 													<td>
-														Elemento
+														Elemento'.(count($informacoes["elemento"]) > 1 ? "s" : "").'
 													</td>
 												</tr>
 												<tr class="item">
