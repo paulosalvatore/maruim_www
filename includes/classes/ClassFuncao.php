@@ -12,13 +12,17 @@
 			return date("d/m/Y, H\hi\ms\s", $tempo);
 		}
 		public function exibirTempo($tempo){
-			$horas = floor(($tempo)/3600);
-			$minutos = floor(($tempo/60)%60);
-			$segundos = $tempo%60;
-			$exibirHoras = ($horas > 0 ? ($horas < 10 ? "0".$horas : $horas)."h" : "");
-			$exibirMinutos = (($horas > 0 or $minutos > 0) ? ($minutos < 10 ? "0".$minutos : $minutos)."m" : "");
-			$exibirSegundos = (($horas > 0 or $minutos > 0 or $segundos > 0) ? ($segundos < 10 ? "0".$segundos : $segundos)."s" : "");
-			return $exibirHoras.$exibirMinutos.$exibirSegundos;
+			$meses = floor(($tempo/2592000));
+			$dias = floor(fmod($tempo/86400, 30));
+			$horas = floor(fmod($tempo/3600, 24));
+			$minutos = floor(fmod($tempo/60, 60));
+			$segundos = fmod($tempo, 60);
+			$exibirMeses = ($tempo >= 2592000 ? $meses." ".($meses != 1 ? "meses" : "mês").", " : "");
+			$exibirDias = ($tempo >= 86400 ? $dias." dia".($dias != 1 ? "s" : "")." e " : "");
+			$exibirHoras = ($tempo >= 3600 ? ($horas < 10 ? "0".$horas : $horas)."h" : "");
+			$exibirMinutos = ($tempo >= 60 ? ($minutos < 10 ? "0".$minutos : $minutos)."m" : "");
+			$exibirSegundos = ($tempo > 0 ? ($segundos < 10 ? "0".$segundos : $segundos)."s" : "");
+			return $exibirMeses.$exibirDias.$exibirHoras.$exibirMinutos.$exibirSegundos;
 		}
 		public function formatarLogin($tempo){
 			if($tempo > 0)
