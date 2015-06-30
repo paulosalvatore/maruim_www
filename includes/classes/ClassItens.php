@@ -1014,6 +1014,57 @@
 			while($resultadoCategoria = mysql_fetch_assoc($queryCategoria)){
 				$menuId = $resultadoCategoria["menu"];
 				$nomeTabela = (empty($nomeTabela) ? $resultadoCategoria["nome"] : $nomeTabela);
+				$itens = array();
+				$itensCategoria = array();
+				$subCategorias = array();
+				$itensSubCategorias = array();
+				$queryCategoriaItens = mysql_query("SELECT * FROM z_itens_categorias_itens WHERE (categoria LIKE '$id')");
+				while($resultadoCategoriaItens = mysql_fetch_assoc($queryCategoriaItens))
+					if(!in_array($resultadoCategoriaItens["item"], $itens)){
+						$itens[] = $resultadoCategoriaItens["item"];
+					$itensCategoria[] = $resultadoCategoriaItens["item"];
+				}
+				$querySubCategoria = mysql_query("SELECT * FROM z_itens_subcategorias WHERE (categoria LIKE '$id')");
+				while($resultadoSubCategoria = mysql_fetch_assoc($querySubCategoria))
+					$subCategorias[$resultadoSubCategoria["id"]] = $resultadoSubCategoria;
+				foreach($subCategorias as $subCategoriaId => $subCategoria){
+					$querySubCategoriaItens = mysql_query("SELECT * FROM z_itens_subcategorias_itens WHERE (subcategoria LIKE '$subCategoriaId')");
+					while($resultadoSubCategoriaItens = mysql_fetch_assoc($querySubCategoriaItens)){
+						if(!in_array($resultadoSubCategoriaItens["item"], $itens))
+							$itens[] = $resultadoSubCategoriaItens["item"];
+						$itensSubCategorias[$subCategoriaId][] = $resultadoSubCategoriaItens["item"];
+					}
+				}
+				if(count($subCategorias) > 0){
+					$exibirCategoria .= '
+						<div style="width: 300px;">
+						<div class="box_frame_conteudo_principal" carregar_box="1">
+							<div class="box_frame_conteudo">
+								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+									<tr class="cabecalho">
+										<td>
+											Tabela de Conteúdo
+										</td>
+									</tr>
+									';
+									foreach($subCategorias as $subCategoriaId => $subCategoria){
+										$exibirCategoria .= '
+											<tr class="item">
+												<td>
+													<a href="#'.$subCategoria["nome"].'">'.$subCategoria["nome"].'</a>
+												</td>
+											</tr>
+										';
+									}
+									$exibirCategoria .= '
+								</table>
+							</div>
+						</div>
+						</div>
+						<br>
+						<br>
+					';
+				}
 				$exibirCategoria .= '
 					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 						<tr class="cabecalho">
@@ -1022,29 +1073,13 @@
 							</td>
 						</tr>
 						';
-						$itens = array();
-						$itensCategoria = array();
-						$subCategorias = array();
-						$itensSubCategorias = array();
-						$queryCategoriaItens = mysql_query("SELECT * FROM z_itens_categorias_itens WHERE (categoria LIKE '$id')");
-						while($resultadoCategoriaItens = mysql_fetch_assoc($queryCategoriaItens))
-							if(!in_array($resultadoCategoriaItens["item"], $itens)){
-								$itens[] = $resultadoCategoriaItens["item"];
-							$itensCategoria[] = $resultadoCategoriaItens["item"];
-						}
-						$querySubCategoria = mysql_query("SELECT * FROM z_itens_subcategorias WHERE (categoria LIKE '$id')");
-						while($resultadoSubCategoria = mysql_fetch_assoc($querySubCategoria))
-							$subCategorias[] = $resultadoSubCategoria["id"];
-						foreach($subCategorias as $subCategoriaId){
-							$querySubCategoriaItens = mysql_query("SELECT * FROM z_itens_subcategorias_itens WHERE (subcategoria LIKE '$subCategoriaId')");
-							while($resultadoSubCategoriaItens = mysql_fetch_assoc($querySubCategoriaItens)){
-								if(!in_array($resultadoSubCategoriaItens["item"], $itens))
-									$itens[] = $resultadoSubCategoriaItens["item"];
-								$itensSubCategorias[$subCategoriaId][] = $resultadoSubCategoriaItens["item"];
-							}
-						}
 						$itensInfo = $this->getItemInfoSQL($itens);
-						foreach($itensCategoria as $item){
+						$exibirItens = array();
+						foreach($itensCategoria as $c => $itemId)
+							$exibirItens[$c] = $itensInfo[$itemId]["nome"];
+						asort($exibirItens);
+						foreach($exibirItens as $c => $itemNome){
+							$item = $itensCategoria[$c];
 							$itemInfo = $itensInfo[$item];
 							$exibirCategoria .= '
 								<tr class="item">
@@ -1069,48 +1104,49 @@
 					</table>
 					'.(count($itensCategoria) > 0 ? "<br>" : "").'
 				';
-				$querySubCategoria = mysql_query("SELECT * FROM z_itens_subcategorias WHERE (categoria LIKE '$id')");
-				while($resultadoSubCategoria = mysql_fetch_assoc($querySubCategoria)){
-					$exibirCategoria .= '
-						<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-							<tr class="cabecalho">
-								<td colspan="2">
-									'.$resultadoSubCategoria["nome"].'
-								</td>
-							</tr>
-							';
-							if(is_array($itensSubCategorias[$resultadoSubCategoria["id"]])){
-								$exibirItens = array();
-								foreach($itensSubCategorias[$resultadoSubCategoria["id"]] as $c => $itemId)
-									$exibirItens[$c] = $itensInfo[$itemId]["nome"];
-								asort($exibirItens);
-								foreach($exibirItens as $c => $itemNome){
-									$item = $itensSubCategorias[$resultadoSubCategoria["id"]][$c];
-									$itemInfo = $itensInfo[$item];
+				if(count($subCategorias) > 0){
+					foreach($subCategorias as $subCategoriaId => $subCategoria){
+						$exibirCategoria .= '
+							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+								<tr class="cabecalho">
+									<td colspan="2">
+										<a name="'.$subCategoria["nome"].'"></a>'.$subCategoria["nome"].'
+									</td>
+								</tr>
+								';
+								if(is_array($itensSubCategorias[$subCategoria["id"]])){
+									$exibirItens = array();
+									foreach($itensSubCategorias[$subCategoria["id"]] as $c => $itemId)
+										$exibirItens[$c] = $itensInfo[$itemId]["nome"];
+									asort($exibirItens);
+									foreach($exibirItens as $c => $itemNome){
+										$item = $itensSubCategorias[$subCategoria["id"]][$c];
+										$itemInfo = $itensInfo[$item];
+										$exibirCategoria .= '
+											<tr class="item">
+												<td width="30" align="center">
+													<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
+												</td>
+												<td>
+													<a href="'.$itemInfo["url"].'">'.$itemNome.'</a>
+												</td>
+											</tr>
+										';
+									}
+								}
+								else
 									$exibirCategoria .= '
 										<tr class="item">
-											<td width="30" align="center">
-												<a href="'.$itemInfo["url"].'">'.$itemInfo["imagem"].'</a>
-											</td>
-											<td>
-												<a href="'.$itemInfo["url"].'">'.$itemNome.'</a>
+											<td colspan="2" height="80" align="center">
+												<b>Essa categoria está vazia.</b>
 											</td>
 										</tr>
 									';
-								}
-							}
-							else
 								$exibirCategoria .= '
-									<tr class="item">
-										<td colspan="2" height="80" align="center">
-											<b>Essa categoria está vazia.</b>
-										</td>
-									</tr>
-								';
-							$exibirCategoria .= '
-						</table>
-						<br>
-					';
+							</table>
+							<br>
+						';
+					}
 				}
 			}
 			if(empty($exibirCategoria)){
