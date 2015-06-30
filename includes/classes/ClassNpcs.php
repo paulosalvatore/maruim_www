@@ -20,6 +20,8 @@
 					"valor" => $resultadoItensNpc["valor"]
 				);
 			}
+			if(count($itens) == 0)
+				return false;
 			$buscarItens = array();
 			foreach(array_merge($itens["c"], $itens["v"]) as $item)
 				if(!in_array($item, $buscarItens))

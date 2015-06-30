@@ -53,33 +53,37 @@
 						<br>
 						';
 						$exibirItensNpc = $ClassNpcs->exibirItensNpc($id);
-						$exibirItensCompra = $exibirItensNpc[0];
-						$exibirItensVenda = $exibirItensNpc[1];
+						if(is_array($exibirNpcsItem)){
+							$exibirItensCompra = $exibirItensNpc[0];
+							$exibirItensVenda = $exibirItensNpc[1];
+							$conteudo_pagina .= '
+								<table width="100%" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="50%" valign="top">
+											<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+												<tr class="cabecalho" align="center">
+													<td colspan="2">
+														Vende:
+													</td>
+												</tr>
+												'.$exibirItensCompra.'
+											</table>
+										</td>
+										<td width="50%" valign="top">
+											<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+												<tr class="cabecalho" align="center">
+													<td colspan="2">
+														Compra:
+													</td>
+												</tr>
+												'.$exibirItensVenda.'
+											</table>
+										</td>
+									</tr>
+								</table>
+							';
+						}
 						$conteudo_pagina .= '
-						<table width="100%" cellpadding="0" cellspacing="0">
-							<tr>
-								<td width="50%" valign="top">
-									<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-										<tr class="cabecalho" align="center">
-											<td colspan="2">
-												Vende:
-											</td>
-										</tr>
-										'.$exibirItensCompra.'
-									</table>
-								</td>
-								<td width="50%" valign="top">
-									<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-										<tr class="cabecalho" align="center">
-											<td colspan="2">
-												Compra:
-											</td>
-										</tr>
-										'.$exibirItensVenda.'
-									</table>
-								</td>
-							</tr>
-						</table>
 					</div>
 				</div>
 			';
