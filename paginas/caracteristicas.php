@@ -18,7 +18,7 @@
 					</li>
 					<li>
 						<b>Quatro Vocações de Personagens</b><br>
-						Escolha entre ser cavaleiro, paladino, clérigo ou feiticeiro!
+						Escolha entre ser sorcerer, druid, paladin ou knight!
 					</li>
 					<li>
 						<b>Roupas Customizáveis</b><br>
