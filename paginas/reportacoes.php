@@ -79,7 +79,6 @@
 		$reportacoes = array();
 		$quantidadeReportacoesConcluidas = 0;
 		$quantidadeReportacoesPendentes = 0;
-		$informacoesConta["acesso_pagina"] = 0;
 		$buscarConta = ($informacoesConta["acesso_pagina"] != 1 ? "WHERE (conta LIKE '$accountId')" : "");
 		$queryReportacoes = mysql_query("SELECT * FROM reports $buscarConta ORDER BY data DESC");
 		while ($resultadoReportacoes = mysql_fetch_assoc($queryReportacoes)){
