@@ -25,9 +25,9 @@ $(function(){
 	$(".small_box_frame").each(function(){
 		var carregar_box = $(this).attr("carregar_box");
 		var erro = $(this).hasClass("erro");
+		var atencao = $(this).hasClass("atencao");
 		if(carregar_box == 1){
-			if(erro)
-				// var conteudo_box = $(this).html();
+			if(erro || atencao)
 				var conteudo_box = '\
 					<table cellpadding="0" cellspacing="0">\
 						<tr>\
