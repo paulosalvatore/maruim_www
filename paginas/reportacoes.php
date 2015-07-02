@@ -1,6 +1,6 @@
 <?php
-	if($id == "pelo_jogo"){
-		$conteudo_pagina .= '
+	if($id == "pelo_jogo")
+		$conteudo_pagina = '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="reportacoes_pelo_jogo">
 				<div class="conteudo_box pagina">
 					<div class="setas">
@@ -74,7 +74,6 @@
 				</div>
 			</div>
 		';
-	}
 	else{
 		$reportacoes = array();
 		$quantidadeReportacoesConcluidas = 0;
@@ -89,7 +88,7 @@
 				$quantidadeReportacoesPendentes++;
 		}
 		$quantidadeReportacoes = count($reportacoes);
-		$conteudo_pagina .= '
+		$conteudo_pagina = '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$pagina.'">
 				<div class="conteudo_box pagina">
 					<br>
