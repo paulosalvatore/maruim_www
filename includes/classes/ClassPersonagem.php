@@ -274,6 +274,7 @@
 						"id" => $resultadoListaPersonagem["id"],
 						"nome" => $resultadoListaPersonagem["name"],
 						"link" => $this->gerarLinkPersonagem($resultadoListaPersonagem["name"]),
+						"genero" => $resultadoListaPersonagem["sex"],
 						"nivel" => $resultadoListaPersonagem["level"],
 						"level" => $resultadoListaPersonagem["level"],
 						"experience" => number_format($resultadoListaPersonagem["experience"], 0, "", "."),
@@ -331,7 +332,7 @@
 						$exibirListaPersonagens .= '
 							<tr class="item">
 								<td width="10%" align="center">
-									<img src="imagens/vocacoes/'.$v["imagem"].'_miniatura.png" alt="" title="'.$v["vocacao"].'" />
+									<img src="imagens/vocacoes/'.$v["imagem"].'_'.$v["genero"].'_miniatura.png" alt="" title="'.$v["vocacao"].'" />
 								</td>
 								<td width="40%">
 									<a href="'.$v["link"].'"><span class="grande">'.$v["nome"].'</span></a><br>
