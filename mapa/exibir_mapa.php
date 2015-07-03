@@ -79,7 +79,7 @@ function ChangeFloor(change) {
 	var backgroundColor = "#000000";
 	
 	if (floor==7)
-	backgroundColor = "#336699";
+	backgroundColor = "#01669E";
 	
 	document.getElementById("tibia_map").style.backgroundColor = backgroundColor;
 	
@@ -179,7 +179,7 @@ function LoadMap() {
 			var x = coord.x;
 			var y = max - coord.y;
 			
-			if (x<0 || x>max || y<0 || y>max) {
+			if (x < 0 || x > max || y < 0 || y > max) {
 				if (floor == 7)
 					return "../imagens/mapa/blue.png";
 				return "../imagens/mapa/black.png";
