@@ -143,21 +143,22 @@
 							</tr>
 						</table>
 					</div>
-					<div style="margin-bottom: 30px;">
-						<table cellpadding="0" cellspacing="0" class="tabela odd" width="100%">
-							<tr class="cabecalho">
-								<td colspan="4">
-									Personagens
-								</td>
-							</tr>
-							';
-							$listaPersonagens = $ClassPersonagem->getListaPersonagens($contaPersonagemId);
-							$exibirListaPersonagens = $ClassPersonagem->exibirListaPersonagens($listaPersonagens, 0, $informacoesPersonagem["id"]);
-							$conteudo_personagens .= $exibirListaPersonagens;
-							$conteudo_personagens .= '
-						</table>
-					</div>
 				';
+				$listaPersonagens = $ClassPersonagem->getListaPersonagens($contaPersonagemId);
+				$exibirListaPersonagens = $ClassPersonagem->exibirListaPersonagens($listaPersonagens, 0, $informacoesPersonagem["id"]);
+				if(!empty($exibirListaPersonagens))
+					$conteudo_personagens .= '
+						<div style="margin-bottom: 30px;">
+							<table cellpadding="0" cellspacing="0" class="tabela odd" width="100%">
+								<tr class="cabecalho">
+									<td colspan="4">
+										Personagens
+									</td>
+								</tr>
+								'.$exibirListaPersonagens.'
+							</table>
+						</div>
+					';
 			}
 			if(!empty($conteudo_personagens))
 				$conteudo_personagens = '<div id="exibirPersonagem">'.$conteudo_personagens.'</div>';

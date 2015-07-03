@@ -128,13 +128,13 @@
 					"lookfeet" => $config["players"]["lookfeet"],
 					"lookhead" => $config["players"]["lookhead"],
 					"looklegs" => $config["players"]["looklegs"],
-					"looktype" => $config["players"]["looktype"],
 					"town_id" => $config["players"]["town_id"],
 					"posx" => $config["players"]["posx"],
 					"posy" => $config["players"]["posy"],
 					"posz" => $config["players"]["posz"],
 					"cap" => $config["players"]["cap"],
 					"sex" => $formulario["sexo_personagem"],
+					"looktype" => $config["players"]["looktype".$formulario["sexo_personagem"]],
 					"ip_registro" => $ip,
 					"data_registro" => time()
 				)
