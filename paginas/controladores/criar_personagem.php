@@ -6,7 +6,7 @@
 	include("../../includes/classes/ClassFuncao.php");
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
-	include("../../includes/classe/ClassPersonagem.php");
+	include("../../includes/classes/ClassPersonagem.php");
 	$ClassPersonagem = new Personagem();
 	include("../../includes/config_criar_personagem.php");
 	include("../../includes/protocolo.php");
