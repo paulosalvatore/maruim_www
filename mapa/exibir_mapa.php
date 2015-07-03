@@ -222,7 +222,9 @@ function LoadMap() {
 		});
 	}
 	google.maps.event.addListenerOnce(map, 'idle', function(){
-		$("img[src='https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png']").remove();
+		var img = $("img[src='https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png']").closest("div");
+		img.css("cursor", "");
+		img.closest("div").closest("a").closest("div").html(img);
 		$(".gmnoprint.gm-style-cc").remove();
 	});
 }
