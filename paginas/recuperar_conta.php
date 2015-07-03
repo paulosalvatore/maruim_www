@@ -1,30 +1,31 @@
 <?php
 	if($usuario_encontrado != 1){
 		$conteudo_minha_conta = '
-			Welcome to the Lost Account Interface!<br>
+			Seja bem-vindo à página de recuperação de conta!<br>
 			<br>
-			If you have lost access to your account, this interface can help you. Of course, you need to prove that your claim to the account is justified. Enter the requested data and follow the instructions carefully. Please understand there is no way to get access to your lost account if the interface cannot help you. Two further options to change account data are available if you have a registered account.
+			Se você perdeu o acesso a sua conta, essa página poderá ajudá-lo. Claro, você precisa provar que a conta é sua. Digite os dados solicitados e siga atentamente as instruções. Esteja ciente de que não há outra maneira de recuperar sua conta sem ser através desse sistema. Duas outras opções para alterar os dados da conta estão disponíveis se você tiver uma conta registrada.<br>
 			<br>
-			By using the Lost Account Interface you can
+			Utilizando o Sistema de Recuperação de Conta você pode:<br>
 			<br>
-			<ul>
+			<ul class="lista">
 				<li>
-					get a new password if you have lost the current password,
+					Gerar uma nova senha, caso tenha perdido a atual;
 				</li>
 				<li>
-					receive your account name if you do not know it anymore,
+					Receber o nome da sua conta, caso você não se lembre mais;
 				</li>
 				<li>
-					get your account back if it has been hacked,
+					Recuperar sua conta de volta caso tenha sido invadida;
 				</li>
 				<li>
-					change the email address of your account instantly (only available to registered accounts),
+					Trocar o e-mail de sua conta instantaneamente (somente disponível para contas registradas);
 				</li>
 				<li>
-					request a new recovery key (only available to registered accounts).
+					Gerar uma nova Chave de Segurança (somente disponível para contas registradas).
 				</li>
 			</ul>
-			As a first step to use the Lost Account Interface please enter the name of a character on the lost account and click on "Submit".<br>
+			<br>
+			O primeiro passo para usar o Sistema de Recuperação de Conta é digitar o nome da conta ou o nome de um personagem da conta perdida e clicar no botão "Enviar".<br>
 			<br>
 			<table class="tabela dark" cellpadding="0" cellspacing="0" width="100%">
 				<tr class="cabecalho">
@@ -35,7 +36,8 @@
 				<tr class="item">
 					<td>
 						<b>Personagem ou Conta:</b>
-						<input type="text">
+						<input type="text" id="personagem_conta">
+						<input type="button" class="botao" value="Enviar" />
 					</td>
 				</tr>
 			</table>

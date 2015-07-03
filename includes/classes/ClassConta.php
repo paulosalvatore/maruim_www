@@ -39,36 +39,40 @@
 		public function enviarEmailRegistro($informacoesConta){
 			$emailCodigo = $this->gerarEmailCodigo($informacoesConta["id"]);
 			$this->editarConta($informacoesConta["id"], "email_codigo", $emailCodigo);
+			$link = 'http://'.$_SERVER["HTTP_HOST"].'/?p=minha_conta-'.$emailCodigo.'-registrar';
 			$conteudoEmail = '
-				Welcome to Tibia!<br>
+				Seja bem-vindo ao MaruimOT!<br>
 				<br>
-				Thank you for registering for Tibia.<br>
-				Account Name: '.$informacoesConta["name"].'  <br>
-				To be able to fully experience all features of a Tibia free account,<br>
-				you need to confirm your account. To do so, please click on the<br>
-				following link:<br>
-				http://127.0.0.1/?p=minha_conta-'.$emailCodigo.'-registrar<br>
-				If clicking on the link does not work in your email program, please<br>
-				copy and paste it into your browser. The link is possibly split up<br>
-				due to a word-wrap.<br>
-				Please make sure to copy the complete link.<br>
-				Moreover, please read our security hints at<br>
-				http://www.tibia.com/gameguides/?subtopic=securityhints<br>
-				to learn more on how to protect your account.<br>
-				See you in Tibia!<br>
-				Your CipSoft Team<br>
+				Obrigado por registrar sua conta.<br>
+				<br>
+				<b>Conta:</b> '.$informacoesConta["name"].'<br>
+				<br>
+				Para ser capaz de experimentar completamente todos os recursos disponíveis,<br>
+				você precisa confirmar a sua conta. Para fazer isso, clique no seguinte link:<br>
+				<a href="'.$link.'">'.$link.'</a><br>
+				Caso clicar sobre o link não funciona em seu e-mail, por favor<br>
+				copie e cole no seu navegador.<br>
+				Certifique-se de que copiou ou endereço completo.<br>
+				Além disso, por favor leia as nossas dicas de segurança em<br>
+				http://'.$_SERVER["HTTP_HOST"].'/?p=dicas_seguranca<br>
+				para saber um pouco mais sobre como proteger sua conta.<br>
+				<br>
+				Nos vemos no MaruimOT!<br>
+				<br>
+				<b>Atenciosamente,<br>
+				Equipe MaruimOT.</b><br>
 			';
-			$assunto = "Welcome to Tibia - Please Confirm Your Account";
+			$assunto = "Equipe MaruimOT! - Registrar Conta";
 			$cabecalho = "MIME-Version: 1.0\r\n";
 			$cabecalho .= "Content-Type: text/html; charset=ISO_8859-1\r\n";
-			$cabecalho .= "From: Maruim Server <atendimento@maruimserver.com.br>\r\n";
+			$cabecalho .= "From: MaruimOT <maruimot@gmail.com>\r\n";
 			$email = $informacoesConta["email"];
 			if(mail($email, $assunto, $conteudoEmail, $cabecalho))
 				return true;
 			else
 				return false;
 		}
-		public function validarCodigoEmail($codigoEmail, $campo){
+		public function validarCodigoEmail($codigoEmail, $campo, $checar = true){
 			$codigoValidado = 0;
 			if(!empty($codigoEmail)){
 				$queryValidacaoCodigo = mysql_query("SELECT * FROM accounts WHERE ($campo LIKE '$codigoEmail')");
@@ -78,7 +82,7 @@
 							$codigoValidado = $resultadoValidacaoCodigo[$campo];
 					}
 					elseif($campo == "proximo_email_codigo"){
-						if(!empty($resultadoValidacaoCodigo["proximo_email"]))
+						if((!$checar) or ($checar and !empty($resultadoValidacaoCodigo["proximo_email"])))
 							$codigoValidado = $resultadoValidacaoCodigo[$campo];
 					}
 				}
@@ -113,46 +117,86 @@
 			$this->editarConta($informacoesConta["id"], "proximo_email", $novoEmail);
 			$this->editarConta($informacoesConta["id"], "proximo_email_codigo", $emailCodigo);
 			$this->editarConta($informacoesConta["id"], "proximo_email_envio", time());
-			$conteudoEmail = '
-				Welcome to Tibia!<br>
+			$linkConfirmar = 'http://'.$_SERVER["HTTP_HOST"].'/?p=minha_conta-'.$emailCodigo.'-alterar_email';
+			$linkInformar = 'http://'.$_SERVER["HTTP_HOST"].'/?p=minha_conta-'.$emailCodigo.'-cancelar_alteracao_email';
+			$conteudoEmailConfirmar = '
+				Caro jogador,<br>
 				<br>
-				Thank you for registering for Tibia.<br>
-				Account Name: '.$informacoesConta["name"].'<br>
-				E-mail Antigo: '.$informacoesConta["email"].'<br>
-				To be able to fully experience all features of a Tibia free account,<br>
-				you need to confirm your account. To do so, please click on the<br>
-				following link:<br>
-				http://127.0.0.1/?p=minha_conta-'.$emailCodigo.'-alterar_email<br>
-				If clicking on the link does not work in your email program, please<br>
-				copy and paste it into your browser. The link is possibly split up<br>
-				due to a word-wrap.<br>
-				Please make sure to copy the complete link.<br>
-				Moreover, please read our security hints at<br>
-				http://www.tibia.com/gameguides/?subtopic=securityhints<br>
-				to learn more on how to protect your account.<br>
-				See you in Tibia!<br>
-				Your CipSoft Team<br>
+				Registramos a sua solicitação de alteração do e-mail.<br>
+				<br>
+				<b>Conta:</b> '.$informacoesConta["name"].'<br>
+				<b>E-mail Atual:</b> '.$informacoesConta["email"].'<br>
+				<b>Novo E-mail:</b> '.$novoEmail.'<br>
+				<br>
+				Para sua segurança, é necessário confirmar a solicitação da troca do e-mail.<br>
+				Para fazer isso, clique no seguinte link:<br>
+				<a href="'.$linkConfirmar.'">'.$linkConfirmar.'</a><br>
+				Caso clicar sobre o link não funciona em seu e-mail, por favor<br>
+				copie e cole no seu navegador.<br>
+				Certifique-se de que copiou ou endereço completo.<br>
+				<br>
+				Após a confirmação, em '.$this->diasTrocarEmail.' dias o e-mail será trocado.<br>
+				<br>
+				Além disso, por favor leia as nossas dicas de segurança em<br>
+				http://'.$_SERVER["HTTP_HOST"].'/?p=dicas_seguranca<br>
+				para saber um pouco mais sobre como proteger sua conta.<br>
+				<br>
+				Nos vemos no MaruimOT!<br>
+				<br>
+				<b>Atenciosamente,<br>
+				Equipe MaruimOT.</b><br>
 			';
-			$assunto = "Welcome to Tibia - Por Favor Confirme Seu Novo E-mail";
+			$conteudoEmailInformar = '
+				Caro jogador,<br>
+				<br>
+				Uma solicitação de alteração do e-mail foi registrada em sua conta.<br>
+				<br>
+				<b>Conta:</b> '.$informacoesConta["name"].'<br>
+				<b>E-mail Atual:</b> '.$informacoesConta["email"].'<br>
+				<b>Novo E-mail:</b> '.$novoEmail.'<br>
+				<br>
+				Caso você não tenha solicitado essa troca, clique no seguinte link:<br>
+				<a href="'.$linkInformar.'">'.$linkInformar.'</a><br>
+				Caso clicar sobre o link não funciona em seu e-mail, por favor<br>
+				copie e cole no seu navegador.<br>
+				Certifique-se de que copiou ou endereço completo.<br>
+				<br>
+				Além disso, por favor leia as nossas dicas de segurança em<br>
+				http://'.$_SERVER["HTTP_HOST"].'/?p=dicas_seguranca<br>
+				para saber um pouco mais sobre como proteger sua conta.<br>
+				<br>
+				Nos vemos no MaruimOT!<br>
+				<br>
+				<b>Atenciosamente,<br>
+				Equipe MaruimOT.</b><br>
+			';
+			$assuntoConfirmar = "Equipe MaruimOT! - Confirmar Troca de E-mail";
+			$assuntoInformar = "Equipe MaruimOT! - Troca de E-mail Solicitada";
 			$cabecalho = "MIME-Version: 1.0\r\n";
 			$cabecalho .= "Content-Type: text/html; charset=ISO_8859-1\r\n";
-			$cabecalho .= "From: Maruim Server <atendimento@maruimserver.com.br>\r\n";
-			if(mail($novoEmail, $assunto, $conteudoEmail, $cabecalho))
-				return true;
-			else
-				return false;
+			$cabecalho .= "From: MaruimOT <maruimot@gmail.com>\r\n";
+			mail($novoEmail, $assuntoConfirmar, $conteudoEmailConfirmar, $cabecalho);
+			mail($informacoesConta["email"], $assuntoInformar, $conteudoEmailInformar, $cabecalho);
+			return true;
+		}
+		public function cancelarSolicitacaoTrocaEmail($contaId){
+			$this->editarConta($contaId, "email_novo", "");
+			$this->editarConta($contaId, "email_novo_tempo", 0);
+			$this->editarConta($contaId, "proximo_email", "");
+			$this->editarConta($contaId, "proximo_email_envio", 0);
+			$this->editarConta($contaId, "proximo_email_codigo", "");
 		}
 		public function iniciarAlteracaoEmail($informacoesConta){
 			$this->editarConta($informacoesConta["id"], "email_novo", $informacoesConta["proximo_email"]);
 			$this->editarConta($informacoesConta["id"], "email_novo_tempo", time());
 			$this->editarConta($informacoesConta["id"], "proximo_email", "");
-			$this->editarConta($informacoesConta["id"], "proximo_email_codigo", "");
 			$this->editarConta($informacoesConta["id"], "proximo_email_envio", 0);
 		}
 		public function alterarEmail($informacoesConta){
 			$this->editarConta($informacoesConta["id"], "email", $informacoesConta["email_novo"]);
 			$this->editarConta($informacoesConta["id"], "email_novo", "");
 			$this->editarConta($informacoesConta["id"], "email_novo_tempo", "");
+			$this->editarConta($informacoesConta["id"], "proximo_email_codigo", "");
 		}
 	}
 ?>

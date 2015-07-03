@@ -30,6 +30,29 @@
 			exit;
 		}
 	}
+	elseif((!empty($id)) AND ($acao == "cancelar_alteracao_email")){
+		if($ClassConta->validarCodigoEmail($id, "proximo_email_codigo", false) > 0){
+			$ClassConta->cancelarSolicitacaoTrocaEmail($accountId);
+			$conteudo_minha_conta = '
+				<div class="box_frame" carregar_box="1">
+					Solicitação de Troca de E-mail Cancelada
+				</div>
+				<div class="box_frame_conteudo_principal" carregar_box="1">
+					<div class="box_frame_conteudo padding dark">
+						A solicitação de troca de e-mail foi cancelada com sucesso.<br>
+						<br>
+						<div align="center">
+							<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';"/>
+						</div>
+					</div>
+				</div>
+			';
+		}
+		else{
+			header("Location: ?p=minha_conta");
+			exit;
+		}
+	}
 	elseif((!empty($id)) AND ($acao == "alterar_email")){
 		if($ClassConta->validarCodigoEmail($id, "proximo_email_codigo") > 0){
 			$ClassConta->iniciarAlteracaoEmail($informacoesConta);
@@ -199,7 +222,7 @@
 									<b>OBS.:</b> Caso envie um novo e-mail, o anterior perderá sua funcionabilidade.<br>
 									<br>
 									<div align="center">
-										<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';" />
+										<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 									</div>
 								</div>
 							</div>
@@ -296,7 +319,7 @@
 									O novo e-mail registrado agora é <b>'.$informacoesConta["email_novo"].'</b>.<br>
 									<br>
 									<div align="center">
-										<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';" />
+										<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 									</div>
 								</div>
 							</div>
@@ -333,7 +356,7 @@
 											Caso queira tentar novamente <a href="?p=minha_conta-alterar_email-reenviar">clique aqui</a><br>
 											<br>
 											<div align="center">
-												<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';" />
+												<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 											</div>
 										</div>
 									</div>
@@ -353,7 +376,7 @@
 											<b>OBS.:</b> Caso envie uma nova mensagem, a anterior perderá sua funcionabilidade.<br>
 											<br>
 											<div align="center">
-												<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';" />
+												<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
 											</div>
 										</div>
 									</div>
@@ -815,7 +838,7 @@
 							$ClassServicos->novoPedido($pedido);
 							$exibirBotoesPagamento = '
 								<div align="center">
-									<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';">
+									<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';">
 								</div>
 								<br>
 							';
@@ -847,7 +870,7 @@
 											</div>
 										</form>
 										<div class="botao_colorido2_2">
-											<input type="button" class="botao_azul" value="Voltar" onClick="document.location = \'?p=minha_conta\';">
+											<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';">
 										</div>
 									</div>
 								';
@@ -1006,7 +1029,7 @@
 													<tr valign="top">
 														<td colspan="2" align="center">
 															<input type="submit" class="botao" value="Editar">
-															<input type="button" class="botao" value="Voltar" onClick="document.location = \'?p=minha_conta\'">
+															<input type="button" class="botao" value="voltar" onClick="document.location = \'?p=minha_conta\'">
 														</td>
 													</tr>
 												</table>
@@ -1081,7 +1104,7 @@
 													<tr valign="top">
 														<td colspan="2" align="center">
 															<input type="submit" class="botao" value="Deletar">
-															<input type="button" class="botao" value="Voltar" onClick="document.location = \'?p=minha_conta\'">
+															<input type="button" class="botao" value="voltar" onClick="document.location = \'?p=minha_conta\'">
 														</td>
 													</tr>
 												</table>
@@ -1163,7 +1186,7 @@
 													<tr valign="top">
 														<td colspan="2" align="center">
 															<input type="submit" class="botao" value="Deletar">
-															<input type="button" class="botao" value="Voltar" onClick="document.location = \'?p=minha_conta\'">
+															<input type="button" class="botao" value="voltar" onClick="document.location = \'?p=minha_conta\'">
 														</td>
 													</tr>
 												</table>
@@ -1373,7 +1396,7 @@
 									if(!empty($informacoesConta["proximo_email"]))
 										$mensagemAlteracaoEmail = 'Confirme seu novo e-mail. <a href="?p=minha_conta-alterar_email-reenviar">Reenviar Confirmação</a>';
 									elseif($informacoesConta["email_novo_tempo"]+$ClassFuncao->transformarDiasTempo($ClassConta->diasTrocarEmail) > time())
-										$mensagemAlteracaoEmail = 'Poderá ser alterado em '.$ClassConta->formatarData($informacoesConta["email_novo_tempo"]+$ClassFuncao->transformarDiasTempo($ClassConta->diasTrocarEmail)).'.';
+										$mensagemAlteracaoEmail = 'Poderá ser alterado em '.$ClassFuncao->formatarData($informacoesConta["email_novo_tempo"]+$ClassFuncao->transformarDiasTempo($ClassConta->diasTrocarEmail)).'.';
 									else
 										$mensagemAlteracaoEmail = 'Você pode alterar seu e-mail <a href="?p=minha_conta-alterar_email">clicando aqui</a>.';
 									$conteudo_minha_conta .= '
