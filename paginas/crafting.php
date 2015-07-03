@@ -234,7 +234,36 @@
 											<br>
 											<a name="coleta"></a><span class="grande negrito">Coleta</span><br>
 											<br>
-											Alguns materiais necessários para a produção de diversas receitas podem ser obtidos coletando-os em diversas áreas do mapa.<br>
+											Alguns materiais necessários para a produção de diversas receitas podem ser obtidos coletando-os em diversas áreas do mapa através das <b>fontes de coleta</b>.<br>
+											<br>
+											<b>Fontes de Coleta</b><br>
+											Existem diversas fontes de coleta que você pode conferir na tabela abaixo.<br>
+											Note que uma fonte de coleta disponível possuirá um brilho em cima.<br>
+											<br>
+											<b>Tabela de Pontos de Coleta existentes:</b><br>
+											<table>
+												';
+												$fontes_coleta = array("ferro" => "Ferro", "carvao" => "Carvão", "madeira" => "Madeira");
+												foreach($fontes_coleta as $coletaId => $coletaExibicao)
+													$conteudo_pagina .= '
+														<tr>
+															<td>
+																<img src="imagens/coleta/'.$coletaId.'.gif" alt="'.$coletaExibicao.'" title="'.$coletaExibicao.'" />
+															</td>
+															<td>
+																<a href="?p=sistema_coleta-'.$coletaId.'">'.$coletaExibicao.'</a>
+															</td>
+														</tr>
+													';
+												// $pontos_coleta = array(
+													// "ferro" => array(
+														// "base" => array(5866, 5868),
+														// "item" => array(5880, 2225, 5892)
+													// ),
+												// );
+												// echo'<pre>';print_r($pontos_coleta);echo'</pre>';
+												$conteudo_pagina .= '
+											</table>
 											<br>
 											<hr>
 											<br>
