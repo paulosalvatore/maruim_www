@@ -198,5 +198,38 @@
 			$this->editarConta($informacoesConta["id"], "email_novo_tempo", "");
 			$this->editarConta($informacoesConta["id"], "proximo_email_codigo", "");
 		}
+		public function exibirProblemas($cabecalho, $listaProblemas){
+			$exibirProblemas = '
+				<table class="tabela dark" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="cabecalho">
+						<td colspan="2">
+							'.$cabecalho.'
+						</td>
+					</tr>
+					';
+					$posicao = 0;
+					foreach($listaProblemas as $problema => $exibicaoProblema){
+						$exibicaoProblema .= ".";
+						$posicao++;
+						if($problema == "enviar_email")
+							$exibicaoProblema .= '
+								
+							';
+						$exibirProblemas .= '
+							<tr class="item">
+								<td width="20" align="center">
+									<input type="radio" id="'.$posicao.'" name="problema" value="'.$problema.'" />
+								</td>
+								<td>
+									<label for="'.$posicao.'">'.$exibicaoProblema.'</label>
+								</td>
+							</tr>
+						';
+					}
+					$exibirProblemas .= '
+				</table>
+			';
+			return $exibirProblemas;
+		}
 	}
 ?>

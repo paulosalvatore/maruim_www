@@ -13,7 +13,7 @@
 			"opcoes" => array(
 				"minha_conta" => "Minha Conta",
 				"criar_conta" => "Criar Conta",
-				// "recuperar_conta" => "Recuperar Conta",
+				"recuperar_conta" => "Recuperar Conta",
 				"downloads" => "Downloads"
 			)
 		),

@@ -1034,6 +1034,10 @@ ul.lista {
 	padding: 0px;
 	margin: 5px 0 5px 0;
 }
+ol.margem,
+ul.margem {
+	margin-left: 20px;
+}
 ul.lista li {
 	background: url(../imagens/corpo/lista.png) no-repeat left top;
 	padding: 3px 0px 3px 20px;
