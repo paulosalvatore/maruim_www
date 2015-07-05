@@ -66,8 +66,8 @@
 		"looktype0" => 136,
 		"looktype1" => 128,
 		"town_id" => 1,
-		"posx" => 585,
-		"posy" => 921,
+		"posx" => 586,
+		"posy" => 920,
 		"posz" => 7,
 		"cap" => 420,
 		"maxPersonagens" => 5
