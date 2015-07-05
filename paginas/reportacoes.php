@@ -228,7 +228,7 @@
 												'.formatarData($reportacao["data"]).'
 											</td>
 											<td style="word-break: break-word; text-align: justify;" class="top">
-												'.preg_replace('/\n/', '<br>', stripslashes(htmlentities(utf8_encode($reportacao["mensagem"]))), 4).'
+												'.preg_replace('/\n/', '<br>', stripslashes(htmlentities(utf8_decode(utf8_encode($reportacao["mensagem"])))), 4).'
 											</td>
 											';
 											if($informacoesConta["acesso_pagina"] == 1){
