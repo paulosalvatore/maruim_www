@@ -128,6 +128,7 @@
 				"password" => sha1($formulario["senha"]),
 				"email" => $formulario["email"],
 				"creation" => time(),
+				"chave_acesso" => $formulario["chave_acesso"],
 				"ip_registro" => $ip
 			),
 			"players" => array(
@@ -138,7 +139,7 @@
 				"lookfeet" => $config["players"]["lookfeet"],
 				"lookhead" => $config["players"]["lookhead"],
 				"looklegs" => $config["players"]["looklegs"],
-				"looktype" => $config["players"]["looktype"],
+				"looktype" => $config["players"]["looktype".$formulario["sexo_personagem"]],
 				"town_id" => $config["players"]["town_id"],
 				"posx" => $config["players"]["posx"],
 				"posy" => $config["players"]["posy"],
