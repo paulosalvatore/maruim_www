@@ -14,5 +14,5 @@
 		exit;
 	$chaveAcesso = sha1(time().microtime());
 	mysql_query("INSERT INTO z_chaves_acesso (chave) VALUES ('$chaveAcesso')");
-	echo $chaveAcesso;
+	echo 'http://'.$_SERVER['HTTP_HOST'].'/?p=criar_conta&chave_acesso='.$chaveAcesso;
 ?>

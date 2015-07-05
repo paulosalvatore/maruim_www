@@ -25,6 +25,8 @@
 											$variaveis[] = 'type="password"';
 										else
 											$variaveis[] = 'type="text"';
+										if($id_campo == "chave_acesso")
+											$variaveis[] = 'value="'.$_REQUEST["chave_acesso"].'"';
 										if($size > 0)
 											$variaveis[] = 'size="'.$size.'"';
 										else
