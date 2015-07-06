@@ -114,7 +114,7 @@ $(function(){
 				vocacao: $(this).attr("vocacao")
 			}),
 			success: function(result){
-				document.location = "?p=minha_conta";
+				document.location = "?p=downloads";
 			}
 		}).responseText;
 	});
