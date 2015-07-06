@@ -91,14 +91,14 @@
 		$conteudo_pagina = '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$pagina.'">
 				<div class="conteudo_box pagina">
-					<br>
-					<div class="small_box_frame atencao" style="display: block;" carregar_box="1">
-						<b>Você também pode reportar direto pelo jogo!</b><br>
-						<a href="?p=reportacoes-pelo_jogo">Clique aqui</a> para saber como.
-					</div>
 					';
 					if($informacoesConta["acesso_pagina"] != 1)
 						$conteudo_pagina .= '
+							<br>
+							<div class="small_box_frame atencao" style="display: block;" carregar_box="1">
+								<b>Você também pode reportar direto pelo jogo!</b><br>
+								<a href="?p=reportacoes-pelo_jogo">Clique aqui</a> para saber como.
+							</div>
 							<div class="box_frame" carregar_box="1">
 								Reportar
 							</div>
