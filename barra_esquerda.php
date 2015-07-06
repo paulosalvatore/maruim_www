@@ -54,6 +54,7 @@
 				"personagens" => "Personagens",
 				"rank" => "Rank",
 				"ultimas_mortes" => "Últimas Mortes",
+				"jogadores_online" => "Jogadores Online",
 				// "estatisticas_abates" => "Estatísticas de Abates",
 				// "casas" => "Casas",
 				// "clas" => "Clãs",
