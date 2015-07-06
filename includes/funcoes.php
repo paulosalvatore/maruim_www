@@ -51,4 +51,9 @@
 					return true;
 		return false;
 	}
+	function formatarNomePagina($nomePagina){
+		$nomePagina = str_replace("_", " ", $nomePagina);
+		$nomePagina = ucwords($nomePagina);
+		return $nomePagina;
+	}
 ?>

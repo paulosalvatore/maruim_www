@@ -40,11 +40,23 @@
 	elseif((in_array($pagina, $config["acesso_restrito"])) AND ($informacoesConta["acesso_pagina"] != 1))
 		$incluir_arquivo = "acesso_restrito";
 	include("corpo.php");
+	$nomesPaginas = array(
+		"ultimas_noticias" => "Últimas Notícias",
+		"arquivo_noticias" => "Arquivo de Notícias",
+		"registro_mudancas" => "Registro de Mudanças",
+		"caracteristicas" => "Características",
+		"informacoes_servidor" => "Informações do Servidor",
+		"profissoes" => "Profissões",
+		"npcs" => "NPCs",
+		"tabela_experiencia" => "Tabela de Experiência",
+		"ultimas_mortes" => "Últimas Mortes"
+	);
+	$nomePagina = ($nomesPaginas[$incluir_arquivo] ? $nomesPaginas[$incluir_arquivo] : formatarNomePagina($incluir_arquivo));
 	echo'
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 		<html>
 			<head>
-				<title>Site - OpenTibia</title>
+				<title>'.$nomePagina.' - MaruimOT</title>
 				<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 				<link rel="stylesheet" type="text/css" href="css/style.css">
 				<script type="text/javascript" src="js/lib/jquery.js"></script>
