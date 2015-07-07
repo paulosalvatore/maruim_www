@@ -1,13 +1,16 @@
 <?php
 	class Servidor {
-		private $ip = "127.0.0.1";
-		private $porta = "7171";
-		public function pegarStatusInfo(){
-			$statusInfo = new ServerStatus($this->ip, $this->porta, 1);
-			return $statusInfo;
+		private $statusInfo = array();
+		public function pegarStatusInfo($load = false){
+			$statusInfo = new ServerStatus();
+			if($load){
+				$statusInfo->loadStatus();
+				$this->statusInfo = $statusInfo;
+			}
+			return $this->statusInfo;
 		}
 		public function statusServidor(){
-			$statusInfo = $this->pegarStatusInfo();
+			$statusInfo = $this->pegarStatusInfo(true);
 			if($statusInfo->isOnline())
 				return "Online";
 			return "Offline";
