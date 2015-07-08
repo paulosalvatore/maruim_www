@@ -53,7 +53,7 @@
 						<br>
 						';
 						$exibirItensNpc = $ClassNpcs->exibirItensNpc($id);
-						if(is_array($exibirNpcsItem)){
+						if($exibirItensNpc){
 							$exibirItensCompra = $exibirItensNpc[0];
 							$exibirItensVenda = $exibirItensNpc[1];
 							$conteudo_pagina .= '
