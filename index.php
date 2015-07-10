@@ -49,7 +49,8 @@
 		"profissoes" => "Profissões",
 		"npcs" => "NPCs",
 		"tabela_experiencia" => "Tabela de Experiência",
-		"ultimas_mortes" => "Últimas Mortes"
+		"ultimas_mortes" => "Últimas Mortes",
+		"reportacoes" => "Reportações"
 	);
 	$nomePagina = ($nomesPaginas[$incluir_arquivo] ? $nomesPaginas[$incluir_arquivo] : formatarNomePagina($incluir_arquivo));
 	echo'
