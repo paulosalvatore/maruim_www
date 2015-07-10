@@ -211,7 +211,7 @@
 		<friend name="ice closed stone pile"/>
 	</brush>
 	
-	<brush name="snow" type="ground" server_lookid="6838" z-order="7970">
+	<brush name="snow" type="ground" server_lookid="6838" z-order="5990">
 		<item id="6580" chance="10"/>
 		<item id="6581" chance="10"/>
 		<item id="6582" chance="10"/>
