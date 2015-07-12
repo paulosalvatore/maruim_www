@@ -11,6 +11,14 @@
 						<table width="100%" cellpadding="0" cellspacing="0" class="tabela odd">
 							<tr class="item">
 								<td width="260">
+									<b>IP:</b>
+								</td>
+								<td>
+									'.$config["info"]["ip"].'
+								</td>
+							</tr>
+							<tr class="item">
+								<td width="260">
 									<b>Limite de Personagens por Conta:</b>
 								</td>
 								<td>

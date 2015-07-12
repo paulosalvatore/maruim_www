@@ -18,6 +18,7 @@
 		"exibicao" => "10.78"
 	);
 	$config["info"] = array(
+		"ip" => "maruim.servegame.com",
 		"protecao" => 1,
 		"taxas" => array(
 			"experiencia" => array(
