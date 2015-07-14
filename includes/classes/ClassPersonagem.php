@@ -22,7 +22,7 @@
 					Master Sorcerer<br>
 					<br>
 					<b>Ganhos por Nível:</b><br>
-					10 oz de capacidade<br>
+					15 oz de capacidade<br>
 					5 pontos de vida<br>
 					30 de Mana<br>
 				",
@@ -48,7 +48,7 @@
 					Elder Druid<br>
 					<br>
 					<b>Ganhos por Nível:</b><br>
-					10 oz de capacidade<br>
+					15 oz de capacidade<br>
 					5 pontos de vida<br>
 					30 de Mana<br>
 				",
