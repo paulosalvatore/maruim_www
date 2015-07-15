@@ -121,4 +121,10 @@ $(function(){
 		aplicarBackgroundReportacoes();
 	});
 	aplicarBackgroundReportacoes();
+	$("body").on("copy", ".copiarPosicaoReportacoes", function(e) {
+		var chaveAcesso = $(this).data("posicao");
+		e.clipboardData.clearData();
+		e.clipboardData.setData("text/plain", chaveAcesso);
+		e.preventDefault();
+	});
 });

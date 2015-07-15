@@ -228,13 +228,17 @@
 												'.formatarData($reportacao["data"]).'
 											</td>
 											<td style="word-break: break-word; text-align: justify;" class="top">
+												'.($informacoesConta["acesso_pagina"] == 1 ? 'Reportado por: <b>"'.$ClassConta->getPrincipalPersonagem($reportacao["conta"]).'"</b><br>' : '').'
 												'.preg_replace('/\n/', '<br>', stripslashes(htmlentities(utf8_decode(utf8_encode($reportacao["mensagem"])))), 4).'
 											</td>
 											';
 											if($informacoesConta["acesso_pagina"] == 1){
 												$conteudo_pagina .= '
 													<td align="center" class="top">
-														'.($reportacao["consertado"] == 0 ? '<input type="button" class="botao concluirReportacao" registro_id="'.$reportacao["id"].'" value="Corrigido" /><br>' : "").'
+														'.($reportacao["consertado"] == 0 ? '
+															<input type="button" class="botao copiarPosicaoReportacoes" data-posicao="/goto '.$reportacao["posicao_x"].','.$reportacao["posicao_y"].','.$reportacao["posicao_z"].'" value="Copiar Posição" style="margin-bottom: 3px;" /><br>
+															<input type="button" class="botao concluirReportacao" registro_id="'.$reportacao["id"].'" value="Corrigido" style="margin-bottom: 3px;" /><br>
+														' : "").'
 														<input type="button" class="botao deletarReportacao" registro_id="'.$reportacao["id"].'" value="Deletar" />
 													</td>
 												';

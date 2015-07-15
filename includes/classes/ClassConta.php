@@ -231,5 +231,10 @@
 			';
 			return $exibirProblemas;
 		}
+		public function getPrincipalPersonagem($contaId){
+			$queryPrincipalPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId') ORDER BY level DESC LIMIT 0,1");
+			while($resultadoPrincipalPersonagem = mysql_fetch_assoc($queryPrincipalPersonagem))
+				return $resultadoPrincipalPersonagem["name"];
+		}
 	}
 ?>
