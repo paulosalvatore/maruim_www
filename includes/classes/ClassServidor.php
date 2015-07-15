@@ -1,23 +1,28 @@
 <?php
 	class Servidor {
-		private $statusInfo = array();
-		public function pegarStatusInfo($load = false){
-			$statusInfo = new ServerStatus();
-			if($load){
-				$statusInfo->loadStatus();
-				$this->statusInfo = $statusInfo;
+		public function serverInfo(){
+			$serverInfo = array();
+			$queryServerInfo = mysql_query("SELECT * FROM server_config");
+			while($resultadoServerInfo = mysql_fetch_assoc($queryServerInfo)){
+				foreach($resultadoServerInfo as $c => $v){
+					if($c == "config")
+						$chave = $v;
+					else
+						$serverInfo[$chave] = $v;
+				}
 			}
-			return $this->statusInfo;
+			return $serverInfo;
 		}
 		public function statusServidor(){
-			$statusInfo = $this->pegarStatusInfo(true);
-			if($statusInfo->isOnline())
+			$serverInfo = $this->serverInfo();
+			if((count($serverInfo) > 0) AND ($serverInfo["online"] >= time()-10)){
 				return "Online";
+			}
 			return "Offline";
 		}
 		public function exibirTempoOnline(){
-			$statusInfo = $this->pegarStatusInfo();
-			$uptime = $statusInfo->getUptime();
+			$serverInfo = $this->serverInfo();
+			$uptime = (isset($serverInfo["uptime"]) ? time()-$serverInfo["uptime"] : 0);
 			if($uptime > 0)
 				return '
 					<tr>
