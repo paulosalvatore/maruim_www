@@ -14,6 +14,7 @@
 		reset($ranks);
 		$rank = key($ranks);
 	}
+	$tabela = ($rank == "level" ? "experience" : $rank);
 	$conteudo_pagina .= '
 		<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 			<div class="conteudo_box pagina padding">
@@ -43,7 +44,7 @@
 									$conteudo_pagina .= '
 								</tr>
 								';
-								$rankPersonagens = $ClassPersonagem->getListaPersonagens("", $rank);
+								$rankPersonagens = $ClassPersonagem->getListaPersonagens("", $tabela);
 								foreach($rankPersonagens as $c => $v){
 									$conteudo_pagina .= '
 										<tr class="item">
