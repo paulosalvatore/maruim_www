@@ -9,7 +9,6 @@ $(function(){
 				chaveAcesso = result
 			}
 		}).responseText;
-		console.log(chaveAcesso)
 		e.clipboardData.clearData();
 		e.clipboardData.setData("text/plain", chaveAcesso);
 		e.preventDefault();
