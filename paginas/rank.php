@@ -1,6 +1,7 @@
 <?php
 	$ranks = array(
 		"level" => "Nível",
+		"maglevel" => "Magic Level",
 		"skill_fist" => "Fist",
 		"skill_club" => "Club",
 		"skill_sword" => "Sword",

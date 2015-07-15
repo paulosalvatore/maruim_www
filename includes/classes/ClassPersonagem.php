@@ -278,6 +278,7 @@
 						"nivel" => $resultadoListaPersonagem["level"],
 						"level" => $resultadoListaPersonagem["level"],
 						"experience" => number_format($resultadoListaPersonagem["experience"], 0, "", "."),
+						"maglevel" => $resultadoListaPersonagem["maglevel"],
 						"skill_fist" => $resultadoListaPersonagem["skill_fist"],
 						"skill_club" => $resultadoListaPersonagem["skill_club"],
 						"skill_sword" => $resultadoListaPersonagem["skill_sword"],
