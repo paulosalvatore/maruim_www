@@ -2842,7 +2842,8 @@
 	</brush>
 	
 	<brush name="dirt mountain" type="ground" server_lookid="7975" z-order="22000">
-		<item id="8133" chance="1"/>
+		<item id="10164" chance="1"/>
+		<item id="8133" chance="0"/>
 		
 		<border align="outer" id="170"/>
 	</brush>
