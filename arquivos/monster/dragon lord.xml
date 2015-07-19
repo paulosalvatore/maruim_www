@@ -50,11 +50,12 @@
 		<voice sentence="YOU WILL BURN!" yell="1" />
 	</voices>
 	<loot>
+		<item id="2672" countmax="2" chance="70000" /><!-- dragon ham -->
 		<item id="21401" countmax="2" chance="40000" /><!-- small dragon tear -->
-		<item id="7399" countmax="1" chance="1000" /><!-- dragon lord trophy -->
+		<item id="7399" chance="1000" /><!-- dragon lord trophy -->
 		<item id="5948" countmax="2" chance="10000" /><!-- red dragon leather -->
-		<item id="5882" countmax="1" chance="5000" /><!-- red dragon scale -->
-		<item id="5919" countmax="1" chance="5000" /><!-- dragon claw -->
-		<item id="2146" countmax="1" chance="10000" /><!-- small sapphire -->
+		<item id="5882" chance="5000" /><!-- red dragon scale -->
+		<item id="5919" chance="5000" /><!-- dragon claw -->
+		<item id="2146" chance="10000" /><!-- small sapphire -->
 	</loot>
 </monster>

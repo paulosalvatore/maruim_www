@@ -25,6 +25,6 @@
 	</voices>
 	<loot>
 		<item id="5890" chance="10000" /><!-- white deer antlers -->
-		<item id="2695" chance="10000" /><!-- white deer skin -->
+		<item id="2328" chance="10000" /><!-- white deer skin -->
 	</loot>
 </monster>

@@ -47,11 +47,12 @@
 		<voice sentence="FCHHHHH" yell="1" />
 	</voices>
 	<loot>
-		<item id="21401" countmax="2" chance="30000" /><!-- small dragon tear -->
-		<item id="12413" countmax="1" chance="70000" /><!-- dragon's tail -->
-		<item id="5920" countmax="1" chance="5000" /><!-- green dragon scale -->
-		<item id="5877" countmax="2" chance="10000" /><!-- green dragon leather -->
-		<item id="10020" countmax="1" chance="5000" /><!-- dragon claw -->
-		<item id="2145" countmax="1" chance="10000" /><!-- small diamond -->
+		<item id="2672" countmax="2" chance="50000" /><!-- dragon ham -->
+		<item id="21401" countmax="2" chance="50000" /><!-- small dragon tear -->
+		<item id="12413" chance="70000" /><!-- dragon's tail -->
+		<item id="5920" chance="1000" /><!-- green dragon scale -->
+		<item id="5877" countmax="2" chance="20000" /><!-- green dragon leather -->
+		<item id="10020" chance="5000" /><!-- dragon claw -->
+		<item id="2145" chance="10000" /><!-- small diamond -->
 	</loot>
 </monster>

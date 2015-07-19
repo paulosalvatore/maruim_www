@@ -40,7 +40,7 @@
 		<item id="2148" chance="10000" /><!-- gold coin -->
 		<item id="5910" chance="10000" /><!-- green piece of cloth -->
 		<item id="5913" chance="10000" /><!-- brown piece of cloth -->
-		<item id="7394" ccountmax="1" hance="10000" /><!-- wolf trophy -->
+		<item id="7394" c hance="10000" /><!-- wolf trophy -->
 		<item id="7400" chance="10000" /><!-- lion trophy -->
 		<item id="7397" chance="10000" /><!-- deer trophy -->
 		<item id="5875" chance="10000" /><!-- sniper gloves -->

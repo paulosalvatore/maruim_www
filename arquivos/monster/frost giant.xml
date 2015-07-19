@@ -41,7 +41,7 @@
 		<voice sentence="Forle Bramma!" />
 	</voices>
 	<loot>
-		<item id="10575" chance="10000" /><!-- Frost Giant Pelt -->
-		<item id="2666" chance="10000" /><!-- Meat -->
+		<item id="10575" chance="50000" /><!-- Frost Giant Pelt -->
+		<item id="2666" countmax="2" chance="40000" /><!-- Meat -->
 	</loot>
 </monster>

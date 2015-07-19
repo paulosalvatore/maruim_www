@@ -33,6 +33,6 @@
 	</voices>
 	<loot>
 		<item id="5897" countmax="4" chance="70000" /><!-- wolf paw -->
-		<item id="2666" countmax="3" chance="50000" /><!-- Meat -->
+		<item id="2666" countmax="3" chance="70000" /><!-- Meat -->
 	</loot>
 </monster>

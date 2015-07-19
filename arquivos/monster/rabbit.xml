@@ -22,6 +22,6 @@
 		<item id="2684" countmax="2" chance="60000" /><!-- Carrot -->
 		<item id="2666" countmax="4" chance="80000" /><!-- Meat -->
 		<item id="13159" chance="10000" /><!-- rabbit's foot -->
-		<item id="13298" chance="10000" /><!-- carrot on a stick -->
+		<item id="13298" chance="0" /><!-- carrot on a stick -->
 	</loot>
 </monster>

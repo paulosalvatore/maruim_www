@@ -33,7 +33,7 @@
 		<voice sentence="Hurr!" />
 	</voices>
 	<loot>
-		<item id="5878" chance="10000" /><!-- minotaur leather -->
-		<item id="12428" chance="10000" /><!-- Minotaur Horn -->
+		<item id="5878" chance="50000" /><!-- Minotaur Leather -->
+		<item id="12428" countmax="2" chance="20000" /><!-- Minotaur Horn -->
 	</loot>
 </monster>

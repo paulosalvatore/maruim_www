@@ -34,7 +34,7 @@
 	</voices>
 	<loot>
 		<item id="10565" countmax="2" chance="80000" /><!-- Frosty Ear of a Troll -->
-		<item id="2148" chance="20000" /><!-- frosty heart -->
+		<item id="10578" chance="20000" /><!-- frosty heart -->
 		<item id="7290" chance="5000" /><!-- shard -->
 	</loot>
 </monster>

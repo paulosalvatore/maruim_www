@@ -30,14 +30,18 @@
 			<attribute key="shootEffect" value="fire" />
 		</attack>
 	</attacks>
-	<defenses armor="20" defense="20" />
-	<immunities>
-		<immunity fire="1" />
-	</immunities>
 	<elements>
-		<element icePercent="-15" />
+		<element icePercent="-25" />
 	</elements>
+	<immunities>
+		<immunity death="1" />
+		<immunity fire="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
 	<loot>
+		<item id="5468" chance="20000" /><!-- Fire Bug -->
 		<item id="8299" countmax="2" chance="70000" /><!-- Glimmering Soil -->
 		<item id="9970" countmax="2" chance="20000" /><!-- Small Topaz -->
 	</loot>

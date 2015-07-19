@@ -65,7 +65,6 @@
 		<voice sentence="Prek tars, dekklep zurk." />
 	</voices>
 	<loot>
-		<item id="2229" chance="10000" /><!-- skull -->
 		<item id="2174" chance="10000" /><!-- strange symbol-->
 		<item id="3955" chance="10000" /><!-- voodoo doll-->
 	</loot>

@@ -49,7 +49,7 @@
 		<voice sentence="Gnarr." />
 	</voices>
 	<loot>
-		<item id="2148" chance="60000" /><!-- frosty heart -->
+		<item id="10578" chance="60000" /><!-- frosty heart -->
 		<item id="7441" chance="30000" /><!-- ice cube -->
 		<item id="7290" chance="20000" /><!-- shard -->
 	</loot>

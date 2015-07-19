@@ -46,7 +46,7 @@
 		<voice sentence="Come kiss the cook!" />
 	</voices>
 	<loot>
-		<item id="10575" chance="10000" /><!-- Frost Giant Pelt -->
-		<item id="2671" chance="10000" /><!-- Ham -->
+		<item id="10575" chance="50000" /><!-- Frost Giant Pelt -->
+		<item id="2671" countmax="2" chance="40000" /><!-- Ham -->
 	</loot>
 </monster>

@@ -5,6 +5,7 @@
 	<monster name="Adept Of The Cult" file="adept of the cult.xml" />
 	<monster name="Amazon" file="amazon.xml" />
 	<monster name="Ancient Scarab" file="ancient scarab.xml" />
+	<monster name="Angry Villager" file="angry villager.xml" />
 	<monster name="Armadile" file="armadile.xml" />
 	<monster name="Askarak Demon" file="askarak demon.xml" />
 	<monster name="Askarak Lord" file="askarak lord.xml" />

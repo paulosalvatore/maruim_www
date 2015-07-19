@@ -24,5 +24,6 @@
 		<item id="8971" chance="80000" /><!-- gland -->
 		<item id="2225" countmax="3" chance="30000" /><!-- piece of iron -->
 		<item id="10609" countmax="5" chance="70000" /><!-- lump of dirt -->
+		<item id="2666" countmax="2" chance="40000" /><!-- meat -->
 	</loot>
 </monster>

@@ -32,7 +32,7 @@
 	</voices>
 	<loot>
 		<item id="5896" countmax="4" chance="80000" /><!-- Bear Paw -->
-		<item id="2666" countmax="5" chance="70000" /><!-- Meat -->
-		<item id="2671" countmax="3" chance="60000" /><!-- Ham -->
+		<item id="2666" countmax="6" chance="70000" /><!-- Meat -->
+		<item id="2671" countmax="4" chance="60000" /><!-- Ham -->
 	</loot>
 </monster>

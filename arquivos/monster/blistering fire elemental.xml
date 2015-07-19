@@ -30,12 +30,16 @@
 		</attack>
 	</attacks>
 	<defenses armor="20" defense="20" />
-	<immunities>
-		<immunity fire="1" />
-	</immunities>
 	<elements>
-		<element icePercent="-25" />
+		<element icePercent="-40" />
 	</elements>
+	<immunities>
+		<immunity death="1" />
+		<immunity fire="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
 	<loot>
 		<item id="8304" chance="10000" /><!-- Eternal Flames -->
 		<item id="8299" chance="10000" /><!-- Glimmering Soil -->

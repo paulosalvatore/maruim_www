@@ -33,6 +33,8 @@
 		<voice sentence="Ugaar!" />
 	</voices>
 	<loot>
+		<item id="19390" countmax="3" chance="50000" /><!-- Spire Spear -->
+		<item id="12435" countmax="2" chance="20000" /><!-- Spear -->
 		<item id="12435" chance="60000" /><!-- Orc Leather -->
 		<item id="11113" countmax="2" chance="80000" /><!-- Orc Tooth -->
 	</loot>

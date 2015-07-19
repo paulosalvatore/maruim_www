@@ -51,6 +51,7 @@
 	</voices>
 	<loot>
 		<item id="21245" countmax="2" chance="70000" /><!-- Blood Tincture in a Vial -->
-		<item id="21243" chance="10000" /><!-- Horoscope -->
+		<item id="21243" countmax="2" chance="70000" /><!-- Horoscope -->
+		<item id="5909" chance="50000" /><!-- White Piece of Cloth -->
 	</loot>
 </monster>

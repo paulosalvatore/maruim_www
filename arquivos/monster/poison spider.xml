@@ -30,6 +30,6 @@
 	<loot>
 		<item id="8859" chance="70000" /><!-- spider fangs -->
 		<item id="8860" chance="20000" /><!-- spiderwebs -->
-		<item id="12441" chance="80000" /><!-- poison spider shell -->
+		<item id="12441" chance="50000" /><!-- poison spider shell -->
 	</loot>
 </monster>

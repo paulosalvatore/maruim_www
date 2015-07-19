@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Fire Elemental" nameDescription="a fire elemental" race="fire" experience="220" speed="200" manacost="690">
+<monster name="Weak Fire Elemental" nameDescription="a weak fire elemental" race="fire" experience="110" speed="200" manacost="0">
 	<health now="280" max="280" />
 	<look type="49" corpse="8964" />
 	<targetchange interval="4000" chance="10" />
 	<strategy attack="100" defense="0" />
 	<flags>
-		<flag summonable="1" />
+		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
 		<flag illusionable="1" />
@@ -18,18 +18,18 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="50" />
-		<attack name="fire" interval="2000" chance="20" range="7" radius="2" target="1" min="-45" max="-160"> <!-- target fire explosion -->
+		<attack name="melee" interval="2000" skill="20" attack="30" />
+		<attack name="fire" interval="2000" chance="20" range="7" radius="2" target="1" min="-20" max="-80"> <!-- target fire explosion -->
 			<attribute key="shootEffect" value="fire" />
 			<attribute key="areaEffect" value="firearea" />
 		</attack>
-		<attack name="firefield" interval="2000" chance="25" range="7" radius="1" target="1"> <!-- target fire field -->
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="1" target="1"> <!-- target fire field -->
 			<attribute key="shootEffect" value="fire" />
 		</attack>
 	</attacks>
-	<defenses armor="15" defense="15" />
+	<defenses armor="10" defense="10" />
 	<elements>
-		<element icePercent="-25" />
+		<element icePercent="-50" />
 	</elements>
 	<immunities>
 		<immunity death="1" />
@@ -39,9 +39,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="5468" chance="10000" /><!-- Fire Bug -->
-		<item id="8299" countmax="2" chance="30000" /><!-- Glimmering Soil -->
-		<item id="2147" countmax="2" chance="10000" /><!-- Small Ruby -->
-		<item id="9970" countmax="2" chance="10000" /><!-- Small Topaz -->
+		<item id="5468" chance="3000" /><!-- Fire Bug -->
+		<item id="8299" countmax="2" chance="10000" /><!-- Glimmering Soil -->
+		<item id="2147" countmax="2" chance="4000" /><!-- Small Ruby -->
+		<item id="9970" countmax="2" chance="4000" /><!-- Small Topaz -->
 	</loot>
 </monster>

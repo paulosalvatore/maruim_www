@@ -37,15 +37,17 @@
 	<elements>
 		<element icePercent="-15" />
 		<element physicalPercent="40" />
-		<element deathPercent="20" />
 		<element energyPercent="30" />
 	</elements>
 	<immunities>
+		<immunity death="1" />
 		<immunity fire="1" />
+		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
+		<item id="5468" chance="30000" /><!-- Fire Bug -->
 		<item id="8299" countmax="3" chance="80000" /><!-- Glimmering Soil -->
 		<item id="21585" chance="10000" /><!-- Smoking Coal -->
 		<item id="2147" countmax="2	" chance="20000" /><!-- Small Ruby -->

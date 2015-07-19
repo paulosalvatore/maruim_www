@@ -62,10 +62,10 @@
 	</voices>
 	<loot>
 		<item id="5022" countmax="3" chance="50000" /><!-- Orichalcum Pearl -->
-		<item id="2550" chance="30000" /><!-- Scythe -->
+		<item id="2550" chance="50000" /><!-- Scythe -->
 		<item id="10577" chance="10000" /><!-- Mystical Hourglass -->
-		<item id="6500" chance="5000" /><!-- Demonic Essence -->
+		<item id="6500" chance="20000" /><!-- Demonic Essence -->
 		<item id="2162" chance="10000" /><!-- Magic Light Wand -->
-		<item id="6300" chance="5000" /><!-- Death Ring -->
+		<item id="6300" chance="30000" /><!-- Death Ring -->
 	</loot>
 </monster>

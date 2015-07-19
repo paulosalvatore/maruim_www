@@ -37,9 +37,12 @@
 		<voice sentence="Groarrrr! Rwarrrr!" />
 	</voices>
 	<loot>
-		<item id="7400" chance="2000" /><!-- lion trophy -->
+		<item id="2193" chance="30000" /><!-- ankh -->
+		<item id="7400" chance="10000" /><!-- lion trophy -->
 		<item id="2666" countmax="4" chance="80000" /><!-- meat -->
 		<item id="2671" countmax="2" chance="60000" /><!-- ham -->
-		<item id="10608" chance="30000" /><!-- lion's mane -->
+		<item id="10608" chance="50000" /><!-- lion's mane -->
+		<item id="2147" chance="30000" /><!-- small ruby -->
+		<item id="9970" chance="30000" /><!-- small topaz -->
 	</loot>
 </monster>

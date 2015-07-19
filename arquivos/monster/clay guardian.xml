@@ -46,8 +46,9 @@
 		<item id="2149" countmax="2" chance="20000" /><!-- Small Emerald -->
 		<item id="1294" countmax="3" chance="50000" /><!-- Small Stone -->
 		<item id="11339" countmax="2" chance="70000" /><!-- Clay Lump -->
-		<item id="11325" chance="5000" /><!-- Spiked Iron Ball -->
+		<item id="11325" chance="40000" /><!-- Spiked Iron Ball -->
 		<item id="10549" chance="5000" /><!-- Ancient Stone -->
+		<item id="11227" chance="20000" /><!-- Shiny Stone -->
 		<item id="5880" chance="20000" /><!-- Iron Ore -->
 	</loot>
 </monster>

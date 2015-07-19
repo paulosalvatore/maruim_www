@@ -50,7 +50,7 @@
 		<voice sentence="Fchu?" />
 	</voices>
 	<loot>
-		<item id="2148" chance="70000" /><!-- frosty heart -->
+		<item id="10578" chance="70000" /><!-- frosty heart -->
 		<item id="7289" chance="10000" /><!-- frost charm -->
 		<item id="7290" chance="20000" /><!-- shard -->
 	</loot>

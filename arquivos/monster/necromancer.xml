@@ -56,8 +56,8 @@
 	</voices>
 	<loot>
 		<item id="11237" chance="10000" /><!-- Book of Necromantic Rituals -->
-		<item id="21243" chance="20000" /><!-- Horoscope -->
+		<item id="21243" countmax="3" chance="60000" /><!-- Horoscope -->
 		<item id="5909" chance="50000" /><!-- White Piece of Cloth -->
-		<item id="2229" chance="5000" /><!-- Skull -->
+		<item id="2229" chance="10000" /><!-- Skull -->
 	</loot>
 </monster>

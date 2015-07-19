@@ -34,10 +34,11 @@
 	</voices>
 	<loot>
 		<item id="5900" chance="60000" /><!-- Dwarven Beard -->
+		<item id="11325" countmax="2" chance="50000" /><!-- Spiked Iron Ball -->
 		<item id="5880" countmax="2" chance="50000" /><!-- Iron Ore -->
 		<item id="9814" chance="30000" /><!-- Rusty Shield -->
 		<item id="2350" chance="30000" /><!-- Sword Hilt -->
-		<item id="2339" chance="30000" /><!-- Damaged Helmet -->
+		<item id="9820" chance="30000" /><!-- Rusty Helmet -->
 		<item id="13757" chance="50000" /><!-- Coal -->
 		<item id="2150" countmax="2" chance="10000" /><!-- Small Amethyst -->
 	</loot>
