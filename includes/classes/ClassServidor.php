@@ -13,17 +13,21 @@
 			}
 			return $serverInfo;
 		}
-		public function statusServidor(){
+		public function isOnline(){
 			$serverInfo = $this->serverInfo();
-			if((count($serverInfo) > 0) AND ($serverInfo["online"] >= time()-10)){
+			if((count($serverInfo) > 0) AND ($serverInfo["online"] >= time()-10))
+				return true;
+			return false;
+		}
+		public function statusServidor(){
+			if($this->isOnline())
 				return "Online";
-			}
 			return "Offline";
 		}
 		public function exibirTempoOnline(){
-			$serverInfo = $this->serverInfo();
-			$uptime = (isset($serverInfo["uptime"]) ? time()-$serverInfo["uptime"] : 0);
-			if($uptime > 0)
+			if($this->isOnline()){
+				$serverInfo = $this->serverInfo();
+				$uptime = (isset($serverInfo["uptime"]) ? time()-$serverInfo["uptime"] : 0);
 				return '
 					<tr>
 						<td class="negrito">
@@ -34,6 +38,7 @@
 						</td>
 					</tr>
 				';
+			}
 		}
 		public function pegarNumeroJogadoresOnline(){
 			$numeroJogadoresOnline = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM players_online"));
