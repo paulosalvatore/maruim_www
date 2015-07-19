@@ -354,6 +354,7 @@
 	<monster name="Wasp" file="wasp.xml" />
 	<monster name="Waspoid" file="waspoid.xml" />
 	<monster name="Water Elemental" file="water elemental.xml" />
+	<monster name="Weak Fire Elemental" file="weak fire elemental.xml" />
 	<monster name="Weeper" file="weeper.xml" />
 	<monster name="Werewolf" file="werewolf.xml" />
 	<monster name="White Deer" file="white deer.xml" />
