@@ -114,7 +114,7 @@
 				<br>
 			';
 		}
-		public function exibirBuscaNpc($busca, $exibir = true){
+		public function exibirBuscaNpc($busca){
 			$busca = addslashes($busca);
 			$checarBuscaExata = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_npcs WHERE (nome LIKE '$busca')"));
 			$checarBuscaExata = $checarBuscaExata["total"];
@@ -129,8 +129,6 @@
 				header("Location: ".$this->pegarLinkNpc($npcs[0]["id"], $npcs[0]["nome"]));
 				exit;
 			}
-			if(!$exibir)
-				return;
 			$ClassFuncao = new Funcao();
 			$ClassFuncao->ordenarResultadosBusca($npcs, 'nome');
 			$q = count($npcs);
@@ -139,7 +137,7 @@
 				<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 					<tr class="cabecalho">
 						<td colspan="2" style="z-index: '.($q+1).'; position: relative;">
-							Resultados da Busca por "'.$busca.'"
+							'.(empty($busca) ? "Lista de NPCs" : 'Resultados da Busca por "'.$busca.'"').'
 						</td>
 					</tr>
 					';

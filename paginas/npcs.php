@@ -92,11 +92,10 @@
 			$conteudo_pagina .= $conteudo_nao_encontrado_full;
 	}
 	else{
-		$ClassNpcs-> exibirBuscaNpc($id, false);
 		$conteudo_pagina .= '
 			<div class="conteudo_pagina" carregar_box="1" carregar_imagem_titulo="'.$incluir_arquivo.'">
 				<div class="conteudo_box pagina">
-					'.$exibirBuscaNpc.'
+					'.$ClassNpcs->exibirBuscaNpc($id).'
 				</div>
 			</div>
 		';
