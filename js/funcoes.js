@@ -153,7 +153,7 @@ $(function(){
 			categoria.addClass("ativo");
 		gravarCookies("barra_lateral_esquerda");
 	});
-	opcoes = getCookie("opcoes");
+	var opcoes = getCookie("opcoes");
 	if(isNaN(opcoes[0]))
 		opcoes = "1";
 	for(i=0;i<opcoes.length;i++){
@@ -177,8 +177,6 @@ $(function(){
 			$(this).html(link);
 		}
 	});
-	function isEllipsisActive(a){
-	}
 	$(".texto_breve").each(function(){
 		$("body").append('<span id="tmpsmp" style="display: none;">'+$(this).html()+'</span>');
 		if($(this).width() > $("#tmpsmp").width()){
