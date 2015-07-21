@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-f33//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <style type="text/css">
 	html { height:100%; width:99.8%; }
 	body { height:100%; width:100%%; margin:0px; padding:0px; font:13px/1.2 Helvetica,Arial,sans-serif; color: #000000}
@@ -36,8 +36,22 @@ var start_zoom;
 var linkMarker = null;
 var exibirControles = true;
 
-var NPC = {};
-NPC['Mano Widin'] = [1045, 1601, 7];
+var cidades = {
+	"Maruim Island" : [567, 936, [7, 6, 5, 4]],
+	"Mugulu" : [795, 1811, [7, 6, 5, 4]],
+	"Civitaten" : [948, 1910, [7, 6, 5, 4, 3, 2, 1]],
+	"Udecoat" : [915, 1768, [7, 8, 9]],
+	"Ôttô" : [841, 1320, [7, 6, 5, 4, 3]],
+	"Pundera" : [871, 1518, [7, 6, 5]],
+	"Ogamy" : [801, 1626, [7]],
+	"Thorn" : [1069, 1340, [7, 6, 5, 4]],
+	"Hyalakur" : [1071, 1582, [7, 6, 5]],
+	"Lorn" : [1269, 1684, [7, 6, 5, 4, 3]],
+	"Kyo" : [1318, 1899, [7, 6, 5, 4]],
+	"Algatar" : [1076, 2018, [7, 6, 5, 4]],
+	"Khazad-Dûm" : [1528, 1705, [7, 8, 6]]
+};
+var marcasCidades = {}
 
 function LatLngToCoord(latLng) {
 	return new google.maps.Point(ORIGIN_X+Math.floor(latLng.lng()*map_max/2.56),ORIGIN_Y+Math.floor(latLng.lat()*map_max/2.56));
@@ -59,34 +73,34 @@ function CollapseTable() {
 		table.innerHTML="Mostrar";
 		table.style.borderBottom="0px solid";
 	}
-	
+
 	SetSize();
 	MapResize();
 }
 
 function ChangeFloor(change) {
 	floor+=change;
-	
-	if (floor<0)
-		floor=0;
-	else if (floor>15)
-		floor=15;
-		
+
+	if(floor < 0)
+		floor = 0;
+	else if(floor > 15)
+		floor = 15;
+
 	MapUpdate();
 	map.setMapTypeId(floor+"");
-	document.getElementById("floor_div").innerHTML = 7-floor;
-	
+	document.getElementById("floor_div").innerHTML = 7 - floor;
+
 	var backgroundColor = "#000000";
-	
-	if (floor==7)
+
+	if(floor == 7)
 	backgroundColor = "#01669E";
-	
+
 	document.getElementById("tibia_map").style.backgroundColor = backgroundColor;
-	
-	if (linkMarker) {
+
+	if(linkMarker)
 		linkMarker.setMap(start_floor == floor?map:null);
-	}
-}; 
+	exibirMarcas();
+};
 
 function MapUpdate() {
 	var coord_x = LatLngToCoord(map.getCenter()).x;
@@ -99,12 +113,12 @@ function MapUpdate() {
 	document.getElementById("info_link").value=url;
 	document.getElementById("info_link").innerHTML=url;
 	zoom2 = Math.max(3,zoom+2);
-}; 
+};
 
 function MapResize() {
-	var center = map.getCenter(); 
-	google.maps.event.trigger(map,"resize"); 
-	map.setCenter(center); 
+	var center = map.getCenter();
+	google.maps.event.trigger(map,"resize");
+	map.setCenter(center);
 }
 
 function SetSize() {
@@ -112,42 +126,28 @@ function SetSize() {
 }
 
 function CheckLinkAndInitCoords() {
-var url = {};
-parent.document.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) {url[key] = value;});
+	var url = {};
+	parent.document.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value) {url[key] = value;});
 
-if (url.npc != undefined && parseInt(url.npc) != NaN){
-	url.npc = decodeURIComponent(url.npc);
-	start_x = parseInt(NPC[url.npc][0]);
-	start_y = parseInt(NPC[url.npc][1]);
-	start_floor = floor = NPC[url.npc][2];
-	start_zoom = 3;
-
-	var companyMarker = new google.maps.Marker({
-		position: CoordToLatLng(start_x, start_y),
-		map: map,
-		title:url.npc
-	});
-}else{
 	if (url.x != undefined && parseInt(url.x) != NaN)
 		start_x = parseInt(url.x);
 	else
 		start_x = ORIGIN_X+MAP_WIDTH/2;
-		
+
 	if (url.y != undefined && parseInt(url.y) != NaN)
 		start_y = parseInt(url.y);
 	else
 		start_y = ORIGIN_Y+MAP_HEIGHT/2;
-		
+
 	if (url.z != undefined && parseInt(url.z) != NaN && parseInt(url.z) >= 0 && parseInt(url.z) <= 15)
 		start_floor = floor = parseInt(url.z);
 	else
 		start_floor = floor = ORIGIN_Z;
-		
+
 	if (url.zoom != undefined && parseInt(url.zoom) != NaN)
 		start_zoom = parseInt(url.zoom);
 	else
 		start_zoom = 2;
-	}
 }
 
 function LoadMap() {
@@ -172,13 +172,13 @@ function LoadMap() {
 		},
 		zoomControl: true
 	};
-	
+
 	var tibiaMapOptions = {
 		getTileUrl: function(coord,zoom) {
 			var max = Math.pow(2,zoom) - 1;
 			var x = coord.x;
 			var y = max - coord.y;
-			
+
 			if (x < 0 || x > max || y < 0 || y > max) {
 				if (floor == 7)
 					return "../imagens/mapa/blue.png";
@@ -203,7 +203,7 @@ function LoadMap() {
 	map.setMapTypeId(floor+"");
 	google.maps.event.addListener(map,"bounds_changed",MapUpdate);
 	google.maps.event.addDomListener(window,"resize",MapResize);
-	
+
 	if (start_x != ORIGIN_X+MAP_WIDTH/2) {
 		linkMarker = new google.maps.Marker({
 			map: map,
@@ -211,16 +211,30 @@ function LoadMap() {
 			title: "Duplo clique para remover.",
 			animation: google.maps.Animation.BOUNCE
 		});
-		
+
 		setTimeout(function() {
 			linkMarker.setAnimation(null);
 		}, 3000);
-		
+
 		google.maps.event.addListener(linkMarker, "dblclick", function() {
 			linkMarker.setMap(null);
 			linkMarker = null;
 		});
+
 	}
+
+	$.each(cidades, function(index, value){
+		var arquivo = index.toLowerCase()
+			.split(" ").join("_")
+			.split("û").join("u")
+			.split("ô").join("o");
+		marcasCidades[index] = new google.maps.Marker({
+			position: new CoordToLatLng(value[0], value[1]),
+			map: map,
+			icon: "../imagens/mapa/marcas/"+arquivo+".png"
+		});
+	});
+
 	google.maps.event.addListenerOnce(map, 'idle', function(){
 		var img = $("img[src='https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png']").closest("div");
 		img.css("cursor", "");
@@ -233,7 +247,7 @@ function FloorControl() {
 	var controlDiv = document.createElement("DIV");
 	controlDiv.style.margin = "0px";
 	controlDiv.style.padding = "0px";
-	
+
 	var upDiv = document.createElement("DIV");
 	upDiv.style.cursor="pointer";
 	upDiv.style.width = "20px";
@@ -243,7 +257,7 @@ function FloorControl() {
 	upDiv.title = "+1";
 	upDiv.style.background = "url(../imagens/mapa/up.png) no-repeat center";
 	controlDiv.appendChild(upDiv);
-	
+
 	var floorDiv = document.createElement("DIV");
 	floorDiv.style.width = "20px";
 	floorDiv.style.height = "21px";
@@ -252,7 +266,7 @@ function FloorControl() {
 	floorDiv.style.pointerEvents = "none";
 	floorDiv.style.background = "url(../imagens/mapa/floor.png) no-repeat center";
 	controlDiv.appendChild(floorDiv);
-	
+
 	var textDiv = document.createElement("DIV");
 	textDiv.id = "floor_div";
 	textDiv.style.width = "18px";
@@ -264,7 +278,7 @@ function FloorControl() {
 	textDiv.style.font = "bold 15px Helvetica,Arial,sans-serif";
 	textDiv.innerHTML = 7-floor;
 	floorDiv.appendChild(textDiv);
-	
+
 	var downDiv = document.createElement("DIV");
 	downDiv.style.cursor="pointer";
 	downDiv.style.width = "20px";
@@ -274,7 +288,7 @@ function FloorControl() {
 	downDiv.title = "-1";
 	downDiv.style.background = "url(../imagens/mapa/down.png) no-repeat center";
 	controlDiv.appendChild(downDiv);
-	
+
 	var centerDiv = document.createElement("DIV");
 	centerDiv.style.cursor="pointer";
 	centerDiv.style.width = "20px";
@@ -284,13 +298,22 @@ function FloorControl() {
 	centerDiv.title = "Centro";
 	centerDiv.style.background = "url(../imagens/mapa/center.png) no-repeat center";
 	controlDiv.appendChild(centerDiv);
-	
+
 	var CENTER = CoordToLatLng(start_x,start_y);
 	google.maps.event.addDomListener(upDiv,"click",function() {ChangeFloor(-1)});
 	google.maps.event.addDomListener(downDiv,"click",function() {ChangeFloor(+1)});
 	google.maps.event.addDomListener(centerDiv,"click",function() {map.setCenter(CENTER)});
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		exibirMarcas()
+	});
 	if(exibirControles)
 		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv);
+}
+function exibirMarcas(){
+	var zoomLevel = map.getZoom();
+	$.each(marcasCidades, function(index, value){
+		marcasCidades[index].setMap((zoomLevel >= 2 && cidades[index][2].indexOf(floor) >= 0) ? map : null);
+	});
 }
 
 function Crosshair() {
@@ -301,7 +324,7 @@ function Crosshair() {
 		xDiv.style.background = "url(../imagens/mapa/cx.png) repeat-x center";
 		xDiv.style.pointerEvents = "none";
 		map.controls[google.maps.ControlPosition.LEFT_CENTER].push(xDiv);
-		
+
 		var yDiv = document.createElement("DIV");
 		yDiv.style.width = "1px";
 		yDiv.style.height = "100%";
@@ -321,7 +344,7 @@ SimpleProjection.prototype.fromLatLngToPoint = function(latLng) {
 	return new google.maps.Point(latLng.lng()*100,latLng.lat()*100);
 };
 
-SimpleProjection.prototype.fromPointToLatLng = function(point,noWrap) { 
+SimpleProjection.prototype.fromPointToLatLng = function(point,noWrap) {
 	return new google.maps.LatLng(point.y/100,point.x/100);
 };
 
@@ -339,20 +362,20 @@ function Init() {
 <body onload="Init()">
 	<div id="tibia_map"></div>
 	<div id="map_info">
-	
+
 	<table>
 		<tr>
 			<td id="info_hide" onclick="CollapseTable();">Esconder</td>
 		</tr>
 	</table>
-	
+
 	<table id="info_table">
 		<tr>
 			<td class="td1">
 				<input id="crosshair_checkbox" type="checkbox" value="1" checked="checked" onclick="Crosshair();" />Cursor
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="td1">Coordenadas:</td>
 			<td class="td2" id="info_coords"></td>
@@ -365,8 +388,8 @@ function Init() {
 		</tr>
 	</table>
 	</div>
-	
+
 	<script type="text/javascript">SetSize();</script>
-	
+
 	</body>
 </html>
