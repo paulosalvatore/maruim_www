@@ -1500,8 +1500,6 @@ div.imagemOutfit {
 }
 .imagemOutfit img.largura64 {
 	max-width: 64px;
-}
-.imagemOutfit img.largura64.semMontaria {
 	margin-left: -32px;
 	margin-top: -32px;
 }

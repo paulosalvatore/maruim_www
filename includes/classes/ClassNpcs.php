@@ -84,14 +84,13 @@
 			return "?p=npcs-".$npcId."-".urlencode($npcNome);
 		}
 		public function pegarImagemNpc($npc, $z = ""){
-			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$npc["lookType"].'&head='.$npc["lookHead"].'&body='.$npc["lookBody"].'&legs='.$npc["lookLegs"].'&feet='.$npc["lookFeet"].'&addons='.$npc["lookAddons"].'&mount='.$npc["lookMount"];
-			$estilos = array("imagemOutfit");
-			if($npc["lookMount"] == 0)
-				$estilos[] = 'semMontaria';
+			$arquivoImagem = 'includes/classes/ClassOutfit.php?id='.$npc["lookType"].'&head='.$npc["lookHead"].'&body='.$npc["lookBody"].'&legs='.$npc["lookLegs"].'&feet='.$npc["lookFeet"].'&addons='.$npc["lookAddons"];
+			if($npc["lookMount"] != 0)
+				$arquivoImagem .= '&mount='.$npc["lookMount"].'&direction=2';
 			$exibirZ = (!empty($z) ? ' style="position: relative; z-index: '.$z.';"' : '');
 			return '
 				<div class="imagemOutfit">
-					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" border="0" class="'.implode(" ", $estilos).'"'.$exibirZ.' />
+					<img src="'.$arquivoImagem.'" alt="'.$npc["nome"].'" title="'.$npc["nome"].'" border="0" class="imagemOutfit"'.$exibirZ.' />
 				</div>
 			';
 		}
