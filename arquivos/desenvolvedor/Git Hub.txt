@@ -8,3 +8,6 @@ Excluindo último commit
 	Depois
 		git push origin +master
 		ou:		git push --force-with-lease
+Rebase removendo algum commit
+	git rebase -p --onto SHA^ SHA
+	Todos os SHA devem ser substituídos
