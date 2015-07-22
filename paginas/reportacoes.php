@@ -228,7 +228,7 @@
 												'.formatarData($reportacao["data"]).'
 											</td>
 											<td style="word-break: break-word; text-align: justify;" class="top">
-												'.($informacoesConta["acesso_pagina"] == 1 ? 'Reportado por: <b>"'.$ClassConta->getPrincipalPersonagem($reportacao["conta"]).'"</b><br>' : '').'
+												'.($informacoesConta["acesso_pagina"] == 1 ? 'Reportado por: <b>"'.$ClassConta->exibirNomeConta($reportacao["conta"], $reportacao["jogador"]).'"</b><br>' : '').'
 												'.preg_replace('/\n/', '<br>', stripslashes(htmlentities(utf8_decode(utf8_encode($reportacao["mensagem"])))), 4).'
 											</td>
 											';

@@ -231,10 +231,13 @@
 			';
 			return $exibirProblemas;
 		}
-		public function getPrincipalPersonagem($contaId){
-			$queryPrincipalPersonagem = mysql_query("SELECT * FROM players WHERE (account_id LIKE '$contaId') ORDER BY level DESC LIMIT 0,1");
-			while($resultadoPrincipalPersonagem = mysql_fetch_assoc($queryPrincipalPersonagem))
-				return $resultadoPrincipalPersonagem["name"];
+		public function exibirNomeConta($contaId, $jogadorId){
+			$informacoesConta = $this->getInformacoesConta($contaId, true);
+			if(!empty($informacoesConta["nome"]))
+				return $informacoesConta["nome"];
+			$queryPersonagem = mysql_query("SELECT * FROM players WHERE (id LIKE '$jogadorId')");
+			while($resultadoPersonagem = mysql_fetch_assoc($queryPersonagem))
+				return $resultadoPersonagem["name"];
 		}
 	}
 ?>
