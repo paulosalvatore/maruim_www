@@ -132,7 +132,7 @@
 											'.formatarData($resultadoTarefas["data"]).'
 										</td>
 										<td style="word-break: break-word; text-align: justify;" class="top">
-											'.stripslashes($resultadoTarefas["descricao"]).'
+											'.utf8_decode(stripslashes(htmlentities(preg_replace('/\n/', 'a', utf8_encode($resultadoTarefas["descricao"]), 4)))).'
 										</td>
 										<td align="center" class="top">
 											<input type="button" class="botao concluirTarefa" registro_id="'.$resultadoTarefas["id"].'" value="Concluir" /><br>
