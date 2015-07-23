@@ -229,7 +229,7 @@
 											</td>
 											<td style="word-break: break-word; text-align: justify;" class="top">
 												'.($informacoesConta["acesso_pagina"] == 1 ? 'Reportado por: <b>"'.$ClassConta->exibirNomeConta($reportacao["conta"], $reportacao["jogador"]).'"</b><br>' : '').'
-												'.utf8_decode(stripslashes(htmlentities(preg_replace('/\n/', 'a', utf8_encode($reportacao["mensagem"]), 4)))).'
+												'.utf8_decode(stripslashes(preg_replace('/\n/', '<br>', htmlspecialchars(utf8_encode($reportacao["mensagem"])), 4))).'
 											</td>
 											';
 											if($informacoesConta["acesso_pagina"] == 1){

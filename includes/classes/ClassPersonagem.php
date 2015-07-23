@@ -247,8 +247,8 @@
 					"vocacao" => $this->getNomeVocacao($resultadoPersonagem["vocation"]),
 					"vocacao_campo" => $this->getCampoVocacao($resultadoPersonagem["vocation"]),
 					"status" => $this->getStatusPersonagem($resultadoPersonagem["id"]),
-					"comentario" => htmlentities($resultadoPersonagem["comentario"]),
-					"exibirComentario" => preg_replace('/\n/', '<br>', htmlentities($resultadoPersonagem["comentario"]), $this->limiteLinhasComentario-1),
+					"comentario" => htmlspecialchars($resultadoPersonagem["comentario"]),
+					"exibirComentario" => utf8_decode(stripslashes(preg_replace('/\n/', '<br>', htmlspecialchars(utf8_encode($resultadoPersonagem["comentario"])), $this->limiteLinhasComentario-1))),
 					"deletar" => $resultadoPersonagem["deletion"],
 					"ocultarConta" => $resultadoPersonagem["ocultar_conta"],
 					"ultimoLogin" => $this->formatarLogin($resultadoPersonagem["lastlogin"]),
@@ -392,7 +392,7 @@
 			return false;
 		}
 		public function editarPersonagem($personagemId, $campo, $valor){
-			if(mysql_query("UPDATE players SET $campo = '$valor' WHERE id = '$personagemId'"))
+			if(mysql_query("UPDATE players SET $campo = '".utf8_decode($valor)."' WHERE id = '$personagemId'"))
 				return true;
 			return false;
 		}
