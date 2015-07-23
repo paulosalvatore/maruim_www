@@ -62,6 +62,11 @@
 					"exibicao" => "Residência",
 					"valor" => $informacoesPersonagem["residencia"]
 				),
+				"casamento" => array(
+					"exibicao" => "Casad".($informacoesPersonagem["genero"] == 0 ? "a" : "o")." com",
+					"valor" => $informacoesPersonagem["casamento"],
+					"ocultar_vazio" => true
+				),
 				"exibirDataCriacao" => array(
 					"exibicao" => "Criado em",
 					"valor" => $informacoesPersonagem["exibirDataCriacao"],

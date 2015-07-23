@@ -254,9 +254,17 @@
 					"ultimoLogin" => $this->formatarLogin($resultadoPersonagem["lastlogin"]),
 					"exibirDataCriacao" => $ClassFuncao->formatarData($resultadoPersonagem["data_registro"]),
 					"tempoOnline" => $ClassFuncao->exibirTempo($resultadoPersonagem["onlinetime"]),
-					"idadeTibia" => $this->calcularIdadeTibia(time()-$resultadoPersonagem["data_registro"])
+					"idadeTibia" => $this->calcularIdadeTibia(time()-$resultadoPersonagem["data_registro"]),
+					"casamento" => $this->pegarInformacoesCasamento($resultadoPersonagem["casamento_status"], $resultadoPersonagem["casamento_conjuge"])
 				);
 			return $informacoesPersonagem;
+		}
+		public function pegarInformacoesCasamento($status, $conjuge){
+			if($status == 2){
+				$nomeConjuge = $this->pegarNomePersonagem($conjuge);
+				return '<a href="'.$this->gerarLinkPersonagem($nomeConjuge).'">'.$nomeConjuge.'</a>';
+			}
+			return "";
 		}
 		public function gerarLinkPersonagem($personagemNome){
 			return '?p=personagens-'.urlencode(utf8_encode($personagemNome));
