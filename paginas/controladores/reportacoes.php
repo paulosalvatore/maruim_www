@@ -11,8 +11,6 @@
 	$ClassConta = new Conta();
 	$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
 	$acesso_pagina = $informacoesConta["acesso_pagina"];
-	// if($acesso_pagina != 1)
-		// exit;
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
 	$tabela = "reports";

@@ -24,7 +24,7 @@
 		$formulario = $ClassFuncao->separarForm($formulario, true);
 		$sql = array(
 			"categoria" => $formulario["categoria"],
-			"descricao" => nl2br($formulario["descricao"]),
+			"descricao" => $formulario["descricao"],
 			"data" => time(),
 			"conta" => $informacoesConta["id"]
 		);

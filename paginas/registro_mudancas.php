@@ -92,7 +92,7 @@
 								$conteudo_pagina .= '
 									<tr class="item">
 										<td align="center" class="top">
-											'.ucfirst($resultadoRegistroMudancas["local_mudanca"]).'
+											'.ucfirst($resultadoRegistroMudancas["local"]).'
 										</td>
 										<td align="center" class="top">
 											'.formatarData($resultadoRegistroMudancas["data"]).'

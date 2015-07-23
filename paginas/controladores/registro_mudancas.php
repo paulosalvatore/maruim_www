@@ -7,6 +7,7 @@
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/protocolo.php");
+	$ClassFuncao = new Funcao();
 	$ClassConta = new Conta();
 	$informacoesConta = $ClassConta->getInformacoesConta($_SESSION["login"]);
 	$acesso_pagina = $informacoesConta["acesso_pagina"];
@@ -15,15 +16,13 @@
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
 	$tabela = "z_registro_mudancas";
-	include("../../includes/classes/ClassFuncao.php");
-	$ClassFuncao = new Funcao();
 	if($acao == "deletar")
 		mysql_query($ClassFuncao->loadSQLQuery($tabela, "id", $registro_id));
 	elseif($acao == "adicionar"){
-		parse_str(addslashes($formulario), $formulario);
+		$formulario = $ClassFuncao->separarForm($formulario, true);
 		$sql = array(
 			"local" => $formulario["local"],
-			"descricao" => nl2br(utf8_decode($formulario["descricao"])),
+			"descricao" => $formulario["descricao"],
 			"data" => time(),
 			"conta" => $informacoesConta["id"]
 		);
