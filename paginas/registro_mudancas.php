@@ -98,7 +98,7 @@
 											'.formatarData($resultadoRegistroMudancas["data"]).'
 										</td>
 										<td style="word-break: break-word; text-align: justify;" class="top">
-											'.utf8_decode(stripslashes(preg_replace('/\n/', '<br>', htmlspecialchars(utf8_encode($resultadoRegistroMudancas["descricao"])), 4))).'
+											'.utf8_decode(stripslashes(preg_replace('/\n/', '<br>', htmlspecialchars(utf8_encode($resultadoRegistroMudancas["descricao"])), 10))).'
 										</td>
 										';
 										if($informacoesConta["acesso_pagina"] == 1)
