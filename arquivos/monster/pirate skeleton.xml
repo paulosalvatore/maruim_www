@@ -29,6 +29,9 @@
 	<loot>
 		<item id="2230" countmax="7" chance="90000" /><!-- Bone -->
 		<item id="12437" chance="40000" /><!-- Pelvis Bone -->
-		<item id="10123" chance="80000" /><!-- pirate treasure map -->
+		<item id="6126" chance="10000" /><!-- Peg Leg -->
+		<item id="10123" chance="2000" /><!-- Pirate Treasure Map -->
+		<item id="2385" chance="2000" /><!-- Sabre -->
+		<item id="2229" chance="1000" /><!-- Skull -->
 	</loot>
 </monster>

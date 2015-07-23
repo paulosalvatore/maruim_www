@@ -41,8 +41,9 @@
 		<voice sentence="Plundeeeeer!" />
 	</voices>
 	<loot>
-		<item id="5800" countmax="2" chance="70000" /><!-- grappling hook -->
-		<item id="10123" countmax="3" chance="90000" /><!-- pirate treasure map -->
-		<item id="6126" chance="30000" /><!-- peg leg -->
+		<item id="6126" countmax="4" chance="60000" /><!-- Peg Leg -->
+		<item id="10123" chance="4000" /><!-- Pirate Treasure Map -->
+		<item id="5553" chance="2000" /><!-- Rum Flask -->
+		<item id="5792" chance="1500" /><!-- Die -->
 	</loot>
 </monster>

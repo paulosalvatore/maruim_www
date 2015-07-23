@@ -40,7 +40,8 @@
 		<voice sentence="Ai humy phary ty kaynon" />
 	</voices>
 	<loot>
-		<item id="7398" chance="3000" /><!-- cyclops trophy -->
-		<item id="10574" countmax="10" chance="80000" /><!-- cyclops toe -->
+		<item id="7398" chance="3000" /><!-- Cyclops Trophy -->
+		<item id="10574" countmax="10" chance="80000" /><!-- Cyclops Toe -->
+		<item id="2666" countmax="5" chance="70000" /><!-- Meat -->
 	</loot>
 </monster>

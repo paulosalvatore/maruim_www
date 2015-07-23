@@ -37,7 +37,8 @@
 		<voice sentence="Humy tasy! Hum hum!" />
 	</voices>
 	<loot>
-		<item id="7398" chance="2000" /><!-- cyclops trophy -->
-		<item id="10574" countmax="7" chance="70000" /><!-- cyclops toe -->
+		<item id="7398" chance="2000" /><!-- Cyclops Trophy -->
+		<item id="10574" countmax="7" chance="70000" /><!-- Cyclops Toe -->
+		<item id="2666" countmax="3" chance="60000" /><!-- Meat -->
 	</loot>
 </monster>

@@ -40,7 +40,11 @@
 		<voice sentence="Hiyaa!" />
 	</voices>
 	<loot>
-		<item id="5800" countmax="2" chance="70000" /><!-- grappling hook -->
-		<item id="10123" countmax="3" chance="90000" /><!-- pirate treasure map -->
+		<item id="6126" countmax="2" chance="50000" /><!-- Peg Leg -->
+		<item id="11219" chance="30000" /><!-- Compass -->
+		<item id="2389" countmax="2" chance="20000" /><!-- Spear -->
+		<item id="10123" chance="3000" /><!-- Pirate Treasure Map -->
+		<item id="5553" chance="2000" /><!-- Rum Flask -->
+		<item id="5917" chance="500" /><!-- Red Bandana -->
 	</loot>
 </monster>

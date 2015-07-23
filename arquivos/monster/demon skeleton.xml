@@ -38,9 +38,11 @@
 	</immunities>
 	<loot>
 		<item id="2194" countmax="2" chance="80000" /><!-- Mysterious Fetish -->
+		<item id="12437" chance="60000" /><!-- Pelvis Bone -->
 		<item id="10564" countmax="2" chance="30000" /><!-- Demonic Skeletal Hand -->
+		<item id="2178" chance="20000" /><!-- Mind Stone -->
 		<item id="2144" countmax="2" chance="10000" /><!-- Black Pearl -->
 		<item id="2147" countmax="2" chance="10000" /><!-- Ruby -->
-		<item id="2178" chance="20000" /><!-- Mind Stone -->
+		<item id="2229" chance="5000" /><!-- Skull -->
 	</loot>
 </monster>

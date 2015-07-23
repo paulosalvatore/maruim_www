@@ -42,9 +42,11 @@
 		<voice sentence="Plundeeeeer!" />
 	</voices>
 	<loot>
-		<item id="5800" countmax="2" chance="80000" /><!-- grappling hook -->
-		<item id="5810" chance="1000" /><!-- pirate voodoo doll -->
-		<item id="10123" countmax="4" chance="90000" /><!-- pirate treasure map -->
-		<item id="6098" chance="10000" /><!-- eye patch -->
+		<item id="6126" countmax="2" chance="80000" /><!-- Peg Leg -->
+		<item id="2410" countmax="4" chance="40000" /><!-- Throwing Knife -->
+		<item id="6098" chance="10000" /><!-- Eye Patch -->
+		<item id="10123" chance="7000" /><!-- Pirate Treasure Map -->
+		<item id="6097" chance="1500" /><!-- Hook -->
+		<item id="5810" chance="1000" /><!-- Pirate Voodoo Doll -->
 	</loot>
 </monster>

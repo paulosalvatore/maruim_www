@@ -317,6 +317,7 @@
 	<monster name="Spidris" file="spidris.xml" />
 	<monster name="Spit Nettle" file="spit nettle.xml" />
 	<monster name="Spitter" file="spitter.xml" />
+	<monster name="Squirrel" file="squirrel.xml"/>
 	<monster name="Stalker" file="stalker.xml" />
 	<monster name="Stampor" file="stampor.xml" />
 	<monster name="Stone Devourer" file="stone devourer.xml" />

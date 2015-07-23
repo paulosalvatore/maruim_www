@@ -31,8 +31,8 @@
 		<immunity death="1" />
 	</immunities>
 	<loot>
-		<item id="2230" countmax="5" chance="90000" /><!-- Bone -->
-		<item id="12437" chance="40000" /><!-- Pelvis Bone -->
+		<item id="12437" chance="90000" /><!-- Pelvis Bone -->
+		<item id="2230" chance="30000" /><!-- Bone -->
 		<item id="2484" chance="10000" /><!-- Studded Armor -->
 	</loot>
 </monster>
