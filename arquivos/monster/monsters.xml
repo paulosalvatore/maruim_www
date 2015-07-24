@@ -31,19 +31,16 @@
 	<monster name="Blood Crab" file="blood crab.xml" />
 	<monster name="Blood Hand" file="blood hand.xml" />
 	<monster name="Blood Priest" file="blood priest.xml" />
+	<monster name="Blue Butterfly" file="blue butterfly.xml" />
 	<monster name="Blue Djinn" file="blue djinn.xml" />
 	<monster name="Boar" file="boar.xml" />
 	<monster name="Bog Raider" file="bog raider.xml" />
 	<monster name="Bonebeast" file="bonebeast.xml" />
 	<monster name="Bonelord" file="bonelord.xml" />
-	<monster name="Brain Death" file="brain death.xml" />
 	<monster name="Braindeath" file="braindeath.xml" />
 	<monster name="Brimstone Bug" file="brimstone bug.xml" />
 	<monster name="Bug" file="bug.xml" />
 	<monster name="Butterfly" file="butterfly.xml" />
-	<monster name="Blue Butterfly" file="blue butterfly.xml" />
-	<monster name="Red Butterfly" file="red butterfly.xml" />
-	<monster name="Yellow Butterfly" file="yellow butterfly.xml" />
 	<monster name="Carniphila" file="carniphila.xml" />
 	<monster name="Carrion Worm" file="carrion worm.xml" />
 	<monster name="Cave Rat" file="cave rat.xml" />
@@ -173,6 +170,10 @@
 	<monster name="Hellspawn" file="hellspawn.xml" />
 	<monster name="Hero" file="hero.xml" />
 	<monster name="Hideous Fungus" file="hideous fungus.xml" />
+	<monster name="Horse (Brown)" file="horse (brown).xml" />
+	<monster name="Horse (Fire)" file="horse (fire).xml" />
+	<monster name="Horse (Grey)" file="horse (grey).xml" />
+	<monster name="Horse" file="horse.xml" />
 	<monster name="Humongous Fungus" file="humongous fungus.xml" />
 	<monster name="Hunter" file="hunter.xml" />
 	<monster name="Husky" file="husky.xml" />
@@ -240,9 +241,9 @@
 	<monster name="Nightmare" file="nightmare.xml" />
 	<monster name="Nightstalker" file="nightstalker.xml" />
 	<monster name="Noble Lion" file="noble lion.xml" />
-	<monster name="Nomad" file="nomad.xml" />
 	<monster name="Nomad Blue" file="nomad blue.xml" />
 	<monster name="Nomad Female" file="nomad female.xml" />
+	<monster name="Nomad" file="nomad.xml" />
 	<monster name="Novice Of The Cult" file="novice of the cult.xml" />
 	<monster name="Orc Leader" file="orc leader.xml" />
 	<monster name="Orc Marauder" file="orc marauder.xml" />
@@ -253,8 +254,8 @@
 	<monster name="Orc" file="orc.xml" />
 	<monster name="Orewalker" file="orewalker.xml" />
 	<monster name="Overcharged Energy Elemental" file="overcharged energy elemental.xml" />
-	<monster name="Phantasm" file="phantasm.xml" />
 	<monster name="Penguin" file="penguin.xml" />
+	<monster name="Phantasm" file="phantasm.xml" />
 	<monster name="Pig" file="pig.xml" />
 	<monster name="Pirate Buccaneer" file="pirate buccaneer.xml" />
 	<monster name="Pirate Corsair" file="pirate corsair.xml" />
@@ -276,7 +277,9 @@
 	<monster name="Quara Predator Scout" file="quara predator scout.xml" />
 	<monster name="Quara Predator" file="quara predator.xml" />
 	<monster name="Rabbit" file="rabbit.xml" />
+	<monster name="Raging Fire" file="raging fire.xml" />
 	<monster name="Rat" file="rat.xml" />
+	<monster name="Red Butterfly" file="red butterfly.xml" />
 	<monster name="Retching Horror" file="retching horror.xml" />
 	<monster name="Rift Brood" file="rift brood.xml" />
 	<monster name="Roaring Lion" file="roaring lion.xml" />
@@ -317,13 +320,13 @@
 	<monster name="Spidris" file="spidris.xml" />
 	<monster name="Spit Nettle" file="spit nettle.xml" />
 	<monster name="Spitter" file="spitter.xml" />
-	<monster name="Squirrel" file="squirrel.xml"/>
+	<monster name="Squirrel" file="squirrel.xml" />
 	<monster name="Stalker" file="stalker.xml" />
 	<monster name="Stampor" file="stampor.xml" />
 	<monster name="Stone Devourer" file="stone devourer.xml" />
 	<monster name="Stone Golem" file="stone golem.xml" />
-	<monster name="Swampling" file="swampling.xml" />
 	<monster name="Swamp Troll" file="swamp troll.xml" />
+	<monster name="Swampling" file="swampling.xml" />
 	<monster name="Swarmer" file="swarmer.xml" />
 	<monster name="Tarantula" file="tarantula.xml" />
 	<monster name="Tarnished Spirit" file="tarnished spirit.xml" />
@@ -360,6 +363,7 @@
 	<monster name="Werewolf" file="werewolf.xml" />
 	<monster name="White Deer" file="white deer.xml" />
 	<monster name="Wiggler" file="wiggler.xml" />
+	<monster name="Wild Horse" file="wild horse.xml" />
 	<monster name="Wild Warrior" file="wild warrior.xml" />
 	<monster name="Wilting Leaf Golem" file="wilting leaf golem.xml" />
 	<monster name="Winter Wolf" file="winter wolf.xml" />
@@ -369,8 +373,8 @@
 	<monster name="Worker Golem" file="worker golem.xml" />
 	<monster name="Wyrm" file="wyrm.xml" />
 	<monster name="Wyvern" file="wyvern.xml" />
+	<monster name="Yellow Butterfly" file="yellow butterfly.xml" />
 	<monster name="Yeti" file="yeti.xml" />
 	<monster name="Young Sea Serpent" file="young sea serpent.xml" />
 	<monster name="Zombie" file="zombie.xml" />
-	<monster name="Raging Fire" file="raging fire.xml" />
 </monsters>
