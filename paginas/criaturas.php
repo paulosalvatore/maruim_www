@@ -16,7 +16,7 @@
 						</tr>
 						<tr class="item">
 							<td>
-								Criatura: <input type="text" id="buscar_criaturas"> <input type="button" class="botao" value="Procurar">
+								Criatura: <input type="text" id="buscar_criaturas" value="'.$_POST["c"].'"> <input type="button" class="botao" value="Procurar">
 							</td>
 						</tr>
 					</table>
@@ -93,21 +93,32 @@
 						<div class="seta voltar">
 							<a href="?p=criaturas"><img src="imagens/corpo/arrow_up.gif" /> voltar</a>
 						</div>
-						';
-						if(isset($navegacaoCriatura[0]))
-							$conteudo_pagina .= '
-								<div class="seta anterior">
-									<a href="?p=criaturas-'.$navegacaoCriatura[0].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
-								</div>
-							';
-						if(isset($navegacaoCriatura[1]))
-							$conteudo_pagina .= '
-								<div class="seta proxima">
-									<a href="?p=criaturas-'.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
-								</div>
-							';
-						$conteudo_pagina .= '
+						'.(isset($navegacaoCriatura[0]) ? '
+							<div class="seta anterior">
+								<a href="?p=criaturas-'.$navegacaoCriatura[0].'"><img src="imagens/corpo/arrow_left.gif" /> anterior</a>
+							</div>
+						' : "").'
+						'.(isset($navegacaoCriatura[1]) ? '
+							<div class="seta proxima">
+								<a href="?p=criaturas-'.$navegacaoCriatura[1].'"><img src="imagens/corpo/arrow_right.gif" /> próxima</a>
+							</div>
+						' : "").'
 					</div>
+					<form method="POST" action="?p=criaturas">
+						<table class="tabela dark" cellpadding="0" cellspacing="0" width="100%">
+							<tr class="cabecalho">
+								<td>
+									Buscar Criaturas
+								</td>
+							</tr>
+							<tr class="item">
+								<td>
+									Criatura: <input type="text" name="c"> <input type="submit" class="botao" value="Procurar">
+								</td>
+							</tr>
+						</table>
+					</form>
+					<br>
 					<div class="box_frame" carregar_box="1">
 						'.$criatura["nome"].'
 					</div>
@@ -126,12 +137,9 @@
 								<b>'.$criatura["nome"].'</b><br>
 								<b>'.$criatura["vida"].'</b> hit points<br>
 								<b>'.$criatura["experiencia"].'</b> pontos de experiência por morte<br>
-								';
-								if($criatura["experiencia"] > 0)
-									$conteudo_pagina .= '
-										<span style="font-size: 11px;">(<span style="color: green;">'.($criatura["experiencia"]*1.5).'</span> com bônus | <span style="color: red;">'.($criatura["experiencia"]*0.5).'</span> com stamina abaixo de 14h)</span>
-									';
-								$conteudo_pagina .= '
+								'.($criatura["experiencia"] > 0 ? '
+								<span style="font-size: 11px;">(<span style="color: green;">'.($criatura["experiencia"]*1.5).'</span> com bônus | <span style="color: red;">'.($criatura["experiencia"]*0.5).'</span> com stamina abaixo de 14h)</span>
+								' : "").'
 							</td>
 						</tr>
 						<tr class="item">
@@ -204,8 +212,7 @@
 										</td>
 									</tr>
 								';
-							}
-						else
+						} else {
 							$conteudo_pagina .= '
 								<tr class="item">
 									<td>
@@ -216,6 +223,7 @@
 									</td>
 								</tr>
 							';
+						}
 						$conteudo_pagina .= '
 						<tr class="item">
 							<td>

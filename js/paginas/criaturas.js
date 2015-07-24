@@ -1,18 +1,23 @@
+criaturas = [];
+
 function aplicarBackgroundTabelaCriaturas(){
 	$("#criaturas .exibir:odd").find(".coluna").css("background", "#D4C0A1");
 	$("#criaturas .exibir:even").find(".coluna").css("background", "#F1E0C6");
-};
+}
+
 function pegarOrdenarPor(ultimaOrdem){
 	if(ultimaOrdem[1] == "desc")
 		return 3
 	return 2
-};
+}
+
 function pegarUltimaOrdem(){
 	var ultimaOrdem = getCookie("ultimaOrdem");
 	if(!ultimaOrdem)
 		ultimaOrdem = "nome-asc";
 	return ultimaOrdem.split("-");
-};
+}
+
 function alterarTipoOrdenar(elemento, ordenar, ativo){
 	var diretorio = "imagens/corpo/", titulo;
 	var imagens = [
@@ -32,11 +37,13 @@ function alterarTipoOrdenar(elemento, ordenar, ativo){
 	.attr("src", diretorio+imagens[ordenar-1]+".png")
 	.attr("ordenar", ordenar)
 	.attr("title", "Ordenar por ordem "+titulo);
-};
+}
+
 function ordenarCriaturas(ordenar, ordenarPor){
 	$("#criaturas .criatura").tsort({order: "asc", attr: "id"});
 	$("#criaturas .criatura").tsort({order: ordenarPor, attr: ordenar});
-};
+}
+
 function clickOrdenarCriaturas(elemento){
 	var tipoOrdenar = parseInt(elemento.attr("ordenar")), novoTipoOrdenar, ordenar = elemento.closest(".coluna").attr("ordenar"), ordenarPor;
 	novoTipoOrdenar = tipoOrdenar+1;
@@ -52,7 +59,8 @@ function clickOrdenarCriaturas(elemento){
 	gerarCookie("ultimaOrdem", ordenar+"-"+ordenarPor, 700);
 	if($("#criaturas").hasClass("lista"))
 		aplicarBackgroundTabelaCriaturas();
-};
+}
+
 function exibirCriaturas(){
 	var tipoExibicao, exibicao, ultimaOrdem = pegarUltimaOrdem(), ordenarPor = pegarOrdenarPor(ultimaOrdem);
 	if($("#criaturas").hasClass("galeria"))
@@ -110,22 +118,46 @@ function exibirCriaturas(){
 	}
 	alterarTipoOrdenar($(".ordenar.ativo"), 1, true);
 	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
-};
+}
+
+function buscarCriaturas(){
+	var valor = $("#buscar_criaturas").val().toLowerCase(), elemento, procurarValor, encontrado = 0;
+	$.each(criaturas, function(c, v){
+		elemento = $("#criaturas .criatura[nome='"+v+"']");
+		procurarValor = v.toLowerCase();
+		if(procurarValor.indexOf(valor) !== -1){
+			encontrado = 1;
+			if(elemento.hasClass("ocultar"))
+				elemento.removeClass("ocultar").addClass("exibir");
+		}
+		else{
+			if(elemento.hasClass("exibir"))
+				elemento.addClass("ocultar").removeClass("exibir");
+		}
+	});
+	if(encontrado == 0)
+		$("#vazio").show();
+	else
+		$("#vazio").hide();
+	aplicarBackgroundTabelaCriaturas();
+}
+
 $(function(){
 	$("#buscar_criaturas").focus();
+
 	var exibicao = getCookie("exibicao");
 	if((exibicao != "lista") && (exibicao != "galeria"))
 		exibicao = "lista";
+
 	$(".exibicao").click(function(){
 		var tipoTabela = $(this).attr("id");
-		if((tipoTabela == "lista") && (!$("#criaturas").hasClass(tipoTabela))){
+		if (tipoTabela == "lista" && !$("#criaturas").hasClass(tipoTabela)){
 			$("#criaturas")
 			.removeClass("galeria")
 			.addClass("lista");
 			$("#vazio")
 			.css("background", "#F1E0C6");
-		}
-		else if((tipoTabela == "galeria") && (!$("#criaturas").hasClass(tipoTabela))){
+		} else if((tipoTabela == "galeria") && (!$("#criaturas").hasClass(tipoTabela))){
 			$("#criaturas")
 			.removeClass("lista")
 			.addClass("galeria");
@@ -142,6 +174,7 @@ $(function(){
 		$(this).addClass("ativo");
 		gerarCookie("exibicao", tipoTabela, 700);
 	});
+
 	var ultimaOrdem = pegarUltimaOrdem(), ordenarPor = pegarOrdenarPor(ultimaOrdem);
 	alterarTipoOrdenar($(".ordenar.ativo"), 1, true);
 	alterarTipoOrdenar($(".coluna."+ultimaOrdem[0]).find(".ordenar"), ordenarPor, false);
@@ -149,32 +182,19 @@ $(function(){
 	$("#"+exibicao).click();
 	exibirCriaturas();
 	aplicarBackgroundTabelaCriaturas();
-	var criaturas = []
+
 	$("#criaturas .criatura").each(function(){
 		var nome = $(this).attr("nome");
 		criaturas.push(nome);
 	});
+
 	if($("#criaturas .criatura").length == 0)
 		$("#vazio").show();
+
 	$("#buscar_criaturas").donetyping(function(){
-		var valor = $(this).val().toLowerCase(), elemento, procurarValor, encontrado = 0;
-		$.each(criaturas, function(c, v){
-			elemento = $("#criaturas .criatura[nome='"+v+"']");
-			procurarValor = v.toLowerCase();
-			if(procurarValor.indexOf(valor) !== -1){
-				encontrado = 1;
-				if(elemento.hasClass("ocultar"))
-					elemento.removeClass("ocultar").addClass("exibir");
-			}
-			else{
-				if(elemento.hasClass("exibir"))
-					elemento.addClass("ocultar").removeClass("exibir");
-			}
-		});
-		if(encontrado == 0)
-			$("#vazio").show();
-		else
-			$("#vazio").hide();
-		aplicarBackgroundTabelaCriaturas();
+		buscarCriaturas();
 	});
+
+	if($("#buscar_criaturas").val() != undefined)
+		buscarCriaturas();
 });
