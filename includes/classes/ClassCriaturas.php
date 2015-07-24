@@ -715,5 +715,14 @@
 				return $criatura;
 			return false;
 		}
+		public function gerarMonsterXML(){
+			$listaCriaturas = $this->carregarListaCriaturas();
+			$monsterXML = '<?xml version="1.0" encoding="UTF-8"?><br><monsters>';
+			foreach(scandir($this->diretorio) as $c => $v)
+				if($v != "." and $v != ".." and $v != "monsters.xml")
+					$monsterXML .= '<br>	<monster name="'.str_replace(".xml", "", str_replace('( ', '(', ucwords(str_replace('(', '( ', $v)))).'" file="'.$v.'" />';
+			$monsterXML .= '<br></monsters>';
+			return '<textarea onClick="this.select();">'.str_replace("<br>", "\n", $monsterXML).'</textarea>';
+		}
 	}
 ?>
