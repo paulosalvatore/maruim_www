@@ -30488,7 +30488,7 @@
 	<item id="22590" article="a" name="stair">
 		<attribute key="floorchange" value="southex" />
 	</item>
-	<item id="22595" article="a" name="stair">
+	<item fromid="22593" toid="22597" name="stairs">
 		<attribute key="floorchange" value="down" />
 	</item>
 	<item id="22598" article="a" name="unrealized dream">
