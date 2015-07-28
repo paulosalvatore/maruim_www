@@ -615,12 +615,9 @@
 			$queryPofissoes = mysql_query("SELECT * FROM z_profissoes");
 			while($resultadoProfissoes = mysql_fetch_assoc($queryPofissoes)){
 				$mesasTrabalho = explode(";", $resultadoProfissoes["mesaTrabalho"]);
-				echo'<pre>';
-				print_r($mesaTrabalho);
-				echo'</pre>';
 				foreach($mesasTrabalho as $mesaTrabalho)
 					if($mesaTrabalho == $item)
-						return '<a href="<a href="?p=profissoes-'.strtolower($resultadoProfissoes["nome"]).'">'.$resultadoProfissoes["nome"].'</a>';
+						return '<a href="?p=profissoes-'.strtolower($resultadoProfissoes["nome"]).'">'.$resultadoProfissoes["nome"].'</a>';
 			}
 		}
 		public function pegarReceitasItem($item, $tipo){
@@ -1406,7 +1403,11 @@
 			return $profissaoInfo;
 		}
 		public function pegarExibicaoProfissao($profissaoNome){
-			return $this->pegarExibicaoCategoria(array_search(strtolower($profissaoNome), $this->categoriasProfissoes), false, "Lista de Receitas - $profissaoNome");
+			$profissaoId = 0;
+			foreach($this->categoriasProfissoes as $c => $v)
+				if($v["nome"] == strtolower($profissaoNome))
+					$profissaoId = $c;
+			return $this->pegarExibicaoCategoria($profissaoId, false, "Lista de Receitas - $profissaoNome");
 		}
 		public function pegarExibicaoMesaTrabalho($mesaTrabalho){
 			$mesaTrabalho = explode(";", $mesaTrabalho);
