@@ -56,9 +56,10 @@
 		<voice sentence="Good wishes are for fairytales" />
 	</voices>
 	<loot>
-		<item id="2062" chance="20000" /><!-- small oil lamp -->
-		<item id="12426" chance="60000" /><!-- jewelled belt -->
-		<item id="12412" chance="70000" /><!-- dirty turban -->
-		<item id="2155" chance="10000" /><!-- green gem -->
+		<item id="12412" chance="70000" /><!-- Dirty Turban -->
+		<item id="12426" chance="60000" /><!-- Jewelled Belt -->
+		<item id="2149" countmax="2" chance="30000" /><!-- Small Emerald -->
+		<item id="2062" chance="20000" /><!-- Small Oil Lamp -->
+		<item id="2155" chance="10000" /><!-- Green Gem -->
 	</loot>
 </monster>

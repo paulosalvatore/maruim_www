@@ -34,8 +34,9 @@
 		<voice sentence="Carrah Carrah!" />
 	</voices>
 	<loot>
-		<item id="11190" chance="90000" /><!-- terrorbird beak -->
-		<item id="12470" chance="20000" /><!-- colourful feather -->
+		<item id="11190" chance="90000" /><!-- Terrorbird Beak -->
+		<item id="3976" countmax="5" chance="85000" /><!-- Worm -->
 		<item id="2666" countmax="3" chance="80000" /><!-- Meat -->
+		<item id="12470" chance="20000" /><!-- Colourful Feather -->
 	</loot>
 </monster>

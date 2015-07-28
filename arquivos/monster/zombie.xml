@@ -48,9 +48,10 @@
 		<voice sentence="Httt.... hmnnsss..." />
 	</voices>
 	<loot>
-		<item id="11367" chance="60000" /><!-- Undead Heart -->
 		<item id="11208" countmax="2" chance="70000" /><!-- Rotten Piece of Cloth -->
-		<item id="10576" chance="30000" /><!-- Half-eaten Brain -->
+		<item id="11367" chance="60000" /><!-- Undead Heart -->
 		<item id="11200" countmax="3" chance="40000" /><!-- Half-digested Piece of Meat -->
+		<item id="3976" countmax="3" chance="35000" /><!-- Worm -->
+		<item id="10576" chance="30000" /><!-- Half-eaten Brain -->
 	</loot>
 </monster>

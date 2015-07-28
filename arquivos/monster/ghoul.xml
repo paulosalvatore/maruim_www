@@ -43,10 +43,11 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="11367" chance="20000" /><!-- Undead Heart -->
 		<item id="12440" countmax="3" chance="80000" /><!-- Pile of Grave Earth -->
 		<item id="11208" chance="50000" /><!-- Rotten Piece of Cloth -->
-		<item id="12423" chance="20000" /><!-- Ghoul Snack -->
+		<item id="3976" countmax="3" chance="40000" /><!-- Worm -->
 		<item id="5913" chance="30000" /><!-- Brown Piece of Cloth -->
+		<item id="11367" chance="20000" /><!-- Undead Heart -->
+		<item id="12423" chance="20000" /><!-- Ghoul Snack -->
 	</loot>
 </monster>

@@ -126,6 +126,7 @@
 	<monster name="Enraged Soul" file="enraged soul.xml" />
 	<monster name="Enslaved Dwarf" file="enslaved dwarf.xml" />
 	<monster name="Eternal Guardian" file="eternal guardian.xml" />
+	<monster name="Fahim The Wise" file="fahim the wise.xml" />
 	<monster name="Farm Black Sheep" file="farm black sheep.xml" />
 	<monster name="Farm Deer" file="farm deer.xml" />
 	<monster name="Farm Horse (Brown)" file="farm horse (brown).xml" />
@@ -223,6 +224,7 @@
 	<monster name="Massive Water Elemental" file="massive water elemental.xml" />
 	<monster name="Medusa" file="medusa.xml" />
 	<monster name="Mercury Blob" file="mercury blob.xml" />
+	<monster name="Merikh The Slaughterer" file="merikh the slaughterer.xml" />
 	<monster name="Merlkin" file="merlkin.xml" />
 	<monster name="Midnight Panther" file="midnight panther.xml" />
 	<monster name="Minotaur Archer" file="minotaur archer.xml" />
@@ -310,6 +312,7 @@
 	<monster name="Skeleton" file="skeleton.xml" />
 	<monster name="Skunk" file="skunk.xml" />
 	<monster name="Slime" file="slime.xml" />
+	<monster name="Slug" file="slug.xml" />
 	<monster name="Smuggler" file="smuggler.xml" />
 	<monster name="Snake" file="snake.xml" />
 	<monster name="Son Of Verminor" file="son of verminor.xml" />
@@ -344,6 +347,7 @@
 	<monster name="Undead Cavebear" file="undead cavebear.xml" />
 	<monster name="Undead Dragon" file="undead dragon.xml" />
 	<monster name="Undead Gladiator" file="undead gladiator.xml" />
+	<monster name="Undead Prospector" file="undead prospector.xml" />
 	<monster name="Valkyrie" file="valkyrie.xml" />
 	<monster name="Vampire Bride" file="vampire bride.xml" />
 	<monster name="Vampire Lord" file="vampire lord.xml" />

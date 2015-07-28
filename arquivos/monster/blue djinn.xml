@@ -55,9 +55,10 @@
 		<voice sentence="Wishes can come true." />
 	</voices>
 	<loot>
-		<item id="2062" chance="20000" /><!-- small oil lamp -->
-		<item id="12426" chance="60000" /><!-- jewelled belt -->
-		<item id="12412" chance="70000" /><!-- dirty turban -->
-		<item id="2158" chance="10000" /><!-- blue gem -->
+		<item id="12412" chance="70000" /><!-- Dirty Turban -->
+		<item id="12426" chance="60000" /><!-- Jewelled Belt -->
+		<item id="2146" countmax="2" chance="30000" /><!-- Small Sapphire -->
+		<item id="2062" chance="20000" /><!-- Small Oil Lamp -->
+		<item id="2158" chance="10000" /><!-- Blue Gem -->
 	</loot>
 </monster>

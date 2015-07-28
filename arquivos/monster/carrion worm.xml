@@ -27,10 +27,11 @@
 		<element icePercent="-5" />
 	</elements>
 	<loot>
-		<item id="8971" chance="60000" /><!-- gland -->
-		<item id="13757" chance="10000" /><!-- coal -->
-		<item id="5880" chance="10000" /><!-- iron ore -->
-		<item id="10609" countmax="4" chance="70000" /><!-- lump of dirt -->
+		<item id="10609" countmax="4" chance="70000" /><!-- Lump of Dirt -->
+		<item id="3976" countmax="4" chance="65000" /><!-- Worm -->
+		<item id="8971" chance="60000" /><!-- Gland -->
 		<item id="11192" countmax="3" chance="50000" /><!-- Carrion Worm Fang -->
+		<item id="13757" chance="10000" /><!-- Coal -->
+		<item id="5880" chance="10000" /><!-- Iron Ore -->
 	</loot>
 </monster>

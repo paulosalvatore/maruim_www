@@ -33,10 +33,11 @@
 		<voice sentence="Ngl..Nglll...Gll" />
 	</voices>
 	<loot>
-		<item id="11367" chance="50000" /><!-- Undead Heart -->
 		<item id="12440" countmax="5" chance="90000" /><!-- Pile of Grave Earth -->
-		<item id="2145" countmax="2" chance="20000" /><!-- Small Diamond -->
 		<item id="2230" chance="80000" /><!-- Bone -->
+		<item id="11367" chance="50000" /><!-- Undead Heart -->
+		<item id="3976" countmax="4" chance="40000" /><!-- Worm -->
 		<item id="11200" countmax="2" chance="30000" /><!-- Half-digested Piece of Meat -->
+		<item id="2145" countmax="2" chance="20000" /><!-- Small Diamond -->
 	</loot>
 </monster>
