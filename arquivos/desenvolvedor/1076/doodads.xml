@@ -290,21 +290,21 @@
 		</composite>
 	</brush>
 
-	<brush name="small rocks (non walkables)" type="doodad" server_lookid="3610" draggable="true" on_blocking="false" thickness="50/100">
+	<brush name="small rocks (non walkables)" type="doodad" server_lookid="3607" draggable="true" on_blocking="false" thickness="50/100">
 		<item id="1285" chance="1" />
 		<item id="3607" chance="1" />
 		<item id="3608" chance="1" />
 		<item id="3609" chance="1" />
-		<item id="3610" chance="1" />
 		<item id="3615" chance="1" />
 		<item id="3616" chance="1" />
 	</brush>
 
-	<brush name="small rocks (walkables)" type="doodad" server_lookid="3611" draggable="true" on_blocking="false" thickness="50/100">
-		<item id="3611" chance="1" />
-		<item id="3612" chance="1" />
-		<item id="3613" chance="1" />
-		<item id="3614" chance="1" />
+	<brush name="small rocks (walkables)" type="doodad" server_lookid="3610" draggable="true" on_blocking="false" thickness="50/100">
+		<item id="3610" chance="1" />
+		<item id="3611" chance="3" />
+		<item id="3612" chance="2" />
+		<item id="3613" chance="3" />
+		<item id="3614" chance="3" />
 		<item id="3621" chance="1" />
 		<item id="3622" chance="1" />
 		<item id="3623" chance="1" />
