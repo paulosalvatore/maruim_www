@@ -4,6 +4,7 @@
 	include("../../includes/funcoes.php");
 	check_is_ajax(__FILE__);
 	include("../../includes/classes/ClassFuncao.php");
+	$ClassFuncao = new Funcao();
 	check_if_logged(__FILE__);
 	include("../../includes/config.php");
 	include("../../includes/protocolo.php");
@@ -15,8 +16,6 @@
 	foreach($_REQUEST as $c => $v)
 		$$c = $v;
 	$tabela = "z_ids_utilizadas";
-	include("../../includes/classes/ClassFuncao.php");
-	$ClassFuncao = new Funcao();
 	function checarRange($min, $max, $checar, $valor1, $valor2){
 		return (($valor1 == $valor2) AND ($checar >= $min AND $checar <= $max));
 	}
