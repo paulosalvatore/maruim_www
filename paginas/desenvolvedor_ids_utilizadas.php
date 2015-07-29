@@ -2,7 +2,8 @@
 	$categorias = array(
 		"action",
 		"unique",
-		"storage"
+		"storage",
+		"modal"
 	);
 	$tiposValores = array(
 		1 => "Número Inteiro",
