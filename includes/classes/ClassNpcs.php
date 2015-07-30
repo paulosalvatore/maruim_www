@@ -5,9 +5,21 @@
 			$queryNpc = mysql_query("SELECT * FROM z_npcs WHERE (id LIKE '$npcId')");
 			while($resultadoNpc = mysql_fetch_assoc($queryNpc))
 				$npc = $resultadoNpc;
-			if(count($npc) > 0)
+			if(count($npc) > 0){
 				$npc["imagem"] = $this->pegarImagemNpc($npc);
+				$npc["exibirPosicoes"] = $this->exibirPosicoesNpc($npcId);
+			}
 			return $npc;
+		}
+		public function exibirPosicoesNpc($npcId){
+			$exibirPosicoesNpc = "";
+			$posicoesNpc = array();
+			$queryPosicoesNpc = mysql_query("SELECT * FROM z_npcs_posicoes WHERE (npc LIKE '$npcId')");
+			while($resultadoPosicoesNpc = mysql_fetch_assoc($queryPosicoesNpc))
+				$posicoesNpc[] = $resultadoPosicoesNpc;
+			foreach($posicoesNpc as $c => $posicaoNpc)
+				$exibirPosicoesNpc .= '<a href="?p=mapa&x='.$posicaoNpc["posx"].'&y='.$posicaoNpc["posy"].'&z='.$posicaoNpc["posz"].'&zoom=5"'.(count($posicoesNpc) > 1 ? ' target="_new"' : "").'>'.(count($posicoesNpc) > 1 ? "Posição ".($c+1) : "Clique aqui para visualizar").'</a><br>';
+			return $exibirPosicoesNpc;
 		}
 		public function exibirItensNpc($npcId){
 			include("includes/classes/ClassItens.php");

@@ -42,11 +42,11 @@
 								</td>
 							</tr>
 							<tr class="item">
-								<td width="100" align="right">
+								<td width="100" align="right" class="top">
 									<b>Localização</b>
 								</td>
 								<td>
-									<a href="?p=mapa&x='.$npc["posx"].'&y='.$npc["posy"].'&z='.$npc["posz"].'&zoom=5">Clique aqui para visualizar</a>
+									'.$npc["exibirPosicoes"].'
 								</td>
 							</tr>
 						</table>
