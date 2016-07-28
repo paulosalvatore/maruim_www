@@ -115,7 +115,7 @@
 		public function getImagemCriatura($criatura){
 			$resultadoCriatura = $criatura;
 			$imagemPadrao = "includes/classes/ClassOutfit.php?id=130&head=0&body=0&legs=0&feet=0";
-			$arquivo = 'imagens/criaturas/'.str_replace(" ", "_", $criatura["name"]).'.gif';
+			$arquivo = 'imagens/criaturas/'.str_replace(" ", "_", $criatura["fileName"]).'.gif';
 			if(!is_file($arquivo)){
 				if(!is_array($criatura)){
 					$queryCriatura = mysql_query("SELECT * FROM z_monstros WHERE (monstro_id LIKE '$criatura')");
