@@ -9153,7 +9153,7 @@
 	<item id="5791" article="a" name="stuffed dragon">
 		<attribute key="weight" value="850" />
 	</item>
-	<item fromid="5792" toid="5797" article="a" name="die">
+	<item fromid="5792" toid="5797" article="a" name="dice">
 		<attribute key="weight" value="200" />
 	</item>
 	<item id="5798" article="an" name="abacus">
@@ -9409,7 +9409,7 @@
 		<attribute key="weight" value="80" />
 	</item>
 	<item id="5921" article="a" name="heaven blossom">
-		<attribute key="weight" value="265" />
+		<attribute key="weight" value="210" />
 	</item>
 	<item id="5922" article="a" name="holy orchid">
 		<attribute key="weight" value="250" />
@@ -30488,7 +30488,7 @@
 	<item id="22590" article="a" name="stair">
 		<attribute key="floorchange" value="southex" />
 	</item>
-	<item fromid="22593" toid="22597" name="stairs">
+	<item id="22595" article="a" name="stair">
 		<attribute key="floorchange" value="down" />
 	</item>
 	<item id="22598" article="a" name="unrealized dream">
