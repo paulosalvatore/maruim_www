@@ -1005,6 +1005,17 @@
 			}
 			return $exibirMenus;
 		}
+
+		public function pegarLinkCategoria($id){
+			$queryCategoria = mysql_query("SELECT * FROM z_itens_categorias WHERE (id LIKE '$id')");
+			while($resultadoCategoria = mysql_fetch_assoc($queryCategoria)){
+				$urlCategoria = '?p=itens-categorias-'.$resultadoCategoria["id"];
+				$nomeCategoria = $resultadoCategoria["nome"];
+				$linkCategoria = '<a href="'.$urlCategoria.'">'.$nomeCategoria.'</a>';
+				return $linkCategoria;
+			}
+		}
+
 		public function pegarExibicaoCategoria($id, $exibirCabecalho = true, $nomeTabela = ""){
 			$exibirCategoria = "";
 			$queryCategoria = mysql_query("SELECT * FROM z_itens_categorias WHERE (id LIKE '$id')");
@@ -1035,33 +1046,47 @@
 				if(count($subCategorias) > 0){
 					$exibirCategoria .= '
 						<div style="width: 300px;">
-						<div class="box_frame_conteudo_principal" carregar_box="1">
-							<div class="box_frame_conteudo">
-								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-									<tr class="cabecalho">
-										<td>
-											Tabela de Conteúdo
-										</td>
-									</tr>
-									';
-									foreach($subCategorias as $subCategoriaId => $subCategoria){
-										$exibirCategoria .= '
-											<tr class="item">
-												<td>
-													<a href="#'.$subCategoria["nome"].'">'.$subCategoria["nome"].'</a>
-												</td>
-											</tr>
+							<div class="box_frame_conteudo_principal" carregar_box="1">
+								<div class="box_frame_conteudo">
+									<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+										<tr class="cabecalho">
+											<td>
+												Tabela de Conteúdo
+											</td>
+										</tr>
 										';
-									}
-									$exibirCategoria .= '
-								</table>
+										foreach($subCategorias as $subCategoriaId => $subCategoria){
+											$exibirCategoria .= '
+												<tr class="item">
+													<td>
+														<a href="#'.$subCategoria["nome"].'">'.$subCategoria["nome"].'</a>
+													</td>
+												</tr>
+											';
+										}
+										$exibirCategoria .= '
+									</table>
+								</div>
 							</div>
-						</div>
 						</div>
 						<br>
 						<br>
 					';
 				}
+
+				if (!empty($resultadoCategoria["descricao"])){
+					$exibirCategoria .= '
+						<table class="tabela dark" cellpadding="0" cellspacing="0" width="100%">
+							<tr class="item">
+								<td>
+									'.$this->formatarDescricaoCategorias($resultadoCategoria["descricao"]).'
+								</td>
+							</tr>
+						</table>
+						<br>
+					';
+				}
+
 				$exibirCategoria .= '
 					<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
 						<tr class="cabecalho">
@@ -1146,6 +1171,7 @@
 					}
 				}
 			}
+
 			if(empty($exibirCategoria)){
 				$ClassFuncao = new Funcao();
 				$exibirCategoria = $ClassFuncao->pegarConteudoNaoEncontrado();
@@ -1443,6 +1469,28 @@
 				</table>
 			';
 			return $exibirMesaTrabalho;
+		}
+
+		public function formatarDescricaoCategorias($descricao){
+			preg_match_all("!\[link:(.*?):(.*?)\]!", $descricao, $links);
+
+			foreach($links[0] as $c => $v){
+				$tipo = $links[1][$c];
+				$id = $links[2][$c];
+
+				if ($tipo == "categoria"){
+					$link = $this->pegarLinkCategoria($id);
+				}
+				elseif ($tipo == "item"){
+					$item = $this->getItemInfoSQL($id);
+					$item = $item[$id];
+					$link = '<a href="'.$item["url"].'">'.$item["nome"].'</a>';
+				}
+
+				$descricao = str_replace($v, $link, $descricao);
+			}
+
+			return nl2br($descricao);
 		}
 	}
 ?>
