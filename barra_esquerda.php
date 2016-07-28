@@ -28,7 +28,7 @@
 		"guias" => array(
 			"background" => 2,
 			"opcoes" => array(
-				"crafting" => "Crafting",
+				// "crafting" => "Crafting",
 				// "iniciando" => "Iniciando",
 				// "manual" => "Manual",
 				// "dicas_seguranca" => "Dicas de Segurança"
@@ -37,7 +37,7 @@
 		"biblioteca" => array(
 			"background" => 3,
 			"opcoes" => array(
-				"profissoes" => "Profissões",
+				// "profissoes" => "Profissões",
 				"itens" => "Itens",
 				"criaturas" => "Criaturas",
 				"npcs" => "NPCs",
