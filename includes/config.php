@@ -1,4 +1,5 @@
 <?php
+	$exibirProfissoes = false;
 	$limite_noticias_rapidas = 5;
 	$limite_noticias = 5;
 	$categorias_noticias_rapidas = array(
@@ -67,9 +68,12 @@
 		"looktype0" => 136,
 		"looktype1" => 128,
 		"town_id" => 1,
-		"posx" => 315,
-		"posy" => 2415,
-		"posz" => 7,
+		"posicoes" => array(
+			1 => array(600, 983, 7),
+			2 => array(545, 948, 5),
+			3 => array(448, 957, 2),
+			4 => array(647, 902, 8)
+		),
 		"cap" => 420,
 		"maxPersonagens" => 5
 	);

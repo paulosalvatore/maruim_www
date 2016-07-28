@@ -1223,66 +1223,68 @@
 				}
 			}
 			mysql_query("TRUNCATE TABLE z_itens_subcategorias_itens");
-			foreach($categoriasProfissoes as $categoriaId => $categoria){
-				$profissao = $categoria["profissao"];
-				$subCategoriaMesaTrabalho = array_search("mesas_trabalho", $categoria["subcategorias"]);
-				$subCategoriaIngredientesMelhoria = array_search("ingredientes_melhoria", $categoria["subcategorias"]);
-				$mesasTrabalho = array();
-				$ingredientesMelhoria = array();
-				$queryItensCategoria = mysql_query("SELECT * FROM z_profissoes WHERE (id LIKE '$profissao')");
-				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
-					$mesasTrabalho = explode(";", $resultadoItensCategoria["mesaTrabalho"]);
-					foreach($mesasTrabalho as $item)
-						if(!empty($item))
-							mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaMesaTrabalho', '$item')");
-					$ingredientesMelhoria = explode(";", $resultadoItensCategoria["ingredientesMelhoria"]);
-					foreach($ingredientesMelhoria as $item){
-						$item = explode(",", $item);
-						if(!empty($item[0]))
-							mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaIngredientesMelhoria', '".$item[0]."')");
+			if($exibirProfissoes){
+				foreach($categoriasProfissoes as $categoriaId => $categoria){
+					$profissao = $categoria["profissao"];
+					$subCategoriaMesaTrabalho = array_search("mesas_trabalho", $categoria["subcategorias"]);
+					$subCategoriaIngredientesMelhoria = array_search("ingredientes_melhoria", $categoria["subcategorias"]);
+					$mesasTrabalho = array();
+					$ingredientesMelhoria = array();
+					$queryItensCategoria = mysql_query("SELECT * FROM z_profissoes WHERE (id LIKE '$profissao')");
+					while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
+						$mesasTrabalho = explode(";", $resultadoItensCategoria["mesaTrabalho"]);
+						foreach($mesasTrabalho as $item)
+							if(!empty($item))
+								mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaMesaTrabalho', '$item')");
+						$ingredientesMelhoria = explode(";", $resultadoItensCategoria["ingredientesMelhoria"]);
+						foreach($ingredientesMelhoria as $item){
+							$item = explode(",", $item);
+							if(!empty($item[0]))
+								mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaIngredientesMelhoria', '".$item[0]."')");
+						}
 					}
-				}
-				$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '$profissao')");
-				while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
-					foreach($categoria["subcategorias"] as $subCategoriaId => $subCategoriaNome){
-						$itens = array();
-						switch($subCategoriaNome){
-							case "ferramentas":
-								if(!in_array($resultadoItensCategoria["ferramenta"], $itens))
-									$itens[] = $resultadoItensCategoria["ferramenta"];
-								break;
-							case "materiais":
-								$materiais = explode(";", $resultadoItensCategoria["materiais"]);
-								foreach($materiais as $item){
-									if(!empty($item)){
-										$item = explode(",", $item);
-										if(!in_array($item[0], $itens))
-											$itens[] = $item[0];
-									}
-								}
-								break;
-							case "receitas":
-								if(!in_array($resultadoItensCategoria["item"], $itens))
-									$itens[] = $resultadoItensCategoria["item"];
-								break;
-							case "ingredientes_secretos":
-								if(!empty($resultadoItensCategoria["ingredienteSecreto"])){
-									$ingredienteSecreto = explode(";", $resultadoItensCategoria["ingredienteSecreto"]);
-									foreach($ingredienteSecreto as $item){
+					$queryItensCategoria = mysql_query("SELECT * FROM z_receitas WHERE (profissao LIKE '$profissao')");
+					while($resultadoItensCategoria = mysql_fetch_assoc($queryItensCategoria)){
+						foreach($categoria["subcategorias"] as $subCategoriaId => $subCategoriaNome){
+							$itens = array();
+							switch($subCategoriaNome){
+								case "ferramentas":
+									if(!in_array($resultadoItensCategoria["ferramenta"], $itens))
+										$itens[] = $resultadoItensCategoria["ferramenta"];
+									break;
+								case "materiais":
+									$materiais = explode(";", $resultadoItensCategoria["materiais"]);
+									foreach($materiais as $item){
 										if(!empty($item)){
 											$item = explode(",", $item);
 											if(!in_array($item[0], $itens))
 												$itens[] = $item[0];
 										}
 									}
-								}
-								break;
-						}
-						foreach($itens as $itemId){
-							$checarItem = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_subcategorias_itens WHERE ((subcategoria LIKE '$subCategoriaId') AND (item LIKE '$itemId'))"));
-							$checarItem = $checarItem["total"];
-							if($checarItem == 0)
-								mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaId', '$itemId')");
+									break;
+								case "receitas":
+									if(!in_array($resultadoItensCategoria["item"], $itens))
+										$itens[] = $resultadoItensCategoria["item"];
+									break;
+								case "ingredientes_secretos":
+									if(!empty($resultadoItensCategoria["ingredienteSecreto"])){
+										$ingredienteSecreto = explode(";", $resultadoItensCategoria["ingredienteSecreto"]);
+										foreach($ingredienteSecreto as $item){
+											if(!empty($item)){
+												$item = explode(",", $item);
+												if(!in_array($item[0], $itens))
+													$itens[] = $item[0];
+											}
+										}
+									}
+									break;
+							}
+							foreach($itens as $itemId){
+								$checarItem = mysql_fetch_array(mysql_query("SELECT COUNT(*) as total FROM z_itens_subcategorias_itens WHERE ((subcategoria LIKE '$subCategoriaId') AND (item LIKE '$itemId'))"));
+								$checarItem = $checarItem["total"];
+								if($checarItem == 0)
+									mysql_query("INSERT INTO z_itens_subcategorias_itens (subcategoria, item) VALUES ('$subCategoriaId', '$itemId')");
+							}
 						}
 					}
 				}

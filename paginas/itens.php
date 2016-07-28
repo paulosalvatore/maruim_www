@@ -50,63 +50,67 @@
 									</td>
 								</tr>
 							';
-						$mesaTrabalho = $ClassItens->verificarItemMesaTrabalho($id);
-						if(!empty($mesaTrabalho))
-							$conteudo_pagina .= '
-								<tr class="item">
-									<td align="right">
-										<b>Mesa de Trabalho</b>
-									</td>
-									<td>
-										Na profissão de '.$mesaTrabalho.'
-									</td>
-								</tr>
-							';
+						if($exibirProfissoes){
+							$mesaTrabalho = $ClassItens->verificarItemMesaTrabalho($id);
+							if(!empty($mesaTrabalho))
+								$conteudo_pagina .= '
+									<tr class="item">
+										<td align="right">
+											<b>Mesa de Trabalho</b>
+										</td>
+										<td>
+											Na profissão de '.$mesaTrabalho.'
+										</td>
+									</tr>
+								';
+						}
 						$conteudo_pagina .= '
 					</table>
 					<br>
 					';
-					$exibirFabricacao = $ClassItens->pegarReceitasItem($id, "fabricacao");
-					if(!empty($exibirFabricacao)){
-						$conteudo_pagina .= '
-							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-								<tr class="cabecalho">
-									<td colspan="2">
-										Receita para fazer esse Item:
-									</td>
-								</tr>
-								'.$exibirFabricacao.'
-							</table>
-							<br>
-						';
-					}
-					$exibirFerramentas = $ClassItens->pegarReceitasItem($id, "ferramenta");
-					if(!empty($exibirFerramentas)){
-						$conteudo_pagina .= '
-							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-								<tr class="cabecalho">
-									<td colspan="2">
-										Esse Item é utilizado como Ferramenta nas seguintes receitas:
-									</td>
-								</tr>
-								'.$exibirFerramentas.'
-							</table>
-							<br>
-						';
-					}
-					$exibirReceitas = $ClassItens->pegarReceitasItem($id, "materiais");
-					if(!empty($exibirReceitas)){
-						$conteudo_pagina .= '
-							<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
-								<tr class="cabecalho">
-									<td colspan="2">
-										Receitas que utilizam esse Item:
-									</td>
-								</tr>
-								'.$exibirReceitas.'
-							</table>
-							<br>
-						';
+					if($exibirProfissoes){
+						$exibirFabricacao = $ClassItens->pegarReceitasItem($id, "fabricacao");
+						if(!empty($exibirFabricacao)){
+							$conteudo_pagina .= '
+								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+									<tr class="cabecalho">
+										<td colspan="2">
+											Receita para fazer esse Item:
+										</td>
+									</tr>
+									'.$exibirFabricacao.'
+								</table>
+								<br>
+							';
+						}
+						$exibirFerramentas = $ClassItens->pegarReceitasItem($id, "ferramenta");
+						if(!empty($exibirFerramentas)){
+							$conteudo_pagina .= '
+								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+									<tr class="cabecalho">
+										<td colspan="2">
+											Esse Item é utilizado como Ferramenta nas seguintes receitas:
+										</td>
+									</tr>
+									'.$exibirFerramentas.'
+								</table>
+								<br>
+							';
+						}
+						$exibirReceitas = $ClassItens->pegarReceitasItem($id, "materiais");
+						if(!empty($exibirReceitas)){
+							$conteudo_pagina .= '
+								<table class="tabela odd" cellpadding="0" cellspacing="0" width="100%">
+									<tr class="cabecalho">
+										<td colspan="2">
+											Receitas que utilizam esse Item:
+										</td>
+									</tr>
+									'.$exibirReceitas.'
+								</table>
+								<br>
+							';
+						}
 					}
 					$exibirDrop = $ClassItens->exibirDropItem($item["drop"]);
 					if(!empty($exibirDrop)){
