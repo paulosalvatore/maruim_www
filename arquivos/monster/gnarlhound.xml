@@ -26,8 +26,14 @@
 		<voice sentence="Grrrrrr!" />
 	</voices>
 	<loot>
-		<item id="11324" chance="80000" /><!-- shaggy tail -->
-		<item id="11224" chance="50000" /><!-- Thick Fur -->
-		<item id="11210" chance="30000" /><!-- Striped Fur -->
+		<item id="2666" countmax="3" chance="69075" /><!-- Meat -->
+		<item id="3976" countmax="3" chance="66347" /><!-- Worm -->
+		<item id="11324" chance="48335" /><!-- Shaggy Tail -->
+		<item id="11210" chance="5447" /><!-- Striped Fur -->
+		<item id="11224" chance="968" /><!-- Thick Fur -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

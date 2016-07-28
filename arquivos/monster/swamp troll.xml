@@ -30,11 +30,22 @@
 		<voice sentence="Me strong! Me ate spinach!" />
 	</voices>
 	<loot>
-		<item id="10606" countmax="3" chance="80000" /><!-- Bunch of Troll Hair -->
-		<item id="12471" chance="50000" /><!-- Trollroot -->
-		<item id="2666" countmax="2" chance="40000" /><!-- Meat -->
-		<item id="2805" chance="10000" /><!-- Troll Green -->
-		<item id="2235" chance="30000" /><!-- Mouldy Cheese -->
-		<item id="10603" countmax="3" chance="70000" /><!-- Swamp Grass -->
+		<item id="10606" countmax="3" chance="82730" /><!-- Bunch of Troll Hair -->
+		<item id="2667" countmax="2" chance="72410" /><!-- Fish -->
+		<item id="10603" countmax="2" chance="53780" /><!-- Swamp Grass -->
+		<item id="2050" chance="36567" /><!-- Torch -->
+		<item id="5901" chance="33567" /><!-- Wood -->
+		<item id="2235" chance="23780" /><!-- Mouldy Cheese -->
+		<item id="2389" chance="12940" /><!-- Spear -->
+		<item id="2643" chance="12510" /><!-- Leather Boots -->
+		<item id="12471" chance="11420" /><!-- Trollroot -->
+		<item id="2805" chance="10890" /><!-- Troll Green -->
+		<item id="2580" chance="8796" /><!-- Fishing Rod -->
+		<item id="13506" chance="6760" /><!-- Medicine Pouch -->
 	</loot>
+		
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

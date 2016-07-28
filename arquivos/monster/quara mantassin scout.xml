@@ -3,7 +3,6 @@
 	<health now="220" max="220" />
 	<look type="72" corpse="6064" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -35,7 +34,16 @@
 		<voice sentence="Shrrrr" />
 	</voices>
 	<loot>
-		<item id="12445" chance="30000" /><!-- mantassin tail -->
-		<item id="2146" chance="10000" /><!-- small sapphire -->
+		<item id="12445" chance="15734" /><!-- Mantassin Tail -->
+		<item id="2464" chance="12191" /><!-- Chain Armor -->
+		<item id="2229" chance="1522" /><!-- Skull -->
+		<item id="2146" chance="1233" /><!-- Small Sapphire -->
+		<item id="2377" chance="976" /><!-- Two Handed Sword -->
+		<item id="5895" chance="845" /><!-- Fish Fin -->
+		<item id="2165" chance="711" /><!-- Stealth Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

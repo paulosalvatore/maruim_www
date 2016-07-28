@@ -50,12 +50,28 @@
 		<voice sentence="YOU WILL BURN!" yell="1" />
 	</voices>
 	<loot>
-		<item id="2672" countmax="2" chance="70000" /><!-- dragon ham -->
-		<item id="21401" countmax="2" chance="40000" /><!-- small dragon tear -->
-		<item id="7399" chance="1000" /><!-- dragon lord trophy -->
-		<item id="5948" countmax="2" chance="10000" /><!-- red dragon leather -->
-		<item id="5882" chance="5000" /><!-- red dragon scale -->
-		<item id="5919" chance="5000" /><!-- dragon claw -->
-		<item id="2146" chance="10000" /><!-- small sapphire -->
+		<item id="2672" countmax="5" chance="92127" /><!-- Dragon Ham -->
+		<item id="2796" chance="22374" /><!-- Green Mushroom -->
+		<item id="1976" chance="18794" /><!-- Gemmed Book -->
+		<item id="7378" countmax="3" chance="13429" /><!-- Royal Spear -->
+		<item id="2547" countmax="7" chance="11572" /><!-- Power Bolt -->
+		<item id="2146" chance="11195" /><!-- Small Sapphire -->
+		<item id="2167" chance="10971" /><!-- Energy Ring -->
+		<item id="2033" chance="6837" /><!-- Golden Mug -->
+		<item id="7588" chance="5643" /><!-- Strong Health Potion -->
+		<item id="5882" chance="4986" /><!-- Red Dragon Scale -->
+		<item id="5948" chance="4734" /><!-- Red Dragon Leather -->
+		<item id="2177" chance="1643" /><!-- Life Crystal -->
+		<item id="2479" chance="1482" /><!-- Strange Helmet -->
+		<item id="2392" chance="984" /><!-- Fire Sword -->
+		<item id="2498" chance="673" /><!-- Royal Helmet -->
+		<item id="2528" chance="549" /><!-- Tower Shield -->
+		<item id="2492" chance="381" /><!-- Dragon Scale Mail -->
+		<item id="7402" chance="342" /><!-- Dragon Slayer -->
+		<item id="7399" chance="246" /><!-- Dragon Lord Trophy -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

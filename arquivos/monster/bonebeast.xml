@@ -3,7 +3,6 @@
 	<health now="515" max="515" />
 	<look type="101" corpse="6030" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,13 +17,13 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="40" attack="80" poison="100" />
+		<attack name="melee" interval="2000" min="0" max="-200" poison="5" />
+		<attack name="lifedrain" interval="2000" chance="10" radius="3" target="0" min="-25" max="-47">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
 		<attack name="earth" interval="2000" chance="15" range="7" min="-50" max="-90">
 			<attribute key="shootEffect" value="poison" />
 			<attribute key="areaEffect" value="poison" />
-		</attack>
-		<attack name="lifedrain" interval="2000" chance="10" radius="3" target="0" min="-25" max="-47">
-			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="poisoncondition" interval="2000" chance="10" radius="3" target="0" min="-50" max="-60">
 			<attribute key="areaEffect" value="poison" />
@@ -32,10 +31,10 @@
 		<attack name="poisoncondition" interval="2000" chance="10" length="6" spread="0" target="0" min="-70" max="-80">
 			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="speed" interval="2000" chance="15" target="1" speedchange="-600" duration="13000" />
+		<attack name="speed" interval="2000" chance="15" target="1" speedchange="-200" duration="13000" />
 	</attacks>
 	<defenses armor="30" defense="30">
-		<defense name="healing" interval="2000" chance="15" min="50" max="60">
+		<defense name="healing" interval="4000" chance="15" min="50" max="60">
 			<attribute key="areaEffect" value="greenspark" />
 		</defense>
 	</defenses>
@@ -50,17 +49,25 @@
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-		<immunity drunk="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Cccchhhhhhhhh!" />
 		<voice sentence="Knooorrrrr!" />
 	</voices>
 	<loot>
-		<item id="2230" countmax="5" chance="80000" /><!-- Bone -->
-		<item id="11194" chance="50000" /><!-- Bony Tail -->
-		<item id="5925" countmax="2" chance="30000" /><!-- Hardened Bone -->
-		<item id="11161" chance="1000" /><!-- Bonebeast Trophy -->
-		<item id="2178" chance="20000" /><!-- Mind Stone -->
+		<item id="2230" chance="72984" /><!-- Bone -->
+		<item id="2229" chance="58646" /><!-- Skull -->
+		<item id="11194" chance="24971" /><!-- Bony Tail -->
+		<item id="2463" chance="19240" /><!-- Plate Armor -->
+		<item id="2449" chance="8674" /><!-- Bone Club -->
+		<item id="2541" chance="5973" /><!-- Bone Shield -->
+		<item id="7618" chance="4198" /><!-- Health Potion -->
+		<item id="2796" chance="3109" /><!-- Green Mushroom -->
+		<item id="5925" chance="1892" /><!-- Hardened Bone -->
+		<item id="11161" chance="238" /><!-- Bonebeast Trophy -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -28,9 +28,15 @@
 		<element firePercent="-10" />
 	</elements>
 	<loot>
-		<item id="5678" countmax="5" chance="90000" /><!-- tortoise egg -->
-		<item id="5899" chance="50000" /><!-- turtle shell -->
-		<item id="2666" countmax="2" chance="80000" /><!-- Meat -->
-		<item id="2671" countmax="2" chance="60000" /><!-- Ham -->
+		<item id="5678" countmax="8" chance="73219" /><!-- Tortoise Egg -->
+		<item id="2667" chance="19962" /><!-- Fish -->
+		<item id="2510" chance="12976" /><!-- Plate Shield -->
+		<item id="2417" chance="8349" /><!-- Battle Hammer -->
+		<item id="5899" chance="8761" /><!-- Turtle Shell -->
+		<item id="6131" chance="2398" /><!-- Tortoise Shield -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rot Elemental" nameDescription="a rot elemental" race="blood" experience="750" speed="200" manacost="490">
-	<health now="850" max="850" />
-	<look type="615" corpse="6532" />
+<monster name="Rot Elemental" nameDescription="a rot elemental" race="blood" experience="150" speed="200" manacost="490">
+	<health now="260" max="260" />
+	<look type="615" corpse="23481" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag summonable="1" />
@@ -17,41 +17,37 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-120" poison="300" /> <!-- poison attack -->
-		<attack name="earth" interval="2000" chance="15" length="5" spread="0" min="-0" max="-200"> <!-- poison beam -->
-			<attribute key="areaEffect" value="poison" />
-		</attack>
-		<attack name="earth" interval="2000" chance="15" target="1" range="7" radius="5" min="-0" max="-200"> <!-- poison ball -->
-			<attribute key="shootEffect" value="poison" />
-			<attribute key="areaEffect" value="poison" />
-		</attack>
-		<attack name="speed" interval="1000" chance="15" target="0" radius="4" speedchange="-800" duration="20000"> <!-- musical paralyze -->
-			<attribute key="areaEffect" value="rednote" />
-		</attack>
+		<attack name="melee" interval="2000" skill="60" attack="30" />
 	</attacks>
-	<defenses armor="20" defense="20">
-		<defense name="healing" interval="2000" chance="15" min="10" max="60"> <!-- self heal -->
-			<attribute key="areaEffect" value="blueshimmer" />
-		</defense>
-	</defenses>
+	<defenses armor="20" defense="20" />
 	<elements>
-		<element firePercent="5" />
-		<element energyPercent="5" />
-		<element deathPercent="-20" />
-		<element icePercent="-30" />
+		<element energyPercent="25" />
+		<element holyPercent="20" />
+		<element earthPercent="-10" />
+		<element deathPercent="-10" />
 	</elements>
-	<immunities>
-		<immunity earth="1" />
-		<immunity invisible="1" />
-		<immunity paralyze="1" />
-	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="*splib*" />
-		<voice sentence="*glibb*" />
+	<voices interval="2000" chance="7">
+		<voice sentence="Il lorstok human!" />
+		<voice sentence="Toks utat." />
+		<voice sentence="Human, uh whil dyh!" />
+		<voice sentence="Youh ah trak!" />
+		<voice sentence="Let da mashing begin!" />
 	</voices>
 	<loot>
-		<item id="10557" countmax="5" chance="90000" /><!-- Poisonous Slime -->
-		<item id="23474" chance="10000" /><!-- Glooth Injection Tube -->
-		<item id="23515" chance="50000" /><!-- Bowl of Glooth Soup -->
+		<item id="23553" chance="21985" /><!-- Glob of Glooth -->
+		<item id="7589" chance="16732" /><!-- Strong Mana Potion -->
+		<item id="7588" chance="16652" /><!-- Strong Health Potion -->
+		<item id="2146" chance="8221" /><!-- Small Sapphire -->
+		<item id="2149" countmax="2" chance="8167" /><!-- Small Emerald -->
+		<item id="9970" countmax="2" chance="8122" /><!-- Small Topaz -->
+		<item id="23529" chance="7219" /><!-- Glooth Spear -->
+		<item id="2168" chance="2983" /><!-- Life Ring -->
+		<item id="23551" chance="529" /><!-- Glooth Axe -->
+		<item id="23554" chance="512" /><!-- Glooth Amulet -->
+		<item id="2155" chance="438" /><!-- Green Gem -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -31,7 +31,18 @@
 		<element deathPercent="-10" />
 	</elements>
 	<loot>
-		<item id="12412" chance="80000" /><!-- dirty turban -->
-		<item id="5912" chance="20000" /><!-- blue piece of cloth -->
+		<item id="12412" chance="37642" /><!-- Dirty Turban -->
+		<item id="8838" countmax="3" chance="16221" /><!-- Potatoes -->
+		<item id="2386" chance="8279" /><!-- Axe -->
+		<item id="2398" chance="7683" /><!-- Mace -->
+		<item id="2465" chance="6227" /><!-- Brass Armor -->
+		<item id="8267" chance="3172" /><!-- Nomad Parchment -->
+		<item id="2509" chance="2136" /><!-- Steel Shield -->
+		<item id="2459" chance="1815" /><!-- Iron Helmet -->
+		<item id="5913" chance="2224" /><!-- Brown Piece of Cloth -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

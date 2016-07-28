@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mammoth" nameDescription="a mammoth" race="blood" experience="160" speed="210" manacost="0">
+<monster name="Mammoth" nameDescription="a mammoth" race="blood" experience="160" speed="210" manacost="500">
 	<health now="320" max="320" />
 	<look type="199" corpse="6074" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
 		<flag illusionable="0" />
-		<flag convinceable="0" />
-		<flag pushable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="0" />
 		<flag staticattack="90" />
@@ -18,7 +17,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="45" attack="40" />
+		<attack name="melee" interval="2000" min="0" max="-110" />
 	</attacks>
 	<defenses armor="25" defense="25" />
 	<elements>
@@ -27,15 +26,22 @@
 		<element physicalPercent="15" />
 		<element firePercent="-10" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Troooooot!" />
 		<voice sentence="Hooooot-Toooooot!" />
 		<voice sentence="Tooooot." />
 	</voices>
 	<loot>
-		<item id="11224" chance="30000" /><!-- Thick Fur -->
-		<item id="11238" countmax="2" chance="50000" /><!-- Mammoth Tusk -->
-		<item id="2671" countmax="4" chance="30000" /><!-- Ham -->
-		<item id="2666" countmax="6" chance="60000" /><!-- Meat -->
+		<item id="2666" chance="49876" /><!-- Meat -->
+		<item id="2671" countmax="3" chance="42673" /><!-- Ham -->
+		<item id="11238" countmax="2" chance="16994" /><!-- Mammoth Tusk -->
+		<item id="11224" chance="15721" /><!-- Thick Fur -->
+		<item id="7381" chance="5198" /><!-- Mammoth Whopper -->
+		<item id="7432" chance="1246" /><!-- Furry Club -->
+		<item id="3973" chance="1188" /><!-- Tusk Shield -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

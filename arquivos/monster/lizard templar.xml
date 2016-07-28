@@ -3,7 +3,6 @@
 	<health now="410" max="410" />
 	<look type="113" corpse="4251" />
 	<targetchange interval="5000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -29,12 +28,24 @@
 	<immunities>
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Hissss!" />
 	</voices>
 	<loot>
-		<item id="5876" countmax="3" chance="70000" /><!-- lizard leather -->
-		<item id="2154" chance="5000" /><!-- yellow gem -->
-		<item id="2150" chance="10000" /><!-- small emerald -->
+		<item id="2406" chance="15496" /><!-- Short Sword -->
+		<item id="2376" chance="8987" /><!-- Sword -->
+		<item id="2457" chance="4922" /><!-- Steel Helmet -->
+		<item id="2394" chance="2990" /><!-- Morning Star -->
+		<item id="2463" chance="2433" /><!-- Plate Armor -->
+		<item id="5881" chance="1694" /><!-- Lizard Scale -->
+		<item id="7618" chance="1581" /><!-- Health Potion -->
+		<item id="5876" chance="1455" /><!-- Lizard Leather -->
+		<item id="3963" chance="893" /><!-- Templar Scytheblade -->
+		<item id="2149" chance="481" /><!-- Small Emerald -->
+		<item id="3975" chance="324" /><!-- Salamander Shield -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

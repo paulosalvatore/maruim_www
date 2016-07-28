@@ -31,7 +31,11 @@
 		<immunity drown="1" />
 	</immunities>
 	<loot>
-		<item id="11189" countmax="2" chance="70000" /><!-- crab pincers -->
-		<item id="2146" chance="1000" /><!-- Small Sapphire -->
+		<item id="11189" countmax="2" chance="73498" /><!-- Crab Pincers -->
+		<item id="2667" chance="57631" /><!-- Fish -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

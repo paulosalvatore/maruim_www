@@ -3,7 +3,6 @@
 	<health now="55" max="55" />
 	<look type="53" corpse="5998" />
 	<targetchange interval="4000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -18,7 +17,7 @@
 		<flag runonhealth="10" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="10" />
+		<attack name="melee" interval="2000" min="0" max="-20" />
 	</attacks>
 	<defenses armor="15" defense="15" />
 	<elements>
@@ -28,13 +27,21 @@
 		<element energyPercent="-10" />
 		<element deathPercent="-15" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Brrrr" />
 		<voice sentence="Broar!" />
 	</voices>
 	<loot>
-		<item id="10565" countmax="2" chance="80000" /><!-- Frosty Ear of a Troll -->
-		<item id="10578" chance="20000" /><!-- frosty heart -->
-		<item id="7290" chance="5000" /><!-- shard -->
+		<item id="2389" chance="31646" /><!-- Spear -->
+		<item id="2667" chance="28769" /><!-- Fish -->
+		<item id="2512" chance="23441" /><!-- Wooden Shield -->
+		<item id="2384" chance="21955" /><!-- Rapier -->
+		<item id="2245" chance="11328" /><!-- Twigs -->
+		<item id="10565" chance="3463" /><!-- Frosty Ear of a Troll -->
+		<item id="2651" chance="2198" /><!-- Coat -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

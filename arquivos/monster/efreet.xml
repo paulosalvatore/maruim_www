@@ -65,11 +65,24 @@
 		<voice sentence="Good wishes are for fairytales" />
 	</voices>
 	<loot>
-		<item id="12426" chance="80000" /><!-- Jewelled Belt -->
-		<item id="12442" chance="60000" /><!-- Noble Turban -->
-		<item id="2149" countmax="3" chance="45000" /><!-- Small Emerald -->
-		<item id="2062" chance="40000" /><!-- Small Oil Lamp -->
-		<item id="5910" countmax="2" chance="40000" /><!-- Green Piece of Cloth -->
-		<item id="2155" chance="15000" /><!-- Green Gem -->
+		<item id="7378" countmax="3" chance="21367" /><!-- Royal Spear -->
+		<item id="2673" countmax="5" chance="15998" /><!-- Pear -->
+		<item id="12426" chance="14678" /><!-- Jewelled Belt -->
+		<item id="2149" chance="11985" /><!-- Small Emerald -->
+		<item id="2442" chance="9754" /><!-- Heavy Machete -->
+		<item id="7589" chance="9655" /><!-- Strong Mana Potion -->
+		<item id="5910" chance="6137" /><!-- Green Piece of Cloth -->
+		<item id="1860" chance="5821" /><!-- Green Tapestry -->
+		<item id="7732" countmax="2" chance="4985" /><!-- Seeds -->
+		<item id="12442" chance="2776" /><!-- Noble Turban -->
+		<item id="2187" chance="1347" /><!-- Wand of Inferno -->
+		<item id="7900" chance="1277" /><!-- Magma Monocle -->
+		<item id="2155" chance="687" /><!-- Green Gem -->
+		<item id="2063" chance="599" /><!-- Small Oil Lamp -->
+		<item id="2663" chance="547" /><!-- Mystic Turban -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

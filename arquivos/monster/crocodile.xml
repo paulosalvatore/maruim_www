@@ -29,6 +29,12 @@
 		<element physicalPercent="-5" />
 	</elements>
 	<loot>
-		<item id="11196" chance="50000" /><!-- Piece of Crocodile Leather -->
+		<item id="2671" chance="68437" /><!-- Ham -->
+		<item id="11196" chance="33184" /><!-- Piece of Crocodile Leather -->
+		<item id="3982" chance="1379" /><!-- Crocodile Boots -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

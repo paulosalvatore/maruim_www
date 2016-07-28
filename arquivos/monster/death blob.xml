@@ -3,7 +3,6 @@
 	<health now="320" max="320" />
 	<look type="315" corpse="9960" />
 	<targetchange interval="5000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -44,8 +43,6 @@
 		<summon name="Death Blob" interval="2000" chance="10" />
 	</summons>
 	<loot>
-		<item id="10557" countmax="2" chance="80000" /><!-- Poisonous Slime -->
-		<item id="2144" countmax="2" chance="10000" /><!-- Black Pearl -->
-		<item id="9968" countmax="2" chance="60000" /><!-- Glob of Tar -->
+		<item id="9968" chance="37649" /><!-- Glob of Tar -->
 	</loot>
 </monster>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mutated Human" nameDescription="a mutated human" race="blood" experience="150" speed="200" manacost="0">
+<monster name="Mutated Human" nameDescription="a mutated human" race="blood" experience="150" speed="190" manacost="0">
 	<health now="240" max="240" />
 	<look type="323" corpse="9107" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,20 +17,20 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="30" poison="60" />
+		<attack name="melee" interval="2000" min="0" max="-90" poison="3" />
+		<attack name="poisoncondition" interval="2000" chance="20" range="1" min="-14" max="-14">
+			<attribute key="areaeffect" value="greenspark" />
+		</attack>
 		<attack name="death" interval="2000" chance="15" length="3" spread="1" target="0" min="-50" max="-60">
 			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="poisoncondition" interval="2000" chance="20" target="1" lenght="1" spread="0" min="-190" max="-280">
-			<attribute key="areaeffect" value="greenspark" />
-		</attack>
-		<attack name="speed" interval="2000" chance="10" target="1" range="7" speedchange="-600" duration="30000">
+		<attack name="speed" interval="4000" chance="10" range="1" speedchange="-250" duration="10000">
 			<attribute key="areaEffect" value="explosion" />
 			<attribute key="areaEffect" value="stun" />
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="15">
-		<defense name="speed" interval="2000" chance="15" speedchange="220" duration="5000">
+		<defense name="speed" interval="4000" chance="15" speedchange="210" duration="5000">
 			<attribute key="areaEffect" value="greenbubble" />
 		</defense>
 	</defenses>
@@ -44,11 +43,10 @@
 		<immunity earth="1" />
 		<immunity paralyze="1" />
 		<immunity lifedrain="1" />
-		<immunity drunk="1" />
 		<immunity drown="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Take that creature off my back!! I can fell it!" />
 		<voice sentence="HEEEEEEEELP!" />
 		<voice sentence="You will be the next infected one... GRAAAAAAAAARRR!" />
@@ -57,8 +55,20 @@
 		<voice sentence="Oh by the gods! What is this... aaaaaargh!" />
 	</voices>
 	<loot>
-		<item id="11225" chance="70000" /><!-- Mutated Flesh -->
-		<item id="7910" chance="20000" /><!-- Peanut -->
-		<item id="2801" chance="10000" /><!-- Fern -->
+		<item id="11225" chance="29764" /><!-- Mutated Flesh -->
+		<item id="2226" chance="17638" /><!-- Fishbone -->
+		<item id="2696" chance="16427" /><!-- Cheese -->
+		<item id="2483" chance="13942" /><!-- Scale Armor -->
+		<item id="3976" countmax="2" chance="12885" /><!-- Worm -->
+		<item id="2376" chance="7948" /><!-- Sword -->
+		<item id="2161" chance="6732" /><!-- Strange Talisman -->
+		<item id="9808" chance="4286" /><!-- Rusty Armor (Common) -->
+		<item id="7910" chance="944" /><!-- Peanut -->
+		<item id="2801" chance="785" /><!-- Fern -->
+		<item id="2170" chance="449" /><!-- Silver Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="1450" max="1450" />
 	<look type="339" corpse="11280" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -40,17 +39,30 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="I ssssmell warm blood!" />
 	</voices>
 	<summons maxSummons="2">
 		<summon name="Dragon Hatchling" interval="2000" chance="20" max="2" />
 	</summons>
 	<loot>
-		<item id="11245" chance="50000" /><!-- bunch of ripe rice -->
-		<item id="2150" countmax="2" chance="30000" /><!-- small amethyst -->
-		<item id="11361" chance="60000" /><!-- dragon priest's wandtip -->
-		<item id="5881" chance="80000" /><!-- lizard scale -->
-		<item id="11336" chance="1000" /><!-- lizard trophy -->
+		<item id="11361" chance="21910" /><!-- Dragon Priest's Wandtip -->
+		<item id="7589" chance="19734" /><!-- Strong Mana Potion -->
+		<item id="7590" chance="17940" /><!-- Great Mana Potion -->
+		<item id="2150" countmax="3" chance="9761" /><!-- Small Amethyst -->
+		<item id="2187" chance="2180" /><!-- Wand of Inferno -->
+		<item id="5881" chance="2030" /><!-- Lizard Scale -->
+		<item id="2181" chance="1801" /><!-- Terra Rod -->
+		<item id="5876" chance="1480" /><!-- Lizard Leather -->
+		<item id="2154" chance="1450" /><!-- Yellow Gem -->
+		<item id="11245" chance="1360" /><!-- Bunch of Ripe Rice -->
+		<item id="2168" chance="1270" /><!-- Life Ring -->
+		<item id="8871" chance="1160" /><!-- Focus Cape -->
+		<item id="11303" chance="850" /><!-- Zaoan Shoes -->
+		<item id="11356" chance="730" /><!-- Zaoan Robe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

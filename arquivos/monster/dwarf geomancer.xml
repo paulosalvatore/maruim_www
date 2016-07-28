@@ -45,9 +45,22 @@
 		<voice sentence="Dust to dust." />
 	</voices>
 	<loot>
-		<item id="5900" chance="60000" /><!-- Dwarven Beard -->
-		<item id="5880" chance="30000" /><!-- Iron Ore -->
-		<item id="12414" chance="30000" /><!-- Geomancer's Robe -->
-		<item id="12419" chance="30000" /><!-- Geomancer's Staff -->
+		<item id="2787" countmax="2" chance="79861" /><!-- White Mushroom -->
+		<item id="2643" chance="54371" /><!-- Leather Boots -->
+		<item id="2260" chance="42761" /><!-- Blank Rune -->
+		<item id="2673" chance="32974" /><!-- Pear -->
+		<item id="2162" chance="27643" /><!-- Magic Lightwand -->
+		<item id="12414" chance="15794" /><!-- Geomancer's Robe -->
+		<item id="12419" chance="14976" /><!-- Geomancer's Staff -->
+		<item id="2423" chance="2094" /><!-- Clerical Mace -->
+		<item id="2146" chance="1479" /><!-- Small Sapphire -->
+		<item id="2213" chance="1167" /><!-- Dwarven Ring -->
+		<item id="7886" chance="897" /><!-- Terra Boots -->
+		<item id="2175" chance="550" /><!-- Spellbook -->
+		<item id="5880" chance="360" /><!-- Iron Ore -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -47,12 +47,29 @@
 		<voice sentence="FCHHHHH" yell="1" />
 	</voices>
 	<loot>
-		<item id="2672" countmax="2" chance="50000" /><!-- dragon ham -->
-		<item id="21401" countmax="2" chance="50000" /><!-- small dragon tear -->
-		<item id="12413" chance="70000" /><!-- dragon's tail -->
-		<item id="5920" chance="1000" /><!-- green dragon scale -->
-		<item id="5877" countmax="2" chance="20000" /><!-- green dragon leather -->
-		<item id="10020" chance="5000" /><!-- dragon claw -->
-		<item id="2145" chance="10000" /><!-- small diamond -->
+		<item id="2672" countmax="3" chance="83591" /><!-- Dragon Ham -->
+		<item id="2509" chance="23467" /><!-- Steel Shield -->
+		<item id="2455" chance="19875" /><!-- Crossbow -->
+		<item id="12413" chance="18643" /><!-- Dragon's Tail -->
+		<item id="2546" countmax="10" chance="15478" /><!-- Burst Arrow -->
+		<item id="2397" chance="8613" /><!-- Longsword -->
+		<item id="2457" chance="6837" /><!-- Steel Helmet -->
+		<item id="7588" chance="4982" /><!-- Strong Health Potion -->
+		<item id="2647" chance="4977" /><!-- Plate Legs -->
+		<item id="2413" chance="3248" /><!-- Broadsword -->
+		<item id="5877" chance="2169" /><!-- Green Dragon Leather -->
+		<item id="2187" chance="2072" /><!-- Wand of Inferno -->
+		<item id="5920" chance="2058" /><!-- Green Dragon Scale -->
+		<item id="2387" chance="1862" /><!-- Double Axe -->
+		<item id="2434" chance="1294" /><!-- Dragon Hammer -->
+		<item id="2409" chance="1173" /><!-- Serpent Sword -->
+		<item id="2145" chance="738" /><!-- Small Diamond -->
+		<item id="2516" chance="692" /><!-- Dragon Shield -->
+		<item id="2177" chance="341" /><!-- Life Crystal -->
+		<item id="7430" chance="238" /><!-- Dragonbone Staff -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

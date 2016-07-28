@@ -3,7 +3,6 @@
 	<health now="500" max="500" />
 	<look type="311" corpse="9875" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,12 +17,13 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="42" attack="50" />
+		<attack name="melee" interval="2000" min="0" max="-130" />
 		<attack name="manadrain" interval="2000" chance="10" range="1" min="-14" max="-23" />
 		<attack name="lifedrain" interval="2000" chance="15" range="7" min="-15" max="-24">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="death" interval="2000" chance="15" range="1" min="-30" max="-49">
+			<attribute key="shootEffect" value="death" />
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 	</attacks>
@@ -37,21 +37,29 @@
 		<immunity ice="1" />
 		<immunity earth="1" />
 		<immunity drown="1" />
-		<immunity drunk="1" />
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Mst.... klll...." />
 		<voice sentence="Whrrrr... ssss.... mmm.... grrrrl" />
 		<voice sentence="Dnnnt... cmmm... clsrrr...." />
 		<voice sentence="Httt.... hmnnsss..." />
 	</voices>
 	<loot>
-		<item id="11208" countmax="2" chance="70000" /><!-- Rotten Piece of Cloth -->
-		<item id="11367" chance="60000" /><!-- Undead Heart -->
-		<item id="11200" countmax="3" chance="40000" /><!-- Half-digested Piece of Meat -->
-		<item id="3976" countmax="3" chance="35000" /><!-- Worm -->
-		<item id="10576" chance="30000" /><!-- Half-eaten Brain -->
+		<item id="10576" chance="18734" /><!-- Half-Eaten Brain -->
+		<item id="2460" chance="16439" /><!-- Brass Helmet -->
+		<item id="2398" chance="15882" /><!-- Mace -->
+		<item id="2417" chance="15399" /><!-- Battle Hammer -->
+		<item id="9808" chance="11803" /><!-- Rusty Armor (Common) -->
+		<item id="2457" chance="9466" /><!-- Steel Helmet -->
+		<item id="2381" chance="5832" /><!-- Halberd -->
+		<item id="7620" chance="4198" /><!-- Mana Potion -->
+		<item id="2205" chance="2429" /><!-- Life Ring -->
+		<item id="2657" chance="1149" /><!-- Simple Dress -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

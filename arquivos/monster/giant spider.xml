@@ -46,8 +46,21 @@
 		<summon name="Poison Spider" interval="2000" chance="10" max="2" />
 	</summons>
 	<loot>
-		<item id="8859" chance="90000" /><!-- spider fangs -->
-		<item id="8860" countmax="2" chance="50000" /><!-- spiderwebs -->
-		<item id="5879" chance="30000/" /><!-- spider silk -->
+		<item id="2545" countmax="12" chance="21673" /><!-- Poison Arrow -->
+		<item id="2647" chance="16768" /><!-- Plate Legs -->
+		<item id="2463" chance="16657" /><!-- Plate Armor -->
+		<item id="2377" chance="11239" /><!-- Two Handed Sword -->
+		<item id="2457" chance="8942" /><!-- Steel Helmet -->
+		<item id="7588" chance="7384" /><!-- Strong Health Potion -->
+		<item id="5879" chance="4591" /><!-- Spider Silk -->
+		<item id="2477" chance="1684" /><!-- Knight Legs -->
+		<item id="2169" chance="1163" /><!-- Time Ring -->
+		<item id="2476" chance="1098" /><!-- Knight Armor -->
+		<item id="2171" chance="642" /><!-- Platinum Amulet -->
+		<item id="7901" chance="531" /><!-- Lightning Headband -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

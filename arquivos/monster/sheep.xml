@@ -24,7 +24,7 @@
 		<voice sentence="Maeh" />
 	</voices>
 	<loot>
-		<item id="11236" chance="10000" /><!-- Wool -->
-		<item id="2666" chance="10000" /><!-- Meat -->
+		<item id="2666" countmax="4" chance="43759" /><!-- Meat -->
+		<item id="11236" chance="8123" /><!-- Wool -->
 	</loot>
 </monster>

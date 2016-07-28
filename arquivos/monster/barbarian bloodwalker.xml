@@ -3,7 +3,6 @@
 	<health now="305" max="305" />
 	<look type="255" head="114" body="132" legs="132" feet="132" corpse="20335" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -34,15 +33,27 @@
 		<element deathPercent="-5" />
 		<element earthPercent="-5" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="YAAAHEEE!" />
 		<voice sentence="SLAUGHTER!" />
 		<voice sentence="CARNAGE!" />
 		<voice sentence="You can run but you can't hide" />
 	</voices>
 	<loot>
-		<item id="5911" countmax="2" chance="30000" /><!-- red piece of cloth -->
-		<item id="7290" chance="10000" /><!-- shard -->
-		<item id="3962" chance="2000" /><!-- beastslayer axe -->
+		<item id="2458" chance="19584" /><!-- Chain Helmet -->
+		<item id="2464" chance="17229" /><!-- Chain Armor -->
+		<item id="2044" chance="15641" /><!-- Lamp -->
+		<item id="2381" chance="12984" /><!-- Halberd -->
+		<item id="2671" chance="12662" /><!-- Ham -->
+		<item id="2378" chance="9867" /><!-- Battle Axe -->
+		<item id="7618" chance="4899" /><!-- Health Potion -->
+		<item id="5911" chance="1987" /><!-- Red Piece of Cloth -->
+		<item id="3962" chance="688" /><!-- Beastslayer Axe -->
+		<item id="7290" chance="597" /><!-- Shard -->
+		<item id="7457" chance="341" /><!-- Fur Boots -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -43,13 +43,23 @@
 		<voice sentence="Hihihihi!" />
 	</voices>
 	<loot>
-		<item id="13537" chance="15000" /><!-- Bag of Apple Slices -->
-		<item id="2654" chance="5000" /><!-- Cape -->
-		<item id="2129" chance="10000" /><!-- Wolf Tooth Chain -->
-		<item id="2800" chance="10000" /><!-- Star Herb-->
-		<item id="2199" chance="3000" /><!-- Garlic Necklace -->
-		<item id="10570" chance="500" /><!-- Witch Hat -->
-		<item id="11211" chance="500" /><!-- Stuffed Toad -->
-		<item id="10569" chance="10000" /><!-- Witch Broom -->
+		<item id="2687" countmax="8" chance="34647" /><!-- Cookie -->
+		<item id="10569" chance="11923" /><!-- Witch Broom -->
+		<item id="2129" chance="11712" /><!-- Wolf Tooth Chain -->
+		<item id="2800" chance="10786" /><!-- Star Herb-->
+		<item id="2643" chance="5430" /><!-- Leather Boots -->
+		<item id="2654" chance="5382" /><!-- Cape -->
+		<item id="2405" chance="4428" /><!-- Sickle -->
+		<item id="2199" chance="3934" /><!-- Garlic Necklace -->
+		<item id="2651" chance="2843" /><!-- Coat -->
+		<item id="2185" chance="2091" /><!-- Necrotic Rod -->
+		<item id="13537" chance="1833" /><!-- Bag of Apple Slices -->
+		<item id="2402" chance="937" /><!-- Silver Dagger -->
+		<item id="10570" chance="238" /><!-- Witch Hat -->
+		<item id="11211" chance="63" /><!-- Stuffed Toad -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

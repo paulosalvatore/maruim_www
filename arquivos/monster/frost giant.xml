@@ -3,7 +3,6 @@
 	<health now="270" max="270" />
 	<look type="257" corpse="7330" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -32,7 +31,7 @@
 	<immunities>
 		<immunity ice="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Hmm Humansoup" />
 		<voice sentence="Stand still ya tasy snack!" />
 		<voice sentence="Joh Thun!" />
@@ -41,7 +40,20 @@
 		<voice sentence="Forle Bramma!" />
 	</voices>
 	<loot>
-		<item id="10575" chance="50000" /><!-- Frost Giant Pelt -->
-		<item id="2666" countmax="2" chance="40000" /><!-- Meat -->
+		<item id="2666" countmax="2" chance="32161" /><!-- Meat -->
+		<item id="2406" chance="11643" /><!-- Short Sword -->
+		<item id="10575" chance="9752" /><!-- Frost Giant Pelt -->
+		<item id="7441" chance="4824" /><!-- Ice Cube -->
+		<item id="2513" chance="2478" /><!-- Battle Shield -->
+		<item id="7618" chance="2133" /><!-- Health Potion -->
+		<item id="2381" chance="1466" /><!-- Halberd -->
+		<item id="7460" chance="731" /><!-- Norse Shield -->
+		<item id="2490" chance="499" /><!-- Dark Helmet -->
+		<item id="2209" chance="387" /><!-- Club Ring -->
+		<item id="7290" chance="242" /><!-- Shard -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

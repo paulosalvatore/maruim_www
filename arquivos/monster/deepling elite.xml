@@ -34,9 +34,23 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item id="15455" chance="10000" /> <!-- Deepling Claw -->
-		<item id="15424" chance="10000" /> <!-- Deepling Breaktime Snack -->
-		<item id="2149" chance="10000" /> <!-- small emerald -->
-		<item id="5895" chance="10000" /><!-- fish fin -->
+		<item id="15425" chance="53791" /><!-- Deepling Warts -->
+		<item id="7591" chance="52673" /><!-- Great Health Potion -->
+		<item id="13870" chance="51876" /><!-- Eye of a Deepling -->
+		<item id="7590" chance="48673" /><!-- Great Mana Potion -->
+		<item id="15649" countmax="5" chance="48221" /><!-- Vortex Bolt -->
+		<item id="15488" chance="47643" /><!-- Deepling Filet -->
+		<item id="15426" chance="43792" /><!-- Deeptags -->
+		<item id="15452" chance="38221" /><!-- Deepling Ridge -->
+		<item id="2149" countmax="2" chance="12883" /> <!-- Small Emerald -->
+		<item id="2168" chance="11663" /><!-- Life Ring -->
+		<item id="13838" chance="7641" /><!-- Heavy Trident -->
+		<item id="5895" chance="4299" /><!-- Fish Fin -->
+		<item id="15453" chance="2586" /><!-- Warrior's Shield -->
+		<item id="15451" chance="1342" /><!-- Warrior's Axe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

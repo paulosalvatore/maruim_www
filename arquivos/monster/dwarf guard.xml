@@ -33,13 +33,22 @@
 		<voice sentence="Hail Durin!" />
 	</voices>
 	<loot>
-		<item id="5900" chance="60000" /><!-- Dwarven Beard -->
-		<item id="11325" countmax="2" chance="50000" /><!-- Spiked Iron Ball -->
-		<item id="5880" countmax="2" chance="50000" /><!-- Iron Ore -->
-		<item id="9814" chance="30000" /><!-- Rusty Shield -->
-		<item id="2350" chance="30000" /><!-- Sword Hilt -->
-		<item id="9820" chance="30000" /><!-- Rusty Helmet -->
-		<item id="13757" chance="50000" /><!-- Coal -->
-		<item id="2150" countmax="2" chance="10000" /><!-- Small Amethyst -->
+		<item id="2787" countmax="2" chance="68374" /><!-- White Mushroom -->
+		<item id="2643" chance="48663" /><!-- Leather Boots -->
+		<item id="2483" chance="16744" /><!-- Scale Armor -->
+		<item id="2513" chance="12384" /><!-- Battle Shield -->
+		<item id="2417" chance="8633" /><!-- Battle Hammer -->
+		<item id="7618" chance="4921" /><!-- Health Potion -->
+		<item id="2457" chance="3274" /><!-- Steel Helmet -->
+		<item id="2387" chance="982" /><!-- Double Axe -->
+		<item id="5880" chance="755" /><!-- Iron Ore -->
+		<item id="13757" chance="628" /><!-- Coal -->
+		<item id="2459" chance="549" /><!-- Iron Helmet -->
+		<item id="2208" chance="312" /><!-- Axe Ring -->
+		<item id="2150" chance="294" /><!-- Small Amethyst -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

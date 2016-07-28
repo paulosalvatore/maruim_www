@@ -28,8 +28,11 @@
 		<immunity earth="1" />
 	</immunities>
 	<loot>
-		<item id="8859" chance="70000" /><!-- spider fangs -->
-		<item id="8860" chance="20000" /><!-- spiderwebs -->
-		<item id="12441" chance="50000" /><!-- poison spider shell -->
+		<item id="8859" chance="74230" /><!-- Spider Fangs -->
+		<item id="12441" chance="61400" /><!-- Poison Spider Shell -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="68" max="68" />
 	<look type="259" corpse="7320" />
 	<targetchange interval="60000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -38,6 +37,16 @@
 		<voice sentence="Si ji jusipa!" />
 	</voices>
 	<loot>
-		<item id="2148" chance="40000" /><!-- frosty heart -->
+		<item id="2667" chance="58964" /><!-- Fish -->
+		<item id="2406" chance="8309" /><!-- Short Sword -->
+		<item id="2541" chance="1809" /><!-- Bone Shield -->
+		<item id="7381" chance="532" /><!-- Mammoth Whopper -->
+		<item id="7158" chance="291" /><!-- Rainbow Trout -->
+		<item id="7159" chance="286" /><!-- Green Gerch -->
+		<item id="2669" chance="150" /><!-- Northern Pike -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

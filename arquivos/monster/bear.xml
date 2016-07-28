@@ -31,8 +31,13 @@
 		<voice sentence="Groar" />
 	</voices>
 	<loot>
-		<item id="5896" countmax="4" chance="80000" /><!-- Bear Paw -->
 		<item id="2666" countmax="6" chance="70000" /><!-- Meat -->
 		<item id="2671" countmax="4" chance="60000" /><!-- Ham -->
+		<item id="5896" chance="4000" /><!-- Bear Paw -->
+		<item id="5902" chance="2200" /><!-- Honeycomb -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

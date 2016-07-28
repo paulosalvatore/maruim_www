@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Shadow Pupil" nameDescription="a shadow pupil" race="blood" experience="410" speed="210" manacost="0">
 	<health now="450" max="450" />
-	<look type="551" corpse="21254" />
+	<look type="551" corpse="21260" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,13 +17,12 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="35" poison="90" />
-		<attack name="death" interval="2000" chance="20" range="7" target="1" min="-60" max="-80">
+		<attack name="melee" interval="2000" min="0" max="-70" poison="10" />
+		<attack name="death" interval="2000" chance="20" range="7" min="-60" max="-80">
 			<attribute key="shootEffect" value="suddendeath" />
 			<attribute key="areaEffect" value="smallclouds" />
-			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="death" interval="2000" chance="15" target="0" radius="3" min="-30" max="-60">
+		<attack name="death" interval="2000" chance="15" target="0" radius="4" min="-30" max="-60">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 	</attacks>
@@ -46,12 +44,23 @@
 		<summon name="Skeleton" interval="2000" chance="10" />
 		<summon name="Ghost" interval="2000" chance="5" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="When I'm finished with you, you'll be a shadow of your former self." />
 	</voices>
 	<loot>
-		<item id="21245" countmax="2" chance="70000" /><!-- Blood Tincture in a Vial -->
-		<item id="21243" countmax="2" chance="70000" /><!-- Horoscope -->
-		<item id="5909" chance="50000" /><!-- White Piece of Cloth -->
+		<item id="21243" chance="28467" /><!-- Horoscope -->
+		<item id="21246" chance="15941" /><!-- Incantation Notes -->
+		<item id="11237" chance="12884" /><!-- Book of Necromantic Rituals -->
+		<item id="2789" chance="9845" /><!-- Brown Mushroom -->
+		<item id="21247" chance="9762" /><!-- Pieces of Magic Chalk -->
+		<item id="7589" chance="4892" /><!-- Strong Mana Potion -->
+		<item id="2663" chance="1294" /><!-- Mystic Turban -->
+		<item id="2423" chance="687" /><!-- Clerical Mace -->
+		<item id="8900" chance="677" /><!-- Spellbook of Enlightenment -->
+		<item id="2195" chance="210" /><!-- Boots of Haste -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

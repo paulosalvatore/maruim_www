@@ -40,9 +40,16 @@
 		<immunity drunk="1" />
 	</immunities>
 	<loot>
-		<item id="8859" chance="80000" /><!-- spider fangs -->
-		<item id="8860" countmax="2" chance="20000" /><!-- spiderwebs -->
-		<item id="13933" chance="10000" /><!-- tarantula trap -->
-		<item id="11198" countmax="4" chance="70000" /><!-- tarantula egg -->
+		<item id="11198" chance="21974" /><!-- Tarantula Egg -->
+		<item id="13933" chance="18468" /><!-- Tarantula Trap -->
+		<item id="8859" chance="8662" /><!-- Spider Fangs -->
+		<item id="2478" chance="6831" /><!-- Brass Legs -->
+		<item id="2510" chance="4899" /><!-- Plate Shield -->
+		<item id="2457" chance="2347" /><!-- Steel Helmet -->
+		<item id="2169" chance="466" /><!-- Time Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

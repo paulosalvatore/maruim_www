@@ -47,9 +47,20 @@
 		<voice sentence="Gooobliiiins!" />
 	</voices>
 	<loot>
-		<item id="2227" chance="90000" /><!-- Rotten Meat -->
-		<item id="1987" chance="90000" /><!-- Bag -->
-		<item id="2148" countmax="20" chance="90000" /><!-- gold coin -->
-		<item id="12495" countmax="2" chance="30000" /><!-- Goblin Ear -->
+		<item id="1294" countmax="3" chance="37384" /><!-- Small Stone -->
+		<item id="12495" countmax="2" chance="25171" /><!-- Goblin Ear -->
+		<item id="2667" chance="24853" /><!-- Fish -->
+		<item id="2379" chance="23774" /><!-- Dagger -->
+		<item id="2559" chance="21501" /><!-- Small Axe -->
+		<item id="2406" chance="20974" /><!-- Short Sword -->
+		<item id="2230" chance="19232" /><!-- Bone -->
+		<item id="2449" chance="16806" /><!-- Bone Club -->
+		<item id="2461" chance="15947" /><!-- Leather Helmet -->
+		<item id="2235" chance="15386" /><!-- Mouldy Cheese -->
+		<item id="2467" chance="14613" /><!-- Leather Armor -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

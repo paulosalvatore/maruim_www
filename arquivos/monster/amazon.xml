@@ -33,10 +33,18 @@
 		<voice sentence="Your head will be mine!" />
 	</voices>
 	<loot>
-		<item id="12400" countmax="2" chance="50000" /><!-- Protective Charm -->
-		<item id="12399" chance="5000" /><!-- Girlish Hair Decoration -->
-		<item id="2125" chance="1000" /><!-- Crystal Necklace  -->
-		<item id="2148" countmax="30" chance="90000" /><!-- Gold Coin -->
-		<item id="1987" chance="80000" /><!-- Bag -->
+		<item id="2229" countmax="2" chance="93642" /><!-- Skull -->
+		<item id="2379" chance="84197" /><!-- Dagger -->
+		<item id="2691" chance="43791" /><!-- Brown Bread -->
+		<item id="2385" chance="29314" /><!-- Sabre -->
+		<item id="12399" chance="22531" /><!-- Girlish Hair Decoration -->
+		<item id="12400" chance="13762" /><!-- Protective Charm -->
+		<item id="2050" chance="6643" /><!-- Torch -->
+		<item id="2125" chance="437" /><!-- Crystal Necklace  -->
+		<item id="2147" chance="361" /><!-- Small Ruby -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -22,7 +22,15 @@
 	</attacks>
 	<defenses armor="15" defense="15" />
 	<loot>
-		<item id="5678" countmax="10" chance="50000" /> <!-- Tortoise Egg -->
-		<item id="5899" chance="5000" /> <!-- Turtle Shell -->
+		<item id="5678" countmax="5" chance="54673" /> <!-- Tortoise Egg -->
+		<item id="2667" chance="12867" /><!-- Fish -->
+		<item id="2510" chance="7984" /><!-- Plate Shield -->
+		<item id="2417" chance="6762" /><!-- Battle Hammer -->
+		<item id="5899" chance="4134" /> <!-- Turtle Shell -->
+		<item id="6131" chance="860" /><!-- Tortoise Shield -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

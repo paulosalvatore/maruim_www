@@ -3,7 +3,6 @@
 	<health now="250" max="250" />
 	<look type="95" corpse="6027" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -34,7 +33,7 @@
 		<immunity lifedrain="1" />
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Harrrr Harrrr!" />
 		<voice sentence="Stone sweet stone." />
 		<voice sentence="Feel my claws, softskin." />
@@ -42,9 +41,21 @@
 		<voice sentence="There is a stone in your shoe!" />
 	</voices>
 	<loot>
-		<item id="2149" countmax="2" chance="10000" /><!-- Small Emerald -->
-		<item id="1294" countmax="3" chance="40000" /><!-- Small Stone -->
-		<item id="11195" countmax="2" chance="20000" /><!-- Stone Wing -->
-		<item id="2225" countmax="2" chance="50000" /><!-- Piece of Iron -->
+		<item id="2194" countmax="10" chance="31978" /><!-- Small Stone -->
+		<item id="11195" chance="21998" /><!-- Stone Wing -->
+		<item id="8838" countmax="2" chance="16984" /><!-- Potatoes -->
+		<item id="2680" countmax="5" chance="5931" /><!-- Strawberries -->
+		<item id="2394" chance="4892" /><!-- Morning Star -->
+		<item id="2129" chance="2146" /><!-- Wolf Tooth Chain -->
+		<item id="2513" chance="1983" /><!-- Battle Shield -->
+		<item id="2457" chance="1537" /><!-- Steel Helmet -->
+		<item id="11343" chance="1167" /><!-- Piece of Marble Rock -->
+		<item id="2489" chance="682" /><!-- Dark Armor -->
+		<item id="2209" chance="592" /><!-- Club Ring -->
+		<item id="11227" chance="374" /><!-- Shiny Stone -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

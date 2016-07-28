@@ -3,7 +3,6 @@
 	<health now="230" max="230" />
 	<look type="403" corpse="13514" />
 	<targetchange interval="5000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -31,12 +30,17 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Chrrr! Chrr!" />
 		<voice sentence="Klk! Klk!" />
 	</voices>
 	<loot>
-		<item id="15622" chance="10000" /><!-- dung ball -->
-		<item id="15486" chance="10000" /><!-- compound eye -->
+		<item id="7618" chance="5768" /><!-- Health Potion -->
+		<item id="3964" chance="2198" /><!-- Ripper Lance -->
+		<item id="2209" chance="324" /><!-- Club Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

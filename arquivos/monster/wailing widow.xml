@@ -50,8 +50,17 @@
 		<immunity drunk="1" />
 	</immunities>
 	<loot>
-		<item id="11328" chance="80000" /><!-- widow's mandibles -->
-		<item id="8860" countmax="2" chance="30000" /><!-- spiderwebs -->
-		<item id="5879" chance="10000" /><!-- spider silk -->
+		<item id="11328" chance="38641" /><!-- Widow's Mandibles -->
+		<item id="7620" chance="8785" /><!-- Mana Potion -->
+		<item id="7618" chance="8761" /><!-- Health Potion -->
+		<item id="2381" chance="8460" /><!-- Halberd -->
+		<item id="2796" chance="7208" /><!-- Green Mushroom -->
+		<item id="2510" chance="5854" /><!-- Plate Shield -->
+		<item id="11323" chance="5210" /><!-- Zaoan Halberd -->
+		<item id="11329" chance="1634" /><!-- Wailing Widow's Necklace -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

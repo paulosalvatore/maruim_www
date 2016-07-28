@@ -38,10 +38,19 @@
 		<voice sentence="Chhhhhhh!" />
 	</voices>
 	<loot>
-		<item id="11367" chance="40000" /><!-- Undead Heart -->
-		<item id="12440" countmax="5" chance="80000" /><!-- Pile of Grave Earth -->
-		<item id="2145" countmax="2" chance="20000" /><!-- Small Diamond -->
-		<item id="2230" chance="70000" /><!-- Bone -->
-		<item id="11200" countmax="2" chance="20000" /><!-- Half-digested Piece of Meat -->
+		<item id="3976" countmax="10" chance="18734" /><!-- Worm -->
+		<item id="2230" chance="12839" /><!-- Bone -->
+		<item id="11200" chance="11976" /><!-- Half-Digested Piece of Meat -->
+		<item id="2459" chance="4944" /><!-- Iron Helmet -->
+		<item id="2459" chance="4236" /><!-- Two Handed Sword -->
+		<item id="2227" chance="3579" /><!-- Rotten Meat -->
+		<item id="2450" chance="2249" /><!-- Bone Sword -->
+		<item id="2541" chance="2133" /><!-- Bone Shield -->
+		<item id="2399" countmax="3" chance="1497" /><!-- Throwing Star -->
+		<item id="2145" chance="1198" /><!-- Small Diamond -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

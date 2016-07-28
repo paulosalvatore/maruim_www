@@ -3,7 +3,6 @@
 	<health now="775" max="775" />
 	<look type="77" corpse="6063" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -41,7 +40,16 @@
 		<voice sentence="Crrrk! Crrrk!" />
 	</voices>
 	<loot>
-		<item id="12446" chance="30000" /><!-- quara pincers -->
-		<item id="2147" chance="10000" /><!-- small ruby -->
+		<item id="12446" chance="17641" /><!-- Quara Pincers -->
+		<item id="2463" chance="7641" /><!-- Plate Armor -->
+		<item id="2147" chance="6734" /><!-- Small Ruby -->
+		<item id="2381" chance="2346" /><!-- Halberd -->
+		<item id="2177" chance="1699" /><!-- Life Crystal -->
+		<item id="5895" chance="1374" /><!-- Fish Fin -->
+		<item id="13305" chance="52" /><!-- Giant Shrimp -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

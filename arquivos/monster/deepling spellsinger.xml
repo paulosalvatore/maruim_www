@@ -50,10 +50,20 @@
 		<element deathPercent="50" />
 	</elements>
 	<loot>
-		<item id="15430" chance="10000" /><!-- Deepling Scale -->
-		<item id="15488" chance="10000" /><!-- deepling filet -->
-		<item id="2149" chance="10000" /><!-- small emerald -->
-		<item id="15403" chance="10000" /> <!-- necklace of the deep -->
-		<item id="5895" chance="10000" /><!-- fish fin -->
+		<item id="15421" chance="30796" /><!-- Spellsinger's Seal -->
+		<item id="15488" chance="29346" /><!-- Deepling Filet -->
+		<item id="15422" chance="22413" /><!-- Key to the Drowned Library -->
+		<item id="2667" chance="8375" /><!-- Fish -->
+		<item id="2146" chance="5271" /><!-- Small Sapphire -->
+		<item id="13870" chance="5197" /><!-- Eye of a Deepling -->
+		<item id="2168" chance="4872" /><!-- Life Ring -->
+		<item id="15400" chance="4319" /><!-- Deepling Staff -->
+		<item id="15403" chance="2493" /><!-- Necklace of the Deep -->
+		<item id="5895" chance="1145" /><!-- Fish Fin -->
+		<item id="15644" chance="498" /><!-- Ornate Crossbow -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

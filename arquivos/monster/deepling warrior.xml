@@ -42,9 +42,23 @@
 		<voice sentence="Jou wjil all djie!" />
 	</voices>
 	<loot>
-		<item id="15426" chance="10000" /><!-- deeptags -->
-		<item id="15488" chance="10000" /><!-- deepling filet -->
-		<item id="2149" chance="10000" /> <!-- small emerald -->
-		<item id="5895" chance="10000" /><!-- fish fin -->
+		<item id="15426" chance="30657" /><!-- Deeptags -->
+		<item id="15488" chance="29468" /><!-- Deepling Filet -->
+		<item id="15452" chance="23764" /><!-- Deepling Ridge -->
+		<item id="7591" chance="22978" /><!-- Great Health Potion -->
+		<item id="15425" chance="10000" /><!-- Deepling Warts -->
+		<item id="7590" chance="9090" /><!-- Great Mana Potion -->
+		<item id="15649" countmax="5" chance="3571" /><!-- Vortex Bolt -->
+		<item id="2168" chance="2941" /> <!-- Life Ring -->
+		<item id="2149" chance="2854" /> <!-- Small Emerald -->
+		<item id="13838" chance="1030" /> <!-- Heavy Trident -->
+		<item id="5895" chance="961" /><!-- Fish Fin -->
+		<item id="15453" chance="684" /><!-- Warrior's Shield -->
+		<item id="13870" chance="574" /><!-- Eye of a Deepling -->
+		<item id="15451" chance="534" /><!-- Warrior's Axe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

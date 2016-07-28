@@ -26,6 +26,9 @@
 	</immunities>
 	<loot>
 		<item id="12382" chance="10000" /><!-- Scribbled Sheet of Paper -->
-		<item id="2148" countmax="10" chance="50000" /><!-- Gold Coin -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

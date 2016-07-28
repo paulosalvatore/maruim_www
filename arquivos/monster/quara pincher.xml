@@ -3,7 +3,6 @@
 	<health now="1800" max="1800" />
 	<look type="77" corpse="6063" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -42,9 +41,19 @@
 		<voice sentence="Crrrk! Crrrk!" />
 	</voices>
 	<loot>
-		<item id="12446" countmax="2" chance="50000" /><!-- quara pincers -->
-		<item id="2147" countmax="2" chance="10000" /><!-- small ruby -->
-		<item id="5895" chance="15000" /><!-- fish fin -->
-		<item id="13305" chance="2000" /><!-- giant shrimp -->
+		<item id="12446" chance="32679" /><!-- Quara Pincers -->
+		<item id="7591" chance="22374" /><!-- Great Health Potion -->
+		<item id="2147" countmax="2" chance="15437" /><!-- Small Ruby -->
+		<item id="2670" countmax="5" chance="11976" /><!-- Shrimp -->
+		<item id="2381" chance="10419" /><!-- Halberd -->
+		<item id="5895" chance="3427" /><!-- Fish Fin -->
+		<item id="2475" chance="2964" /><!-- Warrior Helmet -->
+		<item id="2487" chance="798" /><!-- Crown Armor -->
+		<item id="7897" chance="326" /><!-- Glacier Robe -->
+		<item id="13305" chance="163" /><!-- Giant Shrimp -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="400" max="400" />
 	<look type="348" corpse="11375" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -44,13 +43,18 @@
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Crump!" yell="1" />
 	</voices>
 	<loot>
-		<item id="11372" chance="90000" /><!-- lancer beetle shell -->
-		<item id="10557" countmax="3" chance="90000" /><!-- poisonous slime -->
-		<item id="10609" countmax="7" chance="80000" /><!-- lump of dirt -->
-		<item id="2150" chance="20000" /><!-- small amethyst -->
+		<item id="11372" chance="38672" /><!-- Lancer Beetle Shell -->
+		<item id="10557" chance="14966" /><!-- Poisonous Slime -->
+		<item id="10609" chance="7219" /><!-- Lump of Dirt -->
+		<item id="11374" chance="2523" /><!-- Beetle Necklace -->
+		<item id="2150" chance="747" /><!-- Small Amethyst -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

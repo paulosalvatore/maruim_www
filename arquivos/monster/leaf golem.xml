@@ -35,8 +35,15 @@
 		<voice sentence="*swwwwishhhh*" />
 	</voices>
 	<loot>
-		<item id="2245" countmax="3" chance="80000" /><!-- Twigs -->
-		<item id="21427" chance="60000" /><!-- dowser -->
-		<item id="2149" chance="10000" /><!-- small emerald -->
+		<item id="2245" countmax="3" chance="66851" /><!-- Twigs -->
+		<item id="2787" countmax="3" chance="24940" /><!-- White Mushrooms -->
+		<item id="21428" chance="34350" /><!-- Fir Cone -->
+		<item id="21427" chance="26230" /><!-- Dowser -->
+		<item id="20104" chance="22270" /><!-- Swampling Club -->
+		<item id="2149" chance="5230" /><!-- Small Emerald -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

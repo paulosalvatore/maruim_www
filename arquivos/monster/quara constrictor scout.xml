@@ -3,7 +3,6 @@
 	<health now="450" max="450" />
 	<look type="46" corpse="6065" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -41,7 +40,15 @@
 		<voice sentence="Boohaa!" />
 	</voices>
 	<loot>
-		<item id="12443" chance="30000" /><!-- quara tentacle -->
-		<item id="2150" chance="10000" /><!-- small amethyst -->
+		<item id="12443" chance="30614" /><!-- Quara Tentacle -->
+		<item id="2670" countmax="3" chance="18376" /><!-- Shrimp -->
+		<item id="2397" chance="15724" /><!-- Longsword -->
+		<item id="2465" chance="9467" /><!-- Brass Armor -->
+		<item id="2150" chance="6734" /><!-- Small Amethyst -->
+		<item id="5895" chance="981" /><!-- Fish Fin -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

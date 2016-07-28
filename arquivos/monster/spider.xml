@@ -25,7 +25,10 @@
 		<element firePercent="-1" />
 	</elements>
 	<loot>
-		<item id="8859" chance="40000" /><!-- spider fangs -->
-		<item id="8860" chance="10000" /><!-- spiderwebs -->
+		<item id="8859" chance="43420" /><!-- Spider Fangs -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

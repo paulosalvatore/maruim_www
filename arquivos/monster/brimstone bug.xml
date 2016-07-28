@@ -3,7 +3,6 @@
 	<health now="1300" max="1300" />
 	<look type="352" corpse="12527" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -47,14 +46,24 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Chrrr!" />
 	</voices>
 	<loot>
-		<item id="11222" countmax="10" chance="90000" /><!-- lump of earth -->
-		<item id="12659" countmax="2" chance="70000" /><!-- brimstone shell -->
-		<item id="12658" chance="50000" /><!-- brimstone fangs -->
-		<item id="2149" countmax="2" chance="30000" /><!-- small emerald -->
-		<item id="5904" chance="20000" /><!-- magic sulphur -->
+		<item id="10557" chance="82364" /><!-- Poisonous Slime -->
+		<item id="11222" chance="48662" /><!-- Lump of Earth -->
+		<item id="11232" chance="24376" /><!-- Sulphurous Stone -->
+		<item id="12659" chance="23998" /><!-- Brimstone Shell -->
+		<item id="7589" chance="14657" /><!-- Strong Mana Potion -->
+		<item id="7588" chance="14598" /><!-- Strong Health Potion -->
+		<item id="12658" chance="12664" /><!-- Brimstone Fangs -->
+		<item id="2149" countmax="4" chance="5863" /><!-- Small Emerald -->
+		<item id="5904" chance="3488" /><!-- Magic Sulphur -->
+		<item id="2165" chance="1541" /><!-- Stealth Ring -->
+		<item id="2171" chance="329" /><!-- Platinum Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

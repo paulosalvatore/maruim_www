@@ -48,10 +48,22 @@
 		<voice sentence="QJELL NETA NA!!" />
 	</voices>
 	<loot>
-		<item id="15424" chance="10000" /> <!-- deepling breaktime snack -->
-		<item id="15452" chance="10000" /><!-- deepling ridge -->
-		<item id="5895" chance="10000" /><!-- fish fin -->
-		<item id="15403" chance="10000" /><!-- necklace of the deep -->
-		<item id="2146" chance="10000" /><!-- small sapphire -->
+		<item id="15424" chance="38876" /><!-- Deepling Breaktime Snack -->
+		<item id="7591" countmax="3" chance="29261" /><!-- Great Health Potion -->
+		<item id="7590" countmax="3" chance="28673" /><!-- Great Mana Potion -->
+		<item id="15423" chance="25976" /><!-- Deepling Guard Belt Buckle -->
+		<item id="13870" chance="21671" /><!-- Eye of a Deepling -->
+		<item id="15455" chance="1886" /><!-- Deepling Claw -->
+		<item id="2146" countmax="3" chance="5791" /><!-- Small Sapphire -->
+		<item id="13838" chance="3347" /><!-- Heavy Trident -->
+		<item id="15454" chance="1968" /><!-- Guardian Axe -->
+		<item id="15647" chance="1597" /><!-- Deepling Squelcher -->
+		<item id="15644" chance="738" /><!-- Ornate Crossbow -->
+		<item id="15645" chance="694" /><!-- Deepling Backpack -->
+		<item id="15545" chance="78" /><!-- Foxtail -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

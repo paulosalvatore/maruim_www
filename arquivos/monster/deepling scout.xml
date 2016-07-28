@@ -42,9 +42,17 @@
 		<voice sentence="Ljeave this sjacred pljace while you cjan" />
 	</voices>
 	<loot>
-		<item id="15425" chance="10000" /><!-- Deepling Warts -->
-		<item id="13870" chance="10000" /><!-- Eye of a Deepling -->
-		<item id="5895" chance="10000" /><!-- Fish Fin -->
-		<item id="2149" chance="10000" /> <!-- Small Emerald -->
+		<item id="3965" countmax="3" chance="28464" /> <!-- Hunting Spear -->
+		<item id="2168" chance="4379" /> <!-- Life Ring -->
+		<item id="9809" chance="1872" /><!-- Rusty Armor -->
+		<item id="13838" chance="1293" /> <!-- Heavy Trident -->
+		<item id="13870" chance="1186" /><!-- Eye of a Deepling -->
+		<item id="5895" chance="908" /><!-- Fish Fin -->
+		<item id="2149" chance="349" /> <!-- Small Emerald -->
+		<item id="9930" chance="297" /><!-- Flask of Rust Remover -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

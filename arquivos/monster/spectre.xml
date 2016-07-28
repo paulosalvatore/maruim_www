@@ -3,7 +3,6 @@
 	<health now="1350" max="1350" />
 	<look type="235" head="20" corpse="6348" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -52,20 +51,29 @@
 		<immunity lifedrain="1" />
 		<immunity earth="1" />
 		<immunity death="1" />
-		<immunity drunk="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Revenge ... is so ... sweet!" />
 		<voice sentence="Life...force! Feed me your... lifeforce!" />
 	</voices>
 	<loot>
-		<item id="2260" countmax="2" chance="70000" /><!-- Blank Rune -->
-		<item id="2144" countmax="2" chance="30000" /><!-- Black Pearl -->
-		<item id="6500" chance="1000" /><!-- Demonic Essence -->
-		<item id="10607" countmax="2" chance="80000" /><!-- Ghostly Tissue -->
-		<item id="2804" chance="20000" /><!-- Shadow Herb -->
-		<item id="5944" chance="1000" /><!-- Soul Orb -->
-		<item id="11227" chance="1000" /><!-- Shiny Stone -->
-		<item id="5909" countmax="2" chance="50000" /><!-- White Piece of Cloth -->
+		<item id="2260" countmax="2" chance="58674" /><!-- Blank Rune -->
+		<item id="2189" chance="17228" /><!-- Wand of Cosmic Energy -->
+		<item id="2071" chance="16985" /><!-- Lyre -->
+		<item id="6500" chance="11874" /><!-- Demonic Essence -->
+		<item id="5944" chance="11643" /><!-- Soul Orb -->
+		<item id="5909" chance="5987" /><!-- White Piece of Cloth -->
+		<item id="7590" chance="2499" /><!-- Great Mana Potion -->
+		<item id="11227" chance="1952" /><!-- Shiny Stone -->
+		<item id="2134" chance="1596" /><!-- Silver Brooch -->
+		<item id="7383" chance="1166" /><!-- Relic Sword -->
+		<item id="6300" chance="668" /><!-- Death Ring -->
+		<item id="2165" chance="499" /><!-- Stealth Ring -->
+		<item id="2134" chance="421" /><!-- Shadow Sceptre -->
+		<item id="2136" chance="389" /><!-- Demonbone Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

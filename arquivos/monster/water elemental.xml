@@ -3,7 +3,6 @@
 	<health now="550" max="550" />
 	<look type="286" corpse="10499" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -51,7 +50,22 @@
 		<immunity lifedrain="1" />
 	</immunities>
 	<loot>
-		<item id="8302" countmax="2" chance="60000" /><!-- Iced Soil -->
-		<item id="2146" countmax="2" chance="20000" /><!-- Small Sapphire -->
+		<item id="2667" chance="38651" /><!-- Fish -->
+		<item id="7588" chance="19452" /><!-- Strong Health Potion -->
+		<item id="7589" chance="19338" /><!-- Strong Mana Potion -->
+		<item id="7159" chance="3241" /><!-- Green Perch -->
+		<item id="2149" countmax="2" chance="2889" /><!-- Small Emerald -->
+		<item id="2145" chance="2106" /><!-- Small Diamond -->
+		<item id="2146" chance="2083" /><!-- Small Sapphire -->
+		<item id="2167" chance="1823" /><!-- Energy Ring -->
+		<item id="7158" chance="1624" /><!-- Rainbow Trout -->
+		<item id="2168" chance="1538" /><!-- Life Ring -->
+		<item id="7632" chance="1337" /><!-- Giant Shimmering Pearl -->
+		<item id="7633" chance="1329" /><!-- Giant Shimmering Pearl -->
+		<item id="10220" chance="575" /><!-- Leviathan's Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

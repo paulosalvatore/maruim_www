@@ -32,7 +32,14 @@
 		<voice sentence="Bzzzzz!" />
 	</voices>
 	<loot>
-		<item id="19737" countman="2" chance="30000" /><!-- Damselfly Wing -->
-		<item id="19742" countman="2" chance="80000" /><!-- Damselfly Eye -->
+		<item id="19737" countman="2" chance="43461" /><!-- Damselfly Wing -->
+		<item id="19742" countman="2" chance="38430" /><!-- Damselfly Eye -->
+		<item id="2544" countmax="5" chance="27570" /><!-- Arrow -->
+		<item id="7618" chance="16780" /><!-- Health Potion -->
+		<item id="7620" chance="12520" /><!-- Mana Potion -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

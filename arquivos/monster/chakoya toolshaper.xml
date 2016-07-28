@@ -3,7 +3,6 @@
 	<health now="80" max="80" />
 	<look type="259" corpse="7320" />
 	<targetchange interval="60000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -41,6 +40,18 @@
 		<voice sentence="Kiyosa sipaju!" />
 	</voices>
 	<loot>
-		<item id="2148" chance="40000" /><!-- frosty heart -->
+		<item id="2667" countmax="2" chance="56972" /><!-- Fish -->
+		<item id="2398" chance="89731" /><!-- Mace -->
+		<item id="2553" chance="1983" /><!-- Pick -->
+		<item id="2541" chance="1503" /><!-- Bone Shield -->
+		<item id="7441" chance="849" /><!-- Ice Cube -->
+		<item id="7158" chance="380" /><!-- Rainbow Trout -->
+		<item id="7381" chance="354" /><!-- Mammoth Whopper -->
+		<item id="2669" chance="294" /><!-- Northern Pike -->
+		<item id="7159" chance="273" /><!-- Green Perch -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

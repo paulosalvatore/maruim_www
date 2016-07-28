@@ -3,7 +3,6 @@
 	<health now="84" max="84" />
 	<look type="260" corpse="7320" />
 	<targetchange interval="60000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -51,6 +50,15 @@
 		<voice sentence="Quatu nguraka!" />
 	</voices>
 	<loot>
-		<item id="2148" chance="40000" /><!-- frosty heart -->
+		<item id="2667" countmax="3" chance="58431" /><!-- Fish -->
+		<item id="2460" chance="6809" /><!-- Brass Helmet -->
+		<item id="2541" chance="1374" /><!-- Bone Shield -->
+		<item id="7159" chance="172" /><!-- Green Perch -->
+		<item id="7158" chance="164" /><!-- Rainbow Trout -->
+		<item id="2669" chance="138" /><!-- Northern Pike -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

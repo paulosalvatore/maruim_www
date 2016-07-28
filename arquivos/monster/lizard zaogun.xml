@@ -3,7 +3,6 @@
 	<health now="2955" max="2955" />
 	<look type="343" corpse="11284" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -41,10 +40,21 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="11330" chance="10000" /><!-- zaogun flag -->
-		<item id="5881" chance="10000" /><!-- lizard scale -->
-		<item id="2149" chance="10000" /><!-- small emerald -->
-		<item id="11331" chance="10000" /><!-- zaogun shoulderplates -->
-		<item id="11336" chance="10000" /><!-- lizard trophy -->
+		<item id="11331" chance="21980" /><!-- Zaogun Shoulderplates -->
+		<item id="5876" chance="19360" /><!-- Lizard Leather -->
+		<item id="5881" chance="17520" /><!-- Lizard Scale -->
+		<item id="11330" chance="12280" /><!-- Zaogun Flag -->
+		<item id="7588" chance="11643" /><!-- Strong Health Potion -->
+		<item id="7591" countmax="3" chance="9876" /><!-- Great Health Potion -->
+		<item id="2149" countmax="5" chance="7830" /><!-- Small Emerald -->
+		<item id="11206" chance="3670" /><!-- Red Lantern -->
+		<item id="2528" chance="2144" /><!-- Tower Shield -->
+		<item id="11304" chance="1832" /><!-- Zaoan Legs -->
+		<item id="11303" chance="1736" /><!-- Zaoan Shoes -->
+		<item id="11301" chance="1148" /><!-- Zaoan Armor -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

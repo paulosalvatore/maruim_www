@@ -35,8 +35,16 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="11196" countmax="5" chance="70000" /><!-- piece of crocodile leather -->
-		<item id="2149" countmax="2" chance="30000" /><!-- small emerald -->
-		<item id="13538" chance="1000" /><!-- bamboo leaves -->
+		<item id="2671" chance="86497" /><!-- Ham -->
+		<item id="11196" chance="68314" /><!-- Piece of Crocodile Leather -->
+		<item id="2149" countmax="5" chance="23150" /><!-- Small Emerald -->
+		<item id="11245" countmax="2" chance="12832" /><!-- Bunch of Ripe Rice -->
+		<item id="2425" chance="8975" /><!-- Obsidian Lance -->
+		<item id="7632" chance="3048" /><!-- Giant Shimmering Pearl -->
+		<item id="3982" chance="2510" /><!-- Crocodile Boots -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

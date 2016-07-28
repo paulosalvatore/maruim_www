@@ -17,12 +17,12 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="-0" max="-180">
+		<attack name="melee" interval="2000" min="0" max="-200" />
+		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
 			<attribute key="shootEffect" value="snowball" />
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="-0" max="-175">
+		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
@@ -33,13 +33,18 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Yooodelaaahooohooo!" />
 		<voice sentence="Yooodelaaaheeeheee!" />
 	</voices>
 	<loot>
-		<item id="10578" chance="70000" /><!-- frosty heart -->
-		<item id="7441" chance="50000" /><!-- ice cube -->
-		<item id="7290" chance="40000" /><!-- shard -->
+		<item id="2666" countmax="4" chance="64872" /><!-- Meat -->
+		<item id="2671" countmax="5" chance="32679" /><!-- Ham -->
+		<item id="2111" countmax="22" chance="24918" /><!-- Snowball -->
+		<item id="2644" chance="2467" /><!-- Bunny Slippers -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

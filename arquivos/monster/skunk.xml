@@ -23,7 +23,11 @@
 	</attacks>
 	<defenses armor="5" defense="5" />
 	<loot>
-		<item id="11191" chance="80000" /><!-- skunk tail -->
-		<item id="2666" chance="30000" /><!-- Meat -->
+		<item id="2671" chance="64876" /><!-- Ham -->
+		<item id="11191" chance="57321" /><!-- Skunk Tail -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="3050" max="3050" />
 	<look type="344" corpse="11288" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -43,17 +42,28 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Grzzzzzzz!" />
 		<voice sentence="Garrrblarrrrzzzz!" />
 		<voice sentence="Kzzzzzz!" />
 	</voices>
 	<loot>
-		<item id="11325" chance="10000" /><!-- spiked iron ball -->
-		<item id="12629" chance="10000" /><!-- scale of corruption -->
-		<item id="11327" chance="10000" /><!-- cursed shoulder spikes -->
-		<item id="2145" chance="10000" /><!-- small diamond -->
-		<item id="11326" chance="10000" /><!-- corrupted flag -->
-		<item id="11336" chance="10000" /><!-- lizard trophy -->
+		<item id="11325" chance="15673" /><!-- Spiked Iron Ball -->
+		<item id="11327" chance="9571" /><!-- Cursed Shoulder Spikes -->
+		<item id="7591" countmax="3" chance="7862" /><!-- Great Health Potion -->
+		<item id="11326" chance="5691" /><!-- Corrupted Flag -->
+		<item id="5876" chance="4972" /><!-- Lizard Leather -->
+		<item id="12629" chance="3147" /><!-- Scale of Corruption -->
+		<item id="2145" countmax="5" chance="3459" /><!-- Small Diamond -->
+		<item id="2528" chance="2344" /><!-- Tower Shield -->
+		<item id="5881" countmax="3" chance="1649" /><!-- Lizard Scale -->
+		<item id="11301" chance="1568" /><!-- Zaoan Armor -->
+		<item id="11304" chance="1496" /><!-- Zaoan Legs -->
+		<item id="11303" chance="1374" /><!-- Zaoan Shoes -->
+		<item id="11302" chance="597" /><!-- Zaoan Helmet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

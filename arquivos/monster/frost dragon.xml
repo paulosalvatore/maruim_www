@@ -3,7 +3,6 @@
 	<health now="1800" max="1800" />
 	<look type="248" corpse="7091" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -61,16 +60,32 @@
 		<immunity ice="1" />
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="YOU WILL FREEZE!" yell="1" />
 		<voice sentence="ZCHHHHH!" yell="1" />
 		<voice sentence="I am so cool" />
 		<voice sentence="Chill out!." />
 	</voices>
 	<loot>
-		<item id="13028" chance="10000" /><!-- frozen heart -->
-		<item id="7289" chance="10000" /><!-- frost charm -->
-		<item id="8300" chance="10000" /><!-- flawless ice crystal -->
-		<item id="7314" chance="10000" /><!-- scale from a frozen dragon -->
+		<item id="2672" countmax="5" chance="98667" /><!-- Dragon Ham -->
+		<item id="2796" chance="21623" /><!-- Green Mushroom -->
+		<item id="1976" chance="11984" /><!-- Gemmed Book -->
+		<item id="2547" countmax="6" chance="9631" /><!-- Power Bolt -->
+		<item id="2146" chance="7293" /><!-- Small Sapphire -->
+		<item id="2167" chance="7136" /><!-- Energy Ring -->
+		<item id="7441" chance="6525" /><!-- Ice Cube -->
+		<item id="2033" chance="4919" /><!-- Golden Mug -->
+		<item id="7290" chance="1342" /><!-- Shard -->
+		<item id="2177" chance="1198" /><!-- Life Crystal -->
+		<item id="2479" chance="987" /><!-- Strange Helmet -->
+		<item id="2396" chance="721" /><!-- Ice Rapier -->
+		<item id="2528" chance="714" /><!-- Tower Shield -->
+		<item id="2498" chance="533" /><!-- Royal Helmet -->
+		<item id="7402" chance="419" /><!-- Dragon Slayer -->
+		<item id="2492" chance="238" /><!-- Dragon Scale Mail -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

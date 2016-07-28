@@ -3,7 +3,6 @@
 	<health now="425" max="425" />
 	<look type="97" corpse="20471" />
 	<targetchange interval="4000" chance="15" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -42,11 +41,25 @@
 		<voice sentence="Plundeeeeer!" />
 	</voices>
 	<loot>
-		<item id="6126" countmax="2" chance="80000" /><!-- Peg Leg -->
-		<item id="2410" countmax="4" chance="40000" /><!-- Throwing Knife -->
-		<item id="6098" chance="10000" /><!-- Eye Patch -->
-		<item id="10123" chance="7000" /><!-- Pirate Treasure Map -->
-		<item id="6097" chance="1500" /><!-- Hook -->
-		<item id="5810" chance="1000" /><!-- Pirate Voodoo Doll -->
+		<item id="2050" chance="16734" /><!-- Torch -->
+		<item id="2385" chance="15668" /><!-- Sabre -->
+		<item id="2410" countmax="5" chance="14679" /><!-- Throwing Knife -->
+		<item id="2238" chance="12346" /><!-- Worn Leather Boots -->
+		<item id="11219" chance="11997" /><!-- Compass -->
+		<item id="2513" chance="6738" /><!-- Battle Shield -->
+		<item id="7588" chance="4988" /><!-- Strong Health Potion -->
+		<item id="6095" chance="3441" /><!-- Pirate Shirt -->
+		<item id="2463" chance="2988" /><!-- Plate Armor -->
+		<item id="5091" chance="1673" /><!-- Treasure Map -->
+		<item id="5926" chance="1532" /><!-- Pirate Backpack -->
+		<item id="5553" chance="1389" /><!-- Rum Flask -->
+		<item id="6126" chance="974" /><!-- Peg Leg -->
+		<item id="6097" chance="838" /><!-- Hook -->
+		<item id="6098" chance="667" /><!-- Eye Patch -->
+		<item id="5792" chance="174" /><!-- Die -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -39,7 +39,13 @@
 		<voice sentence="Ribbit!" />
 	</voices>
 	<loot>
-		<item id="10557" countmax="3" chance="60000" /><!-- poisonous slime -->
-		<item id="2328" countmax="5" chance="80000" /><!-- egg -->
+		<item id="2667" chance="32976" /><!-- Fish -->
+		<item id="10557" chance="13761" /><!-- Poisonous Slime -->
+		<item id="2398" chance="4854" /><!-- Mace -->
+		<item id="2391" chance="848" /><!-- War Hammer -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="265" max="265" />
 	<look type="114" corpse="6040" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -33,11 +32,24 @@
 		<immunity invisible="1" />
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Tssss!" />
 	</voices>
 	<loot>
-		<item id="5876" countmax="2" chance="50000" /><!-- lizard leather -->
-		<item id="2145" chance="10000" /><!-- small diamond -->
+		<item id="2389" countmax="3" chance="19764" /><!-- Spear -->
+		<item id="2464" chance="15343" /><!-- Chain Armor -->
+		<item id="2483" chance="11997" /><!-- Scale Armor -->
+		<item id="3965" chance="7620" /><!-- Hunting Spear -->
+		<item id="7618" chance="4636" /><!-- Health Potion -->
+		<item id="2425" chance="3438" /><!-- Obsidian Lance -->
+		<item id="5876" chance="1312" /><!-- Lizard Leather -->
+		<item id="5881" chance="1297" /><!-- Lizard Scale -->
+		<item id="2381" chance="1124" /><!-- Halberd -->
+		<item id="3974" chance="683" /><!-- Sentinel Shield -->
+		<item id="2145" chance="344" /><!-- Small Diamond -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

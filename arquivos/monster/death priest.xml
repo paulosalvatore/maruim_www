@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Death Priest" nameDescription="a death priest" race="undead" experience="750" speed="220" manacost="0">
+	<health now="800" max="800" />
+	<look type="99" head="95" body="116" legs="119" feet="115" corpse="13975" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-80" />
+		<attack name="death" interval="2000" chance="20" range="7" min="-120" max="-250">
+			<attribute key="shootEffect" value="death" />
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="20" min="80" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="75" />
+	</elements>
+	<immunities>
+		<immunity death="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item id="13739" chance="53794" /><!-- Hieroglyph Banner -->
+		<item id="7618" chance="38954" /><!-- Health Potion -->
+		<item id="7620" chance="37418" /><!-- Mana Potion -->
+		<item id="2159" countmax="3" chance="23946" /><!-- Scarab Coin -->
+		<item id="2175" chance="13018" /><!-- Spellbook -->
+		<item id="5022" countmax="4" chance="12775" /><!-- Orichalcum Pearl -->
+		<item id="2143" chance="7598" /><!-- White Pearl -->
+		<item id="2214" chance="2137" /><!-- Ring of Healing -->
+	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
+</monster>

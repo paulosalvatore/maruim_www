@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Enlightened of the Cult" nameDescription="a enlightened of the cult" race="blood" experience="500" speed="210" manacost="0">
+<monster name="Enlightened Of The Cult" nameDescription="an enlightened of the cult" race="blood" experience="500" speed="210" manacost="0">
 	<health now="700" max="700" />
 	<look type="193" corpse="20391" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,15 +17,16 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="50" poison="80" />
+		<attack name="melee" interval="2000" min="0" max="-100" poison="4" />
 		<attack name="lifedrain" interval="2000" chance="25" range="1" radius="1" target="1" min="-70" max="-185">
+			<attribute key="shootEffect" value="holy" />
 			<attribute key="areaEffect" value="holyarea" />
 		</attack>
-		<attack name="drunk" interval="2000" chance="10" range="7" radius="1" target="1" duration="5000">
+		<attack name="drunk" interval="2000" chance="10" range="7" target="1" duration="5000">
 			<attribute key="shootEffect" value="holy" />
 			<attribute key="areaEffect" value="holydamage" />
 		</attack>
-		<attack name="speed" interval="2000" chance="10" range="7" radius="1" target="1" speedchange="-360" duration="6000">
+		<attack name="speed" interval="2000" chance="10" range="7" target="1" speedchange="-360" duration="6000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 	</attacks>
@@ -53,16 +53,34 @@
 		<summon name="Crypt Shambler" interval="2000" chance="10" />
 		<summon name="Ghost" interval="2000" chance="10" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Praise to my master Urgith!" />
 		<voice sentence="You will rise as my servant!" />
 		<voice sentence="Praise to my masters! Long live the triangle!" />
 		<voice sentence="You will die in the name of the triangle!" />
 	</voices>
 	<loot>
-		<item id="2175" chance="30000" /><!-- Spellbook -->
-		<item id="12411" countmax="3" chance="80000" /><!-- cultish symbol -->
-		<item id="10556" chance="70000" /><!-- cultish robe -->
-		<item id="10555" chance="10000" /><!-- cultish mask -->
+		<item id="10555" chance="21685" /><!-- Cultish Mask -->
+		<item id="7589" chance="4977" /><!-- Strong Mana Potion -->
+		<item id="1962" chance="1675" /><!-- Orange Book -->
+		<item id="12411" chance="1574" /><!-- Cultish Symbol -->
+		<item id="2200" chance="1342" /><!-- Protection Amulet -->
+		<item id="2146" chance="1233" /><!-- Small Sapphire -->
+		<item id="6090" chance="989" /><!-- Music Sheet 4th Verse -->
+		<item id="2167" chance="968" /><!-- Energy Ring -->
+		<item id="5810" chance="937" /><!-- Pirate Voodoo Doll -->
+		<item id="2436" chance="889" /><!-- Skull Staff -->
+		<item id="2171" chance="642" /><!-- Platinum Amulet -->
+		<item id="2187" chance="637" /><!-- Wand of Inferno -->
+		<item id="5670" chance="599" /><!-- Mysterious Voodoo Skull -->
+		<item id="2114" chance="537" /><!-- Piggy Bank -->
+		<item id="7426" chance="421" /><!-- Amber Staff -->
+		<item id="12608" chance="419" /><!-- Broken Jey Ring -->
+		<item id="5801" chance="312" /><!-- Jewelled Backpack -->
+		<item id="2656" chance="224" /><!-- Blue Robe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

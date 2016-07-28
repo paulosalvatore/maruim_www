@@ -29,6 +29,11 @@
 		<voice sentence="Meep!" />
 	</voices>
 	<loot>
-		<item id="2696" chance="50000" /><!-- cheese -->
+		<item id="2696" chance="60000" /><!-- Cheese -->
+		<item id="3976" countmax="3" chance="10000" /><!-- Worm -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

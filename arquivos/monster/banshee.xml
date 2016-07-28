@@ -56,16 +56,30 @@
 		<voice sentence="Feel my gentle kiss of death." />
 	</voices>
 	<loot>
-		<item id="12402" countmax="2" chance="80000" /><!-- Hair of a Banshee -->
-		<item id="11337" chance="50000" /><!-- Petrified Scream -->
-		<item id="2657" chance="50000" /><!-- Simple Dress -->
-		<item id="2170" chance="20000" /><!-- Silver Amulet -->
-		<item id="2144" countmax="2" chance="10000" /><!-- Black Pearl -->
-		<item id="2143" countmax="2" chance="10000" /><!-- White Pearl -->
-		<item id="2217" chance="10000" /><!-- Spellbook -->
-		<item id="2134" chance="20000" /><!-- Silver Brooch -->
-		<item id="5912" countmax="2" chance="50000" /><!-- Blue Piece of Cloth -->
-		<item id="2121" chance="5000" /><!-- Wedding Ring -->
-		<item id="13307" chance="1000" /><!-- Sweet Smelling Bait -->
+		<item id="2047" chance="85671" /><!-- Candlestick -->
+		<item id="2170" chance="16341" /><!-- Silver Amulet -->
+		<item id="2657" chance="12527" /><!-- Simple Dress -->
+		<item id="12402" chance="8124" /><!-- Hair of a Banshee -->
+		<item id="11337" chance="7953" /><!-- Petrified Scream -->
+		<item id="2144" chance="4279" /><!-- Black Pearl -->
+		<item id="2411" chance="2944" /><!-- Poison Dagger -->
+		<item id="2134" chance="2562" /><!-- Silver Brooch -->
+		<item id="2143" chance="2436" /><!-- White Pearl -->
+		<item id="2372" chance="1873" /><!-- Lyre -->
+		<item id="2197" chance="1748" /><!-- Stone Skin Amulet -->
+		<item id="7589" chance="1712" /><!-- Strong Mana Potion -->
+		<item id="2214" chance="1636" /><!-- Ring of Healing -->
+		<item id="2656" chance="1527" /><!-- Blue Robe -->
+		<item id="2175" chance="1138" /><!-- Spellbook -->
+		<item id="2121" chance="1074" /><!-- Wedding Ring -->
+		<item id="7884" chance="844" /><!-- Terra Mantle -->
+		<item id="2655" chance="679" /><!-- Red Robe -->
+		<item id="2177" chance="651" /><!-- Life Crystal -->
+		<item id="2124" chance="382" /><!-- Crystal Ring -->
+		<item id="13307" chance="274" /><!-- Sweet Smelling Bait -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

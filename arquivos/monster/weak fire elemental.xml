@@ -39,9 +39,11 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="5468" chance="3000" /><!-- Fire Bug -->
-		<item id="8299" countmax="2" chance="10000" /><!-- Glimmering Soil -->
-		<item id="2147" countmax="2" chance="4000" /><!-- Small Ruby -->
-		<item id="9970" countmax="2" chance="4000" /><!-- Small Topaz -->
+		<item id="5468" chance="5983" /><!-- Fire Bug -->
+		<item id="10553" chance="1232" /><!-- Fiery Heart -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

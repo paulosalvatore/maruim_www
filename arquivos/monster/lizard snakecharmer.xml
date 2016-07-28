@@ -3,7 +3,6 @@
 	<health now="325" max="325" />
 	<look type="115" corpse="6041" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -48,12 +47,26 @@
 	<summons maxSummons="6">
 		<summon name="cobra" interval="2000" chance="20" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="I ssssmell warm blood!" />
 		<voice sentence="Shhhhhhhh" />
 	</voices>
 	<loot>
-		<item id="5876" countmax="3" chance="80000" /><!-- lizard leather -->
-		<item id="2149" chance="10000" /><!-- small emerald -->
+		<item id="3077" chance="38642" /><!-- Dead Snake -->
+		<item id="2654" chance="14997" /><!-- Cape -->
+		<item id="7620" chance="4938" /><!-- Mana Potion -->
+		<item id="2177" chance="2344" /><!-- Life Crystal -->
+		<item id="5876" chance="2193" /><!-- Lizard Leather -->
+		<item id="2181" chance="1742" /><!-- Terra Rod -->
+		<item id="5881" chance="1689" /><!-- Lizard Scale -->
+		<item id="2150" chance="1134" /><!-- Small Amethyst -->
+		<item id="2182" chance="899" /><!-- Snakebite Rod -->
+		<item id="2168" chance="731" /><!-- Life Ring -->
+		<item id="3971" chance="642" /><!-- Charmer's Tiara-->
+		<item id="2154" chance="371" /><!-- Yellow Gem -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

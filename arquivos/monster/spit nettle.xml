@@ -40,10 +40,15 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="2804" chance="1000" /><!-- shadow herb -->
-		<item id="12432" chance="1000" /><!-- nettle spit -->
-		<item id="2802" chance="1000" /><!-- sling herb -->
-		<item id="2802" chance="1000" /><!-- grave flower -->
-		<item id="11231" chance="1000" /><!-- nettle blossom -->
+		<item id="2804" chance="19684" /><!-- Shadow Herb -->
+		<item id="12432" chance="17668" /><!-- Nettle Spit -->
+		<item id="2802" countmax="2" chance="9854" /><!-- Sling Herb -->
+		<item id="2802" chance="2195" /><!-- Grave Flower -->
+		<item id="11231" chance="1684" /><!-- Nettle Blossom -->
+		<item id="2802" chance="982" /><!-- Seeds -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

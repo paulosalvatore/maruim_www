@@ -37,9 +37,9 @@
 		<voice sentence="Buuuuuh" />
 	</voices>
 	<loot>
-		<item id="10607" countmax="2" chance="80000" /><!-- Ghostly Tissue -->
-		<item id="2804" chance="30000" /><!-- Shadow Herb -->
-		<item id="9662" chance="10000" /><!-- Ghost's Tear -->
-		<item id="5911" chance="50000" /><!-- Red Piece of Cloth -->
+		<item id="10607" chance="5976" /><!-- Ghostly Tissue -->
+		<item id="2804" chance="34978" /><!-- Shadow Herb -->
+		<item id="5911" chance="1497" /><!-- Red Piece of Cloth -->
+		<item id="9662" chance="687" /><!-- Ghost's Tear -->
 	</loot>
 </monster>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Adept of the Cult" nameDescription="an adept of the cult" race="blood" experience="400" speed="215" manacost="0">
+<monster name="Adept Of The Cult" nameDescription="an adept of the cult" race="blood" experience="400" speed="215" manacost="0">
 	<health now="430" max="430" />
-	<look type="194" head="114" body="94" legs="94" feet="57" corpse="20311" />
+	<look type="194" head="114" body="94" legs="94" feet="57" corpse="20314" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,11 +17,10 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="30" poison="40" />
-		<attack name="lifedrain" interval="2000" chance="20" range="7" target="0" min="-70" max="-150">
+		<attack name="melee" interval="2000" min="0" max="-90" poison="2" />
+		<attack name="lifedrain" interval="2000" chance="20" range="7" target="1" min="-70" max="-150">
 			<attribute key="shootEffect" value="poison" />
 			<attribute key="areaEffect" value="poison" />
-			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="drunk" interval="2000" chance="10" range="7" radius="1" target="1" duration="4000">
 			<attribute key="shootEffect" value="holy" />
@@ -30,7 +28,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="20" defense="20">
-		<defense name="healing" interval="2000" chance="20" min="50" max="70">
+		<defense name="healing" interval="3000" chance="20" min="45" max="60">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="invisible" interval="2000" chance="10" duration="3000">
@@ -50,14 +48,30 @@
 	<summons maxSummons="2">
 		<summon name="Ghoul" interval="2000" chance="10" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
+		<voice sentence="Feel the power of the cult!" />
 		<voice sentence="Praise the voodoo!" />
 		<voice sentence="Power to the cult!" />
-		<voice sentence="Feel the power of the cult!" />
 	</voices>
 	<loot>
-		<item id="2175" chance="30000" /><!-- Spellbook -->
-		<item id="12411" countmax="2" chance="80000" /><!-- cultish symbol -->
-		<item id="10556" chance="60000" /><!-- cultish robe -->
+		<item id="10556" chance="20985" /><!-- Cultish Robe -->
+		<item id="12448" chance="18776" /><!-- Rope Belt -->
+		<item id="5810" chance="3198" /><!-- Pirate Voodoo Doll -->
+		<item id="2170" chance="2167" /><!-- Silver Amulet -->
+		<item id="2423" chance="2016" /><!-- Clerical Mace -->
+		<item id="1962" chance="1546" /><!-- Orange Book -->
+		<item id="6089" chance="1196" /><!-- Music Sheet 3rd Verse -->
+		<item id="7426" chance="1123" /><!-- Amber Staff -->
+		<item id="2169" chance="948" /><!-- Time Ring -->
+		<item id="2147" chance="687" /><!-- Small Ruby -->
+		<item id="2183" chance="552" /><!-- Hailstorm Rod -->
+		<item id="12608" chance="431" /><!-- Broken Key Ring -->
+		<item id="7424" chance="422" /><!-- Lunar Staff -->
+		<item id="2655" chance="349" /><!-- Red Robe -->
+		<item id="12411" chance="316" /><!-- Cultish Symbol -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

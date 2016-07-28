@@ -3,7 +3,6 @@
 	<health now="795" max="795" />
 	<look type="239" corpse="6302" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -39,16 +38,24 @@
 		<element icePercent="10" />
 	</elements>
 	<immunities>
-		<immunity drunk="1" />
 		<immunity invisible="1" />
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Shriiiek" yell="1" />
 	</voices>
 	<loot>
-		<item id="5876" chance="80000" /><!-- lizard leather -->
-		<item id="2146" countmax="2" chance="30000" /><!-- small sapphire -->
-		<item id="10561" chance="60000" /><!-- wyvern talisman -->
+		<item id="2672" countmax="3" chance="83791" /><!-- Dragon Ham -->
+		<item id="10561" chance="19734" /><!-- Wyvern Talisman -->
+		<item id="2547" countmax="2" chance="5267" /><!-- Power Bolt -->
+		<item id="2146" chance="5238" /><!-- Small Sapphire -->
+		<item id="7588" chance="5103" /><!-- Strong Health Potion -->
+		<item id="2187" chance="1438" /><!-- Wand of Inferno -->
+		<item id="2127" chance="1197" /><!-- Emerald Bangle -->
+		<item id="7408" chance="1038" /><!-- Wyvern Fang -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

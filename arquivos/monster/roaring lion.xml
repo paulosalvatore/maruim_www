@@ -38,14 +38,19 @@
 		<voice sentence="Growl!" />
 	</voices>
 	<loot>
-		<item id="2666" countmax="4" chance="80000" /><!-- meat -->
-		<item id="2671" countmax="2" chance="60000" /><!-- ham -->
-		<item id="10608" chance="20000" /><!-- lion trophy -->
-		<item id="10608" countmax="2" chance="70000" /><!-- lion's mane -->
-		<item id="2147" chance="30000" /><!-- small ruby -->
-		<item id="9970" chance="30000" /><!-- small topaz -->
-		<item id="2146" chance="30000" /><!-- small sapphire -->
-		<item id="2150" chance="30000" /><!-- small amethyst -->
-		<item id="2193" chance="50000" /><!-- ankh -->
+		<item id="2666" countmax="4" chance="52673" /><!-- Meat -->
+		<item id="2671" countmax="2" chance="51997" /><!-- Ham -->
+		<item id="10608" chance="37641" /><!-- Lion's Mane -->
+		<item id="2147" chance="14998" /><!-- Small Ruby -->
+		<item id="9970" chance="14667" /><!-- Small Topaz -->
+		<item id="2146" chance="12987" /><!-- Small Sapphire -->
+		<item id="2150" chance="11337" /><!-- Small Amethyst -->
+		<item id="2193" chance="5683" /><!-- Ankh -->
+		<item id="2164" chance="1862" /><!-- Might Ring -->
+		<item id="2491" chance="734" /><!-- Crown Helmet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="4150" max="4150" />
 	<look type="334" corpse="11107" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -40,16 +39,27 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Attack aggrezzively! Dezztroy zze intruderzz!" />
 		<voice sentence="Hizzzzz!" />
 	</voices>
 	<loot>
-		<item id="12614" chance="10000" /><!-- draken sulphur -->
-		<item id="2147" chance="10000" /><!-- small ruby -->
-		<item id="11321" chance="10000" /><!-- bone shoulderplate -->
-		<item id="11322" chance="10000" /><!-- warmaster's wristguards -->
-		<item id="12660" chance="10000" /><!-- trashed draken boots -->
-		<item id="13030" chance="10000" /><!-- draken doll -->
+		<item id="2666" chance="43125" /><!-- Meat -->
+		<item id="11321" chance="16011" /><!-- Bone Shoulderplate -->
+		<item id="11323" chance="11925" /><!-- Zaoan Halberd -->
+		<item id="11322" chance="11664" /><!-- Warmaster's Wristguards -->
+		<item id="7591" countmax="3" chance="6854" /><!-- Great Health Potion -->
+		<item id="8473" chance="6022" /><!-- Ultimate Health Potion -->
+		<item id="2528" chance="3635" /><!-- Tower Shield -->
+		<item id="11303" chance="2406" /><!-- Zaoan Shoes -->
+		<item id="2147" countmax="5" chance="2325" /><!-- Small Ruby -->
+		<item id="11305" chance="1469" /><!-- Drakinata -->
+		<item id="11304" chance="1363" /><!-- Zaoan Legs -->
+		<item id="11301" chance="1198" /><!-- Zaoan Armor -->
+		<item id="2123" chance="381" /><!-- Ring of the Sky -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

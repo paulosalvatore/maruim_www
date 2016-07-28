@@ -34,8 +34,20 @@
 		<immunity earth="1" />
 	</immunities>
 	<loot>
-		<item id="2149" countmax="2" chance="15000" /><!-- Small Emerald -->
-		<item id="1294" countmax="5" chance="50000" /><!-- Small Stone -->
-		<item id="5880" chance="20000" /><!-- Iron Ore -->
+		<item id="1294" countmax="4" chance="23891" /><!-- Small Stone -->
+		<item id="11232" chance="18376" /><!-- Sulphurus Stone -->
+		<item id="2209" chance="9731" /><!-- Power Ring-->
+		<item id="2395" chance="5297" /><!-- Carlin Sword -->
+		<item id="5880" chance="3764" /><!-- Iron Ore -->
+		<item id="10549" chance="2347" /><!-- Ancient Stone -->
+		<item id="11227" chance="1132" /><!-- Shiny Stone -->
+		<item id="13757" chance="959" /><!-- Coal -->
+		<item id="11343" chance="671" /><!-- Piece of Marble Rock -->
+		<item id="2124" chance="297" /><!-- Crystal Ring -->
+		<item id="2156" chance="90" /><!-- Red Gem -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

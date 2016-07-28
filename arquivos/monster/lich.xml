@@ -62,13 +62,26 @@
 		<voice sentence="Death and Decay!" />
 	</voices>
 	<loot>
-		<item id="2144" countmax="2" chance="20000" /><!-- Black Pearl -->
-		<item id="2143" countmax="2" chance="20000" /><!-- White Pearl -->
-		<item id="2149" countmax="3" chance="30000" /><!-- Small Emerald -->
-		<item id="9970" countmax="3" chance="30000" /><!-- Small Topaz -->
-		<item id="2154" chance="5000" /><!-- Yellow Gem -->
-		<item id="13291" chance="1000" /><!-- Maxilla Maximus -->
-		<item id="2178" chance="5000" /><!-- Mind Stone -->
-		<item id="2217" chance="5000" /><!-- Spellbook -->
+		<item id="2175" chance="18264" /><!-- Spellbook -->
+		<item id="7589" chance="16934" /><!-- Strong Mana Potion -->
+		<item id="2144" countmax="3" chance="11347" /><!-- Black Pearl -->
+		<item id="2143" chance="10474" /><!-- White Pearl -->
+		<item id="9970" countmax="3" chance="5673" /><!-- Small Topaz -->
+		<item id="2532" chance="5611" /><!-- Ancient Shield -->
+		<item id="2149" countmax="3" chance="5199" /><!-- Small Emerald -->
+		<item id="2214" chance="3862" /><!-- Ring of Healing -->
+		<item id="2479" chance="1591" /><!-- Strange Helmet -->
+		<item id="2154" chance="1248" /><!-- Yellow Gem -->
+		<item id="2436" chance="1190" /><!-- Skull Staff -->
+		<item id="2171" chance="986" /><!-- Platinum Amulet -->
+		<item id="2535" chance="762" /><!-- Castle Shield -->
+		<item id="2178" chance="750" /><!-- Mind Stone -->
+		<item id="7893" chance="394" /><!-- Lightning Boots -->
+		<item id="2656" chance="358" /><!-- Blue Robe -->
+		<item id="13291" chance="212" /><!-- Maxilla Maximus -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

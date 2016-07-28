@@ -3,7 +3,6 @@
 	<health now="140" max="140" />
 	<look type="3" corpse="6009" />
 	<targetchange interval="4000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -28,17 +27,20 @@
 		<element deathPercent="-5" />
 	</elements>
 	<immunities>
-		<immunity outfit="1" />
+		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Grrrrrrr" />
 		<voice sentence="Yoooohhuuuu!" yell="1" />
 	</voices>
 	<loot>
-		<item id="2671" chance="10000" /><!-- Ham -->
-		<item id="11235" chance="10000" /><!-- Warwolf Fur -->
-		<item id="5897" chance="10000" /><!-- Wolf Paw -->
-		<item id="2666" chance="10000" /><!-- Meat -->
-		<item id="7394" chance="10000" /><!-- Wolf Trophy -->
+		<item id="2671" countmax="2" chance="42798" /><!-- Ham -->
+		<item id="11235" chance="12985" /><!-- Warwolf Fur -->
+		<item id="5897" chance="1962" /><!-- Wolf Waw -->
+		<item id="3976" chance="228" /><!-- Wolf Trophy -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

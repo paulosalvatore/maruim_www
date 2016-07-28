@@ -3,7 +3,6 @@
 	<health now="1300" max="1300" />
 	<look type="299" corpse="8951" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -49,17 +48,22 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Tchhh!" />
 		<voice sentence="Slurp!" />
 	</voices>
 	<loot>
-		<item id="2149" countmax="3" chance="20000" /><!-- Small Emerald -->
-		<item id="10557" countmax="3" chance="80000" /><!-- Poisonous Slime -->
-		<item id="10584" countmax="2" chance="20000" /><!-- Boggy Dreads -->
-		<item id="2802" chance="10000" /><!-- Sling Herb -->
-		<item id="2800" chance="10000" /><!-- Star Herb -->
-		<item id="2155" chance="5000" /><!-- Green Gem -->
-		<item id="18396" chance="10000" /><!-- Mucus Plug -->
+		<item id="10584" chance="19734" /><!-- Boggy Dreads -->
+		<item id="2647" chance="4376" /><!-- Plate Legs -->
+		<item id="8472" chance="4289" /><!-- Great Spirit Potion -->
+		<item id="7591" chance="4133" /><!-- Great Health Potion -->
+		<item id="8912" chance="2437" /><!-- Springsprout Rod -->
+		<item id="8473" chance="1128" /><!-- Ultimate Health Potion -->
+		<item id="8872" chance="948" /><!-- Belted Cape -->
+		<item id="8891" chance="229" /><!-- Paladin Armor-->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

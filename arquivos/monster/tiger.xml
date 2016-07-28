@@ -3,7 +3,6 @@
 	<health now="75" max="75" />
 	<look type="125" corpse="6051" />
 	<targetchange interval="4000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -30,8 +29,11 @@
 		<element icePercent="-1" />
 	</elements>
 	<loot>
-		<item id="2666" chance="10000" /><!-- Meat -->
-		<item id="11210" chance="10000" /><!-- Striped Fur -->
-		<item id="11228" chance="10000" /><!-- Sabretooth -->
+		<item id="2666" countmax="4" chance="58974" /><!-- Meat -->
+		<item id="11210" chance="19385" /><!-- Striped Fur -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

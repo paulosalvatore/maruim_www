@@ -3,7 +3,6 @@
 	<health now="900" max="900" />
 	<look type="398" corpse="13501" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -35,15 +34,21 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="*rattle*" />
 		<voice sentence="*tak tak*" />
 		<voice sentence="*tak tak tak*" />
 	</voices>
 	<loot>
-		<item id="10568" chance="80000" /><!-- scorpion tail -->
-		<item id="2149" countmax="2" chance="30000" /><!-- small emerald -->
-		<item id="13498" chance="1000" /><!-- scorpion sceptre -->
-		<item id="13535" chance="1000" /><!-- fist on a stick -->
+		<item id="2149" countmax="2" chance="18743" /><!-- Small Emerald -->
+		<item id="2439" chance="9687" /><!-- Daraminian Mace -->
+		<item id="2457" chance="8294" /><!-- Steel Helmet -->
+		<item id="2529" chance="3299" /><!-- Black Shield -->
+		<item id="13531" chance="1761" /><!-- Golden Scorpion Pendant -->
+		<item id="13535" chance="548" /><!-- Fist on a Stick -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

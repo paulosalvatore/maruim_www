@@ -3,7 +3,6 @@
 	<health now="1100" max="1100" />
 	<look type="47" corpse="6066" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -61,10 +60,19 @@
 		<voice sentence="Blup." />
 	</voices>
 	<loot>
-		<item id="12444" countmax="2" chance="50000" /><!-- quara eye -->
-		<item id="2144" countmax="2" chance="10000" /><!-- black pearl -->
-		<item id="2143" countmax="2" chance="10000" /><!-- white pearl -->
-		<item id="2149" countmax="2" chance="10000" /><!-- small emerald -->
-		<item id="5895" chance="10000" /><!-- fish fin -->
+		<item id="12444" chance="32976" /><!-- Quara Eye -->
+		<item id="2670" countmax="5" chance="12346" /><!-- Shrimp -->
+		<item id="2143" chance="9867" /><!-- White Pearl -->
+		<item id="2149" countmax="2" chance="9231" /><!-- Small Emerald -->
+		<item id="2144" chance="7345" /><!-- Black Pearl -->
+		<item id="7590" chance="6837" /><!-- Great Mana Potion -->
+		<item id="5895" chance="2864" /><!-- Fish Fin -->
+		<item id="2214" chance="2342" /><!-- Ring of Healing -->
+		<item id="2189" chance="1673" /><!-- Wand of Cosmic Energy -->
+		<item id="2476" chance="691" /><!-- Knight Armor -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

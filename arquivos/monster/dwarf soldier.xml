@@ -32,9 +32,20 @@
 		<voice sentence="Hail Durin!" />
 	</voices>
 	<loot>
-		<item id="5900" chance="60000" /><!-- Dwarven Beard -->
-		<item id="5880" chance="30000" /><!-- Iron Ore -->
-		<item id="2455" chance="40000" /><!-- Crossbow -->
-		<item id="13757" chance="30000" /><!-- Coal -->
+		<item id="2787" countmax="3" chance="87641" /><!-- White Mushroom -->
+		<item id="2543" countmax="7" chance="76422" /><!-- Bolt -->
+		<item id="2481" chance="19764" /><!-- Soldier Helmet -->
+		<item id="2554" chance="18734" /><!-- Shovel -->
+		<item id="2464" chance="16437" /><!-- Chain Armor -->
+		<item id="7363" countmax="3" chance="9767" /><!-- Piercing Bolt -->
+		<item id="2378" chance="6734" /><!-- Battle Axe -->
+		<item id="2455" chance="6290" /><!-- Crossbow -->
+		<item id="2525" chance="5109" /><!-- Dwarven Shield -->
+		<item id="5880" chance="738" /><!-- Iron Ore -->
+		<item id="2208" chance="349" /><!-- Axe Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

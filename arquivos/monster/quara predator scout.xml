@@ -3,7 +3,6 @@
 	<health now="890" max="890" />
 	<look type="20" corpse="6067" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -37,7 +36,17 @@
 		<voice sentence="Rraaar!" />
 	</voices>
 	<loot>
-		<item id="12447" chance="30000" /><!-- quara bone -->
-		<item id="2145" chance="10000" /><!-- small diamond -->
+		<item id="12447" chance="22734" /><!-- Quara Bone -->
+		<item id="2670" countmax="5" chance="16734" /><!-- Shrimp -->
+		<item id="2483" chance="15734" /><!-- Scale Armor -->
+		<item id="2387" chance="9867" /><!-- Double Axe -->
+		<item id="2145" countmax="2" chance="9461" /><!-- Small Diamond -->
+		<item id="2377" chance="4673" /><!-- Two Handed Sword -->
+		<item id="5895" chance="1542" /><!-- Fish Fin -->
+		<item id="8911" chance="1499" /><!-- Northwind Rod -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

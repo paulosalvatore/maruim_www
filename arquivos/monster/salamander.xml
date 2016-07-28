@@ -30,6 +30,16 @@
 		<voice sentence="Chhh!" />
 	</voices>
 	<loot>
-		<item id="19736" chance="10000" /><!-- Insectoid Eggs -->
+		<item id="19736" countmax="5" chance="42837" /><!-- Insectoid Eggs -->
+		<item id="2544" countmax="3" chance="11893" /><!-- Arrows -->
+		<item id="2398" chance="8786" /><!-- Mace -->
+		<item id="2460" chance="4184" /><!-- Brass Helmet -->
+		<item id="2456" chance="2397" /><!-- Bow -->
+		<item id="7618" chance="2346" /><!-- Health Potion -->
+		<item id="2419" chance="1129" /><!-- Scimitar -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

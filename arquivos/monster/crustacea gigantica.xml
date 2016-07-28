@@ -3,7 +3,6 @@
 	<health now="1600" max="1600" />
 	<look type="383" corpse="13331" />
 	<targetchange interval="5000" chance="8" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -31,13 +30,18 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Chrchrchr" yell="1" />
 		<voice sentence="Klonklonk" yell="1" />
 		<voice sentence="Chrrrrr" yell="1" />
 	</voices>
 	<loot>
-		<item id="13304" countmax="2" chance="60000" /><!-- giant crab pincer -->
-		<item id="2146" countmax="2" chance="20000" /><!-- Small Sapphire -->
+		<item id="7588" chance="18763" /><!-- Strong Health Potion -->
+		<item id="7589" chance="17339" /><!-- Strong Mana Potion -->
+		<item id="13304" chance="9480" /><!-- Giant Crab Pincer -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

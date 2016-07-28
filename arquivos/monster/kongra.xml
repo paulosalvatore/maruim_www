@@ -17,7 +17,7 @@
 		<flag runonhealth="10" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-60" />
+		<attack name="melee" interval="2000" min="0" max="-60" />
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="speed" interval="2000" chance="15" speedchange="260" duration="3000">
@@ -31,15 +31,23 @@
 		<element icePercent="-15" />
 		<element deathPercent="-5" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Hugah!" />
 		<voice sentence="Ungh! Ungh!" />
 		<voice sentence="Huaauaauaauaa!" />
 	</voices>
 	<loot>
-		<item id="12467" chance="50000" /><!-- banana sash -->
-		<item id="5883" countmax="2" chance="80000" /><!-- ape fur -->
-		<item id="2678" countmax="3" chance="80000" /><!-- coconut -->
-		<item id="12427" countmax="2" chance="50000" /><!-- kongra shoulderpad -->
+		<item id="2676" countmax="12" chance="68724" /><!-- Banana -->
+		<item id="12427" chance="8947" /><!-- Kongra Shoulderpad -->
+		<item id="2463" chance="3498" /><!-- Plate Armor -->
+		<item id="7618" chance="3216" /><!-- Health Potion -->
+		<item id="2200" chance="2865" /><!-- Protection Amulet -->
+		<item id="5883" chance="2799" /><!-- Ape Fur -->
+		<item id="2166" chance="985" /><!-- Power Ring -->
+		<item id="2209" chance="689" /><!-- Club Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

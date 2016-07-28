@@ -3,7 +3,6 @@
 	<health now="250" max="250" />
 	<look type="314" corpse="9962" />
 	<targetchange interval="5000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -37,12 +36,10 @@
 	<summons maxSummons="3">
 		<summon name="Acid Blob" interval="2000" chance="10" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Kzzchhh!" />
 	</voices>
 	<loot>
-		<item id="10557" countmax="2" chance="70000" /><!-- Poisonous Slime -->
-		<item id="2149" countmax="2" chance="10000" /><!-- Small Emerald -->
-		<item id="9967" countmax="2" chance="60000" /><!-- Glob of Acid Slime -->
+		<item id="9967" chance="38976" /><!-- Glob of Acid Slime -->
 	</loot>
 </monster>

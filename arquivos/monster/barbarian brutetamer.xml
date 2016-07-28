@@ -3,7 +3,6 @@
 	<health now="145" max="145" />
 	<look type="264" head="78" body="116" legs="95" feet="121" corpse="20339" />
 	<targetchange interval="60000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -40,21 +39,30 @@
 	<immunities>
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
-		<immunity outfit="1" />
 		<immunity invisible="1" />
-		<immunity drunk="1" />
 	</immunities>
 	<summons maxSummons="2">
 		<summon name="War Wolf" interval="2000" chance="10" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="To me, creatures of the wild!" />
 		<voice sentence="My instincts tell me about your cowardice." />
 	</voices>
 	<loot>
-		<item id="5913" chance="20000" /><!-- brown piece of cloth -->
-		<item id="5911" chance="20000" /><!-- red piece of cloth -->
-		<item id="7290" chance="5000" /><!-- shard -->
-		<item id="7379" chance="2000" /><!-- brutetamer's staff -->
+		<item id="2686" countmax="2" chance="19185" /><!-- Corncob -->
+		<item id="2464" chance="15641" /><!-- Chain Armor -->
+		<item id="7343" chance="12885" /><!-- Fur Bag -->
+		<item id="2401" chance="11943" /><!-- Staff -->
+		<item id="3965" chance="10856" /><!-- Hunting Spear -->
+		<item id="1958" chance="9844" /><!-- Grey Small Book -->
+		<item id="7620" chance="4985" /><!-- Mana Potion -->
+		<item id="7379" chance="1242" /><!-- Brutetamer's Staff -->
+		<item id="7457" chance="486" /><!-- Fur Boots -->
+		<item id="7463" chance="457" /><!-- Mammoth Fur Cape -->
+		<item id="7464" chance="389" /><!-- Mammoth Fur Shorts -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

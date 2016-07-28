@@ -3,7 +3,6 @@
 	<health now="330" max="330" />
 	<look type="80" corpse="6020" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -24,7 +23,6 @@
 		</attack>
 		<attack name="death" interval="2000" chance="10" radius="1" target="1" range="7" min="-60" max="-105">
 			<attribute key="shootEffect" value="suddendeath" />
-			<attribute key="areaEffect" value="mortarea" />
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 		<attack name="drunk" interval="2000" chance="10" range="7" duration="5000">
@@ -48,17 +46,26 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Simsalabim" />
 		<voice sentence="Feel the power of my magic, tiny mortal!" />
 		<voice sentence="Be careful what you wish for." />
 		<voice sentence="Wishes can come true." />
 	</voices>
 	<loot>
-		<item id="12412" chance="70000" /><!-- Dirty Turban -->
-		<item id="12426" chance="60000" /><!-- Jewelled Belt -->
-		<item id="2146" countmax="2" chance="30000" /><!-- Small Sapphire -->
-		<item id="2062" chance="20000" /><!-- Small Oil Lamp -->
-		<item id="2158" chance="10000" /><!-- Blue Gem -->
+		<item id="2684" chance="38276" /><!-- Carrot -->
+		<item id="7378" countmax="2" chance="8552" /><!-- Royal Spear -->
+		<item id="2146" countmax="4" chance="5194" /><!-- Small Sapphire -->
+		<item id="1963" chance="3784" /><!-- Blue Book -->
+		<item id="5912" chance="3699" /><!-- Blue Piece of Cloth -->
+		<item id="12412" chance="2973" /><!-- Dirty Turban -->
+		<item id="7620" chance="2712" /><!-- Mana Potion -->
+		<item id="2063" chance="1988" /><!-- Small Oil Lamp -->
+		<item id="2745" chance="1266" /><!-- Blue Rose -->
+		<item id="2663" chance="219" /><!-- Mystic Turban -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

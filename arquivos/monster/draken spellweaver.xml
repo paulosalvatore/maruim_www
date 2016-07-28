@@ -3,7 +3,6 @@
 	<health now="5000" max="5000" />
 	<look type="340" corpse="11316" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -58,19 +57,31 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Kazzzzuuuum!!" />
 		<voice sentence="Fissziss!" />
 		<voice sentence="Zzzzzooom!!" />
 	</voices>
 	<loot>
-		<item id="12614" chance="10000" /><!-- draken sulphur -->
-		<item id="13294" chance="10000" /><!-- harness -->
-		<item id="11314" chance="10000" /><!-- weaver's wandtip -->
-		<item id="13538" chance="10000" /><!-- bamboo leaves -->
-		<item id="11315" chance="10000" /><!-- draken trophy -->
-		<item id="2155" chance="10000" /><!-- green gem -->
-		<item id="12660" chance="10000" /><!-- trashed draken boots -->
-		<item id="13030" chance="10000" /><!-- draken doll -->
+		<item id="2666" chance="48175" /><!-- Meat -->
+		<item id="11314" chance="24673" /><!-- Weaver's Wandtip -->
+		<item id="2147" countmax="5" chance="8291" /><!-- Small Ruby -->
+		<item id="7590" chance="6893" /><!-- Great Mana Potion -->
+		<item id="12614" chance="4849" /><!-- Draken Sulphur -->
+		<item id="11303" chance="2383" /><!-- Zaoan Shoes -->
+		<item id="12410" chance="2312" /><!-- Luminous Orb -->
+		<item id="2187" chance="2287" /><!-- Wand of Inferno -->
+		<item id="8871" chance="2184" /><!-- Focus Cape -->
+		<item id="2155" chance="1266" /><!-- Green Gem -->
+		<item id="11356" chance="1139" /><!-- Zaoan Robe -->
+		<item id="11355" chance="918" /><!-- Spellweaver's Robe -->
+		<item id="2123" chance="689" /><!-- Ring of the Sky -->
+		<item id="13538" chance="498" /><!-- Bamboo Leaves -->
+		<item id="13294" chance="294" /><!-- Harness -->
+		<item id="11315" chance="100" /><!-- Draken Trophy -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Novice of the Cult" nameDescription="a novice of the cult" race="blood" experience="100" speed="200" manacost="0">
+<monster name="Novice Of The Cult" nameDescription="a novice of the cult" race="blood" experience="100" speed="200" manacost="0">
 	<health now="285" max="285" />
-	<look type="133" head="114" body="95" legs="114" feet="114" corpse="20467" />
+	<look type="133" head="114" body="95" legs="114" feet="114" corpse="20470" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
-		<flag illusionable="0" />
+		<flag illusionable="1" />
 		<flag convinceable="0" />
-		<flag pushable="1" />
+		<flag pushable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="0" />
 		<flag staticattack="90" />
@@ -18,10 +17,9 @@
 		<flag runonhealth="40" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="55" attack="20" poison="20" />
+		<attack name="melee" interval="2000" min="0" max="-65" poison="1" />
 		<attack name="lifedrain" interval="2000" chance="15" range="7" radius="1" target="1" min="-20" max="-80">
 			<attribute key="shootEffect" value="poison" />
-			<attribute key="areaEffect" value="poison" />
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 	</attacks>
@@ -34,7 +32,7 @@
 		<element earthPercent="10" />
 		<element icePercent="10" />
 		<element holyPercent="10" />
-		<element physicalPercent="-20" />
+		<element physicalPercent="-10" />
 		<element energyPercent="-8" />
 		<element firePercent="-5" />
 		<element deathPercent="-8" />
@@ -42,13 +40,25 @@
 	<summons maxSummons="1">
 		<summon name="Chicken" interval="2000" chance="10" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Fear us!" />
-		<voice sentence="You will not tell anyone what you have seen." />
+		<voice sentence="You will not tell anyone what you have seen!" />
 		<voice sentence="Your curiosity will be punished!" />
 	</voices>
 	<loot>
-		<item id="21243" chance="50000" /><!-- Horoscope -->
-		<item id="12411" chance="70000" /><!-- cultish symbol -->
+		<item id="12448" chance="13464" /><!-- Rope Belt -->
+		<item id="2661" chance="5866" /><!-- Scarf -->
+		<item id="10556" chance="3194" /><!-- Cultish Robe -->
+		<item id="6087" chance="1637" /><!-- Music Sheet 1st Verse -->
+		<item id="1962" chance="1249" /><!-- Orange Book -->
+		<item id="5810" chance="947" /><!-- Pirate Voodoo Doll -->
+		<item id="2213" chance="831" /><!-- Dwarven Ring -->
+		<item id="2190" chance="649" /><!-- Wand of Vortex -->
+		<item id="2199" chance="553" /><!-- Garlic Necklace -->
+		<item id="2145" chance="367" /><!-- Small Diamond -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

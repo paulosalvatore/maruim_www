@@ -47,10 +47,20 @@
 		<voice sentence="Mmmmmoooaaaaaahaaa!!!" />
 	</voices>
 	<loot>
-		<item id="15452" chance="10000" /> <!-- Deepling Ridge -->
-		<item id="15426" chance="10000" /> <!-- Deeptags -->
-		<item id="2149" chance="10000" /><!-- Small Emerald -->
-		<item id="5895" chance="10000" /><!-- Fish Fin -->
-		<item id="15403" chance="10000" /> <!-- Necklace of the Deep -->
+		<item id="15421" chance="59763" /><!-- Spellsinger's Seal -->
+		<item id="15488" chance="42638" /><!-- Deepling Filet -->
+		<item id="15422" chance="41984" /><!-- Key to the Drowned Library -->
+		<item id="13870" chance="19328" /><!-- Eye of a Deepling -->
+		<item id="2667" countmax="2" chance="18490" /><!-- Fish -->
+		<item id="2146" countmax="3" chance="16843" /><!-- Small Sapphire -->
+		<item id="2168" chance="7127" /><!-- Life Ring -->
+		<item id="15400" chance="6894" /><!-- Deepling Staff -->
+		<item id="5895" chance="3843" /><!-- Fish Fin -->
+		<item id="15403" chance="2984" /><!-- Necklace of the Deep -->
+		<item id="15644" chance="138" /><!-- Ornate Crossbow -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

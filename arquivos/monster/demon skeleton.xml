@@ -37,12 +37,24 @@
 		<immunity drunk="1" />
 	</immunities>
 	<loot>
-		<item id="2194" countmax="2" chance="80000" /><!-- Mysterious Fetish -->
-		<item id="12437" chance="60000" /><!-- Pelvis Bone -->
-		<item id="10564" countmax="2" chance="30000" /><!-- Demonic Skeletal Hand -->
-		<item id="2178" chance="20000" /><!-- Mind Stone -->
-		<item id="2144" countmax="2" chance="10000" /><!-- Black Pearl -->
-		<item id="2147" countmax="2" chance="10000" /><!-- Ruby -->
-		<item id="2229" chance="5000" /><!-- Skull -->
+		<item id="12437" chance="68384" /><!-- Pelvis Bone -->
+		<item id="10564" chance="38679" /><!-- Demonic Skeletal Hand -->
+		<item id="7618" countmax="2" chance="22437" /><!-- Health Potion -->
+		<item id="2229" chance="20341" /><!-- Skull -->
+		<item id="2399" countmax="3" chance="19643" /><!-- Throwing Star -->
+		<item id="7620" chance="12775" /><!-- Mana Potion -->
+		<item id="2050" chance="10648" /><!-- Torch -->
+		<item id="2513" chance="9984" /><!-- Battle Shield -->
+		<item id="2417" chance="8972" /><!-- Battle Hammer -->
+		<item id="2144" chance="7633" /><!-- Black Pearl -->
+		<item id="2459" chance="6879" /><!-- Iron Helmet -->
+		<item id="2194" chance="4973" /><!-- Mysterious Fetish -->
+		<item id="2178" chance="2762" /><!-- Mind Stone -->
+		<item id="2147" chance="2571" /><!-- Small Ruby -->
+		<item id="2515" chance="1983" /><!-- Guardian Shield -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

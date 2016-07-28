@@ -3,7 +3,6 @@
 	<health now="1400" max="1400" />
 	<look type="338" corpse="11276" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -32,14 +31,26 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Tssss!" />
 	</voices>
 	<loot>
-		<item id="11334" chance="60000" /><!-- legionnaire flags -->
-		<item id="5881" chance="80000" /><!-- lizard scale -->
-		<item id="11245" chance="50000" /><!-- bunch of ripe rice -->
-		<item id="2145" countmax="2" chance="30000" /><!-- small diamond -->
-		<item id="11336" chance="1000" /><!-- lizard trophy -->
+		<item id="11335" chance="19467" /><!-- Broken Halberd -->
+		<item id="7588" chance="6880" /><!-- Strong Health Potion -->
+		<item id="11245" chance="3950" /><!-- Bunch of Ripe Rice -->
+		<item id="11334" chance="2940" /><!-- Legionnaire Flags -->
+		<item id="2145" countmax="2" chance="2301" /><!-- Small Diamond -->
+		<item id="5881" countmax="3" chance="2180" /><!-- Lizard Scale -->
+		<item id="5876" chance="1870" /><!-- Lizard Leather -->
+		<item id="11323" chance="1460" /><!-- Zaoan Halberd -->
+		<item id="11305" chance="1110" /><!-- Drakinata -->
+		<item id="11206" chance="930" /><!-- Red Lantern -->
+		<item id="11303" chance="760" /><!-- Zoan Shoes -->
+		<item id="11301" chance="321" /><!-- Zaoan Armor -->
+		<item id="11336" chance="248" /><!-- Lizard Trophy -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -27,11 +27,13 @@
 		<element icePercent="-5" />
 	</elements>
 	<loot>
-		<item id="10609" countmax="4" chance="70000" /><!-- Lump of Dirt -->
-		<item id="3976" countmax="4" chance="65000" /><!-- Worm -->
-		<item id="8971" chance="60000" /><!-- Gland -->
-		<item id="11192" countmax="3" chance="50000" /><!-- Carrion Worm Fang -->
-		<item id="13757" chance="10000" /><!-- Coal -->
-		<item id="5880" chance="10000" /><!-- Iron Ore -->
+		<item id="3976" countmax="2" chance="68316" /><!-- Worm -->
+		<item id="2666" countmax="2" chance="24379" /><!-- Meat -->
+		<item id="11192" chance="21974" /><!-- Carrion Worm Fang -->
+		<item id="13757" chance="923" /><!-- Coal -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

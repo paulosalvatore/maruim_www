@@ -3,7 +3,6 @@
 	<health now="255" max="255" />
 	<look type="120" corpse="6047" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -42,10 +41,16 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="11217" countmax="3" chance="70000" /><!-- Carniphila Seeds -->
-		<item id="2804" chance="10000" /><!-- Shadow Herb -->
-		<item id="2802" chance="10000" /><!-- Sling Herb -->
-		<item id="7732" countmax="2" chance="40000" /><!-- Seeds -->
-		<item id="2803" chance="10000" /><!-- Powder Herb -->
+		<item id="2792" chance="15338" /><!-- Dark Mushroom -->
+		<item id="11217" chance="9843" /><!-- Carniphila Seeds -->
+		<item id="2804" chance="2486" /><!-- Shadow Herb -->
+		<item id="2686" chance="2160" /><!-- Corncob -->
+		<item id="7732" chance="1288" /><!-- Seeds -->
+		<item id="2802" countmax="2" chance="946" /><!-- Sling Herb -->
+		<item id="13298" chance="238" /><!-- Carrot on a Stick -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

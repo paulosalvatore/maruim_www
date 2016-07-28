@@ -32,7 +32,17 @@
 		<voice sentence="Prek tars, dekklep zurk." />
 	</voices>
 	<loot>
-		<item id="12435" chance="50000" /><!-- Orc Leather -->
-		<item id="11113" countmax="2" chance="70000" /><!-- Orc Tooth -->
+		<item id="2666" chance="40160" /><!-- Meat -->
+		<item id="2484" chance="26300" /><!-- Studded Armor -->
+		<item id="2526" chance="23200" /><!-- Studded Shield -->
+		<item id="2482" chance="19800" /><!-- Studded Helmet -->
+		<item id="2385" chance="17850" /><!-- Sabre -->
+		<item id="2386" chance="16960" /><!-- Axe -->
+		<item id="12435" chance="8000" /><!-- Orc Leather -->
+		<item id="11113" chance="1300" /><!-- Orc Tooth -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

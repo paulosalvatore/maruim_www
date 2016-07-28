@@ -3,7 +3,6 @@
 	<health now="3950" max="3950" />
 	<look type="241" head="20" corpse="6344" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -21,7 +20,6 @@
 		<attack name="melee" interval="2000" skill="90" attack="95" />
 		<attack name="death" interval="2000" chance="10" range="7" min="-250" max="-610">
 			<attribute key="shootEffect" value="suddendeath" />
-			<attribute key="areaEffect" value="mortarea" />
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 		<attack name="manadrain" interval="2000" chance="20" target="0" radius="3" min="-5" max="-80">
@@ -57,7 +55,7 @@
 		<immunity lifedrain="1" />
 		<immunity physical="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Oh my, you forgot to put your pants on!" />
 		<voice sentence="Weeheeheeheehee!" />
 		<voice sentence="Its nothing but a dream!" />
@@ -68,18 +66,23 @@
 		<summon name="Phantasm Summon" interval="2000" chance="20" />
 	</summons>
 	<loot>
-		<item id="2260" countmax="3" chance="70000" /><!-- Blank Rune -->
-		<item id="2143" countmax="2" chance="30000" /><!-- White Pearl -->
-		<item id="2144" countmax="2" chance="30000" /><!-- Black Pearl -->
-		<item id="6500" chance="5000" /><!-- Demonic Essence -->
-		<item id="2147" countmax="2" chance="10000" /><!-- Small Ruby -->
-		<item id="2149" countmax="2" chance="10000" /><!-- Small Emerald -->
-		<item id="9970" countmax="2" chance="10000" /><!-- Small Topaz -->
-		<item id="2150" countmax="2" chance="10000" /><!-- Small Amethyst -->
-		<item id="10607" countmax="3" chance="80000" /><!-- Ghostly Tissue -->
-		<item id="2804" countmax="2" chance="20000" /><!-- Shadow Herb -->
-		<item id="2136" chance="1000" /><!-- Demonbone Amulet -->
-		<item id="5944" chance="5000" /><!-- Soul Orb -->
-		<item id="11227" chance="5000" /><!-- Shiny Stone -->
+		<item id="7590" countmax="2" chance="48162" /><!-- Great Mana Potion -->
+		<item id="2804" countmax="2" chance="34619" /><!-- Shadow Herb -->
+		<item id="2260" countmax="2" chance="32177" /><!-- Blank Rune -->
+		<item id="6500" chance="22431" /><!-- Demonic Essence -->
+		<item id="8473" chance="21823" /><!-- Ultimate Health Potion -->
+		<item id="2150" countmax="3" chance="19473" /><!-- Small Amethyst -->
+		<item id="9970" countmax="3" chance="19332" /><!-- Small Topaz -->
+		<item id="2147" countmax="3" chance="18846" /><!-- Small Ruby -->
+		<item id="2149" countmax="3" chance="18571" /><!-- Small Emerald -->
+		<item id="2487" chance="1236" /><!-- Crown Armor -->
+		<item id="2165" chance="934" /><!-- Stealth Ring -->
+		<item id="7451" chance="922" /><!-- Shadow Sceptre -->
+		<item id="6300" chance="679" /><!-- Death Ring -->
+		<item id="7414" chance="328" /><!-- Abyss Hammer -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

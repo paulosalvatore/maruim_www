@@ -3,7 +3,6 @@
 	<health now="85" max="85" />
 	<look type="42" corpse="5987" />
 	<targetchange interval="4000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -27,12 +26,16 @@
 		<element deathPercent="-10" />
 		<element energyPercent="-1" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="GROARRR!" yell="1" />
 	</voices>
 	<loot>
-		<item id="10567" countmax="4" chance="80000" /><!-- polar bear paw -->
-		<item id="2666" countmax="5" chance="70000" /><!-- Meat -->
-		<item id="2671" countmax="3" chance="60000" /><!-- Ham -->
+		<item id="2671" countmax="2" chance="68975" /><!-- Ham -->
+		<item id="2666" countmax="4" chance="53498" /><!-- Meat -->
+		<item id="10567" chance="1656" /><!-- Polar Bear Paw -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

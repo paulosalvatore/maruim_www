@@ -30,12 +30,19 @@
 		<voice sentence="You saw something you shouldn't!" />
 	</voices>
 	<loot>
-		<item id="12382" chance="50000" /><!-- scribbled sheet of paper -->
-		<item id="1987" chance="90000" /><!-- bag -->
-		<item id="2148" countmax="30" chance="90000" /><!-- gold coin -->
-		<item id="8840" countmax="5" chance="10000" /><!-- raspberries -->
-		<item id="5909" chance="20000" /><!-- white piece of cloth -->
-		<item id="5911" chance="20000" /><!-- red piece of cloth -->
-		<item id="7397" chance="1000" /><!-- deer trophy -->
+		<item id="12382" chance="65372" /><!-- Scribbled Sheet of Paper -->
+		<item id="2050" countmax="2" chance="48821" /><!-- Torch -->
+		<item id="2649" chance="28964" /><!-- Leather Legs -->
+		<item id="2671" chance="22346" /><!-- Ham -->
+		<item id="2406" chance="21997" /><!-- Short Sword -->
+		<item id="2461" chance="21642" /><!-- Leather Helmet -->
+		<item id="2403" chance="18336" /><!-- Knife -->
+		<item id="8840" countmax="5" chance="12437" /><!-- Raspberries -->
+		<item id="2376" chance="9948" /><!-- Sword -->
+		<item id="2404" chance="9783" /><!-- Combat Knife -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

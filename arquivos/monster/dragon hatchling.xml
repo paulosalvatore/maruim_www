@@ -47,9 +47,12 @@
 		<voice sentence="Rooawwrr" />
 	</voices>
 	<loot>
-		<item id="2672" chance="50000" /><!-- dragon ham -->
-		<item id="21401" countmax="2" chance="30000" /><!-- small dragon tear -->
-		<item id="12413" chance="50000" /><!-- dragon's tail -->
-		<item id="5877" chance="5000" /><!-- green dragon leather -->
+		<item id="2672" chance="72944" /><!-- Dragon Ham -->
+		<item id="12413" chance="10492" /><!-- Dragon's Tail -->
+		<item id="7618" chance="2931" /><!-- Health Potion -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

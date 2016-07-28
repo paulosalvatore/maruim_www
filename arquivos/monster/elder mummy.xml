@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<monster name="Elder Mummy" nameDescription="a elder mummy" race="undead" experience="560" speed="180" manacost="0">
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Elder Mummy" nameDescription="an elder mummy" race="undead" experience="560" speed="180" manacost="0">
 	<health now="850" max="850" />
-	<look type="90" corpse="6025" />
+	<look type="65" head="20" body="30" legs="40" feet="50" corpse="6004" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,11 +17,11 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="70" attack="40" poison="60" />
-		<attack name="death" interval="2000" chance="20" range="1" min="-150" max="-250">
+		<attack name="melee" interval="2000" min="0" max="-120" poison="3" />
+		<attack name="death" interval="2000" chance="20" range="1" min="0" max="-130">
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
-		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-700" duration="15000">
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-300" duration="15000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 	</attacks>
@@ -38,10 +37,20 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="10566" countmax="5" chance="90000" /><!-- gauze bandages -->
-		<item id="12422" chance="30000" /><!-- flasks of embalming fluid -->
-		<item id="2144" countmax="2" chance="20000" /><!-- black pearl -->
-		<item id="11207" chance="1000" /><!-- mini mummy -->
-		<item id="5914" countmax="2" chance="40000" /><!-- yellow piece of cloth -->
+		<item id="3976" countmax="3" chance="49657" /><!-- Worm -->
+		<item id="12422" chance="18976" /><!-- Flask of Embalming Fluid -->
+		<item id="10566" chance="16334" /><!-- Gauze Bandage -->
+		<item id="2159" countmax="3" chance="14928" /><!-- Scarab Coin -->
+		<item id="2162" chance="9446" /><!-- Magic Lightwand -->
+		<item id="2161" chance="7615" /><!-- Strange Talisman -->
+		<item id="2134" chance="6882" /><!-- Silver Brooch -->
+		<item id="13472" chance="3756" /><!-- Pharaoh Banner -->
+		<item id="2124" chance="2867" /><!-- Crystal Ring -->
+		<item id="2144" chance="2194" /><!-- Black Pearl -->
+		<item id="2411" chance="649" /><!-- Poison Dagger -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

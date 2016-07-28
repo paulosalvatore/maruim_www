@@ -38,11 +38,22 @@
 		<voice sentence="One more head for me!" />
 	</voices>
 	<loot>
-		<item id="12400" countmax="3" chance="70000" /><!-- Protective Charm -->
-		<item id="12399" chance="10000" /><!-- Girlish Hair Decoration -->
-		<item id="2148" countmax="40" chance="90000" /><!-- Gold Coin -->
-		<item id="1987" chance="80000" /><!-- Bag -->
-		<item id="1987" chance="5000" /><!-- Plate Armor -->
-		<item id="1987" chance="5000" /><!-- Purple Kiss Blossom -->
+		<item id="2666" chance="61266" /><!-- Meat -->
+		<item id="2389" countmax="3" chance="59763" /><!-- Spear -->
+		<item id="2674" countmax="2" chance="25679" /><!-- Apple -->
+		<item id="2229" chance="29137" /><!-- Skull -->
+		<item id="12399" chance="24697" /><!-- Girlish Hair Decoration -->
+		<item id="12400" chance="14238" /><!-- Protective Charm -->
+		<item id="2464" chance="13973" /><!-- Chain Armor -->
+		<item id="3965" chance="9622" /><!-- Hunting Spear -->
+		<item id="7618" chance="4591" /><!-- Health Potion -->
+		<item id="2200" chance="2196" /><!-- Protection Amulet -->
+		<item id="1987" chance="1473" /><!-- Plate Armor -->
+		<item id="2387" chance="1164" /><!-- Double Axe -->
+		<item id="2145" chance="572" /><!-- Small Diamond -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

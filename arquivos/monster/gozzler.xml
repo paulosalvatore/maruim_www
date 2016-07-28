@@ -3,7 +3,6 @@
 	<health now="240" max="240" />
 	<look type="313" corpse="9938" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -39,15 +38,25 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Huhuhuhuuu!" />
 		<voice sentence="Let the fun begin!" />
 		<voice sentence="Yihahaha!" />
 		<voice sentence="I'll bite you! Nyehehehehe!" />
 	</voices>
 	<loot>
-		<item id="11367" chance="30000" /><!-- Undead Heart -->
-		<item id="2146" countmax="2" chance="10000" /><!-- Small Sapphire -->
-		<item id="11200" countmax="2" chance="10000" /><!-- Half-digested Piece of Meat -->
+		<item id="2510" chance="18734" /><!-- Plate Shield -->
+		<item id="2015" chance="16262" /><!-- Brown Flask -->
+		<item id="2385" chance="14998" /><!-- Sabre -->
+		<item id="2394" chance="8376" /><!-- Morning Star -->
+		<item id="2378" chance="6997" /><!-- Battle Axe -->
+		<item id="2423" chance="2146" /><!-- Clerical Mace -->
+		<item id="2146" chance="678" /><!-- Small Sapphire -->
+		<item id="2409" chance="539" /><!-- Serpent Sword -->
+		<item id="2213" chance="361" /><!-- Dwarven Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

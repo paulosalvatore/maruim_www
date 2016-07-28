@@ -53,9 +53,23 @@
 		<voice sentence="HISSSS" />
 	</voices>
 	<loot>
-		<item id="10611" countmax="3" chance="90000" /><!-- Snake Skin -->
-		<item id="2671" countmax="4" chance="30000" /><!-- Ham -->
-		<item id="11199" chance="80000" /><!-- Hydra Head -->
-		<item id="4850" chance="20000" /><!-- Hydra Egg -->
+		<item id="2671" countmax="4" chance="86971" /><!-- Ham -->
+		<item id="11199" chance="18462" /><!-- Hydra Head -->
+		<item id="2146" chance="11948" /><!-- Small Sapphire -->
+		<item id="8842" chance="8974" /><!-- Cucumber -->
+		<item id="7589" chance="4912" /><!-- Strong Mana Potion -->
+		<item id="2476" chance="2868" /><!-- Knight Armor -->
+		<item id="2214" chance="2356" /><!-- Ring of Healing -->
+		<item id="4850" chance="2344" /><!-- Hydra Egg -->
+		<item id="2197" chance="1879" /><!-- Stone Skin Amulet -->
+		<item id="2475" chance="1642" /><!-- Warrior Helmet -->
+		<item id="2177" chance="1193" /><!-- Life Crystal -->
+		<item id="2536" chance="574" /><!-- Medusa Shield -->
+		<item id="2498" chance="499" /><!-- Royal Helmet -->
+		<item id="2195" chance="238" /><!-- Boots of Haste -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

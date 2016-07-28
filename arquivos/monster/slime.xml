@@ -36,7 +36,10 @@
 		<summon name="Slime" interval="2000" chance="10" />
 	</summons>
 	<loot>
-		<item id="10557" chance="50000" /><!-- Poisonous Slime -->
-		<item id="18396" chance="10000" /><!-- Mucus Plug -->
+		<item id="10557" chance="23420" /><!-- Poisonous Slime -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

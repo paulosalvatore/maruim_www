@@ -3,7 +3,6 @@
 	<health now="450" max="450" />
 	<look type="533" legs="101" corpse="19726" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -34,19 +33,26 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Squeak! Squeak!" />
 		<voice sentence="&lt;sniff&gt;&lt;sniff&gt;&lt;sniff&gt;" />
 	</voices>
 	<loot>
-		<item id="20089" chance="20000" /><!-- Bola -->
-		<item id="2696" countmax="2" chance="70000" /><!-- Cheese -->
-		<item id="20097" chance="40000" /><!-- Cheese Cutter -->
-		<item id="20098" chance="40000" /><!-- Cheesy Figurine -->
-		<item id="20101" countmax="2" chance="40000" /><!-- Rat Cheese -->
-		<item id="20100" chance="10000" /><!-- Soft Cheese -->
-		<item id="20126" chance="5000" /><!-- Leather Harness -->
-		<item id="20105" chance="5000" /><!-- Rat God Doll -->
-		<item id="21475" chance="1000" /><!-- Pannier Backpack -->
+		<item id="20101" chance="26437" /><!-- Rat Cheese -->
+		<item id="20100" chance="23228" /><!-- Soft Cheese -->
+		<item id="2696" chance="21342" /><!-- Cheese -->
+		<item id="20089" chance="14175" /><!-- Bola -->
+		<item id="20099" chance="13346" /><!-- Earflap -->
+		<item id="20097" chance="11281" /><!-- Cheese Cutter -->
+		<item id="20092" chance="4896" /><!-- Ratana -->
+		<item id="20093" chance="3717" /><!-- Life Preserver -->
+		<item id="20090" chance="1834" /><!-- Spike Shield -->
+		<item id="20126" chance="1639" /><!-- Leather Harness -->
+		<item id="20098" chance="1480" /><!-- Cheesy Figurine -->
+		<item id="20105" chance="57" /><!-- Rat God Doll -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

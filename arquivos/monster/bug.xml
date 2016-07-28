@@ -25,7 +25,10 @@
 		<element firePercent="-10" />
 	</elements>
 	<loot>
-		<item id="2328" countmax="3" chance="50000" /><!-- egg -->
-		<item id="2679" countmax="5" chance="70000" /><!-- cherry -->
+		<item id="2679" countmax="5" chance="24673" /><!-- Cherry -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

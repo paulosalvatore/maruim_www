@@ -3,7 +3,6 @@
 	<health now="800" max="800" />
 	<look type="283" corpse="7969" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -45,13 +44,18 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Rooawwrr" />
 		<voice sentence="Fchu?" />
 	</voices>
 	<loot>
-		<item id="10578" chance="70000" /><!-- frosty heart -->
-		<item id="7289" chance="10000" /><!-- frost charm -->
-		<item id="7290" chance="20000" /><!-- shard -->
+		<item id="2672" chance="82761" /><!-- Dragon Ham -->
+		<item id="10578" chance="9423" /><!-- Frosty Heart -->
+		<item id="7618" chance="4468" /><!-- Health Potion -->
+		<item id="8900" chance="1249" /><!-- Spellbook of Enlightenment -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

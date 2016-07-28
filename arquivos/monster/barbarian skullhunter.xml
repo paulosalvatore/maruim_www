@@ -3,7 +3,6 @@
 	<health now="135" max="135" />
 	<look type="254" head="0" body="77" legs="77" feet="114" corpse="20347" />
 	<targetchange interval="60000" chance="0" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -33,15 +32,27 @@
 	<immunities>
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="You will become my trophy." />
 		<voice sentence="Fight harder, coward." />
 		<voice sentence="Show that you are a worthy opponent." />
 	</voices>
 	<loot>
-		<item id="5913" chance="10000" /><!-- brown piece of cloth -->
-		<item id="5911" chance="10000" /><!-- red piece of cloth -->
-		<item id="7290" chance="5000" /><!-- shard -->
-		<item id="7462" chance="2000" /><!-- ragnir helmet -->
+		<item id="2050" chance="68975" /><!-- Torch -->
+		<item id="2460" chance="29683" /><!-- Brass Helmet -->
+		<item id="2403" chance="21998" /><!-- Knife -->
+		<item id="2473" chance="14822" /><!-- Viking Helmet -->
+		<item id="2483" chance="7971" /><!-- Scale Armor -->
+		<item id="2229" chance="6988" /><!-- Skull -->
+		<item id="7618" chance="2467" /><!-- Health Potion -->
+		<item id="5913" chance="1288" /><!-- Brown Piece of Cloth -->
+		<item id="2168" chance="779" /><!-- Life Ring -->
+		<item id="7462" chance="427" /><!-- Ragnir Helmet -->
+		<item id="7457" chance="384" /><!-- Fur Boots -->
+		<item id="7449" chance="239" /><!-- Crystal Sword -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

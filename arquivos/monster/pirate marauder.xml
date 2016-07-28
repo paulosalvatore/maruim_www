@@ -3,7 +3,6 @@
 	<health now="210" max="210" />
 	<look type="93" corpse="20483" />
 	<targetchange interval="4000" chance="15" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -40,11 +39,23 @@
 		<voice sentence="Hiyaa!" />
 	</voices>
 	<loot>
-		<item id="6126" countmax="2" chance="50000" /><!-- Peg Leg -->
-		<item id="11219" chance="30000" /><!-- Compass -->
-		<item id="2389" countmax="2" chance="20000" /><!-- Spear -->
-		<item id="10123" chance="3000" /><!-- Pirate Treasure Map -->
-		<item id="5553" chance="2000" /><!-- Rum Flask -->
-		<item id="5917" chance="500" /><!-- Red Bandana -->
+		<item id="11219" chance="18734" /><!-- Compass -->
+		<item id="2050" chance="15791" /><!-- Torch -->
+		<item id="2389" countmax="2" chance="13446" /><!-- Spear -->
+		<item id="2510" chance="8938" /><!-- Plate Shield -->
+		<item id="2464" chance="4561" /><!-- Chain Armor -->
+		<item id="5917" chance="3896" /><!-- Bandana-->
+		<item id="5927" chance="2948" /><!-- Pirate Bag -->
+		<item id="5091" chance="1497" /><!-- Treasure Map -->
+		<item id="6098" chance="1244" /><!-- Eye Patch -->
+		<item id="6126" chance="1139" /><!-- Peg Leg -->
+		<item id="6097" chance="948" /><!-- Hook -->
+		<item id="5553" chance="498" /><!-- Rum Flask -->
+		<item id="5928" chance="224" /><!-- Empty Goldfish Bowl -->
+		<item id="5792" chance="192" /><!-- Die -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

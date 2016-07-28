@@ -3,7 +3,6 @@
 	<health now="300" max="300" />
 	<look type="218" corpse="6057" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
@@ -28,15 +27,22 @@
 		<element earthPercent="-10" />
 		<element deathPercent="-5" />
 	</elements>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="CRAAAHHH!" />
 		<voice sentence="Gruuuh Gruuuh." />
 		<voice sentence="Carrah Carrah!" />
 	</voices>
 	<loot>
-		<item id="11190" chance="90000" /><!-- Terrorbird Beak -->
-		<item id="3976" countmax="5" chance="85000" /><!-- Worm -->
-		<item id="2666" countmax="3" chance="80000" /><!-- Meat -->
-		<item id="12470" chance="20000" /><!-- Colourful Feather -->
+		<item id="2148" countmax="3" chance="59467" /><!-- Meat -->
+		<item id="3976" countmax="3" chance="32642" /><!-- Worm -->
+		<item id="11190" chance="24989" /><!-- Terrorbird Beak -->
+		<item id="12470" chance="6721" /><!-- Colourful Feather -->
+		<item id="7618" chance="4498" /><!-- Health Potion -->
+		<item id="7732" chance="862" /><!-- Seeds -->
+		<item id="3970" chance="548" /><!-- Feather Headdress -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

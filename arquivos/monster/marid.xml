@@ -3,7 +3,6 @@
 	<health now="550" max="550" />
 	<look type="104" corpse="6033" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -59,18 +58,32 @@
 	<summons maxSummons="2">
 		<summon name="blue djinn" interval="2000" chance="10" max="2" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Simsalabim" />
 		<voice sentence="Feel the power of my magic, tiny mortal!" />
 		<voice sentence="Wishes can come true." />
 		<voice sentence="Djinns will soon again be the greatest!" />
 	</voices>
 	<loot>
-		<item id="12426" chance="80000" /><!-- Jewelled Belt -->
-		<item id="12442" chance="60000" /><!-- Noble Turban -->
-		<item id="2146" countmax="3" chance="45000" /><!-- Small Sapphire -->
-		<item id="2062" chance="40000" /><!-- Small Oil Lamp -->
-		<item id="5912" countmax="2" chance="40000" /><!-- Blue Piece of Cloth -->
-		<item id="2158" chance="15000" /><!-- Blue Gem -->
+		<item id="2677" countmax="29" chance="73468" /><!-- Blueberry -->
+		<item id="7378" countmax="3" chance="21976" /><!-- Royal Spear -->
+		<item id="7589" chance="15673" /><!-- Strong Mana Potion -->
+		<item id="12426" chance="11985" /><!-- Jewelled Belt -->
+		<item id="2146" chance="8673" /><!-- Small Sapphire -->
+		<item id="2374" chance="8327" /><!-- Wooden Flute -->
+		<item id="2442" chance="7741" /><!-- Heavy Machete -->
+		<item id="5912" chance="5896" /><!-- Blue Piece of Cloth -->
+		<item id="1872" chance="3761" /><!-- Blue Tapestry -->
+		<item id="7732" chance="3622" /><!-- Seeds -->
+		<item id="2183" chance="1794" /><!-- Hailstorm Rod -->
+		<item id="12442" chance="1681" /><!-- Noble Turban -->
+		<item id="7900" chance="1194" /><!-- Magma Monocle -->
+		<item id="2663" chance="672" /><!-- Mystic Turban -->
+		<item id="2158" chance="598" /><!-- Blue Gem -->
+		<item id="2063" chance="421" /><!-- Small Oil Lamp -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

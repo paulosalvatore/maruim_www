@@ -27,11 +27,16 @@
 		<immunity death="1" />
 	</immunities>
 	<loot>
-		<item id="2230" countmax="7" chance="90000" /><!-- Bone -->
-		<item id="12437" chance="40000" /><!-- Pelvis Bone -->
-		<item id="6126" chance="10000" /><!-- Peg Leg -->
-		<item id="10123" chance="2000" /><!-- Pirate Treasure Map -->
-		<item id="2385" chance="2000" /><!-- Sabre -->
-		<item id="2229" chance="1000" /><!-- Skull -->
+		<item id="2230" chance="29376" /><!-- Bone -->
+		<item id="2231" chance="18746" /><!-- Big Bone -->
+		<item id="2229" chance="12632" /><!-- Skull -->
+		<item id="10559" chance="8994" /><!-- Spooky Blue Eye -->
+		<item id="2406" chance="3496" /><!-- Short Sword -->
+		<item id="2376" chance="2567" /><!-- Sword -->
+		<item id="2449" chance="1974" /><!-- Bone Club -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

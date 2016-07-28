@@ -30,9 +30,18 @@
 		<voice sentence="Hand me your purse!" />
 	</voices>
 	<loot>
-		<item id="12382" chance="60000" /><!-- scribbled sheet of paper -->
-		<item id="1987" chance="90000" /><!-- bag -->
-		<item id="2148" countmax="40" chance="90000" /><!-- gold coin -->
-		<item id="5913" countmax="2" chance="30000" /><!-- brown piece of cloth -->
+		<item id="12382" chance="81446" /><!-- Scribbled Sheet of Paper -->
+		<item id="2386" chance="38671" /><!-- Axe -->
+		<item id="2685" countmax="2" chance="26798" /><!-- Tomatoes -->
+		<item id="2511" chance="24998" /><!-- Brass Shield -->
+		<item id="2649" chance="21346" /><!-- Leather Legs -->
+		<item id="2398" chance="19752" /><!-- Mace -->
+		<item id="2458" chance="11381" /><!-- Chain Helmet -->
+		<item id="2465" chance="6739" /><!-- Brass Armor -->
+		<item id="2459" chance="1157" /><!-- Iron Helmet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

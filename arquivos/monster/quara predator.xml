@@ -3,7 +3,6 @@
 	<health now="2200" max="2200" />
 	<look type="20" corpse="6067" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -44,9 +43,21 @@
 		<voice sentence="Rraaar!" />
 	</voices>
 	<loot>
-		<item id="12447" chance="70000" /><!-- quara bone -->
-		<item id="2145" countmax="2" chance="10000" /><!-- small diamond -->
-		<item id="5895" chance="15000" /><!-- fish fin -->
-		<item id="13305" chance="3000" /><!-- Giant Shrimp -->
+		<item id="12447" chance="15437" /><!-- Quara Bone -->
+		<item id="7378" countmax="7" chance="12348" /><!-- Royal Spear -->
+		<item id="2670" countmax="5" chance="12116" /><!-- Shrimp -->
+		<item id="2145" countmax="2" chance="8673" /><!-- Small Diamond -->
+		<item id="7591" chance="5894" /><!-- Great Health Potion -->
+		<item id="2387" chance="5734" /><!-- Double Axe -->
+		<item id="5895" countmax="2" chance="3942" /><!-- Fish Fin -->
+		<item id="7383" chance="2373" /><!-- Relic Sword -->
+		<item id="7368" chance="1164" /><!-- Assassin Star -->
+		<item id="7897" chance="898" /><!-- Glacier Robe -->
+		<item id="5741" chance="837" /><!-- Skull Helmet -->
+		<item id="13305" chance="83" /><!-- Giant Shrimp -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

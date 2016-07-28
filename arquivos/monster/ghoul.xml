@@ -43,11 +43,19 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="12440" countmax="3" chance="80000" /><!-- Pile of Grave Earth -->
-		<item id="11208" chance="50000" /><!-- Rotten Piece of Cloth -->
-		<item id="3976" countmax="3" chance="40000" /><!-- Worm -->
-		<item id="5913" chance="30000" /><!-- Brown Piece of Cloth -->
-		<item id="11367" chance="20000" /><!-- Undead Heart -->
-		<item id="12423" chance="20000" /><!-- Ghoul Snack -->
+		<item id="11208" chance="44472" /><!-- Rotten Piece of Cloth -->
+		<item id="3976" countmax="2" chance="16735" /><!-- Worm -->
+		<item id="12423" chance="11134" /><!-- Ghoul Snack -->
+		<item id="2050" chance="8962" /><!-- Torch -->
+		<item id="2229" chance="3766" /><!-- Skull -->
+		<item id="2473" chance="2497" /><!-- Viking Helmet -->
+		<item id="2483" chance="2348" /><!-- Scale Armor -->
+		<item id="5913" chance="1749" /><!-- Brown Piece of Cloth -->
+		<item id="12440" chance="1267" /><!-- Pile of Grave Earth -->
+		<item id="2168" chance="896" /><!-- Life Ring -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

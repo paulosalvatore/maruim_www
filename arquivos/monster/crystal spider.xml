@@ -3,7 +3,6 @@
 	<health now="1250" max="1250" />
 	<look type="263" corpse="7344" />
 	<targetchange interval="4000" chance="15" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -44,16 +43,32 @@
 		<immunity fire="1" />
 		<immunity ice="1" />
 		<immunity paralyze="1" />
-		<immunity outfit="1" />
-		<immunity drunk="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Screeech!" />
 	</voices>
 	<loot>
-		<item id="10578" chance="80000" /><!-- frosty heart -->
-		<item id="7289" chance="30000" /><!-- frost charm -->
-		<item id="8300" chance="10000" /><!-- flawless ice crystal -->
+		<item id="7589" chance="18815" /><!-- Strong Mana Potion -->
+		<item id="2463" chance="16284" /><!-- Plate Armor -->
+		<item id="7364" countmax="6" chance="9257" /><!-- Sniper Arrow -->
+		<item id="2463" chance="8263" /><!-- Ice Cube -->
+		<item id="2457" chance="7545" /><!-- Steel Helmet -->
+		<item id="7449" chance="5564" /><!-- Crystal Sword -->
+		<item id="5879" chance="3951" /><!-- Spider Silk-->
+		<item id="2125" chance="3733" /><!-- Crystal Necklace -->
+		<item id="2169" chance="3587" /><!-- Time Ring -->
+		<item id="2124" chance="2868" /><!-- Crystal Ring -->
+		<item id="7290" chance="1652" /><!-- Shard -->
+		<item id="2477" chance="1392" /><!-- Knight Legs -->
+		<item id="7902" chance="1256" /><!-- Glacier Mask -->
+		<item id="2476" chance="1143" /><!-- Knight Armor -->
+		<item id="7437" chance="739" /><!-- Sapphire Hammer -->
+		<item id="2171" chance="521" /><!-- Platinum Amulet -->
+		<item id="5801" chance="329" /><!-- Jeweled Backpack -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

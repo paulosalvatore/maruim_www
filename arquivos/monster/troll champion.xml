@@ -33,10 +33,20 @@
 		<voice sentence="Gruntz!" />
 	</voices>
 	<loot>
-		<item id="10606" chance="100000" /><!-- Bunch of Troll Hair -->
-		<item id="10606" countmax="2" chance="50000" /><!-- Bunch of Troll Hair -->
-		<item id="12471" countmax="2" chance="50000" /><!-- Trollroot -->
-		<item id="2666" countmax="3" chance="10000" /><!-- Meat -->
-		<item id="2805" countmax="2" chance="10000" /><!-- Troll Green -->
+		<item id="10606" countmax="3" chance="88642" /><!-- Bunch of Troll Hair -->
+		<item id="2666" countmax="2" chance="46374" /><!-- Meat -->
+		<item id="2461" chance="26649" /><!-- Leather Helmet -->
+		<item id="19390" countmax="2" chance="24832" /><!-- Spire Spear -->
+		<item id="2512" chance="17194" /><!-- Wooden Shield -->
+		<item id="2448" chance="15245" /><!-- Studded Club -->
+		<item id="2389" chance="14671" /><!-- Spear -->
+		<item id="2643" chance="13634" /><!-- Leather Boots -->
+		<item id="2805" chance="9298" /><!-- Troll Green -->
+		<item id="12471" chance="2931" /><!-- Trollroot -->
+		<item id="2170" chance="862" /><!-- Silver Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

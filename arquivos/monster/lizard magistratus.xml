@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lizard Magistratus" nameDescription="a lizard magistratus" race="blood" experience="2000" speed="200" manacost="0">
+	<health now="8000" max="8000" />
+	<look type="115" corpse="6041" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="30" />
+		<attack name="lizard magistratus curse" interval="2000" chance="10" range="5" />
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="50" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="80" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Shhhhhhhh" />
+	</voices>
+	<loot>
+		<item id="2147" countmax="5" chance="10970" /><!-- Small Ruby -->
+		<item id="7589" chance="8280" /><!-- Strong Mana Potion -->
+		<item id="7590" chance="6360" /><!-- Great Mana Potion -->
+		<item id="5881" chance="1150" /><!-- Lizard Scale -->
+		<item id="5876" chance="820" /><!-- Lizard Leather -->
+	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
+</monster>

@@ -28,10 +28,19 @@
 		<element firePercent="-10" />
 	</elements>
 	<loot>
-		<item id="5678" chance="10000" /><!-- tortoise egg -->
-		<item id="2391" chance="10000" /><!-- thorn -->
-		<item id="2143" chance="10000" /><!-- white pearl -->
-		<item id="5899" chance="10000" /><!-- turtle shell -->
-		<item id="2144" chance="10000" /><!-- black pearl -->
+		<item id="5678" countmax="10" chance="94372" /><!-- Tortoise Egg -->
+		<item id="2391" chance="32976" /><!-- Thorn -->
+		<item id="2667" countmax="2" chance="23494" /><!-- Fish -->
+		<item id="5899" chance="12761" /><!-- Turtle Shell -->
+		<item id="7618" chance="9764" /><!-- Health Potion -->
+		<item id="2143" chance="5728" /><!-- White Pearl -->
+		<item id="2787" chance="5619" /><!-- White Mushroom -->
+		<item id="2789" chance="5320" /><!-- Brown Mushroom -->
+		<item id="2144" chance="3467" /><!-- Black Pearl -->
+		<item id="2391" chance="2613" /><!-- War Hammer -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

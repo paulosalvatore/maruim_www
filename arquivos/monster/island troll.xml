@@ -28,10 +28,25 @@
 		<voice sentence="Gruntz!" />
 	</voices>
 	<loot>
-		<item id="10606" countmax="3" chance="80000" /><!-- Bunch of Troll Hair -->
-		<item id="12471" chance="50000" /><!-- Trollroot -->
-		<item id="2666" countmax="2" chance="40000" /><!-- Meat -->
-		<item id="2805" chance="10000" /><!-- Troll Green -->
-		<item id="5880" chance="10000" /><!-- Iron Ore -->
+		<item id="10606" countmax="3" chance="81000" /><!-- Bunch of Troll Hair -->
+		<item id="2666" countmax="2" chance="43000" /><!-- Meat -->
+		<item id="5901" chance="32600" /><!-- Wood -->
+		<item id="2461" chance="26300" /><!-- Leather Helmet -->
+		<item id="2380" chance="24800" /><!-- Hand Axe -->
+		<item id="19390" countmax="2" chance="23000" /><!-- Spire Spear -->
+		<item id="5097" chance="21470" /><!-- Mango -->
+		<item id="2120" chance="17950" /><!-- Rope -->
+		<item id="2512" chance="16980" /><!-- Wooden Shield -->
+		<item id="2448" chance="15720" /><!-- Studded Club -->
+		<item id="2389" chance="12940" /><!-- Spear -->
+		<item id="2643" chance="12510" /><!-- Leather Boots -->
+		<item id="2805" chance="11730" /><!-- Troll Green -->
+		<item id="12471" chance="2630" /><!-- Trollroot -->
+		<item id="7963" chance="2410" /><!-- Marlin -->
+		<item id="2170" chance="2140" /><!-- Silver Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

@@ -35,8 +35,14 @@
 		<voice sentence="Crrrck!" />
 	</voices>
 	<loot>
-		<item id="20102" chance="50000" /><!-- Swampling Moss -->
-		<item id="20102" countmax="2" chance="80000" /><!-- Piece of Swampling Wood -->
-		<item id="20102" countmax="3" chance="60000" /><!-- Twigs -->
+		<item id="2245" countmax="3" chance="46851" /><!-- Twigs -->
+		<item id="2787" countmax="5" chance="28980" /><!-- White Mushroom -->
+		<item id="20102" chance="28670" /><!-- Swampling Moss -->
+		<item id="20103" chance="22610" /><!-- Piece of Swampling Wood -->
+		<item id="20104" chance="18270" /><!-- Swampling Club -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

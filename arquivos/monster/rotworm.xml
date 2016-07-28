@@ -21,10 +21,16 @@
 	</attacks>
 	<defenses armor="10" defense="10" />
 	<loot>
-		<item id="8971" chance="80000" /><!-- Gland -->
-		<item id="10609" countmax="5" chance="70000" /><!-- Lump of Dirt -->
+		<item id="10609" countmax="2" chance="68700" /><!-- Lump of Dirt -->
 		<item id="3976" countmax="3" chance="60000" /><!-- Worm -->
-		<item id="2666" countmax="2" chance="40000" /><!-- Meat -->
-		<item id="2225" countmax="3" chance="30000" /><!-- Piece of Iron -->
+		<item id="2666" chance="40000" /><!-- Meat -->
+		<item id="2671" countmax="2" chance="34800" /><!-- Ham -->
+		<item id="8971" chance="14850" /><!-- Gland -->
+		<item id="2376" chance="14000" /><!-- Sword -->
+		<item id="2398" chance="10500" /><!-- Mace -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

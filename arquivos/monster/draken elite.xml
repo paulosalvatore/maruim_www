@@ -3,7 +3,6 @@
 	<health now="5550" max="5550" />
 	<look type="362" corpse="12609" />
 	<targetchange interval="5000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -49,19 +48,34 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="For ze emperor!" />
 		<voice sentence="You will die zhouzandz deazhz!" />
 	</voices>
 	<loot>
-		<item id="12614" chance="10000" /><!-- draken sulphur -->
-		<item id="12615" chance="10000" /><!-- draken wristbands -->
-		<item id="12628" chance="10000" /><!-- tail of corruption -->
-		<item id="12629" chance="10000" /><!-- scale of corruption -->
-		<item id="12616" chance="10000" /><!-- broken draken mail -->
-		<item id="5904" chance="10000" /><!-- magic sulphur -->
-		<item id="12647" chance="10000" /><!-- snake god's wristguard -->
-		<item id="12660" chance="10000" /><!-- trashed draken boots -->
-		<item id="13030" chance="10000" /><!-- draken doll -->
+		<item id="2666" chance="46791" /><!-- Meat -->
+		<item id="12617" chance="29675" /><!-- Broken Slicer -->
+		<item id="12616" chance="21934" /><!-- Broken Draken Mail -->
+		<item id="12615" chance="19038" /><!-- Draken Wristbands -->
+		<item id="7590" countmax="3" chance="14349" /><!-- Great Mana Potion -->
+		<item id="8473" countmax="3" chance="14253" /><!-- Ultimate Health Potion -->
+		<item id="12614" chance="11684" /><!-- Draken Sulphur -->
+		<item id="2145" countmax="4" chance="3241" /><!-- Small Diamond -->
+		<item id="5904" chance="2905" /><!-- Magic Sulphur -->
+		<item id="7404" chance="1487" /><!-- Assassin Dagger -->
+		<item id="12613" chance="1416" /><!-- Twiceslicer -->
+		<item id="11304" chance="1273" /><!-- Zaoan Legs -->
+		<item id="12646" chance="1108" /><!-- Draken Boots -->
+		<item id="11307" chance="991" /><!-- Zaoan Sword -->
+		<item id="11301" chance="894" /><!-- Zaoan Armor -->
+		<item id="11302" chance="322" /><!-- Zaoan Helmet -->
+		<item id="12607" chance="229" /><!-- Elite Draken Mail -->
+		<item id="12647" chance="133" /><!-- Snake God's Wristguard -->
+		<item id="12649" chance="98" /><!-- Blade of Corruption -->
+		<item id="12630" chance="62" /><!-- Cobra Crown -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

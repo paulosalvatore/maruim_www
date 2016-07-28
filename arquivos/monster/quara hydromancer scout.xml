@@ -3,7 +3,6 @@
 	<health now="1100" max="1100" />
 	<look type="47" corpse="6066" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -59,9 +58,20 @@
 		<voice sentence="Blup." />
 	</voices>
 	<loot>
-		<item id="12444" chance="30000" /><!-- quara eye -->
-		<item id="2144" chance="10000" /><!-- black pearl -->
-		<item id="2143" chance="10000" /><!-- white pearl -->
-		<item id="2149" chance="10000" /><!-- small emerald -->
+		<item id="2667" countmax="2" chance="36734" /><!-- Fish -->
+		<item id="12444" chance="27641" /><!-- Quara Eye -->
+		<item id="2670" countmax="4" chance="18764" /><!-- Shrimp -->
+		<item id="2149" countmax="2" chance="12638" /><!-- Small Emerald -->
+		<item id="2143" chance="7935" /><!-- White Pearl -->
+		<item id="2144" chance="6734" /><!-- Black Pearl -->
+		<item id="5895" chance="3127" /><!-- Fish Fin -->
+		<item id="2425" chance="2467" /><!-- Obsidian Lance -->
+		<item id="2189" chance="1573" /><!-- Wand of Cosmic Energy -->
+		<item id="2476" chance="1488" /><!-- Knight Armor -->
+		<item id="2214" chance="976" /><!-- Ring of Healing -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

@@ -3,7 +3,6 @@
 	<health now="1100" max="1100" />
 	<look type="318" corpse="9913" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,7 +17,7 @@
 		<flag runonhealth="100" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="40" attack="60" />
+		<attack name="melee" interval="2000" min="0" max="-145" />
 		<attack name="physical" interval="2000" chance="20" length="5" spread="3" min="0" max="-200">
 			<attribute key="areaEffect" value="yellowspark" />
 		</attack>
@@ -27,7 +26,7 @@
 		<defense name="invisible" interval="2000" chance="10" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
-		<defense name="healing" interval="2000" chance="10" min="150" max="300">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
@@ -42,16 +41,23 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="GRAAARRRRRR" />
 		<voice sentence="CHHHHHHHHHHH" />
 	</voices>
 	<loot>
-		<item id="2144" countmax="2" chance="20000" /><!-- Black Pearl -->
-		<item id="2150" countmax="2" chance="20000" /><!-- Small Amethyst -->
-		<item id="11225" countmax="2" chance="80000" /><!-- Mutated Flesh -->
-		<item id="11228" countmax="2" chance="30000" /><!-- Sabretooth -->
-		<item id="11224" chance="20000" /><!-- Thick Fur -->
-		<item id="2800" chance="5000" /><!-- Star Herb -->
+		<item id="2666" countmax="2" chance="49538" /><!-- Meat -->
+		<item id="11210" chance="26437" /><!-- Striped Fur -->
+		<item id="11228" chance="18976" /><!-- Sabretooth -->
+		<item id="7588" chance="8634" /><!-- Strong Health Potion -->
+		<item id="2168" chance="7946" /><!-- Life Ring -->
+		<item id="7454" chance="1788" /><!-- Glorius Axe -->
+		<item id="9959" chance="1494" /><!-- Silky Tapestry -->
+		<item id="2515" chance="886" /><!-- Guardian Shield -->
+		<item id="7436" chance="672" /><!-- Angelic Axe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

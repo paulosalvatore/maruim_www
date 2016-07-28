@@ -31,7 +31,10 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item id="15487" countmax="3" chance="80000" /><!-- larvae -->
-		<item id="10557" chance="50000" /><!-- poisonous slime -->
+		<item id="15487" countmax="3" chance="64371" /><!-- Larvae -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

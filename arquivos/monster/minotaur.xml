@@ -33,7 +33,19 @@
 		<voice sentence="Hurr!" />
 	</voices>
 	<loot>
-		<item id="5878" chance="50000" /><!-- Minotaur Leather -->
-		<item id="12428" countmax="2" chance="20000" /><!-- Minotaur Horn -->
+		<item id="2510" chance="20420" /><!-- Plate Shield -->
+		<item id="2666" chance="20000" /><!-- Meat -->
+		<item id="2398" chance="13340" /><!-- Mace -->
+		<item id="2464" chance="10600" /><!-- Chain Armor -->
+		<item id="2460" chance="7900" /><!-- Brass Helmet -->
+		<item id="2376" chance="5600" /><!-- Sword -->
+		<item id="2386" chance="4600" /><!-- Axe -->
+		<item id="12428" countmax="2" chance="2790" /><!-- Minotaur Horn -->
+		<item id="5878" chance="1490" /><!-- Minotaur Leather -->
+		<item id="2172" chance="610" /><!-- Bronze Amulet -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>

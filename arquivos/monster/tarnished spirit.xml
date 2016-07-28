@@ -3,7 +3,6 @@
 	<health now="150" max="150" />
 	<look type="566" corpse="21366" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -31,15 +30,18 @@
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Huh!" />
-		<voice sentence="Shhhhhh" />
-		<voice sentence="Buuuuuh" />
 	</voices>
 	<loot>
-		<item id="10607" chance="80000" /><!-- Ghostly Tissue -->
-		<item id="2804" chance="30000" /><!-- Shadow Herb -->
-		<item id="9662" chance="10000" /><!-- Ghost's Tear -->
-		<item id="5910" chance="50000" /><!-- Green Piece of Cloth -->
+		<item id="2804" chance="19734" /><!-- Shadow Herb -->
+		<item id="2394" chance="15337" /><!-- Morning Star -->
+		<item id="2654" chance="14987" /><!-- Cape -->
+		<item id="2404" chance="13664" /><!-- Combat Knife -->
+		<item id="5909" chance="3498" /><!-- White Piece of Cloth -->
+		<item id="10607" chance="3261" /><!-- Ghostly Tissue -->
+		<item id="1962" chance="2856" /><!-- Orange Book -->
+		<item id="2532" chance="1319" /><!-- Ancient Shield -->
+		<item id="2165" chance="328" /><!-- Stealth Ring -->
 	</loot>
 </monster>

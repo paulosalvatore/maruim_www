@@ -3,7 +3,6 @@
 	<health now="625" max="625" />
 	<look type="333" corpse="13972" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -43,12 +42,15 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="2149" countmax="2" chance="20000" /><!-- Small Emerald -->
-		<item id="1294" countmax="3" chance="50000" /><!-- Small Stone -->
-		<item id="11339" countmax="2" chance="70000" /><!-- Clay Lump -->
-		<item id="11325" chance="40000" /><!-- Spiked Iron Ball -->
-		<item id="10549" chance="5000" /><!-- Ancient Stone -->
-		<item id="11227" chance="20000" /><!-- Shiny Stone -->
-		<item id="5880" chance="20000" /><!-- Iron Ore -->
+		<item id="11222" chance="32469" /><!-- Lump of Earth -->
+		<item id="2260" chance="31584" /><!-- Blank Rune -->
+		<item id="1294" countmax="10" chance="19764" /><!-- Small Stone -->
+		<item id="7850" countmax="8" chance="9458" /><!-- Earth Arrow -->
+		<item id="11339" chance="3261" /><!-- Clay Lump -->
+		<item id="9970" chance="776" /><!-- Small Topaz -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

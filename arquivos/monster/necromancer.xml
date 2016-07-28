@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Necromancer" nameDescription="a necromancer" race="blood" experience="580" speed="200" manacost="0">
 	<health now="580" max="580" />
-	<look type="9" corpse="20455" />
+	<look type="9" corpse="20458" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,12 +17,12 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="40" poison="160" />
-		<attack name="death" interval="2000" chance="20" range="1" target="1" min="-60" max="-120">
+		<attack name="melee" interval="2000" min="0" max="-80" poison="8" />
+		<attack name="death" interval="2000" chance="20" range="1" min="-10" max="-120">
 			<attribute key="shootEffect" value="death" />
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
-		<attack name="poison" interval="2000" chance="20" range="7" min="-65" max="-120">
+		<attack name="earth" interval="2000" chance="20" range="7" min="-20" max="-120">
 			<attribute key="shootEffect" value="poison" />
 			<attribute key="areaEffect" value="poison" />
 		</attack>
@@ -50,14 +49,25 @@
 		<summon name="Ghost" interval="2000" chance="5" />
 		<summon name="Mummy" interval="2000" chance="5" />
 	</summons>
-	<voices interval="5000" chance="10">
+	<voices interval="2000" chance="7">
 		<voice sentence="Your corpse will be mine!" />
 		<voice sentence="Taste the sweetness of death!" />
 	</voices>
 	<loot>
-		<item id="11237" chance="10000" /><!-- Book of Necromantic Rituals -->
-		<item id="21243" countmax="3" chance="60000" /><!-- Horoscope -->
-		<item id="5909" chance="50000" /><!-- White Piece of Cloth -->
-		<item id="2229" chance="10000" /><!-- Skull -->
+		<item id="2545" countmax="5" chance="28461" /><!-- Poison Arrow -->
+		<item id="11237" chance="16449" /><!-- Book of Necromantic Rituals -->
+		<item id="7589" chance="4427" /><!-- Strong Mana Potion -->
+		<item id="2796" chance="3236" /><!-- Green Mushroom -->
+		<item id="12431" chance="2198" /><!-- Necromantic Robe -->
+		<item id="2663" chance="1267" /><!-- Mystic Turban -->
+		<item id="2423" chance="674" /><!-- Clerical Mace -->
+		<item id="2195" chance="383" /><!-- Boots of Haste -->
+		<item id="8901" chance="249" /><!-- Spellbook of Warding -->
+		<item id="2436" chance="227" /><!-- Skull Staff -->
+		<item id="7456" chance="80" /><!-- Noble Axe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

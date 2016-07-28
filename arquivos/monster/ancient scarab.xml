@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ancient Scarab" nameDescription="a ancient scarab" race="venom" experience="720" speed="230" manacost="0">
+<monster name="Ancient Scarab" nameDescription="an ancient scarab" race="venom" experience="720" speed="230" manacost="0">
 	<health now="1000" max="1000" />
 	<look type="79" corpse="6021" />
 	<targetchange interval="4000" chance="10" />
-	<strategy attack="100" defense="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -51,10 +50,21 @@
 		<summon name="Larva" interval="2000" chance="10" max="3" />
 	</summons>
 	<loot>
-		<item id="8112" chance="40000" /><!-- scarab cheese -->
-		<item id="2159" chance="20000" /><!-- scarab coin -->
-		<item id="2149" countmax="2" chance="20000" /><!-- small emerald -->
-		<item id="2150" countmax="2" chance="20000" /><!-- small amethyst -->
-		<item id="10548" chance="60000" /><!-- scarab pincers -->
+		<item id="2162" chance="19427" /><!-- Magic Lightwand -->
+		<item id="2463" chance="18223" /><!-- Plate Armor -->
+		<item id="2159" countmax="2" chance="12941" /><!-- Scarab Coin -->
+		<item id="2150" countmax="4" chance="9874" /><!-- Small Amethyst -->
+		<item id="2149" countmax="3" chance="9632" /><!-- Small Emerald -->
+		<item id="10548" chance="6788" /><!-- Scarab Pincers -->
+		<item id="2135" chance="5913" /><!-- Scarab Amulet -->
+		<item id="2142" chance="4194" /><!-- Ancient Amulet -->
+		<item id="7588" chance="3833" /><!-- Strong Health Potion -->
+		<item id="7903" chance="1244" /><!-- Terra Hood -->
+		<item id="2540" chance="1192" /><!-- Scarab Shield -->
+		<item id="2440" chance="983" /><!-- Daramanian Waraxe -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura" />
+		<event name="CriaturaMorta" />
+	</script>
 </monster>

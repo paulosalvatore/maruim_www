@@ -28,6 +28,6 @@
 		<voice sentence="Chrk chrk!" />
 	</voices>
 	<loot>
-		<item id="11373" countman="1" chance="80000" /><!-- sandcrawler shell -->
+		<item id="11373" chance="64379" /><!-- Sandcrawler Shell -->
 	</loot>
 </monster>

@@ -32,7 +32,11 @@
 		<voice sentence="Grrrrrr" />
 	</voices>
 	<loot>
-		<item id="5897" countmax="4" chance="70000" /><!-- wolf paw -->
-		<item id="2666" countmax="3" chance="70000" /><!-- Meat -->
+		<item id="2666" countmax="3" chance="62000" /><!-- Meat -->
+		<item id="5897" chance="4000" /><!-- Wolf Paw -->
 	</loot>
+	<script>
+		<event name="HealthChangeCriatura"/>
+		<event name="CriaturaMorta"/>
+	</script>
 </monster>
