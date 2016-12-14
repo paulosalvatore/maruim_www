@@ -192,5 +192,24 @@
 				';
 			return $mensagem;
 		}
+		public function pegarHistoricoPagamentos($contaId){
+			$historicoPagamentos = array();
+			$queryHistoricoPagamentos = mysql_query("SELECT * FROM z_loja_historico WHERE (conta LIKE '$contaId' AND (pagamento LIKE 'transferencia' OR pagamento LIKE 'pagseguro'))");
+			while($resultadoHistoricoPagamentos = mysql_fetch_assoc($queryHistoricoPagamentos))
+				$historicoPagamentos[] = $resultadoHistoricoPagamentos;
+			return $historicoPagamentos;
+		}
+		public function pegarHistoricoPagamento($historicoPagamentoId){
+			$queryHistoricoPagamento = mysql_query("SELECT * FROM z_loja_historico WHERE (id LIKE '$historicoPagamentoId')");
+			while($resultadoHistoricoPagamento = mysql_fetch_assoc($queryHistoricoPagamento))
+				return $resultadoHistoricoPagamento;
+			return false;
+		}
+		public function validarConfirmarTransferencia($historicoPagamentoId){
+			$historicoPagamento = $this->pegarHistoricoPagamento($historicoPagamentoId);
+			if ($historicoPagamento["status"] == 1 AND $historicoPagamento["pagamento"] == "transferencia")
+				return true;
+			return false;
+		}
 	}
 ?>

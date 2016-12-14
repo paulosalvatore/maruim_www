@@ -80,6 +80,129 @@
 			exit;
 		}
 	}
+	elseif($id == "historico_pagamentos"){
+		include("includes/classes/ClassServicos.php");
+		$ClassServicos = new Servicos();
+		$historicoPagamentos = $ClassServicos->pegarHistoricoPagamentos($accountId);
+		$conteudo_minha_conta = '
+			<div class="box_frame" carregar_box="1">
+				Histórico de Pagamentos
+			</div>
+			<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+				<div class="box_frame_conteudo" carregar_box="1">
+					';
+					if (count($historicoPagamentos) > 0){
+						$conteudo_minha_conta .= '
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark cabecalho">
+									<td>
+										Data
+									</td>
+									<td>
+										Forma de Pagamento
+									</td>
+									<td>
+										Serviço
+									</td>
+									<td>
+										Preço
+									</td>
+									<td>
+										Status
+									</td>
+									<td>
+										Ação
+									</td>
+								</tr>
+								';
+								foreach($historicoPagamentos as $chave => $pagamento){
+									$informacoesPagamento = $ClassServicos->getInformacoesPagamento($pagamento["pagamento"]);
+									$informacoesProduto = $ClassServicos->getInformacoesProduto($pagamento["produto"]);
+									$conteudo_minha_conta .= '
+										<tr class="conteudo dark">
+											<td>
+												'.$ClassFuncao->formatarData($pagamento["data"]).'
+											</td>
+											<td>
+												'.$informacoesPagamento["nome"].'
+											</td>
+											<td>
+												'.$informacoesProduto["nome"].'
+											</td>
+											<td>
+												'.$informacoesProduto["exibirPreco"].'
+											</td>
+											<td>
+												'.($pagamento["status"] == 1 ? '<span class="vermelho">Aguardando</span>' : '<span class="verde">Entregue</span>').'
+											</td>
+											<td>
+												';
+												$linkAcao = "";
+												$nomeAcao = "";
+												if ($pagamento["status"] == 1 AND $pagamento["pagamento"] == "transferencia"){
+													$linkAcao = "?p=minha_conta-$pagamento[id]-confirmar_transferencia";
+													$nomeAcao = "Confirmar";
+												}
+												if ((!empty($linkAcao)) AND (!empty($nomeAcao)))
+													$conteudo_minha_conta .= '
+														[<a href="'.$linkAcao.'">'.$nomeAcao.'</a>]
+													';
+												else
+													$conteudo_minha_conta .= 'Nenhuma';
+												$conteudo_minha_conta .= '
+											</td>
+										</tr>
+									';
+								}
+								$conteudo_minha_conta .= '
+							</table>
+						';
+					}
+					else{
+						$conteudo_minha_conta .= '
+							Nenhum
+						';
+					}
+					$conteudo_minha_conta .= '
+				</div>
+			</div>
+			<br>
+			<div align="center">
+				<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
+			</div>
+		';
+	}
+	elseif ((!empty($id)) AND $acao == "confirmar_transferencia"){
+		include("includes/classes/ClassServicos.php");
+		$ClassServicos = new Servicos();
+		if($ClassServicos->validarConfirmarTransferencia($id)){
+			// $historicoPagamento = $ClassServicos->pegarHistoricoPagamento($id);
+			$conteudo_minha_conta = '
+				<div class="box_frame" carregar_box="1">
+					Confirmação de Transferência
+				</div>
+				<div class="box_frame_conteudo_principal" carregar_box="1">
+					<div class="box_frame_conteudo padding dark">
+						Para confirmar a sua transferência bancária, envie uma foto do comprovante por e-mail para <a href="maruimot@gmail.com">maruimot@gmail.com</a>.<br>
+						<br>
+						Coloque junto no corpo do e-mail o <b>nome da sua conta</b>.<br>
+						<br>
+						Assim que recebermos seu e-mail iremos conferir os dados enviados e seu produto deve ser creditado o mais rápido possível.<br>
+						<br>
+						O prazo para confirmação do depósito é de <b>5 dias úteis</b> após a efetuação do mesmo e o envio do comprovante corretamente.
+					</div>
+				</div>
+				<br>
+				<div align="center">
+					<input type="button" class="botao_azul" value="voltar" onClick="document.location = \'?p=minha_conta\';" />
+				</div>
+			';
+		}
+		else{
+			header("Location: ?p=minha_conta");
+			exit;
+		}
+	}
 	elseif(($id == "alterar_senha") AND ($acao == "senha_alterada")){
 		$conteudo_minha_conta = '
 			<div class="box_frame" carregar_box="1">
@@ -1497,6 +1620,38 @@
 										</tr>
 									';
 								$conteudo_minha_conta .= '
+							</table>
+						</div>
+					</div>
+					<br>
+					<div class="box_frame" carregar_box="1">
+						Histórico
+					</div>
+					<div class="box_frame_conteudo_principal borda2_padding" carregar_box="1">
+						<div class="box_frame_conteudo" carregar_box="1">
+							<table cellpadding="0" cellspacing="0" class="box_frame_tabela">
+								<tr class="conteudo dark">
+									<td>
+										<form method="POST" action="?p=minha_conta-historico_pagamentos">
+											<div style="float: right;">
+												<input type="submit" class="botao_azul" value="ver_historico" />
+											</div>
+										</form>
+										<b>Histórico de Pagamentos</b><br>
+										Contém todo o histórico de seus pagamentos feitos em R$.
+									</td>
+								</tr>
+								<tr class="conteudo dark">
+									<td>
+										<form method="POST" action="?p=minha_conta-historico_pagamentos">
+											<div style="float: right;">
+												<input type="submit" class="botao_azul" value="ver_historico" />
+											</div>
+										</form>
+										<b>Histórico de Pontos</b><br>
+										Contém todo o histórico de suas compras de itens utilizando pontos.
+									</td>
+								</tr>
 							</table>
 						</div>
 					</div>
